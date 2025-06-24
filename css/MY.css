@@ -1,0 +1,276 @@
+nav{
+    /*border: 1px solid black;*/
+    display: flex;
+}
+.left_side{
+    width: 192px;
+    height:622px;
+/*    border: 1px solid black;*/
+    margin: 247px 0px 0px; 
+    
+}
+.main{
+    width: 1137px;
+    height: 868px;
+    /* border: 1px solid black;*/
+}
+.category{
+    color:#2d7868;
+    /*border: 1px solid red;*/
+    width: 191px;
+    height: 500px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.icon{display: flex;}
+.icon i{margin-right: 10px; margin-top: 5px;}
+.checked{
+    border-top-right-radius:10px;
+    /*line-height: 45px;*/
+    width: 135px;
+    height: 30px;
+    background-color:#2d7868;
+    color: white;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.category li{margin-bottom: 16px; }
+
+/*.review{
+    width: 92px;
+    height: 10px;
+    /*border: 1px solid blue;*/
+/*       position: absolute;
+    bottom: 3px;
+    left: -5px;
+    background-color: #e0ff00;
+    border-top-right-radius: 4px;
+}*/
+.inform{
+    width: 191px;
+    height: 127px;
+    text-align: justify;
+    color:#2d7868;
+}
+.inform li{
+    margin-bottom: 12px;
+}
+.user_info{
+    width: 1125px;
+    height: 80px;
+    /*border: 1px solid black;*/
+    margin: 82px 0 82px;
+    
+    
+}
+.profile_name{display: flex;
+    font-weight: 600;
+    
+}
+.nickname{
+    width: 345px; 
+    height: 60px; 
+    font-size: 40px;
+}
+span{color:#2d7868;}
+/*.user_name{width: 60px; 
+    height: 30px; 
+    font-size: 20px;
+    margin: 0px 0px 7px; 
+    line-height: 30px;
+    padding-top: 20px;
+    
+}*/
+/* 리뷰 리스트 */
+.comment_list {
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 24px;
+padding: 20px 0;
+}
+
+.comment_item {
+background: #fdfdfd;
+border: 1px solid #e1e1e1;
+border-radius: 12px;
+padding: 24px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+line-height: 1.6;
+color: #333;
+height: 200px;
+}
+
+.comment_header {
+display: flex;
+justify-content: space-between;
+margin-bottom: 12px;
+}
+
+.left_area {
+flex: 1;
+}
+
+.user_info_box {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 8px;
+font-size: 0; /* 인라인 간격 제어용 */
+}
+
+.badge_box {
+margin-right: 6px;
+}
+
+.badge_sm {
+padding: 2px 8px;
+border-radius: 12px;
+background-color: #eef2f6;
+color: #2d7868;
+font-size: 12px;
+font-weight: 500;
+display: inline-block;
+}
+
+.badge_kyobo {
+background-color: rgba(23, 23, 237, 0.1);
+color: #767676;
+}
+
+.badge_line_gray {
+border: 1px solid #767676;
+background-color: #fff;
+color: #333;
+margin-left: 6px;
+}
+
+.info_item {
+display: inline-block;
+font-size: 13px;
+line-height: 1;
+vertical-align: middle;
+}
+
+.btn_comment_util {
+font-size: 13px;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+color: #2d7868;
+line-height: 1;
+display: inline-block;
+}
+
+.gap {
+width: 1px;
+height: 9px;
+background-color: #d5d5d5;
+display: inline-block;
+vertical-align: middle;
+margin: 0 8px;
+}
+
+/* 별점 */
+.review_summary_wrap {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.rating-container {
+display: flex;
+gap: 2px;
+}
+
+.glyphicon-star::before {
+content: "";
+display: inline-block;
+width: 18px;
+height: 18px;
+background-image: url('../images/clover.png');
+background-size: contain;
+background-repeat: no-repeat;
+}
+
+/* 10점 중 10점 숨기기 */
+.caption {
+display: none;
+}
+
+/* 도움돼요 아이콘 */
+.review_quotes_text::before {
+content: "";
+display: inline-block;
+width: 13px;
+height: 13px;
+margin-right: 4px;
+background: url('../images/도움돼요.png') center no-repeat;
+background-size: cover;
+vertical-align: middle;
+}
+
+.review_quotes_text {
+font-size: 13px;
+color: #777;
+}
+
+/* 댓글 본문 */
+.comment_text {
+font-size: 15px;
+color: #333;
+margin-top: 10px;
+}
+
+/* 하단 버튼 */
+.comment_footer {
+display: flex;
+justify-content: flex-end;
+margin-top: 16px;
+gap: 12px;
+}
+
+.comment_footer button {
+font-size: 13px;
+padding: 6px 12px;
+border-radius: 8px;
+background-color: #f5f5f5;
+color: #2d7868;
+border: none;
+cursor: pointer;
+transition: background 0.2s;
+}
+
+.comment_footer button:hover {
+background-color: #e0f2f1;
+}
+
+.B_header{
+    width:292px;
+    height: 50px;
+    align-items: center;
+    /*border: 1px solid black; */
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+}
+.B_header .title{
+    /* margin-left: 10px; */
+    font-size: 24px;
+    min-width: 0;
+    font-weight: 600;
+    line-height: 30px;
+    color: #2d7868;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+.B_header .total{
+    line-height: 30px;
+    /* margin-left: 10px; */
+    margin-right: 20px;
+    color: #999;
+}
+.button{
+    padding: 12px 0px;
+}
