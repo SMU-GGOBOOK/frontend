@@ -1,0 +1,132 @@
+nav{
+    /*border: 1px solid black;*/
+    display: flex;
+}
+.left_side{
+    width: 192px;
+    height:622px;
+    /* border: 1px solid black;*/
+    margin: 247px 0px 0px; 
+    
+    
+}
+.main{
+    width: 1137px;
+    height: auto;
+    /*border: 1px solid black;*/
+    margin-bottom: 100px
+}
+.category{
+    color:#2d7868;
+    /*border: 1px solid red;*/
+    width: 191px;
+    height: 500px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.icon{display: flex;}
+.icon i{margin-right: 10px; margin-top: 5px;}    
+.category li{margin-bottom: 16px; }
+.inform{
+    width: 191px;
+    height: 127px;
+    text-align: justify;
+    color:#2d7868;
+}
+.checked{
+    border-top-right-radius:10px;
+    /*line-height: 45px;*/
+    width: 135px;
+    height: 30px;
+    background-color:#2d7868;
+    color: white;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.inform li{
+    margin-bottom: 12px;
+}
+.user_info{
+    width: 1125px;
+    height: 80px;
+    /*border: 1px solid black;*/
+    margin: 82px 0 82px;
+    
+    
+}
+.profile_name{display: flex;
+    font-weight: 600;
+    
+}
+.nickname{
+    width: 345px; 
+    height: 60px; 
+    font-size: 40px;
+}
+span{color:#2d7868;}
+/*.user_name{width: 60px; 
+    height: 30px; 
+    font-size: 20px;
+    margin: 0px 0px 7px; 
+    line-height: 30px;
+    padding-top: 20px;
+    
+}*/
+section{
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+}
+.bookbox{
+    width: 362px;
+    height: 456px;
+    border: 1px solid #ccc; /* 연한 회색 테두리 */
+    border-radius: 8px;     /* 모서리를 살짝 둥글게 */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.bookbox_cover{
+    display: flex;
+    width: 362px;
+    height: 360px;
+    /*border: 1px solid black;*/
+    display: flex;
+    position: relative;
+
+}
+.bookbox_cover img{
+    margin: 50px auto;
+
+}
+.booktitle{
+    margin: 20px 0px 0px;
+    font-size: 18px;
+    font-weight: 600;
+    display: -webkit-box;
+    max-height: 48px;
+    line-height: 24px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+.bookauthor{
+    margin-top: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+.fa-bookmark{
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #2d7868;
+}
+.button{
+    padding: 12px 0px;
+}
