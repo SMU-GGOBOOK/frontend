@@ -7,9 +7,9 @@
 
 | name   | github ID   |
 |--------|-------------|
-| 공유현 | [@tnrms08](https://github.com/) |
-| 김민성 | [@wldud01](https://github.com/) |
-| 김슬비 | [@whgus613](https://github.com/kb4954) |
-| 김혜원 | [@1jinju](https://github.com/) |
-| 신민철 | [@1jinju](https://github.com/) |
-| 이승민 | [@1jinju](https://github.com/) |
+| 공유현 | [@](https://github.com/) |
+| 김민성 | [@](https://github.com/) |
+| 김슬비 | [@kb4954](https://github.com/kb4954) |
+| 김혜원 | [@](https://github.com/) |
+| 신민철 | [@](https://github.com/) |
+| 이승민 | [@](https://github.com/) |
