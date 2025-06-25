@@ -362,15 +362,6 @@ main {
 }
 
 
-home-search-book-list{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-  justify-content: center; /* 가운데 정렬 */
-  max-width: 1100px;        /* 화면 넓이 제한 (선택) */
-  margin: 0 auto;           /* 가운데 배치 (선택) */
-}
-
 /* Layout */
 element.style {
     position: relative;
@@ -894,7 +885,7 @@ button[disabled] {cursor: default;}
     <ng-component class="ng-star-inserted">
       <main class="main">
         <div class="items">
-          <home-search-book-list _nghost-ng-c2831665569="">
+          <home-search-book-list style="position: relative;display: flex;flex-wrap: wrap;align-items: center;justify-content: center;" _nghost-ng-c2831665569="">
             <div _ngcontent-ng-c2831665569="" class="book ng-star-inserted">
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
