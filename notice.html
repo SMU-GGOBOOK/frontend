@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {font-family: 'Noto Sans KR', sans-serif;}
+
+    * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;}
+
+    input {
+      color: inherit; 
+      font-family: inherit; 
+      letter-spacing: inherit; 
+      appearance: none; 
+      background: none; 
+      border: 0; 
+      box-shadow: none; 
+      border-radius: 0; 
+      padding: 0; 
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none; 
+      color: inherit; 
+      font-family: inherit; 
+      letter-spacing: inherit; 
+      cursor: pointer;
+    }
+
+    hr {
+      margin: 0; 
+      padding: 0;
+    }
+
+    .fig-main{
+      padding-top: 30px;
+    }
+
+    /* header 부분 */
+    .fig-header,
+    /* 중앙 부분*/
+    .fig-main{
+      max-width: 78%; /* 건들지 마세용 */
+      padding-left: 16px; 
+      padding-right: 16px; 
+      margin: 0 auto;
+    }
+
+    .fig-main{
+      margin-bottom:120px;
+    }
+
+    .fig-nav{
+      display: grid; 
+      grid-template-columns: 1fr auto auto; 
+      align-items: center; 
+      padding: 16px 18px 8px 30px;
+    }
+
+    /* 로고 + 교환독서 탭 */
+    .fig-header-left {
+      display: flex;
+      align-items: center; 
+      gap: 12px; 
+    }
+    .fig-one{
+      display: inline-flex;
+      width: fit-content;
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem;
+    }
+
+    .fig-logo{
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2D7868;
+      margin: 0; 
+      font-size: 25px; 
+    }
+
+    .fig-exchangeimage {
+      height: 20px; 
+      margin-left: 20px; 
+      position: relative;
+    }
+
+    @media (max-width: 767px) {
+      .exchangeimage :before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: -8px;
+        left: -8px;
+        width: 40px;
+        height: 40px;
+        z-index: 1;
+        background-color: transparent;
+      }
+    }
+
+    .fig-exchange-book{
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2D7868;
+      margin: 0; 
+      font-size: 17px; 
+    }
+
+    @media (max-width: 767px) {
+      .fig-exchange-book{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+      }
+    }
+
+    /* 검색바 */
+    .fig-searchform {
+      position: absolute;
+      left: 700px;
+      width: 500px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .fig-tabindex {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .fig-formlabel {
+      display: flex;
+      align-items: center;
+      padding: 6px 10px;
+      min-height: 40px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .fig-searchimage {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+      color: #a5a5a5;
+      fill: currentColor;
+      display: inline-block;
+    }
+
+    .fig-instant {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    .fig-forminput {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      height: 100%;
+      font-size: 15px;
+      line-height: 18px;
+      color: #141414;
+      caret-color: #2D7868;
+    }
+
+    /* 로그인 회원가입 */
+    .fig-join {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .fig-signup,
+    .fig-login {
+      padding: 11px 12px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 18px;
+      text-align: center;
+      color: #2D7868;
+    }
+
+    /* header 구분선 */
+    .fig-hr{
+      display: block;
+      width: 100%;
+      height: 1px;
+      box-sizing: border-box;
+      border: none;
+      background: #f0f0f0;
+      margin-top: 5px;
+    }
+
+    /* footer */
+
+      #footerWrap{    
+      background-color: #444;
+      color:white;
+      height:300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #footer{
+      width:100%;
+      height:200px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #totalReview{
+      text-align: center;
+    }
+
+    #totalReview>h1{
+      margin-bottom: 15px;
+    }
+
+
+    /*--------1:1,notice,view공통영역------*/
+
+    .mainWrap{
+      margin-top: 82px;
+      display: flex;
+      justify-content:center;
+    }
+
+    .big_title{
+      font-size: 40px;
+      font-weight: 700;
+    }
+    
+
+
+    /* 내비게이션 바 스타일:notice,1:1,notice-view 공통영역 */
+    ol,ul {
+      list-style: none;
+    }
+
+    .nav-sidebar {
+      width: 192px;
+      margin-right:30px;
+      padding-left:20px;
+    }
+
+    .nav-sidebar h3 {
+      margin-bottom: 30px;
+      font-size: 23px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-menu li {
+        margin-bottom: 16px;
+    }
+
+    .nav-menu a {
+        display: block;
+        text-decoration: none;
+        color: gray;
+        font-weight: 500;
+    }
+
+    .nav-menu a:hover {
+        color: #2d7868;
+    }
+
+    .nav-menu a.active {
+        color: #2d7868;
+        font-weight: bold;
+    }
+
+    
+    /*----------------notice style------------------*/
+
+    /* 필수 표시(*) 스타일 */
+    .fig-main span {
+      color: #2d7868;
+      margin-left:5px;
+      font-weight:700;
+
+    }
+
+    .content-area{
+        flex: 1;
+        max-width: 1137px;
+    }
+
+
+    table,th,td{
+      border-collapse: collapse;
+    }
+
+    table{
+      width: 1137px;
+    }
+
+    th{
+      height:54px;
+      text-align: center;
+      border-top:1px solid black; 
+      border-bottom:1px solid black;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgb(65, 65, 65);
+      background-color: #f5f5f5;
+    }
+
+    td{
+      height:60px;
+      text-align: center;
+      font-size: 15px;
+      padding:15px;
+      border-bottom:1px solid #ddd;
+    }
+
+    .ntc_title {
+      text-align:left;
+      width:550px;
+    }
+
+    .ntc_count{
+      margin: 30px 0 10px;font-size: 18px;
+    }
+
+
+    /* 하단라벨링 */
+    .flex:not(.flex-dir-column).flex-h-center, .flex.flex-dir-row.flex-h-center {justify-content: center;}
+    @media (max-width: 767px) {
+      .flex-h-center[_ngcontent-ng-c2831665569] {
+          left: calc(50% - 74px);
+      }
+    }
+    .flex-h-center[_ngcontent-ng-c2831665569] {
+      display: flex;
+      margin-top:50px;
+    }
+    .flex:not(.flex-dir-column), .flex.flex-dir-row {
+      flex-direction: row;
+    }
+    [_nghost-ng-c522025578] {
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+    }
+    .numbers-pager[_ngcontent-ng-c522025578] {margin: 0 .5em; flex-shrink: 0;}
+    .numbers[_ngcontent-ng-c522025578], .numbers-pager[_ngcontent-ng-c522025578] {display: inline-block; margin: 0 10px 0 10px; color: #2D7868;}
+    .numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #383838;}
+    .numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
+    button[disabled] {
+        cursor: default;
+    }
+    @media (max-width: 1199px) {
+      [_nghost-ng-c1936088117] {
+          font-size: 26px;
+      }
+    }
+    [_nghost-ng-c1936088117] {
+      border: none;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      overflow: visible;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      line-height: normal;
+      -webkit-font-smoothing: inherit;
+      -moz-osx-font-smoothing: inherit;
+      -webkit-appearance: none;
+      cursor: pointer;
+      line-height: 0;
+      font-size: 30px;
+    }
+    button {cursor: pointer;}
+    svg{width: 24; height: 24; fill: none;}
+    svg:not(:root) {overflow-clip-margin: content-box; overflow: visible;}
+    g{clip-path: url(#clip0_2830_122058);}
+    mask{x: 0; y: 0; width: 24; height: 24;}
+
+    g {mask: url(#mask0_2830_122058);}
+    :not(svg) {transform-origin: 0px 0px;}
+
+    rect {
+        width: 24;
+        height: 24;
+        fill: white;
+        transform: translate(24, 24) rotate(180deg);
+    }
+    .numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #2D7868;}
+    .numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
+    button[disabled] {cursor: default;}
+    @media (max-width: 1199px) {
+        [_nghost-ng-c1936088117] {
+            font-size: 26px;
+        }
+    }
+    [_nghost-ng-c1936088117] {
+      border: none;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      overflow: visible;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      line-height: normal;
+      -webkit-font-smoothing: inherit;
+      -moz-osx-font-smoothing: inherit;
+      -webkit-appearance: none;
+      cursor: pointer;
+      line-height: 0;
+      font-size: 30px;
+    }
+
+    .numbers[_ngcontent-ng-c522025578] a[_ngcontent-ng-c522025578] {margin: 0 5px; color: #ccc; font-size: 20px; cursor: pointer;}
+    .numbers[_ngcontent-ng-c522025578] a.active[_ngcontent-ng-c522025578] {color: #2D7868;}
+
+
+
+      
+  </style>
+</head>
+<body>
+  <header class="fig-header">
+    <nav class="fig-nav">
+      <div class="fig-header-left">
+        <a class="fig-one" href="/" rel="noreferrer">
+          <h1 class="fig-logo">꼬북꼬북</h1>
+          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" class="fig-exchangeimage">
+            <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3"
+            stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <h4 class="fig-exchange-book">교환 독서</h4>
+        </a>
+      </div>
+
+      <form role="search" class="fig-searchform et3830u0">
+        <div tabindex="-1" class="fig-tabindex">
+          <div class="fig-q3rd3s et3830u1">
+            <label class="fig-formlabel">
+              <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="fig-searchimage">
+                <path fill-rule="evenodd" d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
+                </path>
+              </svg>
+              <span class="fig-instant">인스턴트 검색</span>
+              <input type="text" maxlength="64" tabindex="-1" class="fig-forminput" value="">
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <div class="fig-join">
+        <a href="" class="fig-signup">회원가입</a>
+        <a href="" class="fig-login">로그인</a>
+      </div>
+
+    </nav>
+  </header> 
+
+  <hr class="fig-hr">
+    <div class="fig-main">
+      <div class="mainWrap">
+
+
+        <div class="nav-sidebar">
+            <h3>고객센터</h3>
+            <ul class="nav-menu">
+                <li><a href="#" class="active">공지사항</a></li>
+                <li><a href="#">1:1문의</a></li>
+            </ul>
+        </div>
+        <div class="content-area">
+            <p class="big_title">공지사항</h1>
+            <div class="ntc_count"><span>32</span>건</div>
+            <div>
+              <table>
+                <colgroup> 
+                  <col width="10%"/> 
+                  <col width="*"/> 
+                  <col width="15%"/> 
+                  <col width="15%"/> 
+              </colgroup>
+                <thead>
+                  <tr>
+                    <th>no.</th>
+                    <th>공지 제목</th>
+                    <th>작성자</th>
+                    <th>날짜</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <td>32</td>
+                    <td class="ntc_title"><a href="#">사이트 정기 점검 안내</a></td>
+                    <td>꼬북이</td>
+                    <td>2025-06-24</td>
+                  </tr>
+                  <tr>
+                    <td>31</td>
+                    <td class="ntc_title"><a href="#">꼬북꼬북 이용약관 개정 안내</a></td>
+                    <td>꼬북이</td>
+                    <td>2025-06-22</td>
+                  </tr>
+                  <tr>
+                    <td>30</td>
+                    <td class="ntc_title"><a href="#">기존 사이트 회원 SNS 연동 안내</a></td>
+                    <td>꼬북이</td>
+                    <td>2025-06-15</td>
+                  </tr>
+                  <tr>
+                    <td>29</td>
+                    <td class="ntc_title"><a href="#">마케팅정보 수신동의 확인 안내</a></td>
+                    <td>꼬북이</td>
+                    <td>2025-06-07</td>
+                  </tr>
+                  <tr>
+                    <td>28</td>
+                    <td class="ntc_title"><a href="#">듀가나디 콜라보 이벤트 안내</a></td>
+                    <td>꼬북이</td>
+                    <td>2025-06-06</td>
+                  </tr>
+                  <tr>
+                    <td>27</td>
+                    <td class="ntc_title"><a href="#">멍멍왈왈으르렁컹컹듀...</a></td>
+                    <td>꼬북이</td>
+                    <td>2025-06-05</td>
+                  </tr>
+                  <tr>
+                    <td>26</td>
+                    <td class="ntc_title"><a href="#">개인정보처리방침 개정 안내 (6/30)</a></td>
+                    <td>꼬북이</td>
+                    <td>2025-06-01</td>
+                  </tr>
+                  <tr>
+                    <td>25</td>
+                    <td class="ntc_title"><a href="#">"꼬북꼬북 책읽기" 공모전 연기 안내</a></td>
+                    <td>꼬북이</td>
+                    <td>2025-05-31</td>
+                  </tr>
+                  <tr>
+                    <td>24</td>
+                    <td class="ntc_title"><a href="#">꼬북꼬북 이용약관 개정 안내 (6/20)</a></td>
+                    <td>꼬북이</td>
+                    <td>2025-05-25</td>
+                  </tr>
+                  <tr>
+                    <td>23</td>
+                    <td class="ntc_title"><a href="#">안녕하세요, 꼬북꼬북 게시판 관리자 꼬북이입니다.</a></td>
+                    <td>꼬북이</td>
+                    <td>2025-05-10</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 하단라벨링 부분 -->
+    <!-- 클래스 이름 못바꾸겟다 -->
+    <div _ngcontent-ng-c2831665569="" class="row flex flex-h-center ng-star-inserted">
+      <app-paginator _ngcontent-ng-c2831665569="" _nghost-ng-c522025578="" class="ng-star-inserted">
+        <div _ngcontent-ng-c522025578="" class="numbers-pager">
+          <button _ngcontent-ng-c522025578="" sui-icon-button="" _nghost-ng-c1936088117="" disabled="">
+            <sui-icon _ngcontent-ng-c522025578="" name="끝화살표_왼쪽" _nghost-ng-c3051396554="">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_2830_122058)">
+                  <mask id="mask0_2830_122058" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                    <path d="M0 24L24 24L24 0L-2.09815e-06 2.09815e-06L0 24Z" fill="white"></path>
+                  </mask>
+                  <g mask="url(#mask0_2830_122058)">
+                    <path d="M21.9323 22.5362C22.6042 21.8162 22.6042 20.7122 21.8842 20.0162L13.5562 12.0002L23.1562 2.76019L21.4762 1.00819L10.0282 12.0002L21.4763 22.9922L21.9323 22.5122L21.9323 22.5362Z" fill="currentColor"></path>
+                    <path d="M12.4786 22.5362C13.1506 21.8162 13.1506 20.7122 12.4306 20.0162L4.10256 12.0002L13.7266 2.76019L12.0466 1.00819L0.598563 12.0002L12.0226 22.9922L12.4786 22.5122L12.4786 22.5362Z" fill="currentColor"></path>
+                  </g>
+                </g>
+                  <defs>
+                    <clipPath id="clip0_2830_122058">
+                      <rect width="24" height="24" fill="white" transform="translate(24 24) rotate(180)"></rect>
+                    </clipPath>
+                  </defs>
+              </svg>
+            </sui-icon>
+          </button>
+          <button _ngcontent-ng-c522025578="" sui-icon-button="" _nghost-ng-c1936088117="" disabled="">
+            <sui-icon _ngcontent-ng-c522025578="" name="화살표_왼쪽" _nghost-ng-c3051396554="">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_1668_163964)">
+                  <path d="M16.3325 1.47C17.0125 2.18 16.9925 3.3 16.2825 3.98L7.9425 12L17.5625 21.25L15.8825 23L4.4425 12L15.8825 1L16.3325 1.47Z" fill="currentColor"></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1668_163964">
+                    <rect width="24" height="24" fill="white" transform="matrix(-1 0 0 1 24 0)"></rect>
+                  </clipPath>
+                </defs>
+              </svg>
+            </sui-icon>
+          </button>
+        </div>
+        <div _ngcontent-ng-c522025578="" class="numbers">
+          <a _ngcontent-ng-c522025578="" class="active ng-star-inserted"> 1 </a>
+          <a _ngcontent-ng-c522025578="" class="ng-star-inserted"> 2 </a>
+          <a _ngcontent-ng-c522025578="" class="ng-star-inserted"> 3 </a>
+          <a _ngcontent-ng-c522025578="" class="ng-star-inserted"> 4 </a>
+          <a _ngcontent-ng-c522025578="" class="ng-star-inserted"> 5 </a>
+          <a _ngcontent-ng-c522025578="" class="hidden ng-star-inserted"> 6 </a>
+        </div>
+        <div _ngcontent-ng-c522025578="" class="numbers-pager">
+          <button _ngcontent-ng-c522025578="" sui-icon-button="" _nghost-ng-c1936088117="">
+            <sui-icon _ngcontent-ng-c522025578="" name="화살표_오른쪽" _nghost-ng-c3051396554="">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_1668_163961)">
+                  <path d="M7.6675 1.47C6.9875 2.18 7.0075 3.3 7.7175 3.98L16.0575 12L6.4375 21.25L8.1175 23L19.5575 12L8.1175 1L7.6675 1.47Z" fill="currentColor"></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1668_163961">
+                    <rect width="24" height="24" fill="white"></rect>
+                  </clipPath>
+                </defs>
+              </svg>
+            </sui-icon>
+          </button>
+          <button _ngcontent-ng-c522025578="" sui-icon-button="" _nghost-ng-c1936088117="">
+            <sui-icon _ngcontent-ng-c522025578="" name="끝화살표_오른쪽" _nghost-ng-c3051396554="">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_2830_122049)">
+                  <mask id="mask0_2830_122049" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                    <path d="M24 0H0V24H24V0Z" fill="white"></path>
+                  </mask>
+                <g mask="url(#mask0_2830_122049)">
+                  <path d="M2.06775 1.46381C1.39575 2.18381 1.39575 3.28781 2.11575 3.98381L10.4437 11.9998L0.84375 21.2398L2.52375 22.9918L13.9718 11.9998L2.52375 1.00781L2.06775 1.48781V1.46381Z" fill="currentColor"></path>
+                  <path d="M11.5214 1.46381C10.8494 2.18381 10.8494 3.28781 11.5694 3.98381L19.8974 11.9998L10.2734 21.2398L11.9534 22.9918L23.4014 11.9998L11.9774 1.00781L11.5214 1.48781V1.46381Z" fill="currentColor"></path>
+                </g>
+              </g>
+              <defs>
+                <clipPath id="clip0_2830_122049">
+                  <rect width="24" height="24" fill="white"></rect>
+                </clipPath>
+              </defs>
+            </svg>
+          </sui-icon>
+        </button>
+        </div>
+    </app-paginator><!---->
+    </div><!----><!---->
+    <!-- 하단라벨링 끝-->
+        </div>
+      </div>
+    </div>
+
+    <div id="footerWrap">
+      <div id="footer">
+        <div id="totalReview">
+          <h1>꼬북꼬북 모은 리뷰  <span>🐢 15,738 개</span></h1>
+          <div>꼬북꼬북과 함께 독서해요! 
+            <span><a href="#"> ▶ 교환독서 시작하기</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</body>
+</html>
