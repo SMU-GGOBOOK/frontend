@@ -362,6 +362,15 @@ main {
 }
 
 
+home-search-book-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  justify-content: center; /* 가운데 정렬 */
+  max-width: 1100px;        /* 화면 넓이 제한 (선택) */
+  margin: 0 auto;           /* 가운데 배치 (선택) */
+}
+
 /* Layout */
 element.style {
     position: relative;
@@ -429,11 +438,12 @@ element.style {
 .sui-book__inform-container{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   gap: 10px; 
   padding: 8px;
   height: 145px;
+  width: 100%;
+  margin: 0 10px;
 }
 .sui-book__cover-container {
     display: block;
@@ -513,52 +523,54 @@ element.style {
 
 /* 제목 최소 높이 지정 */
 sui-book-title {
-  color: #2D7868;
+  color: #1a1a1a;
   font-size: 18px;
-  font-weight: 900;
-  text-align: center;
+  font-weight: 600;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  overflow: hidden;
-  line-height: 24px;
   max-height: 48px;
+  line-height: 24px;
+  overflow: hidden;
 }
-
 
 sui-book-author {
   font-size: 15px;
   font-weight: 500;
   line-height: 18px;
-  color: #515151;
+  color: #333;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  text-align: center;
 }
-sui-book-genre, sui-book-publisher {
+sui-book-genre, sui-book-rating {
     font-size: 14px;
-    font-weight: 500;
     line-height: 18px;
-    color: #515151;
+    color:#333
+}
+
+sui-book-rating{
+  text-align: right;
+}
+
+sui-book-genre{
+  color:#555
+}
+
+sui-book-rating{
+  color:#A0A0A0
 }
 
 @media (max-width: 1199px) {
     sui-book-title,
     sui-book-author {
-        font-weight: 700;
         max-width: 200px;
         margin-left: 10px;
-        margin-right: 10px;
-        text-align: center;
     }
-    sui-book-genre, sui-book-publisher {
-        font-weight: 500;
+    sui-book-genre, sui-book-rating {
         max-width: 200px;
-        margin-left: 10px;
         margin-right: 10px;
-        text-align: center;
     }
 }
 
@@ -882,7 +894,7 @@ button[disabled] {cursor: default;}
     <ng-component class="ng-star-inserted">
       <main class="main">
         <div class="items">
-          <home-search-book-list style="position: relative;display: flex;flex-wrap: wrap;align-items: center;justify-content: center;" _nghost-ng-c2831665569="">
+          <home-search-book-list _nghost-ng-c2831665569="">
             <div _ngcontent-ng-c2831665569="" class="book ng-star-inserted">
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
@@ -902,8 +914,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">제목</sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">글쓴이</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.9</sui-book-rating>
                     </div>
                   </div>
                 </sui-book>
@@ -927,8 +939,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">수학, 영화관에 가다</sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">버카드 폴스터·마티 로스 공저, 박유진 옮김 아ㅏㅏㅏㅏㅏㅏㅏ</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.9</sui-book-rating>
                     </div>
                   </div>
                 </sui-book>
@@ -952,8 +964,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">수학이 풀리는 수학사전</sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">글 이강숙 | 그림 이국희</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.7</sui-book-rating>
                     </div>
                     </div>
                   </sui-book>
@@ -977,8 +989,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">수학자의 공부</sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">오카 기요시</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.5</sui-book-rating>
                     </div>
                 </div>
               </sui-book>
@@ -1002,8 +1014,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">수학적 문제해결 방법론</sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">심성아</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 5.0</sui-book-rating>
                     </div>
                   </div>
                 </sui-book>
@@ -1031,8 +1043,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">수학이 뭐예요?</sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">꿈차지</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.9</sui-book-rating>
                     </div>
                   </div>
                 </sui-book>
@@ -1056,8 +1068,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">수학과 자유학기 진로탐색 연계 교과 수업 자료집</sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">교육부 , 한국직업능력개발원</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.8</sui-book-rating>
                     </div>
                   </div>
                 </sui-book>
@@ -1081,8 +1093,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">수학, 근대를 빛내다 1 </sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">김영관</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.8</sui-book-rating>
                     </div>
                   </div>
                 </sui-book>
@@ -1106,8 +1118,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">수학의 숨은 원리</sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">김권현 곽문영 이창석</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.7</sui-book-rating>
                     </div>
                   </div>
                 </sui-book>
@@ -1131,8 +1143,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">수학과 철학이 만나 머리를 좋아지게 하는 논리 이야기</sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">김안나</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.1</sui-book-rating>
                     </div>
                   </div>
                 </sui-book>
@@ -1156,8 +1168,8 @@ button[disabled] {cursor: default;}
                     <div class="sui-book__inform-container">
                       <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">문제은행 3000제 꿀꺽수학 중 3-하</sui-book-title>
                       <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">3000제 편찬위원회</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                      <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.9</sui-book-rating>
                     </div>
                 </div>
               </sui-book>
@@ -1182,8 +1194,8 @@ button[disabled] {cursor: default;}
                   <div class="sui-book__inform-container">
                     <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">문제은행 3000제 꿀꺽수학 중 3-상</sui-book-title>
                     <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">3000제 편찬위원회</sui-book-author>
-                    <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르</sui-book-genre>
-                    <sui-book-publisher _ngcontent-ng-c2831665569="" tabindex="0">출판사</sui-book-publisher>
+                    <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
+                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.5</sui-book-rating>
                   </div>
                 </div>
               </sui-book>
