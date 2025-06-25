@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <title>꼬북꼬북</title>
+    <style>
+      * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;}
+
+      body {font-family: 'Noto Sans KR', sans-serif;}
+
+      a {text-decoration: none; color: inherit; font-family: inherit; letter-spacing: inherit; cursor: pointer;}
+
+      /* header 부분 */
+      .fig-header,
+      /* 중앙 부분*/
+      .fig-main{
+        max-width: 78%; /* 건들지 마세용 */
+        padding-left: 16px; 
+        padding-right: 16px; 
+        margin: 0 auto;
+      }
+
+      .fig-nav{
+        display: grid; 
+        grid-template-columns: 1fr auto auto; 
+        align-items: center; 
+        padding: 16px 18px 8px 30px;
+      }
+      
+      /* 로고 + 교환독서 탭 */
+      .fig-header-left {
+        display: flex;
+        align-items: center; 
+        gap: 12px; 
+      }
+      .fig-one{
+        display: inline-flex;
+        width: fit-content;
+        display: flex; 
+        align-items: center; 
+        gap: 0.5rem;
+      }
+
+      .fig-logo{
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2D7868;
+      margin: 0; 
+      font-size: 25px; 
+      }
+
+      .fig-exchangeimage {
+        height: 20px; 
+        margin-left: 20px; 
+        position: relative;
+      }
+
+      @media (max-width: 767px) {
+        .exchangeimage :before {
+          content: '';
+          position: absolute;
+          display: block;
+          top: -8px;
+          left: -8px;
+          width: 40px;
+          height: 40px;
+          z-index: 1;
+          background-color: transparent;
+        }
+      }
+
+      .fig-exchange-book{
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2D7868;
+        margin: 0; 
+        font-size: 17px; 
+      }
+
+      @media (max-width: 767px) {
+        .fig-exchange-book{
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          margin: -1px;
+          padding: 0;
+          overflow: hidden;
+          border: 0;
+          clip: rect(0, 0, 0, 0);
+        }
+      }
+      
+      /* 검색바 */
+      .fig-searchform {
+        position: absolute;
+        left: 700px;
+        width: 500px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .fig-tabindex {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .fig-formlabel {
+        display: flex;
+        align-items: center;
+        padding: 6px 10px;
+        min-height: 40px;
+        background: #f5f5f5;
+        border-radius: 8px;
+      }
+
+      .fig-searchimage {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+        margin-right: 12px;
+        color: #a5a5a5;
+        fill: currentColor;
+        display: inline-block;
+      }
+
+      .fig-instant {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+      }
+
+      .fig-forminput {
+        flex: 1;
+        width: 0;
+        min-width: 0;
+        height: 100%;
+        font-size: 15px;
+        line-height: 18px;
+        color: #141414;
+        caret-color: #2D7868;
+      }
+
+      /* 로그인 회원가입 */
+      .fig-join {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .fig-signup,
+      .fig-login {
+        padding: 11px 12px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        text-align: center;
+        color: #2D7868;
+      }
+
+      /* header 구분선 */
+      .fig-hr{
+        display: block;
+        width: 100%;
+        height: 1px;
+        box-sizing: border-box;
+        border: none;
+        background: #f0f0f0;
+        margin-top: 5px;
+      }
+
+          
+      input {
+        color: inherit; 
+        font-family: inherit; 
+        letter-spacing: inherit; 
+        appearance: none; 
+        background: none; 
+        border: 0; 
+        box-shadow: none; 
+        border-radius: 0; 
+        padding: 0; 
+        margin: 0;
+      }
+
+      hr {
+        margin: 0; 
+        padding: 0;
+      }
+      
+      .fig-main{
+        padding-top: 30px;
+      }
+
+      /* -------- 배너 부분 -------- */
+
+      .mainBanner{
+        box-sizing:border-box;
+        position: relative;
+        display:block;
+        color:#fff;
+        text-decoration:none;
+        overflow:hidden;
+        height:400px;
+        width:1300px;
+        border-radius:15px;
+        margin: 0 auto;
+      }
+      .mainBanner__center{
+        position:relative;
+        height:100%;
+        width:1300px;
+        margin:0 auto;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:0 156px 0 160px
+      }
+      .mainBanner__center__title{
+        font-size:36px;
+        font-weight:700;
+        line-height:48px
+      }
+      .mainBanner__center__subtitle{
+        font-size:20px;
+        font-weight:600;
+        line-height:28px;
+        margin-top:10px
+      }
+
+      .myBannerSwiper,.myBannerSwiper .swiper-slide {height: 100%;}
+
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .banner-container {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: #2d7868;
+        opacity: 1;
+      }
+
+      
+      .mainBanner__bookcover{
+        width:180px; height:252px; margin-right:100px; border-radius: 5px;
+        overflow:hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .mainBanner__bookcover>img{
+        width:100%;
+      }
+
+
+      /* ----------------랭킹 책표지---------------- */
+
+
+      .listWrapper ul {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        list-style: none;
+        padding: 10px;
+        margin: 0 auto;
+        justify-content:space-between;
+      }
+
+      .listWrapper li {
+        flex: 0 0 auto;
+        width: 220px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .listWrapper img {
+        width: 100%;
+        display: block;
+      }
+
+      .bVUVO8nJ {
+        margin-top: 8px;
+        text-align: center;
+      }
+
+
+      .CIirP0cq {
+        padding: 20px 10px;
+      }
+
+
+      .ranking__title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      
+      /* 책 표지 컨테이너 */
+      .book-cover-container {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .book__cover{
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .book__cover:hover {
+        transform: scale(1.05);
+      }
+
+      
+      /* 순위 - 회색 네모칸 */
+      .rank {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+        z-index: 10;
+      }
+
+      .book__title {
+        font-size: 15px;
+        font-weight:500;
+        height: 50px;
+      }
+
+      .ranking {
+        color:#555;
+        height:1500px;
+        width: 1300px;
+        margin: 0 auto;
+        padding: 0 10px;
+      }
+      
+
+      /*--------- footer ---------*/
+      #footerWrap{    
+        background-color: #444;
+        color:white;
+        height:300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #footer{
+        width:1500px;
+        height:200px;
+        display: flex;
+        justify-content: center;
+      }
+
+      #totalReview{
+        text-align: center;
+      }
+
+      #totalReview>h1{
+        margin-bottom: 15px;
+      }
+
+
+    /*------------- 배너밑 회색네모칸 -------------*/
+    
+    .exchngreading{
+      width:1300px;
+      display:flex;
+      margin:0 auto;
+      gap:70px;
+    }
+
+    .section {
+      margin: 50px 0;
+      padding: 50px 100px;
+      text-align: center;
+      width:650px;
+      background-color: rgb(238, 238, 238);
+      border-radius: 15px;
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #1e5f51;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin: 0.5rem 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #2D7868;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .buttons a:hover {
+      background-color: #1e5f51;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+        //배너 슬라이드 script
+        const bannerSwiper = new Swiper('.myBannerSwiper', {
+            loop: true,                     // 무한 회전
+            autoplay: {                     // 자동 재생 (원하면 지워도 됨)
+            delay: 3000,
+            disableOnInteraction: false,
+            },
+            pagination: {
+            el: '.swiper-pagination',     // 우리가 HTML에 만든 div
+            clickable: true,              // 불릿 클릭으로 이동
+            },
+        });
+    });//jquery
+  </script>
+</head>
+<body>
+  <header class="fig-header">
+    <nav class="fig-nav">
+      <div class="fig-header-left">
+        <a class="fig-one" href="/" rel="noreferrer">
+          <h1 class="fig-logo">꼬북꼬북</h1>
+          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" class="fig-exchangeimage">
+            <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3"
+            stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <h4 class="fig-exchange-book">교환 독서</h4>
+        </a>
+      </div>
+
+      <form role="search" class="fig-searchform et3830u0">
+        <div tabindex="-1" class="fig-tabindex">
+          <div class="fig-q3rd3s et3830u1">
+            <label class="fig-formlabel">
+              <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="fig-searchimage">
+                <path fill-rule="evenodd" d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
+                </path>
+              </svg>
+              <span class="fig-instant">인스턴트 검색</span>
+              <input type="text" maxlength="64" tabindex="-1" class="fig-forminput" value="">
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <div class="fig-join">
+        <a href="" class="fig-signup">회원가입</a>
+        <a href="" class="fig-login">로그인</a>
+      </div>
+
+    </nav>
+  </header> 
+
+  <hr class="fig-hr">
+
+  <div class="fig-main">
+    <div class="mainBanner">
+      <div class="swiper myBannerSwiper">
+        <div class="swiper-wrapper">
+          <!-- 슬라이드 1 -->
+          <div class="swiper-slide" style='background: #bba3c9;'>
+            <div class="mainBanner__center">
+              <div class="mainBanner__center__text">
+                  <div class="mainBanner__center__title">내일 모든 걸 잊는다 해도<br> 가장 행복한 '오늘'을 줄게</div>
+                  <div class="mainBanner__center__subtitle">오늘 밤 세계에서<br>이 사랑이 사라진다 해도 </div>
+                </div>
+                <div  class='mainBanner__bookcover'><img src="./책_files/32476078068.20230110165139.jpg"></div>
+
+            </div>
+          </div>
+
+          <!-- 슬라이드 2 -->
+          <div class="swiper-slide" style="background: #b6c5d1;">
+            <div class="mainBanner__center">
+                <div class="mainBanner__center__text">
+                  <div class="mainBanner__center__title">플라이 업 (Fly Up)<br>かくれんぼ</div>
+                  <div class="mainBanner__center__subtitle">RIIZE & PLAVE 화이팅<br>많이 사랑해주세요 </div>
+                </div>
+                <div class='mainBanner__bookcover'><img src="./책_files/ddolbyung.jpg"></div>
+
+              </div>
+          </div>
+
+          <!-- 슬라이드 3 -->
+          <div class="swiper-slide" style="background: #b2d6aa;">
+            <div class="mainBanner__center">
+              <div class="mainBanner__center__text">
+                  <div class="mainBanner__center__title">'어떻게 성공할 것이냐'에서<br> '어떻게 살 것이냐'로</div>
+                  <div class="mainBanner__center__subtitle">삶은 성공이 아닌 성장의 이야기다<br>'리틀 미'의 가치를 되새기는 여정 </div>
+                </div>
+
+                <div class='mainBanner__bookcover'><img src="./책_files/7rID02i9ef0mfBg6GbZwxQ.jpg"></div>
+
+            </div>
+          </div>
+        
+        </div>
+
+        
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+
+
+  <div class="exchngreading">
+
+    <div class="section">
+      <h2>교환독서란?</h2>
+      <p>책을 읽고 실시간으로 대화하며<br>서로의 감상을 공유하는 독서 커뮤니티입니다.</p>
+      <div class="buttons">
+        <a href="#">모임 만들기</a>
+        <a href="#">채팅방 입장</a>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>인기 채팅방</h2>
+      <div id="under__banner__rightbox" style="text-align:left;text-decoration:underline;">
+        <p><a href="#">[수학의 정석] 정석의수학</a></p>
+        <p><a href="#">[예술과 중력가속도] 눈 딱 감고 낙하아아하아아</a></p>
+        <p><a href="#">[종의 기원담] 인간 종은 어디서 오는가</a></p>
+        <p><a href="#">[유령해마] SF해양생물연구회</a></p>
+        <p><a href="#">[7인의 집행관] 당신은 유죄입니다</a></p>
+        <p><a href="#">[프로젝트 헤일메리] 외계인에게서지구를지키는101가지방법</a></p>
+      </div>
+      
+    </div>
+    
+  </div>
+
+
+  
+  <section class="ranking">
+    <div>
+      <p class="ranking__title">리뷰 순위 top 5</p>
+    </div>
+    <div class="CIirP0cq">
+      <div class="listWrapper">
+        <ul>
+          <li class="w_exposed_cell">
+            <a title="윈드 브레이커 공식 캐릭터북 극비 노트">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/6uPcxYzMv-QWlfBiIqGwFw.jpg">
+                <div class="rank">1</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">윈드 브레이커 공식 캐릭터북 극비 노트</div>
+                <div class="rating">평점 ★ 3.7</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="결국 국민이 합니다 : 이재명의 인생과 정치철학">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/XXGaayBj9mlDzK4XrcTJGQ.jpg">
+                <div class="rank">2</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">결국 국민이 합니다 : 이재명의 인생과 정치철학</div>
+                <div class="rating">평점 ★ 3.7</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="순간을 달리는 할머니">
+              <div class="book-cover-container">
+                  <img class='book__cover' alt="content" src="./책_files/5Zlk_666FCfpO28fU80Y2A.jpg">
+                  <div class="rank">3</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">순간을 달리는 할머니</div>
+                <div class="rating">평점 ★ 3.5</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="순간을 달리는 할머니">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/egJ78oktVUQBlRlPfkIBQA.jpg" >
+                <div class="rank">4</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">순간을 달리는 할머니</div>
+                <div class="rating">평점 ★ 3.7</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="미술관에 간 할미">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/kaahltx4QjfXeNEv-tRHFA.jpg">
+                <div class="rank">5</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">미술관에 간 할미</div>
+                <div class="rating">평점 ★ 3.7</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <p class="ranking__title">조회수 순위 top 5</p>
+    </div>
+    <div class="CIirP0cq">
+      <div class="listWrapper">
+        <ul>
+          <li class="w_exposed_cell">
+            <a title="샨티">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/lLbU2ndZznGIPbc-OJp7tw.jpg">
+                <div class="rank">1</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">샨티</div>
+                <div class="rating">평점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+        
+          <li class="w_exposed_cell">
+            <a title="불멸의 유전자">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/30JwnU5gqCX6dC2M4geKcQ.jpg">
+                <div class="rank">2</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">불멸의 유전자</div>
+                <div class="rating">평점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="2025 심우철 실전 동형 모의고사 Season">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/HO9SSb9fa19bk8ZY-3twrw.jpg">
+                <div class="rank">3</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">2025 심우철 실전 동형 모의고사 Season</div>
+                <div class="rating">평점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="토막 난 우주를 안고서">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/1VWiNO7KJwy-ZJMCubMrfw.jpg">
+                <div class="rank">4</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">토막 난 우주를 안고서</div>
+                <div class="rating">평점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+        
+          <li class="w_exposed_cell">
+            <a title="무엇도 홀로 존재하지 않는다">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/N75NKs0_maXht0LlAAfn4A.jpg">
+                <div class="rank">5</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">무엇도 홀로 존재하지 않는다</div>
+                <div class="rating">평점 ★ 3.3</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <p class="ranking__title">북마크 순위 top 5</p>
+    </div>
+    <div class="CIirP0cq">
+      <div class="listWrapper">
+        <ul>
+          <li class="w_exposed_cell">
+            <a title="안녕이라 그랬어">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/7rID02i9ef0mfBg6GbZwxQ.jpg">
+                <div class="rank">1</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">안녕이라 그랬어</div>
+                <div class="rating">평점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+        
+          <li class="w_exposed_cell">
+            <a title="유지만 다이어트 레시피">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/JXp6BGc7b7DMd9MFCKh5GA.jpg">
+                <div class="rank">2</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">유지만 다이어트 레시피</div>
+                <div class="rating">평점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="믿을 구석 The Last Resort">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/eUE2YuK6CbrtQhE4b2vAxA.jpg">
+                <div class="rank">3</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">믿을 구석 The Last Resort</div>
+                <div class="rating">평점 ★ 4.0</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="첫 여름, 완주">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/H9oeK213btCwHnOPK1KTkg.jpg">
+                <div class="rank">4</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">첫 여름, 완주</div>
+                <div class="rating">평점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+        
+          <li class="w_exposed_cell">
+            <a title="소설 보다: 여름">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="./책_files/50U4yQYXD5jQurbPwsMfhA.jpg">
+                <div class="rank">5</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">소설 보다: 여름</div>
+                <div class="rating">평점 ★ 2.2</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+
+<div id="footerWrap">
+  <div id="footer">
+    <div id="totalReview">
+      <h1>꼬북꼬북 모은 리뷰  <span>🐢 15,738 개</span></h1>
+      <div>꼬북꼬북과 함께 독서해요! <span><a href="#"> ▶ 교환독서 시작하기</a></span></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
