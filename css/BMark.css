@@ -130,3 +130,19 @@ section{
 .button{
     padding: 12px 0px;
 }
+.bookmarkBtn {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+}
+
+
+
+
