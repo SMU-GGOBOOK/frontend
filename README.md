@@ -7,9 +7,9 @@
 
 | name   | github ID   |
 |--------|-------------|
-| 공유현 | [@](https://github.com/) |
-| 김민성 | [@](https://github.com/) |
+| 공유현 | [@sharehyun](https://github.com/sharehyun) |
+| 김민성 | [@LatteMeng(https://github.com/LatteMeng) |
 | 김슬비 | [@kb4954](https://github.com/kb4954) |
 | 김혜원 | [@hwk3005](https://github.com/hwk3005) |
 | 신민철 | [@](https://github.com/) |
-| 이승민 | [@](https://github.com/) |
+| 이승민 | [@null4848](https://github.com/null4848) |
