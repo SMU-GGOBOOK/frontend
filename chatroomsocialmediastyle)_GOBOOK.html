@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>교환독서 SNS소통창</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Do Hyeon', sans-serif;
+      background: linear-gradient(to right, #e8eaf6, #fce4ec);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border: 2px solid #2D7868;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #2D7868;
+    }
+    .post-box, .comment-box {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 100%;
+      border-radius: 10px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      resize: vertical;
+      font-family: 'Do Hyeon', sans-serif;
+    }
+    button {
+      background-color: #2D7868;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #245e53;
+    }
+    .post {
+      background: #f5f5f5;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .post-header img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+    .post-header .author {
+      font-weight: bold;
+      color: #2D7868;
+    }
+    .post-header .time {
+      font-size: 12px;
+      color: #777;
+    }
+    .post-actions {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .post-actions button {
+      background-color: transparent;
+      color: #2D7868;
+      font-size: 14px;
+      margin-left: 6px;
+      padding: 2px 6px;
+    }
+    .comments {
+      margin-top: 10px;
+      padding-left: 10px;
+      border-left: 3px solid #2D7868;
+    }
+    .comment {
+      background: #ffffff;
+      padding: 8px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+    .like-count {
+      font-size: 14px;
+      color: #e91e63;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>#어린왕자 책 같이읽기#</h2>
+
+    <div class="post-box">
+      <textarea id="post-input" rows="3" placeholder="무엇이든 자유롭게 공유해보세요!"></textarea>
+      <button onclick="addPost()">게시하기</button>
+    </div>
+
+    <div id="post-list"></div>
+  </div>
+
+  <script>
+    function formatTime() {
+      const now = new Date();
+      return now.toLocaleString('ko-KR', { hour: '2-digit', minute: '2-digit', hour12: false }) + ' · ' + now.toLocaleDateString('ko-KR');
+    }
+
+    function addPost() {
+      const input = document.getElementById('post-input');
+      const content = input.value.trim();
+      if (!content) return;
+
+      const post = document.createElement('div');
+      post.className = 'post';
+      post.innerHTML = `
+        <div class="post-header">
+          <img src="https://via.placeholder.com/36" alt="profile" />
+          <div>
+            <div class="author">라떼</div>
+            <div class="time">${formatTime()}</div>
+          </div>
+        </div>
+        <p class="post-content">${content}</p>
+        <div class="like-count">❤️ 0</div>
+        <div class="post-actions">
+          <button class="like-btn">❤️ 좋아요</button>
+          <button class="edit-btn">✏️ 수정</button>
+          <button class="delete-btn">🗑 삭제</button>
+          <button class="report-btn">🚩 신고</button>
+        </div>
+        <div class="comments"></div>
+        <div class="comment-box">
+          <textarea rows="1" placeholder="댓글 달기..."></textarea>
+          <button onclick="addComment(this)">댓글</button>
+        </div>
+      `;
+
+      document.getElementById('post-list').prepend(post);
+      input.value = '';
+
+      post.querySelector('.like-btn').addEventListener('click', () => {
+        const countEl = post.querySelector('.like-count');
+        let count = parseInt(countEl.textContent.replace(/[^0-9]/g, ''));
+        count++;
+        countEl.textContent = `❤️ ${count}`;
+      });
+
+      post.querySelector('.edit-btn').addEventListener('click', () => {
+        const contentEl = post.querySelector('.post-content');
+        const newText = prompt("수정할 내용을 입력하세요:", contentEl.textContent);
+        if (newText !== null) contentEl.textContent = newText;
+      });
+
+      post.querySelector('.delete-btn').addEventListener('click', () => {
+        if (confirm("이 글을 삭제하시겠습니까?")) post.remove();
+      });
+
+      post.querySelector('.report-btn').addEventListener('click', () => {
+        if (confirm("이 게시글을 신고하시겠습니까?")) {
+          alert("신고가 접수되었습니다. 감사합니다.");
+        }
+      });
+    }
+
+    function addComment(button) {
+      const commentBox = button.parentElement;
+      const textArea = commentBox.querySelector('textarea');
+      const content = textArea.value.trim();
+      if (!content) return;
+
+      const comment = document.createElement('div');
+      comment.className = 'comment';
+      comment.innerHTML = `<strong>뱌뱌</strong>: ${content}`;
+
+      const commentsDiv = commentBox.previousElementSibling;
+      commentsDiv.appendChild(comment);
+      textArea.value = '';
+    }
+  </script>
+</body>
+</html>

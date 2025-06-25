@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>교환독서 채팅방 입장</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    body {
+      font-family: 'Do Hyeon', sans-serif;
+      background-color: #f9fafa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 80px auto;
+      padding: 40px 30px;
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #2D7868;
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #2D7868;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #245e53;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌿 감성 교환독서 채팅방</h1>
+    <p>『보통의 언어들』을 함께 나눌 온라인 채팅방입니다.<br>참여하실 닉네임을 입력해주세요!</p>
+    <input type="text" id="nickname" placeholder="닉네임 입력 (예: 꼬북꼬북02)" />
+    <button onclick="enterChat()">💬 채팅방 입장하기</button>
+    <div class="footer">본 채팅방은 따뜻한 소통을 지향합니다 ☕</div>
+  </div>
+  <script>
+    function enterChat() {
+      const nickname = document.getElementById('nickname').value.trim();
+      if (!nickname) {
+        alert('닉네임을 입력해주세요.');
+        return;
+      }
+      // 추후 URL에 닉네임 파라미터 붙여서 입장 가능
+      window.location.href = `chatroom.html?nickname=${encodeURIComponent(nickname)}`;
+    }
+  </script>
+</body>
+</html>
