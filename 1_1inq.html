@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {font-family: 'Noto Sans KR', sans-serif;}
+
+  * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;}
+
+  input {
+    color: inherit; 
+    font-family: inherit; 
+    letter-spacing: inherit; 
+    appearance: none; 
+    background: none; 
+    border: 0; 
+    box-shadow: none; 
+    border-radius: 0; 
+    padding: 0; 
+    margin: 0;
+    outline:none;
+  }
+
+  a {
+    text-decoration: none; 
+    color: inherit; 
+    font-family: inherit; 
+    letter-spacing: inherit; 
+    cursor: pointer;
+  }
+  
+  hr {
+    margin: 0; 
+    padding: 0;
+  }
+  
+  .fig-main{
+    padding-top: 30px;
+  }
+
+  /* header 부분 */
+ .fig-header,
+ /* 중앙 부분*/
+ .fig-main{
+    max-width: 78%; /* 건들지 마세용 */
+    padding-left: 16px; 
+    padding-right: 16px; 
+    margin: 0 auto;
+  }
+
+  .fig-nav{
+    display: grid; 
+    grid-template-columns: 1fr auto auto; 
+    align-items: center; 
+    padding: 16px 18px 8px 30px;
+  }
+  
+  /* 로고 + 교환독서 탭 */
+  .fig-header-left {
+    display: flex;
+    align-items: center; 
+    gap: 12px; 
+  }
+  .fig-one{
+    display: inline-flex;
+    width: fit-content;
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem;
+  }
+
+  .fig-logo{
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2D7868;
+  margin: 0; 
+  font-size: 25px; 
+  }
+
+  .fig-exchangeimage {
+    height: 20px; 
+    margin-left: 20px; 
+    position: relative;
+  }
+
+  @media (max-width: 767px) {
+    .exchangeimage :before {
+      content: '';
+      position: absolute;
+      display: block;
+      top: -8px;
+      left: -8px;
+      width: 40px;
+      height: 40px;
+      z-index: 1;
+      background-color: transparent;
+    }
+  }
+
+  .fig-exchange-book{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2D7868;
+    margin: 0; 
+    font-size: 17px; 
+  }
+
+  @media (max-width: 767px) {
+    .fig-exchange-book{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      clip: rect(0, 0, 0, 0);
+    }
+  }
+  
+  /* 검색바 */
+  .fig-searchform {
+    position: absolute;
+    left: 700px;
+    width: 500px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .fig-tabindex {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .fig-formlabel {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    min-height: 40px;
+    background: #f5f5f5;
+    border-radius: 8px;
+  }
+
+  .fig-searchimage {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    color: #a5a5a5;
+    fill: currentColor;
+    display: inline-block;
+  }
+
+  .fig-instant {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .fig-forminput {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    height: 100%;
+    font-size: 15px;
+    line-height: 18px;
+    color: #141414;
+    caret-color: #2D7868;
+  }
+
+  /* 로그인 회원가입 */
+  .fig-join {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .fig-signup,
+  .fig-login {
+    padding: 11px 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #2D7868;
+  }
+
+  /* header 구분선 */
+  .fig-hr{
+    display: block;
+    width: 100%;
+    height: 1px;
+    box-sizing: border-box;
+    border: none;
+    background: #f0f0f0;
+    margin-top: 5px;
+  }
+
+  /* footer */
+
+      #footerWrap{    
+      background-color: #444;
+      color:white;
+      height:300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #footer{
+        width:100%;
+        height:200px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #totalReview{
+        text-align: center;
+    }
+
+    #totalReview>h1{
+      margin-bottom: 15px;
+    }
+    
+    /*--------1:1,notice,view공통영역------*/
+    
+    .mainWrap{
+      margin-top: 82px;
+      display: flex;
+      justify-content:center;
+      margin-bottom:120px;
+    }
+
+    .big_title{
+      font-size: 40px;
+      font-weight: 700;
+    }
+    
+    /* 내비게이션 바 스타일 */
+    ol,ul {
+      list-style: none;
+    }
+
+    .nav-sidebar {
+      width: 192px;
+      margin-right:30px;
+      padding-left:20px;
+    }
+
+    .nav-sidebar h3 {
+      margin-bottom: 30px;
+      font-size: 23px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-menu li {
+        margin-bottom: 16px;
+    }
+
+    .nav-menu a {
+        display: block;
+        text-decoration: none;
+        color: gray;
+        font-weight: 500;
+    }
+
+    .nav-menu a:hover {
+        color: #2d7868;
+    }
+
+    .nav-menu a.active {
+        color: #2d7868;
+        font-weight: bold;
+    }
+
+    
+  
+    /*------------1:1문의------------*/
+
+    
+    input:focus-within{
+      outline:none;
+    }
+    
+    .inputWrap:focus-within,
+    textarea:focus-within,
+    #ctgr_inq:focus-within{
+      outline: 2px solid gray;
+    }
+    
+    #ctgr_inq{
+      width:400px; height:45px; 
+      padding:10px 15px; 
+      font-size:15px; 
+      border:1px solid #ccc; border-radius: 7px;
+    }
+    
+    .inputWrap{
+      padding:0 15px;
+      border:1px solid #ccc;
+      border-radius: 7px;
+      width:900px;
+        height:45px;
+        display:flex;
+        align-items:center;
+    }
+
+    #title_inq{
+        width:670px;
+        font-size: 15px;
+        font-weight: 400;
+        border: none;
+        outline: none;
+    }
+    
+    #content_inq{
+      width:900px;
+      height:300px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      padding: 10px 15px;
+      resize:none;
+      font-family: inherit;
+    }
+    
+
+    .fig-main label {
+        min-width: 80px;
+        margin-right: 80px;
+        font-weight: bold;
+    }
+    
+    /* 필수 표시(*) 스타일 */
+    .fig-main label span {
+        color: #2d7868;
+        margin-left:5px;
+
+    }
+
+    .inputBoxdiv{
+      margin-bottom:15px;
+    }
+
+    
+    .fig-main form > div:not(.notice-wrapper) {
+        display: flex;
+        align-items: flex-start;
+    }
+
+
+
+    form[name='inqFrm'] {
+        padding-top:40px;
+        border-top: 1px solid black;
+        margin-top:20px;
+    }
+
+    .content-area{
+      max-width: 1137px;
+    }
+
+    
+    #inq_end{
+      border-bottom:1px solid #ccc;
+      padding-bottom:20px;
+    }
+
+    .buttonWrap > button{
+      width:180px;
+      height:50px;
+      font-size: 15px;
+      font-weight: bold;
+      color:#fff;
+      border-radius: 7px;
+      border-style: hidden;
+      cursor:pointer
+    }
+
+    .cancelBtn {
+      background-color: gray;
+    }
+
+    .confirmBtn {
+      background-color: #2D7868;
+    }
+
+    .buttonWrap{
+        width:1137px;
+        justify-content: center;
+        margin-top: 50px;
+        display: flex;
+        gap:8px;
+    }
+
+    .notice-wrapper {
+      background-color: #f5f5f5;
+      padding: 30px;
+      border-radius: 15px;
+      margin: 10px 0;
+      font-size: 14px;
+      color:gray
+
+    }
+    
+    .notice-wrapper li{
+      margin:5px 0;
+    }
+
+
+
+
+
+
+</style>
+<body>
+  <header class="fig-header">
+    <nav class="fig-nav">
+      <div class="fig-header-left">
+        <a class="fig-one" href="/" rel="noreferrer">
+          <h1 class="fig-logo">꼬북꼬북</h1>
+          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" class="fig-exchangeimage">
+            <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3"
+            stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <h4 class="fig-exchange-book">교환 독서</h4>
+        </a>
+      </div>
+
+      <form role="search" class="fig-searchform et3830u0">
+        <div tabindex="-1" class="fig-tabindex">
+          <div class="fig-q3rd3s et3830u1">
+            <label class="fig-formlabel">
+              <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="fig-searchimage">
+                <path fill-rule="evenodd" d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
+                </path>
+              </svg>
+              <span class="fig-instant">인스턴트 검색</span>
+              <input type="text" maxlength="64" tabindex="-1" class="fig-forminput" value="">
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <div class="fig-join">
+        <a href="" class="fig-signup">회원가입</a>
+        <a href="" class="fig-login">로그인</a>
+      </div>
+
+    </nav>
+  </header> 
+
+  <hr class="fig-hr">
+    <div class="fig-main">
+      <div class="mainWrap">
+        <div class="nav-sidebar">
+            <h3>고객센터</h3>
+            <ul class="nav-menu">
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#" class="active">1:1문의</a></li>
+            </ul>
+        </div>
+        <div class="content-area">
+            <p class="big_title">1:1 문의</p>
+            <div>
+                <form action="" name="inqFrm">
+                    <div class="inputBoxdiv">
+                        <label for="ctgr_inq">문의 유형<span>*</span></label>
+                        <select name="category_inq" id="ctgr_inq" class="ctgr_inq">
+                            <option value="none">문의 유형을 선택해주세요</option>
+                            <option value="search_function">도서 검색 기능 관련</option>
+                            <option value="exchange_reading_group">교환독서 그룹</option>
+                            <option value="exchange_reading_chat">교환독서 채팅방 기능 관련</option>
+                            <option value="system_inconvenience">시스템불편사항</option>
+                            <option value="personal_data_infringe">개인정보침해신고</option>
+                        </select>
+                        
+                    </div>
+                    <div class="inputBoxdiv">
+                        <label for="title_inq">제목<span>*</span></label>
+                        <div class="inputWrap"><input type="text" id="title_inq" placeholder="제목을 입력해 주세요."></div>
+                    </div>
+                    <div class="inputBoxdiv">
+                        <label for="content_inq">상세 내용<span>*</span></label>
+                        <div><textarea id="content_inq" placeholder="문의 내용을 입력해 주세요."></textarea></div>
+                    </div>
+                    <div class="inputBoxdiv" id="inq_end">
+                        <label for="image_inq">사진 첨부</label>
+                        <div><input type="file" id="image_inq" enctype="multipart/form-data"></div>
+                    </div>
+                        
+                    <div class="notice-wrapper">
+                        <div>
+                            <strong>문의내용 답변 안내</strong>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><span>ㆍ</span>답변은 마이페이지 또는 회원정보에 등록된 이메일로 확인 가능합니다.</li>
+                                <li><span>ㆍ</span>설/추석 연휴 기간 동안은 고객센터 휴무로 인해 1:1 문의 답변이 불가합니다.</li>
+                                <li><span>ㆍ</span>연휴 기간에는 문의량이 급증하여 답변이 지연될 수 있습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                        
+                    <div class="buttonWrap">
+                        <button type="button" class="cancelBtn">취소</button>
+                        <button type="button" class="confirmBtn">문의 접수</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footerWrap">
+      <div id="footer">
+        <div id="totalReview">
+          <h1>꼬북꼬북 모은 리뷰  <span>🐢 15,738 개</span></h1>
+          <div>꼬북꼬북과 함께 독서해요! 
+            <span><a href="#"> ▶ 교환독서 시작하기</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</body>
+</html>
