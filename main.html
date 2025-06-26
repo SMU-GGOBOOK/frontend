@@ -117,7 +117,7 @@
         padding: 6px 10px;
         min-height: 40px;
         background: #f5f5f5;
-        border-radius: 8px;
+        border-radius: 7px;
       }
 
       .fig-searchimage {
@@ -211,7 +211,7 @@
         box-sizing:border-box;
         position: relative;
         display:block;
-        color:#fff;
+        color:#fafafa;
         text-decoration:none;
         overflow:hidden;
         height:400px;
@@ -236,7 +236,7 @@
       }
       .mainBanner__center__subtitle{
         font-size:20px;
-        font-weight:600;
+        font-weight:400;
         line-height:28px;
         margin-top:10px
       }
@@ -304,13 +304,14 @@
 
 
       .CIirP0cq {
-        padding: 20px 10px;
+        padding: 20px 0 30px;
       }
 
 
       .ranking__title {
         font-size: 20px;
         font-weight: 700;
+        color:#1a1a1a;
       }
 
       
@@ -320,7 +321,7 @@
         display: inline-block;
         overflow: hidden;
         border-radius: 7px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 4px #797e8480;;
       }
 
       .book__cover{
@@ -338,7 +339,7 @@
         top: 8px;
         left: 8px;
         background: rgba(0, 0, 0, 0.5);
-        color: white;
+        color: #fafafa;
         width: 24px;
         height: 24px;
         border-radius: 7px;
@@ -351,9 +352,21 @@
       }
 
       .book__title {
-        font-size: 15px;
-        font-weight:500;
-        height: 50px;
+        color: #1a1a1a;
+        font-size: 18px;
+        font-weight: 600;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        max-height: 48px;
+        line-height: 24px;
+        overflow: hidden;
+      }
+
+      .rating{
+        font-size: 14px;
+        line-height: 18px;
+        color: #555;
       }
 
       .ranking {
@@ -367,7 +380,7 @@
       /*--------- footer ---------*/
       #footerWrap{    
         background-color: #444;
-        color:white;
+        color:#fafafa;
         height:300px;
         display: flex;
         align-items: center;
@@ -404,7 +417,8 @@
       padding: 50px 100px;
       text-align: center;
       width:650px;
-      background-color: rgb(238, 238, 238);
+      background-color: #f5f5f5;
+      color:#1a1a1a;
       border-radius: 7px;
     }
 
@@ -423,16 +437,12 @@
       margin: 0.5rem 1rem;
       padding: 0.8rem 1.5rem;
       background-color: #2D7868;
-      color: white;
+      color: #fafafa;
       text-decoration: none;
       border-radius: 7px;
       font-weight: 600;
-      transition: background-color 0.3s ease;
     }
 
-    .buttons a:hover {
-      background-color: #1e5f51;
-    }
   </style>
   <script>
     $(document).ready(function(){
