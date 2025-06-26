@@ -240,7 +240,6 @@
     /*--------1:1,notice,view공통영역------*/
     
     .mainWrap{
-      margin-top: 82px;
       display: flex;
       justify-content:center;
       margin-bottom:120px;
@@ -251,19 +250,22 @@
       font-weight: 700;
     }
     
+    .fig-main{
+      display:flex;
+      justify-content: center;
+    }
+    
     /* ---------내비게이션 바 스타일 ------------*/
     
     .left_side{
       width: 192px;
       height:622px;
-      /* border: 1px solid black;*/
-      margin: 78px 0px 0px; 
+      margin: 160px 0px 0px; 
       margin-right: 30px;
     }
-
+    
     .category{
       color:#1a1a1a;
-      border: 1px solid red;
       width: 191px;
       height: 500px;
       text-align: justify;
@@ -284,8 +286,8 @@
       margin-left: 10px;
     }
     .category li{margin-bottom: 16px; 
-    font-size: 18px;
-
+      font-size: 18px;
+      
     }
     
   
@@ -359,21 +361,22 @@
 
 
     form[name='inqFrm'] {
-        padding-top:40px;
-        border-top: 1px solid black;
+      padding-top:40px;
+      border-top: 1px solid black;
         margin-top:20px;
-    }
-
-    .content-area{
-      max-width: 1137px;
-    }
-
-    
-    #inq_end{
-      border-bottom:1px solid #ccc;
-      padding-bottom:20px;
-    }
-
+      }
+      
+      .content-area{
+        max-width: 1137px;
+        margin-top: 82px;
+      }
+      
+      
+      #inq_end{
+        border-bottom:1px solid #ccc;
+        padding-bottom:20px;
+      }
+      
     .buttonWrap > button{
       width:180px;
       height:50px;
@@ -465,18 +468,18 @@
       <div class="mainWrap">
         <nav>
           <div class="left_side">
-                <ul class="category">
-                    <div class="icon">
-                      <div class="checked">
-                        <li><i class="fa-solid fa-bullhorn"></i>공지사항</li>
-                      </div> 
-                    </div>
-                    <div class="icon">
-                        <li><i class="fa-solid fa-envelope"></i>1:1문의</li>
-                    </div>
-                </ul>
+            <ul class="category">
+              <div class="icon">
+                <li><i class="fa-solid fa-bullhorn"></i>공지사항</li>
+              </div>
+              <div class="icon">
+                <div class="checked">
+                  <li><i class="fa-solid fa-envelope"></i>1:1문의</li>
+                </div> 
+              </div>
+            </ul>
           </div>
-      </nav>
+        </nav>
         <div class="content-area">
             <p class="big_title">1:1 문의</p>
             <div>
