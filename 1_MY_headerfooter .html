@@ -4,10 +4,339 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/e1869b8eb9.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/headerfooter_label.css">
-    <link rel="stylesheet" href="css/MY.css">
+    <link rel="stylesheet" href="css/1My_Review.css">
+    <link rel="stylesheet" href="css/review.css">
     <title>마이페이지</title>
 </head>
+<style>
+  body {font-family: 'Noto Sans KR', sans-serif;}
+
+  * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+    list-style: none;
+  }
+
+  input {
+    color: inherit; 
+    font-family: inherit; 
+    letter-spacing: inherit; 
+    appearance: none; 
+    background: none; 
+    border: 0; 
+    box-shadow: none; 
+    border-radius: 0; 
+    padding: 0; 
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none; 
+    color: inherit; 
+    font-family: inherit; 
+    letter-spacing: inherit; 
+    cursor: pointer;
+  }
+  
+  hr {
+    margin: 0; 
+    padding: 0;
+  }
+  
+  .fig-main{
+    padding-top: 30px;
+  }
+
+  /* header 부분 */
+ .fig-header,
+ /* 중앙 부분*/
+ .fig-main{
+    max-width: 78%; /* 건들지 마세용 */
+    padding: 0 16 16 30;
+    margin: 0 auto;
+  }
+
+  .fig-nav{
+    display: grid; 
+    grid-template-columns: 1fr auto auto; 
+    align-items: center; 
+    padding: 16px 18px 8px 30px;
+  }
+  
+  /* 로고 + 교환독서 탭 */
+  .fig-header-left {
+    display: flex;
+    align-items: center; 
+    gap: 12px; 
+  }
+  .fig-one{
+    display: inline-flex;
+    width: fit-content;
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem;
+  }
+
+  .fig-logo{
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2D7868;
+  margin: 0; 
+  font-size: 25px; 
+  }
+
+  .fig-exchangeimage {
+    height: 20px; 
+    margin-left: 20px; 
+    position: relative;
+  }
+
+  @media (max-width: 767px) {
+    .exchangeimage :before {
+      content: '';
+      position: absolute;
+      display: block;
+      top: -8px;
+      left: -8px;
+      width: 40px;
+      height: 40px;
+      z-index: 1;
+      background-color: transparent;
+    }
+  }
+
+  .fig-exchange-book{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2D7868;
+    margin: 0; 
+    font-size: 17px; 
+  }
+
+  @media (max-width: 767px) {
+    .fig-exchange-book{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      clip: rect(0, 0, 0, 0);
+    }
+  }
+  
+  /* 검색바 */
+  .fig-searchform {
+    position: absolute;
+    left: 700px;
+    width: 500px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .fig-tabindex {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .fig-formlabel {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    min-height: 40px;
+    background: #f5f5f5;
+    border-radius: 8px;
+  }
+
+  .fig-searchimage {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    color: #a5a5a5;
+    fill: currentColor;
+    display: inline-block;
+  }
+
+  .fig-instant {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .fig-forminput {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    height: 100%;
+    font-size: 15px;
+    line-height: 18px;
+    color: #141414;
+    caret-color: #2D7868;
+  }
+
+  /* 로그인 회원가입 */
+  .fig-join {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .fig-signup,
+  .fig-login {
+    padding: 11px 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #2D7868;
+  }
+
+  /* header 구분선 */
+  .fig-hr{
+    display: block;
+    width: 100%;
+    height: 1px;
+    box-sizing: border-box;
+    border: none;
+    background: #f0f0f0;
+    margin-top: 5px;
+  }
+
+  /* footer */
+
+      #footerWrap{    
+      background-color: #444;
+      color:white;
+      height:300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #footer{
+        width:1500px;
+        height:200px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #totalReview{
+        text-align: center;
+    }
+
+    #totalReview>h1{
+      margin-bottom: 15px;
+    }
+      /* 하단라벨링 */
+  .flex:not(.flex-dir-column).flex-h-center, .flex.flex-dir-row.flex-h-center {justify-content: center;}
+@media (max-width: 767px) {
+    .flex-h-center[_ngcontent-ng-c2831665569] {
+        left: calc(50% - 74px);
+    }
+}
+.flex-h-center[_ngcontent-ng-c2831665569] {
+    display: flex;
+    margin-bottom: 20px;
+}
+.flex:not(.flex-dir-column), .flex.flex-dir-row {
+    flex-direction: row;
+}
+[_nghost-ng-c522025578] {
+    display: inline-flex
+;
+    align-items: center;
+    line-height: 1;
+}
+.numbers-pager[_ngcontent-ng-c522025578] {margin: 0 .5em; flex-shrink: 0;}
+.numbers[_ngcontent-ng-c522025578], .numbers-pager[_ngcontent-ng-c522025578] {display: inline-block; margin: 0 10px 0 10px; color: #ccc;}
+.numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #383838;}
+.numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
+button[disabled] {
+    cursor: default;
+}
+@media (max-width: 1199px) {
+    [_nghost-ng-c1936088117] {
+        font-size: 26px;
+    }
+}
+[_nghost-ng-c1936088117] {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+    cursor: pointer;
+    line-height: 0;
+    font-size: 30px;
+}
+button {cursor: pointer;}
+svg{width: 24; height: 24; fill: none;}
+svg:not(:root) {overflow-clip-margin: content-box; overflow: visible;}
+g{clip-path: url(#clip0_2830_122058);}
+mask{x: 0; y: 0; width: 24; height: 24;}
+
+g {mask: url(#mask0_2830_122058);}
+:not(svg) {transform-origin: 0px 0px;}
+
+rect {
+    width: 24;
+    height: 24;
+    fill: white;
+    transform: translate(24, 24) rotate(180deg);
+}
+.numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #ccc;}
+.numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
+button[disabled] {cursor: default;}
+@media (max-width: 1199px) {
+    [_nghost-ng-c1936088117] {
+        font-size: 26px;
+    }
+}
+[_nghost-ng-c1936088117] {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+    cursor: pointer;
+    line-height: 0;
+    font-size: 30px;
+}
+
+.numbers[_ngcontent-ng-c522025578] a[_ngcontent-ng-c522025578] {margin: 0 5px; color: #ccc; font-size: 20px; cursor: pointer;}
+.numbers[_ngcontent-ng-c522025578] a.active[_ngcontent-ng-c522025578] {color: black;}
+.ng-star-inserted{
+  margin-top: 50px;
+  margin-bottom: 120px;
+
+}
+
+
+
+</style>
 <body>
   <header class="fig-header">
     <nav class="fig-nav">
@@ -54,135 +383,151 @@
           <div class="left_side">
                 <ul class="category">
                     <div class="icon">
-                       <li class="checked"><i class="fa-solid fa-book"></i>내가 쓴 리뷰</li>
+                      <div class="checked">
+                        <li><i class="fa-solid fa-book"></i>내가 쓴 리뷰</li>
+                      </div> 
                     </div>
                     <div class="icon">
-                        <li><i class="fa-solid fa-book-bookmark"></i>북마크</li>
+                        <li><i class="fa-solid fa-book-bookmark"></i>북마크한 도서</li>
                     </div>
                     <div class="icon">
                         <li><i class="fa-solid fa-rotate"></i>교환독서</li>
                     </div>
                 </ul>
-                <ul class="inform">
-                    <li><a href=""><i class="fa-solid fa-user-lock"></i> 차단한 사용자 </a></li>
-                    <li>정보수정/계정삭제</li>
-                </ul>
           </div>
           <div class="main">
+            <!--프로필 부분-->
               <div class="user_info">
                   <div class="profile_name">
-                      <div class="nickname">
-                          <i class="fa-solid fa-circle-user"></i>
-                          <span>닉네임</span>
-                      </div>
-                      <!-- <div class="user_name">
-                          <span>이름</span>
-                      </div> -->
-                  </div>
+                    <div class="nickname">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span> 닉네임</span>
+                    </div>
+                    <hr>
+                    <div class="user_name">
+                      <span><!--<i class="fa-solid fa-user-lock"></i>*-->차단한 사용자</span>
+                      <span class="user_name_gap"> | </span>
+                      <span>정보수정·계정삭제</span>
+                    </div> 
+                </div>
               </div>
+
+
+
               <div class="B_header">
                   <i class="fa-solid fa-book-open-reader"></i>
                   <span class="title">내 리뷰</span>
                   <span class="total">(1)</span>
               </div>
-              <div class="wrapper">
+
+
+              <!--리뷰박스-->
+              <div class="comment_wrap">
                   <div class="comment_list">
                       <div class="comment_item">
-                          <div class="comment_header">
-                              <div class="left_area">
-                                  <div class="user_info_box">
-                                      <span class="badge_box">
-                                          <span class="badge_sm badge_pill badge_kyobo">
-                                              <span class="text">책이름</span>
-                                          </span>
-                                          <span class="badge_sm badge_pill badge_line_gray">
-                                              <span class="text">저자</span>
-                                          </span>
-                                      </span>
-                                      <span class="info_item">내 닉네임</span>
-                                      <span class="gap">|</span>
-                                      <span class="info_item">2020.06.08</span>
-                                      <span class="gap">|</span>
-                                      <span class="info_item">
-                                          <button class="btn_comment_util" type="button">
-                                              <span class="text">삭제</span>
-                                          </button>
-                                      </span>
-                                  </div>
-                              </div>
+                          <div class="comment_all">
+                            <div class="comment_header">
+                            <div class="left_area">
+                                <div class="user_info_box">
+                                <span class="badge_box">
+                                    <span class="badge_sm badge_pill badge_kyobo">
+                                      <span class="text">책이름</span>
+                                    </span>
+                                </span>
+                                <span class="info_item">내 닉네임</span>
+                                <span class="review_gap"> | </span>
+                                <span class="info_item">2020.06.08</span>
+                                <span class="review_gap"> | </span>
+                                <span class="info_item">
+                                    <button class="btn_comment_util" type="button" data-role="report">
+                                        <span class="text">삭제</span>
+                                    </button>
+                                </span>
+                                </div>
+                            </div>
+                            </div>
                               <div class="right_area">
                                   <div class="review_summary_wrap">
-                                      <div class="rating-container theme-krajee-gly rating-sm rating-animate rating-disabled"><div class="clear-rating " title="초기화">
-                                                  <i class="glyphicon glyphicon-minus-sign"></i>
-                                              </div>
-                                              <div class="rating-stars" tabindex="0">
-                                                  <span class="empty-stars">
-                                                  <span class="star" title="One Star">
-                                                      <i class="glyphicon glyphicon-star-empty"></i>
-                                                  </span>
-                                                  <span class="star" title="Two Stars">
-                                                      <i class="glyphicon glyphicon-star-empty"></i>
-                                                  </span>
-                                                  <span class="star" title="Three Stars">
-                                                      <i class="glyphicon glyphicon-star-empty"></i>
-                                                  </span>
-                                                  <span class="star" title="Four Stars">
-                                                      <i class="glyphicon glyphicon-star-empty"></i>
-                                                  </span>
-                                                  </span>
-                                                  <span class="filled-stars" style="width: 100%;">
-                                                  <span class="star" title="One Star">
-                                                      <i class="glyphicon glyphicon-star"></i>
-                                                  </span>
-                                                  <span class="star" title="Two Stars">
-                                                      <i class="glyphicon glyphicon-star"></i>
-                                                  </span>
-                                                  <span class="star" title="Three Stars">
-                                                      <i class="glyphicon glyphicon-star"></i>
-                                                  </span>
-                                                  <span class="star" title="Four Stars">
-                                                      <i class="glyphicon glyphicon-star"></i>
-                                                  </span>
-                                                  </span>
-                                              </div>
-                                              <div class="caption">
-                                                  <span class="caption-badge caption-secondary">10점 중 10점</span>
-                                              </div>
-                                              </div>
-                                              <input class="form_rating rating-input" type="number" value="10" title="평가점수 선택" readonly="readonly" data-size="sm" tabindex="-1">
-                                              <span class="gap" style="margin-top: -12px;">/</span>
-                                              <span class="review_quotes_text">도움돼요</span>
-                                          </div>
+                                      <div class="rating-container theme-krajee-gly rating-sm rating-animate rating-disabled">
+                                        <div class="clear-rating " title="초기화">
+                                        <i class="glyphicon glyphicon-minus-sign"></i>
+                                        </div>
+                                        <div class="rating-stars" tabindex="0">
+                                        <span class="empty-stars">
+                                              <span class="star" title="One Star">
+                                              <i class="glyphicon glyphicon-star-empty"></i>
+                                              </span>
+                                              <span class="star" title="Two Stars">
+                                              <i class="glyphicon glyphicon-star-empty"></i>
+                                              </span>
+                                              <span class="star" title="Three Stars">
+                                              <i class="glyphicon glyphicon-star-empty"></i>
+                                              </span>
+                                              <span class="star" title="Four Stars">
+                                              <i class="glyphicon glyphicon-star-empty"></i>
+                                              </span>
+                                              <span class="star" title="Five Stars">
+                                              <i class="glyphicon glyphicon-star-empty"></i>
+                                              </span>
+                                          </span>
+                                          <span class="filled-stars" style="width: 100%;">
+                                              <span class="star" title="One Star">
+                                              <i class="glyphicon glyphicon-star"></i>
+                                              </span>
+                                              <span class="star" title="Two Stars">
+                                              <i class="glyphicon glyphicon-star"></i>
+                                              </span>
+                                              <span class="star" title="Three Stars">
+                                              <i class="glyphicon glyphicon-star"></i>
+                                              </span>
+                                              <span class="star" title="Four Stars">
+                                              <i class="glyphicon glyphicon-star"></i>
+                                              </span>
+                                              <span class="star" title="Five Stars">
+                                              <i class="glyphicon glyphicon-star-empty"></i>
+                                              </span>
+                                          </span>
                                           </div>
                                       </div>
-                      
-                      
-                          <div class="comment_contents">
-                              <div class="comment_text">
-                                  "아들이 사업을 하면서 어려움을 많이 겪고 있습니다. 심리적으로 위축된 모습을 보는 게 마음이 아프네요. 이 책을 아들에게 선물하는데,이 책이 아들에게 조금이나마 힘과 위로를 주었으면합니다. 제가 부족해 돈에 대해 잘 말하지 못하는 부분들을 잘 전달할 수 있을거라고 봅니다."
-                              </div>
-                          </div>
-                          <div class="comment_footer">
-                              <div class="comment_util_box">
-                                  <div class="right_area">
+                                      <!-- <input class="form_rating rating-input" type="number" value="10" title="평가점수 선택" -->
+                                        <!-- readonly data-size="sm" tabindex="-1"> -->
+                                      <span class="review_gap">/</span>
+                                      <span class="review_quotes_text rev_rev">도움돼요</span>
+                                      </div>
+                                  </div>
+                                  </div>
+                                        
+                                      
+                                  <div class="comment_contents">
+                                  <div class="comment_text">
+                                      아들이 사업을 하면서 어려움을 많이 겪고 있습니다. 심리적으로 위축된 모습을 보는 게 마음이 아프네요. 
+                                      이 책을 아들에게 선물하는데,이 책이 아들에게 조금이나마 힘과 위로를 주었으면합니다. 
+                                      제가 부족해 돈에 대해 잘 말하지 못하는 부분들을 잘 전달할 수 있을거라고 봅니다.
+                                  </div>
+                                  </div>
+
+                                  <div class="comment_footer">
+                                  <button class="btn_more_body" type="button" data-btn-toggle="">
+                                      <span class="text">펼치기</span>
+                                      <span class="ico_arw"></span>
+                                  </button>
+                                  <div class="comment_util_box">
+                                      <div class="right_area">
                                       <button class="btn_like" type="button">
                                           <span class="ico_like">
-                                              <i class="fa-regular fa-thumbs-up"></i>
+                                              <i class="fa-regular fa-thumbs-up" style="color: #333333;"></i>
                                           </span>
                                           <span class="text">144</span>
                                       </button>
                                       <button class="btn_reply" type="button">
-                                          <span class="ico_reply">
-                                              <i class="fa-regular fa-comment"></i>
-                                          </span>
-                                          <span class="text">답글
-                                              <span class="count">4</span>
-                                          </span>
-
+                                          <span class="ico_reply"><i class="fa-regular fa-comment-dots"></i></span>
+                                          <span class="count">4</span>
                                       </button>
+                                      </div>
                                   </div>
-                              </div>
-                          </div>
+                                  </div>
+                      
+                      
                                   </div>
                               </div>
 

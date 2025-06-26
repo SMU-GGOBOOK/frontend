@@ -1,0 +1,357 @@
+nav{
+    /* border: 1px solid black; */
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+.left_side{
+    width: 192px;
+    height:622px;
+    /* border: 1px solid black;*/
+    margin: 160px 0px 0px; 
+    margin-right: 30px;
+}
+.main{
+    width: 1137px;
+    height: 868px;
+    /* border: 1px solid black;*/
+    justify-content: center;
+    align-items: center;
+}
+.category{
+    color:#636363;
+    /* border: 1px solid red; */
+    width: 191px;
+    height: 500px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.icon{display: flex;}
+.icon i{margin-right: 10px; margin-top: 5px;}
+.checked{
+    border-radius:7px;
+    /*line-height: 45px;*/
+    width: 135px;
+    height: 30px;
+    background-color:#2d7868;
+    color: #fafafa;
+    margin-bottom: 12px;
+    text-align: center;
+    padding: 0 auto;
+    margin-left: 10px;
+}
+.category li{margin-bottom: 16px; 
+font-size: 18px;
+
+}
+
+/*.review{
+    width: 92px;
+    height: 10px;
+    /*border: 1px solid blue;*/
+/*       position: absolute;
+    bottom: 3px;
+    left: -5px;
+    background-color: #e0ff00;
+    border-top-right-radius: 4px;
+}*/
+.inform{
+    width: 191px;
+    height: 127px;
+    text-align: justify;
+    color:#2d7868;
+}
+.inform li{
+    margin-bottom: 12px;
+}
+.fa-user-lock{
+    margin-right: 5px;
+}
+
+
+
+.user_info{
+    width: 1125px;
+    /* height: 80px; */
+    /* border: 1px solid black; */
+    margin: 82px 0 52px;
+    
+}
+.user_info hr{
+ margin-bottom: 7px;
+ color: #A0A0A0;
+}
+/* .profile_name{
+    border: 1px solid red;
+} */
+.nickname{
+    font-weight: 700;
+    width: 345px; 
+    height: 60px; 
+    font-size: 40px;
+    margin-bottom: 7px;
+}
+
+
+.fa-circle-user, .fa-book-open-reader{
+    color: #A0A0A0;
+
+}
+.nickname span{color:#1a1a1a;
+    margin-left: 10px;
+}
+.user_name{ 
+    padding-left:5px ;
+    font-weight: 400;
+    font-size: 18px;
+    color:#1a1a1a;
+    
+}
+.user_name_gap{
+    margin: 0 5px;
+    color: #A0A0A0;;
+}
+
+
+
+/* 리뷰 리스트 */s
+/* .comment_list {
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 24px;
+padding: 20px 0;
+} */
+.comment_wrap .comment_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.comment_item {
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    border-radius: 7px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    line-height: 1.6;
+    color: #1a1a1a;
+    height: 179.98px;
+    margin: 25px 0px 0px;
+    width: 100%;
+}
+
+.comment_header {
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user_info_box {
+display: flex;
+/* flex-wrap: wrap; */
+align-items: center;
+gap: 8px;
+font-size: 13px; /* 인라인 간격 제어용 */
+/*font-size: 0; *//* 인라인 간격 제어용 */
+}
+/* 
+.badge_box {
+margin-right: 6px;
+} */
+
+.badge_sm {
+    padding: 2px 8px;
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+}
+.comment_all {
+    display: flex;
+    /* height: 100%; */
+    margin-bottom: 10px;
+    position: relative;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+ .badge_kyobo {
+    background-color: #2d7868;
+    color: #fafafa;
+    width: 49.19px;
+    height: 23.19px;
+}
+/*
+.badge_line_gray {
+border: 1px solid #767676;
+background-color: #fff;
+color: #333;
+margin-left: 6px;
+}*/
+
+.info_item {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    vertical-align: middle;
+    color: #1a1a1a;
+}
+.review_gap{
+    color: #1a1a1a;
+}
+/*
+.fa-circle-user, .fa-book-open-reader{
+    color: #A0A0A0;
+
+}*/
+.btn_comment_util {
+font-size: 12px;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+color: #1a1a1a;
+line-height: 1;
+display: inline-block;
+}
+/*
+.gap {
+width: 1px;
+height: 9px;
+background-color: #d5d5d5;
+display: inline-block;
+vertical-align: middle;
+margin: 0 8px;
+} */
+
+/* 별점 */
+.review_summary_wrap {
+display: flex;
+align-items: center;
+font-size: 0;
+gap: 8px;
+}
+
+/* .rating-container {
+display: flex;
+gap: 2px;
+} */
+
+.glyphicon-star::before {
+content: "";
+display: inline-block;
+width: 18px;
+height: 18px;
+background-image: url('../images/ico_star_cilck.svg');
+background-size: contain;
+background-repeat: no-repeat;
+}
+
+
+/* 도움돼요 아이콘 */
+
+.review_quotes_text:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 13px;
+    height: 13px;
+    background: url(images/ico_quotes@2x.png) center no-repeat;
+    background-size: 13px 13px;
+}
+
+.review_quotes_text {
+    display: inline-block;
+    position: relative;
+    color: #2D7868;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    vertical-align: top;
+}
+
+/* 댓글 본문 */
+.comment_text {
+    color: #1a1a1a;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 66px;
+    line-height: 22px;
+    padding: 3px;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    word-break: break-all;
+    /*
+font-size: 15px;
+color: #1a1a1a;
+line-height: 1.7;*/
+/* margin-top: 10px; */
+}
+
+/* 하단 버튼 */
+.comment_footer {
+display: flex;
+justify-content: flex-end;
+/* margin-top: 16px; */
+align-items: center;
+gap: 12px;
+}
+
+.comment_footer button {
+font-size: 13px;
+padding: 6px 12px;
+border-radius: 7px;
+background-color: #f0f0f0;
+color: #1a1a1a;
+border: none;
+cursor: pointer;
+transition: background 0.2s;
+}
+
+.comment_footer button:hover {
+background-color: #e0f2f1;
+}
+
+.B_header{
+    width:292px;
+    height: 50px;
+    align-items: center;
+    /*border: 1px solid black; */
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+}
+.B_header .title{
+    /* margin-left: 10px; */
+    font-size: 24px;
+    min-width: 0;
+    font-weight: 600;
+    line-height: 30px;
+    /* color: #2d7868; */
+    justify-content: space-between;
+    margin: 0px 15px;
+    color: #1a1a1a;
+}
+.B_header .total{
+    line-height: 30px;
+    /* margin-left: 10px; */
+    margin-right: 10px;
+    color: #2d7868;
+}
+.button{
+    padding: 12px 0px;
+} 
+
+/*댓글표시아이콘*/
+.ico_reply{
+    margin-right: 2px;
+
+}
