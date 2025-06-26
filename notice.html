@@ -242,7 +242,6 @@
     .mainWrap{
       display: flex;
       justify-content:center;
-      margin-bottom:120px;
     }
 
     .big_title{
@@ -325,6 +324,7 @@
       text-align: center;
       font-size: 14px;
       padding:15px;
+      color:#1a1a1a;
       border-bottom:1px solid #ddd;
     }
 
@@ -351,50 +351,51 @@
     /* 하단라벨링 */
     .flex:not(.flex-dir-column).flex-h-center, .flex.flex-dir-row.flex-h-center {justify-content: center;}
     @media (max-width: 767px) {
-      .flex-h-center[_ngcontent-ng-c2831665569] {
-          left: calc(50% - 74px);
-      }
+        .flex-h-center[_ngcontent-ng-c2831665569] {
+            left: calc(50% - 74px);
+        }
     }
     .flex-h-center[_ngcontent-ng-c2831665569] {
-      display: flex;
-      margin-top:50px;
+        display: flex;
+        margin-bottom: 20px;
     }
     .flex:not(.flex-dir-column), .flex.flex-dir-row {
-      flex-direction: row;
+        flex-direction: row;
     }
     [_nghost-ng-c522025578] {
-      display: inline-flex;
-      align-items: center;
-      line-height: 1;
+        display: inline-flex
+    ;
+        align-items: center;
+        line-height: 1;
     }
     .numbers-pager[_ngcontent-ng-c522025578] {margin: 0 .5em; flex-shrink: 0;}
-    .numbers[_ngcontent-ng-c522025578], .numbers-pager[_ngcontent-ng-c522025578] {display: inline-block; margin: 0 10px 0 10px; color: #2D7868;}
+    .numbers[_ngcontent-ng-c522025578], .numbers-pager[_ngcontent-ng-c522025578] {display: inline-block; margin: 0 10px 0 10px; color: #ccc;}
     .numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #383838;}
     .numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
     button[disabled] {
         cursor: default;
     }
     @media (max-width: 1199px) {
-      [_nghost-ng-c1936088117] {
-          font-size: 26px;
-      }
+        [_nghost-ng-c1936088117] {
+            font-size: 26px;
+        }
     }
     [_nghost-ng-c1936088117] {
-      border: none;
-      margin: 0;
-      padding: 0;
-      width: auto;
-      overflow: visible;
-      background: transparent;
-      color: inherit;
-      font: inherit;
-      line-height: normal;
-      -webkit-font-smoothing: inherit;
-      -moz-osx-font-smoothing: inherit;
-      -webkit-appearance: none;
-      cursor: pointer;
-      line-height: 0;
-      font-size: 30px;
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        overflow: visible;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        -webkit-font-smoothing: inherit;
+        -moz-osx-font-smoothing: inherit;
+        -webkit-appearance: none;
+        cursor: pointer;
+        line-height: 0;
+        font-size: 30px;
     }
     button {cursor: pointer;}
     svg{width: 24; height: 24; fill: none;}
@@ -411,7 +412,7 @@
         fill: white;
         transform: translate(24, 24) rotate(180deg);
     }
-    .numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #2D7868;}
+    .numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #ccc;}
     .numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
     button[disabled] {cursor: default;}
     @media (max-width: 1199px) {
@@ -420,25 +421,33 @@
         }
     }
     [_nghost-ng-c1936088117] {
-      border: none;
-      margin: 0;
-      padding: 0;
-      width: auto;
-      overflow: visible;
-      background: transparent;
-      color: inherit;
-      font: inherit;
-      line-height: normal;
-      -webkit-font-smoothing: inherit;
-      -moz-osx-font-smoothing: inherit;
-      -webkit-appearance: none;
-      cursor: pointer;
-      line-height: 0;
-      font-size: 30px;
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        overflow: visible;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        -webkit-font-smoothing: inherit;
+        -moz-osx-font-smoothing: inherit;
+        -webkit-appearance: none;
+        cursor: pointer;
+        line-height: 0;
+        font-size: 30px;
     }
 
     .numbers[_ngcontent-ng-c522025578] a[_ngcontent-ng-c522025578] {margin: 0 5px; color: #ccc; font-size: 20px; cursor: pointer;}
-    .numbers[_ngcontent-ng-c522025578] a.active[_ngcontent-ng-c522025578] {color: #2D7868;}
+    .numbers[_ngcontent-ng-c522025578] a.active[_ngcontent-ng-c522025578] {color: black;}
+    .flex-h-center[_ngcontent-ng-c2831665569] {
+      margin-top:50px;
+    }
+
+    [_nghost-ng-c3051396554] svg {
+        width: 1.3em;
+        height: 1.3em;
+    }
 
 
 
