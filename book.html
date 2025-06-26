@@ -9,115 +9,159 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e1869b8eb9.js" crossorigin="anonymous"></script>
 <style>
-  body {font-family: 'Noto Sans KR', sans-serif;}
+      body {font-family: 'Noto Sans KR', sans-serif;}
 
+    * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;}
 
-  * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;}
-
-  input {
-    color: inherit; 
-    font-family: inherit; 
-    letter-spacing: inherit; 
-    appearance: none; 
-    background: none; 
-    border: 0; 
-    box-shadow: none; 
-    border-radius: 0; 
-    padding: 0; 
-    margin: 0;
-  }
-
-  a {
-    text-decoration: none; 
-    color: inherit; 
-    font-family: inherit; 
-    letter-spacing: inherit; 
-    cursor: pointer;
-  }
-  
-  hr {
-    margin: 0; 
-    padding: 0;
-  }
-  
-  /* header 부분 */
- .fig-header,
- /* 중앙 부분*/
- .fig-main{
-    max-width: 78%; /* 건들지 마세용 */
-    padding-left: 16px; 
-    padding-right: 16px; 
-    margin: 0 auto;
-  }
-  
-  .fig-main{
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-
-  .fig-nav{
-    display: grid; 
-    grid-template-columns: 1fr auto auto; 
-    align-items: center; 
-    padding: 16px 18px 8px 30px;
-  }
-  
-  /* 로고 + 교환독서 탭 */
-  .fig-header-left {
-    display: flex;
-    align-items: center; 
-    gap: 12px; 
-  }
-  .fig-one{
-    display: inline-flex;
-    width: fit-content;
-    display: flex; 
-    align-items: center; 
-    gap: 0.5rem;
-  }
-
-  .fig-logo{
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #2D7868;
-  margin: 0; 
-  font-size: 25px; 
-  }
-
-  .fig-exchangeimage {
-    height: 20px; 
-    margin-left: 20px; 
-    position: relative;
-  }
-
-  @media (max-width: 767px) {
-    .exchangeimage :before {
-      content: '';
-      position: absolute;
-      display: block;
-      top: -8px;
-      left: -8px;
-      width: 40px;
-      height: 40px;
-      z-index: 1;
-      background-color: transparent;
+    input {
+      color: inherit; 
+      font-family: inherit; 
+      letter-spacing: inherit; 
+      appearance: none; 
+      background: none; 
+      border: 0; 
+      box-shadow: none; 
+      border-radius: 0; 
+      padding: 0; 
+      margin: 0;
     }
-  }
 
-  .fig-exchange-book{
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #2D7868;
-    margin: 0; 
-    font-size: 17px; 
-  }
+    a {
+      text-decoration: none; 
+      color: inherit; 
+      font-family: inherit; 
+      letter-spacing: inherit; 
+      cursor: pointer;
+    }
 
-  @media (max-width: 767px) {
+    hr {
+      margin: 0; 
+      padding: 0;
+    }
+
+    /* header 부분 */
+    .fig-header,
+    /* 중앙 부분*/
+    .fig-main{
+      max-width: 78%; /* 건들지 마세용 */
+      padding-left: 16px; 
+      padding-right: 16px; 
+      margin: 0 auto;
+    }
+
+    .fig-main{
+      padding-top: 30px;
+      margin-bottom:120px;
+    }
+
+    .fig-nav{
+      display: grid; 
+      grid-template-columns: 1fr auto auto; 
+      align-items: center; 
+      padding: 16px 18px 8px 30px;
+    }
+
+    /* 로고 + 교환독서 탭 */
+    .fig-header-left {
+      display: flex;
+      align-items: center; 
+      gap: 12px; 
+    }
+    .fig-one{
+      display: inline-flex;
+      width: fit-content;
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem;
+    }
+
+    .fig-logo{
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2D7868;
+      margin: 0; 
+      font-size: 25px; 
+    }
+
+    .fig-exchangeimage {
+      height: 20px; 
+      margin-left: 20px; 
+      position: relative;
+    }
+
+    @media (max-width: 767px) {
+      .exchangeimage :before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: -8px;
+        left: -8px;
+        width: 40px;
+        height: 40px;
+        z-index: 1;
+        background-color: transparent;
+      }
+    }
+
     .fig-exchange-book{
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2D7868;
+      margin: 0; 
+      font-size: 17px; 
+    }
+
+    @media (max-width: 767px) {
+      .fig-exchange-book{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+      }
+    }
+
+    /* 검색바 */
+    .fig-searchform {
+      position: absolute;
+      left: 700px;
+      width: 500px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .fig-tabindex {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .fig-formlabel {
+      display: flex;
+      align-items: center;
+      padding: 6px 10px;
+      min-height: 40px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .fig-searchimage {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+      color: #a5a5a5;
+      fill: currentColor;
+      display: inline-block;
+    }
+
+    .fig-instant {
       position: absolute;
       width: 1px;
       height: 1px;
@@ -127,90 +171,45 @@
       border: 0;
       clip: rect(0, 0, 0, 0);
     }
-  }
-  
-  /* 검색바 */
-  .fig-searchform {
-    position: absolute;
-    left: 700px;
-    width: 500px;
-    display: flex;
-    align-items: flex-start;
-  }
 
-  .fig-tabindex {
-    flex: 1;
-    min-width: 0;
-  }
+    .fig-forminput {
+      flex: 1;
+      width: 0;
+      min-width: 0;
+      height: 100%;
+      font-size: 15px;
+      line-height: 18px;
+      color: #141414;
+      caret-color: #2D7868;
+    }
 
-  .fig-formlabel {
-    display: flex;
-    align-items: center;
-    padding: 6px 10px;
-    min-height: 40px;
-    background: #f5f5f5;
-    border-radius: 8px;
-  }
+    /* 로그인 회원가입 */
+    .fig-join {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
 
-  .fig-searchimage {
-    font-size: 20px;
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-    color: #a5a5a5;
-    fill: currentColor;
-    display: inline-block;
-  }
+    .fig-signup,
+    .fig-login {
+      padding: 11px 12px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 18px;
+      text-align: center;
+      color: #2D7868;
+    }
 
-  .fig-instant {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-  }
-
-  .fig-forminput {
-    flex: 1;
-    width: 0;
-    min-width: 0;
-    height: 100%;
-    font-size: 15px;
-    line-height: 18px;
-    color: #141414;
-    caret-color: #2D7868;
-  }
-
-  /* 로그인 회원가입 */
-  .fig-join {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-
-  .fig-signup,
-  .fig-login {
-    padding: 11px 12px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 18px;
-    text-align: center;
-    color: #2D7868;
-  }
-
-  /* header 구분선 */
-  .fig-hr{
-    display: block;
-    width: 100%;
-    height: 1px;
-    box-sizing: border-box;
-    border: none;
-    background: #f0f0f0;
-    margin-top: 5px;
-  }
+    /* header 구분선 */
+    .fig-hr{
+      display: block;
+      width: 100%;
+      height: 1px;
+      box-sizing: border-box;
+      border: none;
+      background: #f0f0f0;
+      margin-top: 5px;
+    }
 
   /* Rigrid Components */
   .rigrid-1eern24 *,
@@ -331,11 +330,6 @@
     }
   }
   
-
-main {
-    display: block;
-}
-
 .main[_ngcontent-ng-c3291395657] {
     width: 100%;
     margin-top: 40px;
@@ -370,23 +364,21 @@ element.style {
 }
 
 [_nghost-ng-c2831665569] {
-    display: flex;
-    align-items: center;
-    gap: 33px 10px;
-}
-
-@media (max-width: 1199px) {
-    [_nghost-ng-c2831665569] {
-        gap: 10px;
-    }
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  max-width: 100%;
 }
 
 /* Book Card */
 .book[_ngcontent-ng-c2831665569] {
-    width: calc((100% - 30px) / 4);
+    width: 100%;
     --sui-book-bg-box-width: 270px;
     --sui-book-bg-box-height: 465px;
     --sui-book-cover-width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
 }
 
 @media (max-width: 1199px) {
@@ -397,11 +389,6 @@ element.style {
     }
 }
 
-.book[_ngcontent-ng-c2831665569] sui-book[_ngcontent-ng-c2831665569] {
-  display: flex;
-  margin: 20px 0;
-  justify-content: center;
-}
 
 .book[_ngcontent-ng-c2831665569] sui-book[_ngcontent-ng-c2831665569] .sui-book__cover-container,
 .book[_ngcontent-ng-c2831665569] sui-book[_ngcontent-ng-c2831665569] sui-book-title[_ngcontent-ng-c2831665569],
@@ -633,97 +620,108 @@ sui-book-rating{
 .price[_ngcontent-ng-c2831665569] span:nth-child(1) div {font-size: 10px; line-height: 24px; text-align: center;}
 .price[_ngcontent-ng-c2831665569] span:nth-child(2) {font-size: 14px; color: #282828; font-weight: 700;}
 
-.flex:not(.flex-dir-column).flex-h-center, .flex.flex-dir-row.flex-h-center {justify-content: center;}
-@media (max-width: 767px) {
+
+    /* 하단라벨링 */
+    .flex:not(.flex-dir-column).flex-h-center, .flex.flex-dir-row.flex-h-center {justify-content: center;}
+    @media (max-width: 767px) {
+        .flex-h-center[_ngcontent-ng-c2831665569] {
+            left: calc(50% - 74px);
+        }
+    }
     .flex-h-center[_ngcontent-ng-c2831665569] {
-        left: calc(50% - 74px);
+        display: flex;
+        margin-bottom: 20px;
     }
-}
-.flex-h-center[_ngcontent-ng-c2831665569] {
-    display: flex;
-    margin-bottom: 20px;
-}
-.flex:not(.flex-dir-column), .flex.flex-dir-row {
-    flex-direction: row;
-}
-[_nghost-ng-c522025578] {
-    display: inline-flex
-;
-    align-items: center;
-    line-height: 1;
-}
-.numbers-pager[_ngcontent-ng-c522025578] {margin: 0 .5em; flex-shrink: 0;}
-.numbers[_ngcontent-ng-c522025578], .numbers-pager[_ngcontent-ng-c522025578] {display: inline-block; margin: 0 10px 0 10px; color: #2D7868;}
-.numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #383838;}
-.numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
-button[disabled] {
-    cursor: default;
-}
-@media (max-width: 1199px) {
+    .flex:not(.flex-dir-column), .flex.flex-dir-row {
+        flex-direction: row;
+    }
+    [_nghost-ng-c522025578] {
+        display: inline-flex
+    ;
+        align-items: center;
+        line-height: 1;
+    }
+    .numbers-pager[_ngcontent-ng-c522025578] {margin: 0 .5em; flex-shrink: 0;}
+    .numbers[_ngcontent-ng-c522025578], .numbers-pager[_ngcontent-ng-c522025578] {display: inline-block; margin: 0 10px 0 10px; color: #ccc;}
+    .numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #383838;}
+    .numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
+    button[disabled] {
+        cursor: default;
+    }
+    @media (max-width: 1199px) {
+        [_nghost-ng-c1936088117] {
+            font-size: 26px;
+        }
+    }
     [_nghost-ng-c1936088117] {
-        font-size: 26px;
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        overflow: visible;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        -webkit-font-smoothing: inherit;
+        -moz-osx-font-smoothing: inherit;
+        -webkit-appearance: none;
+        cursor: pointer;
+        line-height: 0;
+        font-size: 30px;
     }
-}
-[_nghost-ng-c1936088117] {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-appearance: none;
-    cursor: pointer;
-    line-height: 0;
-    font-size: 30px;
-}
-button {cursor: pointer;}
-svg{width: 24; height: 24; fill: none;}
-svg:not(:root) {overflow-clip-margin: content-box; overflow: visible;}
-g{clip-path: url(#clip0_2830_122058);}
-mask{x: 0; y: 0; width: 24; height: 24;}
+    button {cursor: pointer;}
+    svg{width: 24; height: 24; fill: none;}
+    svg:not(:root) {overflow-clip-margin: content-box; overflow: visible;}
+    g{clip-path: url(#clip0_2830_122058);}
+    mask{x: 0; y: 0; width: 24; height: 24;}
 
-g {mask: url(#mask0_2830_122058);}
-:not(svg) {transform-origin: 0px 0px;}
+    g {mask: url(#mask0_2830_122058);}
+    :not(svg) {transform-origin: 0px 0px;}
 
-rect {
-    width: 24;
-    height: 24;
-    fill: white;
-    transform: translate(24, 24) rotate(180deg);
-}
-.numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #2D7868;}
-.numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
-button[disabled] {cursor: default;}
-@media (max-width: 1199px) {
+    rect {
+        width: 24;
+        height: 24;
+        fill: white;
+        transform: translate(24, 24) rotate(180deg);
+    }
+    .numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #ccc;}
+    .numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
+    button[disabled] {cursor: default;}
+    @media (max-width: 1199px) {
+        [_nghost-ng-c1936088117] {
+            font-size: 26px;
+        }
+    }
     [_nghost-ng-c1936088117] {
-        font-size: 26px;
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        overflow: visible;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        -webkit-font-smoothing: inherit;
+        -moz-osx-font-smoothing: inherit;
+        -webkit-appearance: none;
+        cursor: pointer;
+        line-height: 0;
+        font-size: 30px;
     }
-}
-[_nghost-ng-c1936088117] {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-appearance: none;
-    cursor: pointer;
-    line-height: 0;
-    font-size: 30px;
-}
 
-.numbers[_ngcontent-ng-c522025578] a[_ngcontent-ng-c522025578] {margin: 0 5px; color: #ccc; font-size: 20px; cursor: pointer;}
-.numbers[_ngcontent-ng-c522025578] a.active[_ngcontent-ng-c522025578] {color: #2D7868;}
+    .numbers[_ngcontent-ng-c522025578] a[_ngcontent-ng-c522025578] {margin: 0 5px; color: #ccc; font-size: 20px; cursor: pointer;}
+    .numbers[_ngcontent-ng-c522025578] a.active[_ngcontent-ng-c522025578] {color: black;}
+    .flex-h-center[_ngcontent-ng-c2831665569] {
+      margin-top:50px;
+    }
+
+    [_nghost-ng-c3051396554] svg {
+        width: 1.3em;
+        height: 1.3em;
+    }
+
 
 .fig-14iy1hi {
     display: -webkit-box;
@@ -887,7 +885,7 @@ button[disabled] {cursor: default;}
     <ng-component class="ng-star-inserted">
       <main class="main">
         <div class="items">
-          <home-search-book-list style="position: relative;display: flex;flex-wrap: wrap;align-items: center;justify-content: center;" _nghost-ng-c2831665569="">
+          <home-search-book-list _nghost-ng-c2831665569="">
             <div _ngcontent-ng-c2831665569="" class="book ng-star-inserted">
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
@@ -1142,57 +1140,7 @@ button[disabled] {cursor: default;}
                   </div>
                 </sui-book>
             </div>
-            <div _ngcontent-ng-c2831665569="" class="book ng-star-inserted">
-              <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
-                <div _ngcontent-ng-c1655548388="" class="sui-book__box">
-                  <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
-                    </button>
-                    <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
-                      <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/kg2264.jpg"><!----></div>
-                      <div _ngcontent-ng-c1655548388="" class="sui-book__tags"><!----></div>
-                      <div _ngcontent-ng-c1655548388="" class="sui-book__tail-tags"><!----><!---->
-                        <svg _ngcontent-ng-c1655548388="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="sui-book__tail-tags-tail">
-                          <path _ngcontent-ng-c1655548388="" fill-rule="evenodd" clip-rule="evenodd" d="M16 16L-6.99382e-07 16L0 0C-3.86258e-07 8.83656 7.16344 16 16 16Z" fill="white"></path>
-                        </svg>
-                      </div><!---->
-                    </div>
-                    <div class="sui-book__inform-container">
-                      <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">문제은행 3000제 꿀꺽수학 중 3-하</sui-book-title>
-                      <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">3000제 편찬위원회</sui-book-author>
-                      <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
-                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.9</sui-book-rating>
-                    </div>
-                </div>
-              </sui-book>
-            </div>
-            <div _ngcontent-ng-c2831665569="" class="book ng-star-inserted">
-              <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
-                <div _ngcontent-ng-c1655548388="" class="sui-book__box">
-                  <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
-                    </button>
-                    <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
-                      <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/kg2263.jpg"><!---->
-                    </div>
-                      <div _ngcontent-ng-c1655548388="" class="sui-book__tags"><!----></div>
-                      <div _ngcontent-ng-c1655548388="" class="sui-book__tail-tags"><!----><!---->
-                        <svg _ngcontent-ng-c1655548388="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="sui-book__tail-tags-tail">
-                          <path _ngcontent-ng-c1655548388="" fill-rule="evenodd" clip-rule="evenodd" d="M16 16L-6.99382e-07 16L0 0C-3.86258e-07 8.83656 7.16344 16 16 16Z" fill="white"></path>
-                        </svg>
-                      </div><!---->
-                  </div>
-                  <div class="sui-book__inform-container">
-                    <sui-book-title _ngcontent-ng-c2831665569="" tabindex="0">문제은행 3000제 꿀꺽수학 중 3-상</sui-book-title>
-                    <sui-book-author _ngcontent-ng-c2831665569="" tabindex="0">3000제 편찬위원회</sui-book-author>
-                    <sui-book-genre _ngcontent-ng-c2831665569="" tabindex="0">장르 | 출판사</sui-book-genre>
-                      <sui-book-rating _ngcontent-ng-c2831665569="" tabindex="0">별점 4.5</sui-book-rating>
-                  </div>
-                </div>
-              </sui-book>
-            </div><!---->
+
 
           </home-search-book-list>
           <div _ngcontent-ng-c2831665569="" class="row flex flex-h-center ng-star-inserted">
@@ -1285,16 +1233,64 @@ button[disabled] {cursor: default;}
     </div>
   </div>
 
-  <div id="footerWrap">
-    <div id="footer">
+    <style>
+      
+    /* ----------------footer----------------- */
+
+    #footerWrap{    
+      background-color: #444;
+      color:white;
+      width:100%;
+      height:300px;
+    }
+
+    #footer{
+      width:1900px;
+      height:200px;
+      display:flex;
+      justify-content: center;
+    }
+
+    #totalReview{
+      text-align: center;
+      width:100%;
+      height:70px;
+    }
+
+    #totalReview>p{
+      padding: 11px 0;
+      border-bottom:2px solid #333;
+      font-size:22px;
+    }
+
+    p>span{
+      color:#e1e280;
+      font-weight:500;
+      padding:0 10px;
+    }
+
+    /*----------------footer끝-----------------*/
+
+      #footerinfo{
+        width:1400px;
+        height:100px;
+      }
+    </style>
+
+    <div id="footerWrap">
       <div id="totalReview">
-        <h1>꼬북꼬북 모은 리뷰  <span>🐢 15,738 개</span></h1>
-        <div>꼬북꼬북과 함께 독서해요! 
-          <span><a href="#"> ▶ 교환독서 시작하기</a></span>
+        <p>🍀 꼬북꼬북 모은 리뷰<span>15,738</span>개 🍀</p>
+      </div>
+      <div id="footer">
+        <div id="footerinfo">
+          <p>꼬북꼬북 (로고)</p>
+          <br>
+          <p>공지사항 1:1문의 이용약관 개인정보처리방침 </p>
+          <p>(주) 꼬북꼬북 | 대표자명: 꼬북이 | 사업자등록번호: 123-45-67890 주소: 가산동 어딘가 123-10 | 문의: support@ggo.book </p>
+          <p>©️ 2025 꼬북꼬북 All rights reserved</p>
         </div>
       </div>
     </div>
-  </div>
 
   </body>
 </html>
