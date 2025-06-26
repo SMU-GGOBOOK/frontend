@@ -248,6 +248,7 @@
     .big_title{
       font-size: 40px;
       font-weight: 700;
+      color:#1a1a1a;
     }
     
     .fig-main{
@@ -293,14 +294,6 @@
 
     /*----------------notice style------------------*/
 
-    /* 필수 표시(*) 스타일 */
-    .fig-main span {
-      color: #2d7868;
-      margin-left:5px;
-      font-weight:700;
-
-    }
-
     .content-area{
       flex: 1;
       max-width: 1137px;
@@ -320,17 +313,17 @@
       height:54px;
       text-align: center;
       border-top:1px solid black; 
-      border-bottom:1px solid black;
+      border-bottom:1px solid #ddd;
       font-weight: 400;
       font-size: 14px;
-      color: rgb(65, 65, 65);
+      color: #636363;
       background-color: #f5f5f5;
     }
 
     td{
       height:60px;
       text-align: center;
-      font-size: 15px;
+      font-size: 14px;
       padding:15px;
       border-bottom:1px solid #ddd;
     }
@@ -343,6 +336,16 @@
     .ntc_count{
       margin: 30px 0 10px;font-size: 18px;
     }
+    
+    
+    /* 숫자 */
+    .fig-main span {
+      color: #2d7868;
+      font-size:20px;
+      margin:0 5px;
+      font-weight:700;
+    }
+
 
 
     /* 하단라벨링 */
@@ -487,12 +490,12 @@
           <div class="left_side">
             <ul class="category">
               <div class="icon">
-                <li><i class="fa-solid fa-bullhorn"></i>공지사항</li>
-              </div>
-              <div class="icon">
                 <div class="checked">
-                  <li><i class="fa-solid fa-envelope"></i>1:1문의</li>
-                </div> 
+                  <li><i class="fa-solid fa-bullhorn"></i>공지사항</li>
+                </div>
+              </div> 
+              <div class="icon">
+                <li><i class="fa-solid fa-envelope"></i>1:1문의</li>
               </div>
             </ul>
           </div>
