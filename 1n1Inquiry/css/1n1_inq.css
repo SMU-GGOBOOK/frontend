@@ -102,7 +102,9 @@ textarea:focus-within,
     color:#1a1a1a
 }
 
-
+select,#title_inq,#content_inq{
+    color:#1a1a1a;
+}
 
 .inputBoxdiv{
     padding:16px;
