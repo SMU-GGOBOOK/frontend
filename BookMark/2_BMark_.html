@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/e1869b8eb9.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type='text/css' href="css/BMark.css">
+    <link rel="stylesheet" type='text/css' href="css/2My_BookMark.css">
     <title>북마크페이지</title>
 </head>
 <style>
@@ -42,17 +42,22 @@
     padding: 0;
   }
   
-  .fig-main{
-    padding-top: 30px;
-  }
 
+  
   /* header 부분 */
- .fig-header,
- /* 중앙 부분*/
+  .fig-header,
+  /* 중앙 부분*/
  .fig-main{
     max-width: 78%; /* 건들지 마세용 */
-    padding: 0 16 16 30;
+    padding-left: 16px; 
+    padding-right: 16px; 
     margin: 0 auto;
+    
+  }
+  
+  .fig-main{
+    padding-top: 30px;
+    margin-bottom: 120px;
   }
 
   .fig-nav{
@@ -237,7 +242,7 @@
     #totalReview>h1{
       margin-bottom: 15px;
     }
-  /* 하단라벨링 */
+      /* 하단라벨링 */
   .flex:not(.flex-dir-column).flex-h-center, .flex.flex-dir-row.flex-h-center {justify-content: center;}
 @media (max-width: 767px) {
     .flex-h-center[_ngcontent-ng-c2831665569] {
@@ -247,6 +252,7 @@
 .flex-h-center[_ngcontent-ng-c2831665569] {
     display: flex;
     margin-bottom: 20px;
+    margin-top: 50px;
 }
 .flex:not(.flex-dir-column), .flex.flex-dir-row {
     flex-direction: row;
@@ -258,7 +264,7 @@
     line-height: 1;
 }
 .numbers-pager[_ngcontent-ng-c522025578] {margin: 0 .5em; flex-shrink: 0;}
-.numbers[_ngcontent-ng-c522025578], .numbers-pager[_ngcontent-ng-c522025578] {display: inline-block; margin: 0 10px 0 10px; color: #2D7868;}
+.numbers[_ngcontent-ng-c522025578], .numbers-pager[_ngcontent-ng-c522025578] {display: inline-block; margin: 0 10px 0 10px; color: #ccc;}
 .numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #383838;}
 .numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
 button[disabled] {
@@ -301,7 +307,7 @@ rect {
     fill: white;
     transform: translate(24, 24) rotate(180deg);
 }
-.numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #2D7868;}
+.numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #ccc;}
 .numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
 button[disabled] {cursor: default;}
 @media (max-width: 1199px) {
@@ -328,7 +334,7 @@ button[disabled] {cursor: default;}
 }
 
 .numbers[_ngcontent-ng-c522025578] a[_ngcontent-ng-c522025578] {margin: 0 5px; color: #ccc; font-size: 20px; cursor: pointer;}
-.numbers[_ngcontent-ng-c522025578] a.active[_ngcontent-ng-c522025578] {color: #2D7868;}
+.numbers[_ngcontent-ng-c522025578] a.active[_ngcontent-ng-c522025578] {color: black;}
 
 
 </style>
@@ -381,28 +387,27 @@ button[disabled] {cursor: default;}
                        <li><i class="fa-solid fa-book"></i>내가 쓴 리뷰</li>
                     </div>
                     <div class="icon">
-                        <li class="checked"><i class="fa-solid fa-book-bookmark"></i>북마크한 도서</li>
+                        <li class="checked"><i class="fa-solid fa-book-bookmark"></i>북마크 도서</li>
                     </div>
                     <div class="icon">
                         <li><i class="fa-solid fa-rotate"></i>교환독서</li>
                     </div>
                 </ul>
-                <ul class="inform">
-                    <li><i class="fa-solid fa-user-lock"></i> 차단한 사용자</li>
-                    <li>정보수정/계정삭제</li>
-                </ul>
             </div>
             <div class="main">
-                <div class="user_info">
-                    <div class="profile_name">
-                        <div class="nickname">
-                            <i class="fa-solid fa-circle-user"></i>
-                            <span>닉네임</span>
-                        </div>
-                        <!-- <div class="user_name">
-                            <span>이름</span>
-                        </div> -->
-                    </div>
+              <div class="user_info">
+                  <div class="profile_name">
+                      <div class="nickname">
+                          <i class="fa-solid fa-circle-user"></i>
+                          <span>닉네임</span>
+                      </div>
+                      <hr>
+                      <div class="user_name">
+                        <span><!--<i class="fa-solid fa-user-lock"></i>*-->차단한 사용자</span>
+                        <span class="user_name_gap"> | </span>
+                        <span>정보수정·계정삭제</span>
+                      </div> 
+                  </div>
                 </div>
                 <section>
                     <div class="bookbox">
@@ -573,4 +578,5 @@ button[disabled] {cursor: default;}
       });
     });
   </script>
+
 </html>
