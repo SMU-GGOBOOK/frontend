@@ -5,56 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/955e8c2313.js" crossorigin="anonymous"></script>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style_shareAddgroup.css">
+    <link rel="stylesheet" type="text/css" href="css/Share_AddGroup.css">
+    <link rel="stylesheet" type="text/css" href="../HeaderFooter/css/main.css">
 
-    
     <title>꼬북꼬북 | 교환독서_그룹만들기</title>
-    <style>
-    </style>
 </head>
 <!-- <body data-page="exchange"> -->
 <body>
-    <!-- header -->
-    <header class="fig-header">
-        <nav class="fig-nav">
-        <div class="fig-header-left">
-            <a class="fig-one" href="/" rel="noreferrer">
-            <h1 class="fig-logo">꼬북꼬북</h1>
-            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg" class="fig-exchangeimage">
-                <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3"
-                stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-            <h4 class="fig-exchange-book">교환 독서</h4>
-            </a>
+  <header class="fig-header">
+    <nav class="fig-nav">
+      <div class="fig-header-left">
+        <a class="fig-one" href="/" rel="noreferrer">
+          <h1 class="fig-logo">꼬북꼬북</h1>
+          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="fig-exchangeimage">
+            <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          <h4 class="fig-exchange-book">교환 독서</h4>
+        </a>
+      </div>
+
+      <form role="search" class="fig-searchform et3830u0">
+        <div tabindex="-1" class="fig-tabindex">
+          <div class="fig-q3rd3s et3830u1">
+            <label class="fig-formlabel">
+              <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                class="fig-searchimage">
+                <path fill-rule="evenodd"
+                  d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
+                </path>
+              </svg>
+              <span class="fig-instant">인스턴트 검색</span>
+              <input type="text" maxlength="64" tabindex="-1" class="fig-forminput" value="">
+            </label>
+          </div>
         </div>
+      </form>
 
-        <form role="search" class="fig-searchform et3830u0">
-            <div tabindex="-1" class="fig-tabindex">
-            <div class="fig-q3rd3s et3830u1">
-                <label class="fig-formlabel">
-                <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="fig-searchimage">
-                    <path fill-rule="evenodd" d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
-                    </path>
-                </svg>
-                <span class="fig-instant">인스턴트 검색</span>
-                <input type="text" maxlength="64" tabindex="-1" class="fig-forminput" value="">
-                </label>
-            </div>
-            </div>
-        </form>
+      <div class="fig-join">
+        <a href="" class="fig-signup">회원가입</a>
+        <a href="" class="fig-login">로그인</a>
+      </div>
 
-        <div class="fig-join">
-            <a href="" class="fig-signup">회원가입</a>
-            <a href="" class="fig-login">로그인</a>
-        </div>
+    </nav>
+  </header>
 
-        </nav>
-    </header> 
-    <hr class="fig-hr">
-
-    <!-- 교환독서 메인페이지  -->
+  <hr class="fig-hr">
     <div class="fig-main">
+
+        <!-- 교환독서 메인페이지  -->
         <div class="feed__content">
             <!-- 참여중이 그룹 표시 -->
             <div class="feed__add">
@@ -70,7 +70,7 @@
                                     <label>그룹명</label>
                                     <span>*</span>
                                 </th>
-                                <td><input type="text" name="group_name" class="group_name"></td>
+                                <td><input type="text" name="group_name" class="group_name" placeholder="그룹명을 입력해주세요."></td>
                             </tr>
                             <tr>
                                 <th>
@@ -99,15 +99,15 @@
                                     <label>그룹 소개</label>
                                     <span>*</span>
                                 </th>
-                                <td><textarea name="description" class="description" rows="4"></textarea></td>
+                                <td><textarea name="description" class="description" rows="4" placeholder="그룹 소개글을 입력해주세요."></textarea></td>
                             </tr>
                             <tr>
                                 <th>
-                                    <label>책 주제</label>
+                                    <label>책 선택</label>
                                     <span>*</span>
                                 </th>
                                 <td>
-                                    <input type="text" class="group_search" placeholder="책 검색">
+                                    <input type="text" class="group_search" placeholder="책 제목을 검색해주세요.">
                                     <a href='#'>
                                         <div class="group_search_button">
                                             <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
@@ -119,7 +119,17 @@
                                 <th><label>관련 해시태그</label></th>
                                 <td>
                                     <div class="group_keyword">
-                                        <input type="text" name="group_keyword_input" id="group_keyword_input" placeholder="직접 입력">
+                                        <div class="group_keyword_input">
+                                            <input type="text" name="group_keyword_input" placeholder="직접 입력 (ex. 시) ">
+                                            <div class="add_tag_btn">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="group_keyword_output">
+                                            <!-- 생성된 태그가 여기에 들어감 -->
+                                        </div>
+                                        <!-- ✅ 폼 제출용 hidden input -->
+                                        <input type="hidden" name="group_keywords_hidden" id="group_keywords_hidden">
                                         <div class="tags">
                                             <a href=#><p>#시</p></a>
                                             <a href=#><p>#소설</p></a>
@@ -131,8 +141,17 @@
                                             <a href=#><p>#청소년</p></a>
                                             <a href=#><p>#역사</p></a>
                                             <a href=#><p>#철학</p></a>
+                                            <a href=#><p>#심리</p></a>
+                                            <a href=#><p>#상담</p></a>
+                                            <a href=#><p>#편하게이야기</p></a>
+                                            <a href=#><p>#우리끼리</p></a>
+                                            <a href=#><p>#독서초보환영</p></a>
+                                            <a href=#><p>#미션</p></a>
+                                            <a href=#><p>#글쓰기</p></a>
+                                            <a href=#><p>#세계문학</p></a>
+                                            <a href=#><p>#스토리텔링</p></a>
                                             <a href=#><p>#여행</p></a>
-                                            <a href=#><p>#잡지</p></a>
+                                            <a href=#><p>#잡지</p></a>                                          
                                             <a href=#><p>#베스트셀러</p></a>
                                             <a href=#><p>#고전</p></a>
                                             <a href=#><p>#신간</p></a>
@@ -157,7 +176,7 @@
                                     <label>그룹 비밀번호</label>
                                     <span>*</span>
                                 </th>
-                                <td>
+                                <td id="pw_1">
                                     <div class="input-with-icon">
                                         <input type="password" name="group_pw" class="group_pw" placeholder="비밀번호">
                                         <i class="fa-solid fa-eye-slash"></i>
@@ -211,32 +230,165 @@
                 </div>
             </div>
         
-        </div>
+        </div>          
     </div>
     
-    <!-- footer -->
-    <div id="footerWrap">
-        <div id="footer">
-        <div id="totalReview">
-            <h1>꼬북꼬북 모은 리뷰  <span>🐢 15,738 개</span></h1>
-            <div>꼬북꼬북과 함께 독서해요! 
-            <span><a href="#"> ▶ 교환독서 시작하기</a></span>
-          </div>
+<!-- footer -->
+    <div class="footerWrap">
+    <div class="totalReview">
+      <p>꼬북꼬북 모은 리뷰<span>15,738</span>개</p>
+    </div>
+    <!--리뷰수 아래 정보부분-->
+    <div class="footer">
+      <div class="footer-left">
+        <p>(주) 꼬북꼬북</p>
+        <div class="infoWrap">
+          <ul>
+            <li>대표자명: 꼬북이</li>
+            <li>사업자등록번호: 123-45-67890</li>
+            <li>통신판매업신고: 2025-하룰라라-01159</li>
+            <li>이메일: support@ggo.book</li>
+          </ul>
+          <ul>
+            <li>주소: 서울시 가산동 하룰라라로 궁전센터1차 123-01</li>
+            <li>Tel : 02-1991-1120</li>
+            <li>Fax : 02-1991-1120</li>
+          </ul>
+          <p>© 2025 꼬북꼬북 All rights reserved</p>
+        </div>
+        <div class="logos">
+          <img src="../HeaderFooter/logos/notion_white.png" style="width:30px;">
+          <img src="../HeaderFooter/logos/github_white.png" style="width:30px;">
+          <img src="../HeaderFooter/logos/youtube_white.png" style="width:30px;">
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>고객센터 1234-5678 (발신자 부담)</p>
+        <div class="csWrap">
+          <button class="ntcBtn">공지사항</button>
+          <button class="inqBtn">1:1문의</button>
+        </div>
+        <table class="gitIds">
+          <tbody>
+            <tr>
+              <td colspan="3">www.ggobookggobook.com</td>
+            </tr>
+            <tr>
+              <td>이승민 @null4848</td>
+              <td>김슬비 @kb4954</td>
+              <td>김민성 @LatteMeng</td>
+            </tr>
+            <tr>
+              <td>김혜원 @hwk3005</td>
+              <td>신민철 @resader1</td>
+              <td>공유현 @sharehyun</td>
+            </tr>
+          </tbody>
+        </table>
         </div>
       </div>
     </div>
-    
+    <!--리뷰수 아래 정보부분-->
 </body>
 
-<!-- 교환독서-메인페이지 헤더 검색창 숨기기 js 관련 -->
-<!-- <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        if (document.body.dataset.page === "exchange") {
-        const searchForm = document.querySelector(".fig-searchform");
-        if (searchForm) {
-            searchForm.style.display = "none";
-        }
-        }
+
+
+
+
+
+
+<!-- -------------------- script ----------------------------------------- -->
+<!-- 관련 해시태그 기능
+    input에서 Enter로 태그 추가
+    + 버튼 클릭으로 태그 추가
+    한글만 입력 가능
+    최대 8개까지만 추가 가능
+    중복 태그 방지
+    태그 삭제 가능
+    폼 제출용 hidden input에 자동 저장 -->
+<script>
+  const input = document.querySelector("input[name='group_keyword_input']");
+  const addBtn = document.querySelector(".add_tag_btn");
+  const outputArea = document.querySelector(".group_keyword_output");
+  const hiddenInput = document.querySelector("#group_keywords_hidden");
+  const tagLinks = document.querySelectorAll(".tags a"); // 아래 해시태그 리스트
+  const addedTags = new Set();
+
+  const MAX_TAGS = 8;
+  const HANGUL_REGEX = /^[가-힣]+$/;
+
+  // hidden input에 저장
+  function updateHiddenInput() {
+    hiddenInput.value = Array.from(addedTags).join(",");
+  }
+
+  // 실제 태그 추가 함수 (중복, 제한 등 포함)
+  function addTag(tagText) {
+    if (!tagText || addedTags.has(tagText)) return;
+
+    if (addedTags.size >= MAX_TAGS) {
+      alert("최대 8개의 태그만 추가할 수 있습니다.");
+      return;
+    }
+
+    addedTags.add(tagText);
+
+    const tag = document.createElement("div");
+    tag.className = "added-tag";
+    tag.textContent = tagText;
+
+    const delBtn = document.createElement("span");
+    delBtn.className = "tag-delete";
+    delBtn.innerHTML = "&times;";
+    delBtn.onclick = () => {
+      addedTags.delete(tagText);
+      tag.remove();
+      updateHiddenInput();
+    };
+
+    tag.appendChild(delBtn);
+    outputArea.appendChild(tag);
+    updateHiddenInput();
+  }
+
+  // input 기반 태그 추가 (한글 체크 포함)
+  function addTagFromInput() {
+    const value = input.value.trim();
+    const tagText = `#${value}`;
+
+    if (!value) return;
+
+    if (!HANGUL_REGEX.test(value)) {
+      alert("한글만 입력 가능합니다.");
+      return;
+    }
+
+    addTag(tagText);
+    input.value = "";
+  }
+
+  // Enter 키로 입력
+  input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      addTagFromInput();
+    }
+  });
+
+  // + 버튼 클릭
+  addBtn.addEventListener("click", addTagFromInput);
+
+  // 아래 해시태그 클릭 시 추가
+  tagLinks.forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const tagText = this.textContent.trim();
+      addTag(tagText);
     });
-</script> -->
+  });
+</script>
+
+<!-- --------------------------------------------------------------------- -->
+
+
 </html>
