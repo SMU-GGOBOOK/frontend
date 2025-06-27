@@ -11,7 +11,7 @@
 <style>
       body {font-family: 'Noto Sans KR', sans-serif;}
 
-    * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;}
+    * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; list-style: none;}
 
     input {
       color: inherit; 
@@ -504,9 +504,15 @@ element.style {
     border-top-right-radius: 10px;
 }
 
-.sui-book__tail-tags .sui-book__tail-tags-tail {position: absolute; bottom: 100%; left: 0;}
+.sui-book__tail-tags .sui-book__tail-tags-tail {
+  position: absolute; 
+  bottom: 100%; 
+  left: 0;
+}
 
-.sui-book__tail-tags .sui-book__tail-tags-tail:first-child {display: none;}
+.sui-book__tail-tags .sui-book__tail-tags-tail:first-child {
+  display: none;
+}
 
 /* 제목 최소 높이 지정 */
 sui-book-title {
@@ -534,30 +540,22 @@ sui-book-author {
 sui-book-genre, sui-book-rating {
     font-size: 14px;
     line-height: 18px;
-    color:#333
+    color:#636363
 }
 
 sui-book-rating{
   text-align: right;
 }
 
-sui-book-genre{
-  color:#555
-}
-
-sui-book-rating{
-  color:#A0A0A0
-}
-
 @media (max-width: 1199px) {
     sui-book-title,
     sui-book-author {
         max-width: 200px;
-        margin-left: 10px;
+        margin-left: 15px;
     }
     sui-book-genre, sui-book-rating {
         max-width: 200px;
-        margin-right: 10px;
+        margin-right: 15px;
     }
 }
 
@@ -1213,58 +1211,172 @@ sui-book-rating{
   </div>
 
     <style>
-    #footerWrap{    
-      background-color: #444;
-      color:white;
-      width:100%;
-      height:300px;
-    }
+/* ----------------footer----------------- */
 
-    #footer{
-      width:1900px;
-      height:200px;
-      display:flex;
-      justify-content: center;
-    }
+.footerWrap{    
+    background-color: #444;
+    width:100%;
+    height:300px;
 
-    #totalReview{
-      text-align: center;
-      width:100%;
-      height:70px;
-    }
+}
 
-    #totalReview>p{
-      padding: 11px 0;
-      border-bottom:2px solid #333;
-      font-size:22px;
-    }
+.footer{
+    width:1400px;
+    height:200px;
+    margin:0 auto;
+    padding-top:20px;
+    display:flex;
+    justify-content: space-between;
+    color:#fafafa;
+    font-weight:300;
+    font-size:15px;
+}
 
-    p>span{
-      color:#e1e280;
-      font-weight:500;
-      padding:0 10px;
-    }
+.totalReview{
+    text-align: center;
+    width:100%;
+    height:56px;
+}
 
-    #footerinfo{
-      width:1400px;
-      height:100px;
-    }
-    </style>
+.totalReview>p{
+    color:#fafafa;
+    padding: 11px 0;
+    border-bottom:2px solid #333;
+    font-size:22px;
+}
 
-    <div id="footerWrap">
-      <div id="totalReview">
-        <p>🍀 꼬북꼬북 모은 리뷰<span>15,738</span>개 🍀</p>
+.totalReview>p>span{
+    font-weight:700;
+    padding:0 10px;
+    font-size: 23px;
+}
+
+
+.footer-left{
+    width:1000px;
+    display:flex;
+    justify-content:space-between;
+    flex-direction: column;
+}
+
+
+/*(주)꼬북꼬북부터 Fax까지*/
+.footer-left>p, .footer-right>p{
+    font-size:20px;
+    font-weight:700;
+}
+
+.infoWrap > ul{
+    display:flex;
+    margin-bottom:5px;
+}
+
+.infoWrap > ul > li:not(:last-child)::after{
+    content: "|";
+    color: #ccc;
+    margin: 0 15px;
+    font-weight: 300;
+}
+
+/*노션,깃,유튜브 로고부분*/
+.logos{
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoWrap{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+/*----------오른쪽------------*/
+
+.footer-right{
+  width:400px;
+  height:180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.csWrap{
+    width:380px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.csWrap > button{
+    cursor: pointer;
+    width:180px;
+    height:40px;
+    color:#f0f0f0;
+    background:#333;
+    border:1px solid #f0f0f0;
+    border-radius: 7px;
+}
+
+.footer-right>.gitIds>tbody>tr>td{
+    height:25px;
+}    </style>
+
+  <div class="footerWrap">
+    <div class="totalReview">
+      <p>꼬북꼬북 모은 리뷰<span>15,738</span>개</p>
+    </div>
+    <!--리뷰수 아래 정보부분-->
+    <div class="footer">
+      <div class="footer-left">
+        <p>(주) 꼬북꼬북</p>
+        <div class="infoWrap">
+          <ul>
+            <li>대표자명: 꼬북이</li>
+            <li>사업자등록번호: 123-45-67890</li>
+            <li>통신판매업신고: 2025-하룰라라-01159</li>
+            <li>이메일: support@ggo.book</li>
+          </ul>
+          <ul>
+            <li>주소: 서울시 가산동 하룰라라로 궁전센터1차 123-01</li>
+            <li>Tel : 02-1991-1120</li>
+            <li>Fax : 02-1991-1120</li>
+          </ul>
+          <p>© 2025 꼬북꼬북 All rights reserved</p>
+        </div>
+        <div class="logos">
+          <img src="logos/notion_white.png" style="width:30px;">
+          <img src="logos/github_white.png" style="width:30px;">
+          <img src="logos/youtube_white.png" style="width:30px;">
+        </div>
       </div>
-      <div id="footer">
-        <div id="footerinfo">
-          <p>꼬북꼬북 (로고)</p>
-          <br>
-          <p>공지사항 1:1문의 이용약관 개인정보처리방침 </p>
-          <p>(주) 꼬북꼬북 | 대표자명: 꼬북이 | 사업자등록번호: 123-45-67890 주소: 가산동 어딘가 123-10 | 문의: support@ggo.book </p>
-          <p>©️ 2025 꼬북꼬북 All rights reserved</p>
+      <div class="footer-right">
+        <p>고객센터 1234-5678 (발신자 부담)</p>
+        <div class="csWrap">
+          <button class="ntcBtn">공지사항</button>
+          <button class="inqBtn">1:1문의</button>
+        </div>
+        <table class="gitIds">
+          <tbody>
+            <tr>
+              <td colspan="3">www.ggobookggobook.com</td>
+            </tr>
+            <tr>
+              <td>이승민 @null4848</td>
+              <td>김슬비 @kb4954</td>
+              <td>김민성 @LatteMeng</td>
+            </tr>
+            <tr>
+              <td>김혜원 @hwk3005</td>
+              <td>신민철 @resader1</td>
+              <td>공유현 @sharehyun</td>
+            </tr>
+          </tbody>
+        </table>
         </div>
       </div>
     </div>
+    <!--리뷰수 아래 정보부분-->
 
   </body>
    <script>
