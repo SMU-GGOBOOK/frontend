@@ -448,12 +448,7 @@ rect {
   margin: 0 5px 7px 3px;
   word-break: break-word;
 }
-.right .title button {
-  font-size: 30px;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+
 .right .subtitle,
 .right .contributors {
   font-size: 15px;
@@ -866,6 +861,14 @@ button {
     padding: 0;
     font: 0 / 0 Arial;
 }
+.fa-bookmark {
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #2d7868;
+}
+
 .bookmarkBtn {
     padding: 0;
     margin: 0;
@@ -873,13 +876,17 @@ button {
     border: none;
     cursor: pointer;
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: auto;
     height: auto;
-    font-size: 30px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: #2D7868;
+}
+.bookmarkBtn i {
+  transition: opacity 0.3s ease;
+}
+
+.bookmarkBtn i.fading-out {
+  opacity: 0;
 }
 
 /* 헤더 - 버튼 영역 */
@@ -911,13 +918,14 @@ button {
 .right_area .btn_sm {
     margin-bottom: 15px;
     width: 160px;
+    height: 40px;
 }
 .title_wrap .right_area .bul_item_asterisk + [class^=btn_] {
     margin-left: 20px;
 }
 a.btn_primary, button.btn_primary, a.btn_line_primary.active, button.btn_line_primary.active {
-    color: #333;
-    background: #f0f0f0;
+    color: #fafafa;
+    background: #2d7868;
     border-radius: 7px;
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
 }
@@ -972,7 +980,7 @@ button[class^=btn_] .text, a[class^=btn_] .text {
 /* 감성 태그 overview 영역 */
 .klover_review_wrap .klover_review_box {
     padding: 39px 90px 34px 108px;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     background-color: #f7f7f7;
     border: 1px solid #d5d5d5;
     border-radius: 20px;
@@ -1666,12 +1674,12 @@ button[class^=btn_] .text, a[class^=btn_] .text {
     font-size: 0;
 }
 .badge_box{
-  margin-right: 6px;
+  margin-right: 8px;
 }
 
 .user_info_box .info_item {
     display: inline-block;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1;
     vertical-align: middle;
 }
@@ -1856,16 +1864,15 @@ button {
     font-size: 0;
 }
 
-.btn_like .ico_like {
+.btn_like .fa-thumbs-up {
     width: 20px;
     height: 20px;
     margin-right: 4px;
-    background: url(images/ico_like@2x.png) center no-repeat;
     background-size: 20px 20px;
     transition: background 0.2s ease-out;
 }
 
-.btn_like .text {
+.btn_like .text, .btn_reply .count {
     display: inline-block;
     position: relative;
     font-size: 13px;
@@ -1879,26 +1886,14 @@ button {
     margin-left: 16px;
 }
 
-.btn_reply .ico_reply {
+.btn_reply .fa-comment-dots {
     width: 20px;
     height: 20px;
     margin-right: 4px;
-    background: url(images/ico_reply@2x.png) center no-repeat;
     background-size: 20px 20px;
     transition: background 0.2s ease-out;
 }
 
-.btn_reply .text {
-    display: inline-block;
-    position: relative;
-    margin-top: 1px;
-    color: #2D7868;
-    font-size: 13px;
-    line-height: 19px;
-    letter-spacing: -0.01em;
-    vertical-align: top;
-    transition: color 0.2s ease-out;
-}
 .reply_wrap {
     display: block;
     padding-top: 12px;
@@ -2725,8 +2720,8 @@ a.btn_xxs [class^=ico_]:last-child, button.btn_xxs [class^=ico_]:last-child {
                         <!-- -->
                         <div _ngcontent-ng-c4014452822="" class="title">
                           <h1 _ngcontent-ng-c4014452822="">수학 역사 퍼즐</h1>
-                          <button class="bookmarkBtn">
-                            <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                          <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                            <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                           </button>
                         </div>
                         <!-- -->
@@ -3089,7 +3084,7 @@ a.btn_xxs [class^=ico_]:last-child, button.btn_xxs [class^=ico_]:last-child {
               data-kbbfn-prod-bid="9791188331796"
               data-kbbfn-prod-pid="S000001913217">
               <span class="ico_review">
-                <i class="fa-solid fa-pen-to-square" style="color: #333333;"></i>
+                <i class="fa-solid fa-pen-to-square" style="color: #fafafa;"></i>
               </span>
               <span class="text">리뷰 작성</span>
             </button>
@@ -3202,13 +3197,12 @@ a.btn_xxs [class^=ico_]:last-child, button.btn_xxs [class^=ico_]:last-child {
                       <div class="comment_util_box">
                         <div class="right_area">
                           <button class="btn_like" type="button">
-                            <span class="ico_like">
-                            </span>
+                            <i class="fa-regular fa-thumbs-up" style="color: #333333;" aria-hidden="true"></i>
                             <span class="text">144</span>
                           </button>
                           <button class="btn_reply" type="button">
-                            <span class="ico_reply"></span>
-                            <span class="count">4</span>
+                              <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>                            
+                              <span class="count">4</span>
                           </button>
                         </div>
                       </div>
@@ -3365,12 +3359,12 @@ a.btn_xxs [class^=ico_]:last-child, button.btn_xxs [class^=ico_]:last-child {
                       <div class="comment_util_box">
                         <div class="right_area">
                           <button class="btn_like" type="button">
-                            <span class="ico_like"></span>
-                            <span class="text">66</span>
+                            <i class="fa-regular fa-thumbs-up" style="color: #333333;" aria-hidden="true"></i>
+                            <span class="text">144</span>
                           </button>
                           <button class="btn_reply" type="button">
-                            <span class="ico_reply"></span>
-                            <span class="count">1</span>
+                              <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>                            
+                              <span class="count">4</span>
                           </button>
                         </div>
                       </div>
@@ -3545,12 +3539,12 @@ a.btn_xxs [class^=ico_]:last-child, button.btn_xxs [class^=ico_]:last-child {
                     <div class="comment_util_box">
                       <div class="right_area">
                         <button class="btn_like" type="button">
-                          <span class="ico_like"></span>
-                          <span class="text">41</span>
+                          <i class="fa-regular fa-thumbs-up" style="color: #333333;" aria-hidden="true"></i>
+                          <span class="text">144</span>
                         </button>
                         <button class="btn_reply" type="button">
-                          <span class="ico_reply"></span>
-                          <span class="count">0</span>
+                            <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>                            
+                            <span class="count">4</span>
                         </button>
                       </div>
                     </div>
@@ -3703,12 +3697,12 @@ a.btn_xxs [class^=ico_]:last-child, button.btn_xxs [class^=ico_]:last-child {
                     <div class="comment_util_box">
                       <div class="right_area">
                         <button class="btn_like" type="button">
-                          <span class="ico_like"></span>
-                          <span class="text">16</span>
+                          <i class="fa-regular fa-thumbs-up" style="color: #333333;" aria-hidden="true"></i>
+                          <span class="text">144</span>
                         </button>
                         <button class="btn_reply" type="button">
-                          <span class="ico_reply"></span>
-                          <span class="count">2</span>
+                            <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>                            
+                            <span class="count">4</span>
                         </button>
                       </div>
                     </div>
@@ -4045,1216 +4039,1344 @@ a.btn_xxs [class^=ico_]:last-child, button.btn_xxs [class^=ico_]:last-child {
               </div>
           </div>
         </div>
-      <!-- 모달팝업 js n-->
-        <script>
-          const openBtn = document.getElementById("openReviewBtn");
-          const closeBtn = document.getElementById("closeReviewBtn");
-          const modal = document.getElementById("reviewModal");
-    
-          openBtn.addEventListener("click", () => {
-            modal.style.display = "block";
-          });
-    
-          closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-          });
-    
-          // 바깥 클릭 시 닫기
-          window.addEventListener("click", (e) => {
-            if (e.target === modal) {
-              modal.style.display = "none";
-            }
-          });
-        </script>
-
-
-      <!-- 모달 팝업 스타일 -->
-        <style>
-          .modal {
-            display: none; /* 초기 숨김 */
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
-          }
-        </style>
-
-        <!-- 모달 팝업 내부 스타일 -->
-        <style>
-          div{
-              display: block;
-              unicode-bidi: isolate;
-          }
-          
-          /* 리뷰 작성 페이지 */
-          /* 틀 */
-          html:not(.ios) body.dialog_open .dialog_wrapper.open {
-              overflow-x: hidden;
-              overflow-y: scroll;
-          }
-          .dialog_wrapper.open {
-              display: flex;
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: calc(100vh - 20px);
-              padding: 10px 0;
-              overflow-y: hidden;
-          }
-          .dialog_wrapper {
-              display: none;
-              min-width: 1440px;
-              z-index: 1000;
-              align-items: center;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content.has_btn {
-              padding-bottom: 30px;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content {
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-              display: -webkit-flex;
-              -moz-box-orient: vertical;
-              -ms-flex-direction: column;
-              -webkit-flex-direction: column;
-              flex-direction: column;
-              overflow: hidden;
-              width: 100% !important;
-              max-height: 750px !important;
-              padding: 0 30px 34px;
-              background: #fff;
-              border-radius: 16px;
-              border: 1px solid #2D7868;
-              box-sizing: border-box;
-          }
-          .ui-dialog .ui-dialog-content {
-              position: relative;
-              border: 0;
-              padding: .5em 1em;
-              background: 0 0;
-              overflow: auto;
-          }
-          .dialog_wrapper .ui-dialog {
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-              display: -webkit-flex;
-              -webkit-box-pack: start;
-              -ms-flex-pack: start;
-              justify-content: flex-start;
-              -webkit-box-align: start;
-              -moz-box-align: start;
-              -ms-flex-align: start;
-              -webkit-align-items: flex-start;
-              align-items: flex-start;
-              -webkit-box-orient: vertical;
-              -webkit-box-direction: reverse;
-              -moz-box-orient: vertical;
-              -moz-box-direction: reverse;
-              -ms-flex-direction: column;
-              -webkit-flex-direction: column;
-              flex-direction: column;
-              position: relative;
-              width: 560px;
-              max-height: 750px;
-              margin: 0 auto;
-              padding: 0;
-              border: none;
-              color: #000;
-          }
-          .ui-dialog {
-              position: absolute;
-              top: 0;
-              left: 0;
-              padding: .2em;
-              outline: 0;
-          }
-          .ui-front {
-              z-index: 100;
-          }
-          .dialog_wrapper .ui-dialog .ui-dialog-titlebar {
-              display: none;
-          }
-          .ui-dialog .ui-dialog-titlebar {
-              padding: .4em 1em;
-              position: relative;
-          }
-
-          /* 닫기 버튼 */
-          .btn_dialog_close {
-              width: 24px;
-              height: 24px;
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-position: center;
-              border: none;
-              cursor: pointer;
-              position: absolute;
-              top: 28px;
-              right: 30px;
-              width: 24px;
-              height: 24px;
-          }
-          button[class^=btn_], a[class^=btn_] {
-              display: inline-block;
-              box-sizing: border-box;
-              vertical-align: top;
-          }
-          button {
-              background-color: transparent;
-          }
-          button[class^=btn_] [class^=ico_], a[class^=btn_] [class^=ico_] {
-              display: inline-block;
-              position: relative;
-              vertical-align: top;
-          }
-          .hidden {
-              position: absolute;
-              visibility: hidden;
-              overflow: hidden;
-              height: 0;
-              line-height: 0;
-              width: 0;
-              margin: 0;
-              padding: 0;
-              font: 0 / 0 Arial;
-          }
-          /* 리뷰 이벤트 헤더 */
-          .dialog_wrapper .ui-dialog .dialog_wrap.no_title_line .dialog_header {
-              border-bottom: none;
-              padding-bottom: 0;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_header {
-              flex-shrink: 0;
-              padding: 25px 30px 20px 0;
-              text-align: left;
-              background: #fff;
-              border-bottom: 1px solid #eaeaea;
-          }
-          div {
-              display: block;
-              unicode-bidi: isolate;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_header .dialog_title {
-              font-size: 23px;
-              line-height: 30px;
-              letter-spacing: -0.01em;
-              font-weight: 500;
-              overflow: hidden;
-              display: block;
-              max-width: 100%;
-              height: auto;
-              max-height: none;
-              -webkit-box-orient: inherit;
-              -webkit-line-clamp: inherit;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-          }
-
-          /* 리뷰 컨텐츠 */
-          .dialog_wrapper .ui-dialog .dialog_wrap.no_title_line.has_btn .dialog_contents {
-              max-height: 557px;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content.has_btn .dialog_contents {
-              max-height: 600px;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.no_title_line .dialog_contents {
-              max-height: 631px;
-              margin-top: 30px;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents {
-              flex: 1 1 auto;
-              overflow: hidden;
-              overflow-y: auto;
-              position: relative;
-              max-height: 616px;
-              background: #fff;
-              padding: 0;
-              margin-top: 24px;
-              box-sizing: border-box;
-              -webkit-overflow-scrolling: touch;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .custom_scroll_wrap {
-              max-height: inherit;
-          }
-          .scroll_wrap.active {
-              overflow-y: visible !important; 
-              max-height: none !important;
-          }
-          .custom_scroll_wrap {
-              width: 600px;
-              height: 100%;
-              overflow-x: hidden;
-              overflow-y: auto;
-              box-sizing: border-box;
-          }
-          [data-simplebar] {
-              position: relative;
-              flex-direction: column;
-              flex-wrap: wrap;
-              justify-content: flex-start;
-              align-content: flex-start;
-              align-items: flex-start;
-          }
-          .simplebar-wrapper {
-              overflow: hidden;
-              width: inherit;
-              height: inherit;
-              max-width: inherit;
-              max-height: inherit;
-          }
-          .simplebar-height-auto-observer-wrapper {
-              box-sizing: inherit !important;
-              height: 100%;
-              width: 100%;
-              max-width: 1px;
-              position: relative;
-              float: left;
-              max-height: 1px;
-              overflow: hidden;
-              z-index: -1;
-              padding: 0;
-              margin: 0;
-              pointer-events: none;
-              flex-grow: inherit;
-              flex-shrink: 0;
-              flex-basis: 0;
-          }
-          .simplebar-height-auto-observer {
-              box-sizing: inherit;
-              display: block;
-              opacity: 0;
-              position: absolute;
-              top: 0;
-              left: 0;
-              height: 1000%;
-              width: 1000%;
-              min-height: 1px;
-              min-width: 1px;
-              overflow: hidden;
-              pointer-events: none;
-              z-index: -1;
-          }
-          .simplebar-height-auto-observer {
-              box-sizing: inherit;
-              display: block;
-              opacity: 0;
-              position: absolute;
-              top: 0;
-              left: 0;
-              height: 1000%;
-              width: 1000%;
-              min-height: 1px;
-              min-width: 1px;
-              overflow: hidden;
-              pointer-events: none;
-              z-index: -1;
-          }
-          .simplebar-mask {
-              direction: inherit;
-              position: absolute;
-              overflow: hidden;
-              padding: 0;
-              margin: 0;
-              left: 0;
-              top: 0;
-              bottom: 0;
-              right: 0;
-              width: auto !important;
-              height: auto !important;
-              z-index: 0;
-          }
-          .simplebar-offset {
-              direction: inherit !important;
-              box-sizing: inherit !important;
-              resize: none !important;
-              position: absolute;
-              top: 0;
-              left: 0;
-              bottom: 0;
-              right: 0;
-              padding: 0;
-              margin: 0;
-              -webkit-overflow-scrolling: touch;
-          }
-          .simplebar-content-wrapper {
-              overflow: visible !important;
-              height: auto !important;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .custom_scroll_wrap .simplebar-content {
-              height: 100%;
-          }
-          .kbb-recent-contents *, :before, :after {
-              box-sizing: border-box;
-              border-width: 0;
-              border-style: solid;
-              border-color: #f2f2f2;
-          }
-          .kbb-recent-contents *, :before, :after {
-              --tw-border-spacing-x: 0;
-              --tw-border-spacing-y: 0;
-              --tw-translate-x: 0;
-              --tw-translate-y: 0;
-              --tw-rotate: 0;
-              --tw-skew-x: 0;
-              --tw-skew-y: 0;
-              --tw-scale-x: 1;
-              --tw-scale-y: 1;
-              --tw-pan-x: ;
-              --tw-pan-y: ;
-              --tw-pinch-zoom: ;
-              --tw-scroll-snap-strictness: proximity;
-              --tw-gradient-from-position: ;
-              --tw-gradient-via-position: ;
-              --tw-gradient-to-position: ;
-              --tw-ordinal: ;
-              --tw-slashed-zero: ;
-              --tw-numeric-figure: ;
-              --tw-numeric-spacing: ;
-              --tw-numeric-fraction: ;
-              --tw-ring-inset: ;
-              --tw-ring-offset-width: 0px;
-              --tw-ring-offset-color: #fff;
-              --tw-ring-color: rgb(150 153 208 / .5);
-              --tw-ring-offset-shadow: 0 0 #0000;
-              --tw-ring-shadow: 0 0 #0000;
-              --tw-shadow: 0 0 #0000;
-              --tw-shadow-colored: 0 0 #0000;
-              --tw-blur: ;
-              --tw-brightness: ;
-              --tw-contrast: ;
-              --tw-grayscale: ;
-              --tw-hue-rotate: ;
-              --tw-invert: ;
-              --tw-saturate: ;
-              --tw-sepia: ;
-              --tw-drop-shadow: ;
-              --tw-backdrop-blur: ;
-              --tw-backdrop-brightness: ;
-              --tw-backdrop-contrast: ;
-              --tw-backdrop-grayscale: ;
-              --tw-backdrop-hue-rotate: ;
-              --tw-backdrop-invert: ;
-              --tw-backdrop-opacity: ;
-              --tw-backdrop-saturate: ;
-              --tw-backdrop-sepia: ;
-              --tw-contain-size: ;
-              --tw-contain-layout: ;
-              --tw-contain-paint: ;
-              --tw-contain-style: ;
-          }
-
-          /* 도서 정보 */
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .thumbnail_round_box {
-              padding: 16px;
-              border: 1px solid #eaeaea;
-              border-radius: 7px;
-          }
-          .prod_area.horizontal {
-              width: 100%;
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-              display: -webkit-flex;
-              -webkit-box-pack: start;
-              -ms-flex-pack: start;
-              justify-content: flex-start;
-              -webkit-box-align: center;
-              -moz-box-align: center;
-              -ms-flex-align: center;
-              -webkit-align-items: center;
-              align-items: center;
-              -webkit-box-orient: horizontal;
-              -webkit-box-direction: normal;
-              -moz-box-orient: horizontal;
-              -moz-box-direction: normal;
-              -ms-flex-direction: row;
-              -webkit-flex-direction: row;
-              flex-direction: row;
-          }
-          /* 도서 이미지 */
-          .prod_area.horizontal .prod_thumb_box.size_xs {
-              width: 64px;
-          }
-          .prod_area.horizontal .prod_thumb_box {
-              overflow: hidden;
-              flex-shrink: 0;
-              width: 100px;
-          }
-          .prod_area .prod_thumb_box.size_xs {
-              width: 100px;
-          }
-          .prod_area .prod_thumb_box {
-              position: relative;
-              overflow: hidden;
-              width: 142px;
-          }
-          .prod_area .prod_thumb_box .prod_link {
-              display: block;
-              height: 100%;
-          }
-          a {
-              color: #000;
-              text-decoration: none;
-          }
-          .prod_area .prod_thumb_box .img_box {
-              overflow: hidden;
-              position: relative;
-              display: block;
-              box-sizing: border-box;
-              border: 1px solid #eaeaea;
-          }
-          .prod_area.horizontal .prod_thumb_box.size_xs .img_box img {
-              max-height: calc((64px - 2px) * 1.618 - 10px);
-          }
-
-          .prod_area.horizontal .prod_thumb_box .img_box img {
-              max-height: calc((100px - 2px) * 1.618 - 10px);
-          }
-          .prod_area .prod_thumb_box.size_xs .img_box img {
-              max-height: calc((100px - 2px) * 1.618 - 10px);
-          }
-          .prod_area .prod_thumb_box .img_box img {
-              width: 100%;
-              max-height: calc((100% - 2px) * 1.618 - 10px);
-          }
-          .prod_area .prod_thumb_box img {
-              width: 100%;
-          }
-          img {
-              vertical-align: middle;
-          }
-          img, fieldset {
-              border: 0;
-          }
-          img {
-              overflow-clip-margin: content-box;
-              overflow: clip;
-          }
-
-          /* 도서 정보 */
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .thumbnail_round_box .prod_area .prod_info_box {
-              overflow: visible;
-          }
-          .prod_area.horizontal .prod_info_box.size_sm {
-              margin-left: 12px;
-          }
-          .prod_area.horizontal .prod_info_box {
-              overflow: hidden;
-              margin-left: 16px;
-          }
-          .prod_area .prod_info_box .prod_info {
-              display: block;
-              height: 100%;
-              font-size: 0;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .thumbnail_round_box:not(.size_md) .prod_area .prod_info_box .prod_name {
-              font-size: 16px;
-              line-height: 22px;
-              letter-spacing: -0.01em;
-              margin-left: 5px;
-              max-height: 44px;
-          }
-          .prod_area .prod_info_box.size_sm .prod_name:not(.ellipsis_single) {
-              max-height: calc(22px * 2);
-          }
-          .prod_area .prod_info_box.size_sm .prod_name {
-              font-size: 14px;
-              line-height: 22px;
-              letter-spacing: -0.01em;
-          }
-          .prod_area .prod_info_box .prod_name {
-              display: block;
-              display: -webkit-box;
-              overflow: hidden;
-              max-height: 46px;
-              line-height: 23px;
-              -webkit-box-orient: vertical;
-              -webkit-line-clamp: 2;
-              text-overflow: -o-ellipsis-lastline;
-              white-space: normal;
-              word-break: break-all;
-              font-size: 15px;
-              line-height: 23px;
-              letter-spacing: -0.01em;
-              font-weight: 500;
-          }
-
-          /* 별점 */
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .thumbnail_round_box .prod_area .prod_info_box .rating-container {
-              margin-top: 16px;
-          }
-          .rating-container.rating-lg {
-              margin-left: -2px;
-          }
-          .rating-container {
-              position: relative;
-              display: inline-block;
-              text-align: left;
-              font-size: 0;
-              vertical-align: top;
-              margin-left: -2px;
-          }
-          .rating-container .clear-rating {
-              display: none;
-          }
-          .rating-container .clear-rating {
-              color: #aaa;
-              cursor: not-allowed;
-              display: inline-block;
-              vertical-align: middle;
-              font-size: 60%;
-              padding-right: 5px;
-          }
-          .clear-rating-active {
-              cursor: pointer !important;
-          }
-          .rating-container.has_caption .rating-stars {
-              margin-top: 2px;
-          }
-          .rating-container .rating-stars {
-              position: relative;
-              cursor: pointer;
-              vertical-align: middle;
-              display: inline-block;
-              overflow: hidden;
-              white-space: nowrap;
-          }
-          .rating-container .empty-stars {
-              color: #aaa;
-          }
-          .rating-container.rating-lg .empty-stars .star {
-              margin: 0 2px;
-          }
-          .rating-container .rating-stars .empty-stars .star {
-              margin: 0 2px;
-          }
-          .rating-container .star {
-              display: inline-block;
-              margin: 0 2px;
-              text-align: center;
-          }
-          .rating-container.rating-lg .empty-stars .star .glyphicon-star-empty:before {
-              content: "";
-              display: inline-block;
-              width: 22px;
-              height: 22px;
-              background-repeat: no-repeat;
-              background-position: center;
-              background-size: 22px 22px;
-              background-image: url(images/ico_star_nonecilck.svg);
-          }
-          .rating-animate .filled-stars {
-              transition: width .25s ease;
-          }
-          .rating-container .filled-stars {
-              position: absolute;
-              left: 0;
-              top: 0;
-              margin: auto;
-              color: #fde16d;
-              white-space: nowrap;
-              overflow: hidden;
-              -webkit-text-stroke: 1px #777;
-              text-shadow: 1px 1px #999;
-          }
-          .rating-container.rating-lg .filled-stars .star {
-              margin: 0 2px;
-          }
-          .rating-container .rating-stars .filled-stars .star {
-              margin: 0 2px;
-          }
-          .rating-container .star {
-              display: inline-block;
-              margin: 0 2px;
-              text-align: center;
-          }
-          .rating-container.rating-lg .filled-stars .star .glyphicon-star:before {
-              content: "";
-              display: inline-block;
-              width: 22px;
-              height: 22px;
-              background-repeat: no-repeat;
-              background-position: center;
-              background-size: 22px 22px;
-              background-image: url(images/ico_star_cilck.svg);
-          }
-          .rating-container.rating-lg.has_caption .caption {
-              margin-top: 3px;
-          }
-
-          .rating-container.has_caption .caption {
-              display: inline-block;
-              margin: 0 0 0 6px;
-              vertical-align: top;
-              font-size: 0;
-          }
-          .rating-container .caption {
-              color: #999;
-              display: inline-block;
-              vertical-align: middle;
-              line-height: 1;
-              margin-left: 5px;
-              margin-right: 0;
-          }
-          .rating-container.has_caption .caption .caption-badge {
-              padding: 0;
-              border-radius: 0;
-              font-size: 0;
-              background: none;
-              font-family: "Roboto", "Noto Sans KR", "PingFang SC", "Apple SD Gothic Neo", "Microsoft YaHei UI", "Malgun Gothic", sans-serif;
-          }
-          .caption-secondary {
-              background-color: #6c757d;
-          }
-          .caption-badge {
-              font-family: Arial, Helvetica, sans-serif;
-              display: inline-block;
-              padding: .35em .65em;
-              font-size: .75em;
-              font-weight: 700;
-              color: #fff;
-              white-space: nowrap;
-              vertical-align: baseline;
-          }
-          .caption-badge, .rating-container .caption .label {
-              line-height: 1;
-              text-align: center;
-              border-radius: .25rem;
-          }
-          .rating-container.has_caption .caption .caption-badge .val {
-              font-size: 20px;
-              line-height: 30px;
-              letter-spacing: -0.01em;
-              color: #2d7868;
-              font-weight: 700;
-              line-height: 1;
-          }
-          .rating-container.has_caption .caption .caption-badge .total {
-              padding-top: 5px;
-              margin-left: 5px;
-              font-size: 14px;
-              line-height: 22px;
-              letter-spacing: -0.01em;
-              color: #767676;
-              font-weight: 400;
-              line-height: 1;
-          }
-          .rating-container.has_caption .caption .caption-badge .total:before {
-              content: "/";
-              margin-right: 1px;
-          }
-          .rating-input {
-              position: absolute;
-              cursor: pointer;
-              width: 100%;
-              height: 1px;
-              bottom: 0;
-              left: 0;
-              font-size: 1px;
-              opacity: 0;
-              padding: 0;
-              margin: 0;
-              outline: 0;
-              pointer-events: none;
-              border: none;
-              box-shadow: none;
-              background: 0 0;
-          }
-          .kbb-recent-contents button, input, optgroup, select, textarea {
-              font-family: inherit;
-              font-feature-settings: inherit;
-              font-variation-settings: inherit;
-              font-size: 100%;
-              font-weight: inherit;
-              line-height: inherit;
-              letter-spacing: inherit;
-              color: inherit;
-              margin: 0;
-              padding: 0;
-          }
-
-          /* 감성태그 리뷰작성 파일 */
-          .dialog_wrapper .ui-dialog .dialog_wrap .dialog_contents .info_text_box ~ .form_wrap {
-              margin-top: 20px;
-          }
-          /* 폼 틀 */
-          .form_wrap .form_box .form_title {
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex
-          ;
-              display: -webkit-flex;
-              -webkit-box-pack: start;
-              -ms-flex-pack: start;
-              justify-content: flex-start;
-              -webkit-box-align: center;
-              -moz-box-align: center;
-              -ms-flex-align: center;
-              -webkit-align-items: center;
-              align-items: center;
-              -webkit-box-orient: horizontal;
-              -webkit-box-direction: normal;
-              -moz-box-orient: horizontal;
-              -moz-box-direction: normal;
-              -ms-flex-direction: row;
-              -webkit-flex-direction: row;
-              flex-direction: row;
-              flex-wrap: wrap;
-          }
-          .form_wrap.type_md, .form_box{
-              margin-top: 20px;
-          }
-          .form_wrap.type_md .form_box .form_title .form_label {
-              font-size: 16px;
-              line-height: 22px;
-              letter-spacing: -0.01em;
-          }
-          .form_label {
-              display: inline-block;
-              color: #000;
-              font-size: 15px;
-              line-height: 19px;
-              letter-spacing: -0.01em;
-              font-weight: 500;
-              cursor: default;
-          }
-          .form_label .required {
-              color: #2d7868;         
-              font-size: 14px; 
-              margin-left: 2px; 
-              vertical-align: baseline; 
-          }
-          .form_wrap .form_box .form_title .info_text {
-              width: 100%;
-              margin: 7px 0 2px;
-          }
-          .info_text.font_size_xxs {
-              font-size: 15px;
-              line-height: 19px;
-              letter-spacing: -0.01em;
-          }
-          .info_text {
-              font-size: 14px;
-              line-height: 22px;
-              letter-spacing: -0.01em;
-              color: #595959;
-          }
-          .form_wrap.type_md .form_box .form_cont {
-              margin-top: 10px;
-          }
-          .form_wrap .form_box .form_cont {
-              margin-top: 8px;
-              color: #595959;
-          }
-          .tag_wrap {
-              margin: -4px -3px;
-              font-size: 0;
-          }
-          .tag_wrap.size_lg .tag {
-              padding: 9px 16px 7px;
-              font-size: 13px;
-              line-height: 22px;
-              letter-spacing: -0.01em;
-              border-color: #333;
-              background: #f0f0f0;
-              border-radius: 7px;
-              font-weight: 500;
-              color: #333;
-          }
-          .tag_wrap .tag {
-              margin: 5px 5px;
-              display: inline-block;
-              font-size: 13px;
-              line-height: 19px;
-              letter-spacing: -0.01em;
-              color: #595959;
-              padding: 7px 16px 8px;
-              background-color: #f7f7f7;
-              border: 1px solid #f7f7f7;
-              border-radius: 20px;
-              box-sizing: border-box;
-              transition: background-color 0.23s, border-color 0.23s, color 0.23s;
-          }
-          .tag_wrap .tag .text {
-              position: relative;
-          }
-
-          /* 리뷰 작성 폼 */
-          .byte_check_wrap {
-              display: flex;
-              flex-direction: column;
-              position: relative;
-              overflow: hidden;
-              border: 1px solid #d5d5d5;
-              border-radius: 7px;
-              background: #fff;
-              font-size: 14px;
-              transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
-              box-sizing: border-box;
-          }
-          .byte_check_wrap .form_textarea {
-              border: none;
-              padding: 11px 14px 0;
-          }
-          .form_textarea {
-              width: 100%;
-              height: 150px;
-              padding: 12px 14px;
-              color: #000;
-              border: 1px solid #d5d5d5;
-              border-radius: 6px;
-              font-size: 15px;
-              line-height: 22px;
-              letter-spacing: -0.01em;
-              font-family: "Noto Sans KR", sans-serif;
-              background-color: #fff;
-              box-sizing: border-box;
-              transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
-              outline: 0;
-              overflow-y: auto;
-              resize: none;
-          }
-          .byte_check_wrap .byte_check_footer {
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-              display: -webkit-flex;
-              -webkit-box-pack: end;
-              -ms-flex-pack: end;
-              justify-content: flex-end;
-              -webkit-box-align: center;
-              -moz-box-align: center;
-              -ms-flex-align: center;
-              -webkit-align-items: center;
-              align-items: center;
-              -webkit-box-orient: horizontal;
-              -webkit-box-direction: normal;
-              -moz-box-orient: horizontal;
-              -moz-box-direction: normal;
-              -ms-flex-direction: row;
-              -webkit-flex-direction: row;
-              flex-direction: row;
-              padding: 10px 10px 10px 14px;
-              text-align: right;
-              transition: background-color 0.2s ease-out;
-          }
-          .byte_check_wrap .byte_check {
-              display: inline-block;
-              line-height: 1;
-              font-size: 0;
-          }
-          .byte_check_wrap .byte_check .count {
-              display: inline-block;
-              color: #292929;
-          }
-          .byte_check_wrap .byte_check .count, .byte_check_wrap .byte_check .total {
-              display: inline-block;
-              font-size: 12px;
-              line-height: 18px;
-              letter-spacing: -0.01em;
-          }
-          .byte_check_wrap .byte_check .total:before {
-              content: "/";
-          }
-
-          /* 사진 첨부 */
-          .form_wrap .form_box .form_title {
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-              display: -webkit-flex;
-              -webkit-box-pack: start;
-              -ms-flex-pack: start;
-              justify-content: flex-start;
-              -webkit-box-align: center;
-              -moz-box-align: center;
-              -ms-flex-align: center;
-              -webkit-align-items: center;
-              align-items: center;
-              -webkit-box-orient: horizontal;
-              -webkit-box-direction: normal;
-              -moz-box-orient: horizontal;
-              -moz-box-direction: normal;
-              -ms-flex-direction: row;
-              -webkit-flex-direction: row;
-              flex-direction: row;
-              flex-wrap: wrap;
-          }
-          .form_label {
-              display: inline-block;
-              color: #000;
-              font-size: 13px;
-              line-height: 19px;
-              letter-spacing: -0.01em;
-              font-weight: 500;
-              cursor: default;
-          }
-          .form_wrap.type_md .form_box .form_title .file_attach_val {
-              padding-top: 4px;
-          }
-          .file_attach_val {
-              display: inline-block;
-              font-size: 0;
-              vertical-align: top;
-              line-height: 1;
-              font-weight: 400;
-          }
-          .file_attach_val .val {
-              font-size: 14px;
-              letter-spacing: -0.01em;
-          }
-          .file_attach_val .total {
-              font-size: 14px;
-              letter-spacing: -0.01em;
-              color: #767676;
-          }
-          .form_wrap.type_md .form_box .form_cont {
-              margin-top: 10px;
-          }
-          .form_wrap .form_box .form_cont {
-              margin-top: 8px;
-              color: #595959;
-          }
-          .file_list {
-              font-size: 0;
-          }
-          .kbb-recent-contents ol, ul, menu {
-              list-style: none;
-              margin: 0;
-              padding: 0;
-          }
-          .file_list .list_item:last-child {
-              margin-right: 0;
-          }
-          .file_list .list_item {
-              display: inline-block;
-              margin-right: 10px;
-              vertical-align: top;
-          }
-          .file_list .file_item {
-              position: relative;
-              display: inline-block;
-          }
-          .file_list .file_item .btn_box {
-              position: relative;
-              display: inline-block;
-              width: 94px;
-              height: 94px;
-              border: 1px dashed #e5e5e5;
-              background-color: #f7f7f7;
-              cursor: pointer;
-              border-radius: 6px;
-              vertical-align: top;
-              box-sizing: border-box;
-          }
-          .file_list .file_item .btn_box input[type=file] {
-              position: absolute;
-              width: 1px;
-              height: 1px;
-              padding: 0;
-              margin: -1px;
-              overflow: hidden;
-              clip: rect(0, 0, 0, 0);
-              border: 0;
-          }
-          .file_list .file_item .btn_box label {
-              display: block;
-              width: 100%;
-              height: 100%;
-              font-size: 0 !important;
-              border-radius: 7px;
-              background-size: 16px 16px;
-              background-image: url(images/btn_attached_add@2x.png);
-              background-position: center;
-              background-repeat: no-repeat;
-          }
-          .file_list .file_item:not(.attached) .btn_remove_img {
-              display: none;
-          }
-          button {
-              background-color: transparent;
-          }
-          .form_wrap .form_box .form_cont .file_list + .bul_item_asterisk, .form_wrap .form_box .form_cont .file_list_box + .bul_item_asterisk {
-              margin-top: 10px;
-          }
-          .form_wrap .form_box .form_cont [class^=bul_item_] {
-              color: #767676;
-          }
-          [class^=bul_item_].font_size_xxs {
-              font-size: 15px;
-              line-height: 19px;
-              letter-spacing: -0.01em;
-          }
-          .file_list ~ .bul_item_asterisk {
-              margin-top: 10px;
-          }
-          .bul_item_asterisk {
-              color: #767676;
-              padding-left: 8px;
-          }
-          [class^=bul_item_] {
-              position: relative;
-              font-size: 14px;
-              line-height: 22px;
-              letter-spacing: -0.01em;
-              color: #595959;
-              font-weight: 400;
-              text-align: left;
-          }
-          .bul_item_asterisk:before {
-              content: "*";
-              color: #474c98;
-              position: absolute;
-              left: 0;
-              top: 0;
-          }
-          .simplebar-content:after, .simplebar-content:before {
-              content: ' ';
-              display: table;
-          }
-          .kbb-recent-contents :before, :after {
-              --tw-content: "";
-          }
-
-          /* footer*/
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_footer {
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-              display: -webkit-flex;
-              -webkit-box-pack: center;
-              -ms-flex-pack: center;
-              justify-content: center;
-              -webkit-justify-content: center;
-              -webkit-box-align: center;
-              -moz-box-align: center;
-              -ms-flex-align: center;
-              -webkit-align-items: center;
-              align-items: center;
-              -webkit-box-orient: horizontal;
-              -webkit-box-direction: normal;
-              -moz-box-orient: horizontal;
-              -moz-box-direction: normal;
-              -ms-flex-direction: row;
-              -webkit-flex-direction: row;
-              flex-direction: row;
-              flex-shrink: 0;
-              flex-wrap: wrap;
-              margin-top: 34px;
-          }
-          .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_footer a[class^=btn_], .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_footer button[class^=btn_] {
-              flex: 0 auto;
-          }
-          a.btn_primary[disabled], a.btn_primary[aria-disabled], a.btn_primary.disabled, button.btn_primary[disabled], button.btn_primary[aria-disabled], button.btn_primary.disabled, a.btn_line_primary.active[disabled], a.btn_line_primary.active[aria-disabled], a.btn_line_primary.active.disabled, button.btn_line_primary.active[disabled], button.btn_line_primary.active[aria-disabled], button.btn_line_primary.active.disabled {
-              color: #fff;
-              background: #2d7868;
-              border-color: #2d7868;
-          }
-          a.btn_md, button.btn_md {
-              display: -ms-inline-flexbox;
-              display: inline-flex;
-              display: -webkit-inline-flex;
-              -webkit-box-pack: center;
-              -ms-flex-pack: center;
-              justify-content: center;
-              -webkit-justify-content: center;
-              -webkit-box-align: center;
-              -moz-box-align: center;
-              -ms-flex-align: center;
-              -webkit-align-items: center;
-              align-items: center;
-              -webkit-box-orient: horizontal;
-              -webkit-box-direction: normal;
-              -moz-box-orient: horizontal;
-              -moz-box-direction: normal;
-              -ms-flex-direction: row;
-              -webkit-flex-direction: row;
-              flex-direction: row;
-              min-width: 140px;
-              height: 44px;
-              padding: 0 23px 1px;
-              border-radius: 7px;
-              font-family: "Noto Sans KR", sans-serif;
-              font-weight: 700;
-              font-size: 13px;
-              line-height: 23px;
-              letter-spacing: -0.01em;
-          }
-          a[disabled], a[aria-disabled=true], a.disabled, button[disabled], button[aria-disabled=true], button.disabled {
-              pointer-events: none !important;
-              cursor: default !important;
-              text-decoration: none !important;
-          }
-        </style>
-
       </div>
-
     </div>
-
-  <!-- footer 스타일 -->
     <style>
-    #footerWrap{    
-      background-color: #444;
-      color:white;
-      width:100%;
-      height:300px;
-    }
+      /* ----------------footer----------------- */
 
-    #footer{
-      width:1900px;
-      height:200px;
-      display:flex;
-      justify-content: center;
-    }
+      .footerWrap{    
+          background-color: #444;
+          width:100%;
+          height:300px;
 
-    #totalReview{
-      text-align: center;
-      width:100%;
-      height:70px;
-    }
-
-    #totalReview>p{
-      padding: 11px 0;
-      border-bottom:2px solid #333;
-      font-size:22px;
-    }
-
-    p>span{
-      color:#e1e280;
-      font-weight:500;
-      padding:0 10px;
-    }
-
-    /*----------------footer끝-----------------*/
-
-      #footerinfo{
-        width:1400px;
-        height:100px;
       }
+
+      .footer{
+          width:1400px;
+          height:200px;
+          margin:0 auto;
+          padding-top:20px;
+          display:flex;
+          justify-content: space-between;
+          color:#fafafa;
+          font-weight:300;
+          font-size:15px;
+      }
+
+      .totalReview{
+          text-align: center;
+          width:100%;
+          height:56px;
+      }
+
+      .totalReview>p{
+          color:#fafafa;
+          padding: 11px 0;
+          border-bottom:2px solid #333;
+          font-size:22px;
+      }
+
+      .totalReview>p>span{
+          font-weight:700;
+          padding:0 10px;
+          font-size: 23px;
+      }
+
+
+      .footer-left{
+          width:1000px;
+          display:flex;
+          justify-content:space-between;
+          flex-direction: column;
+      }
+
+
+      /*(주)꼬북꼬북부터 Fax까지*/
+      .footer-left>p, .footer-right>p{
+          font-size:20px;
+          font-weight:700;
+      }
+
+      .infoWrap > ul{
+          display:flex;
+          margin-bottom:5px;
+      }
+
+      .infoWrap > ul > li:not(:last-child)::after{
+          content: "|";
+          color: #ccc;
+          margin: 0 15px;
+          font-weight: 300;
+      }
+
+      /*노션,깃,유튜브 로고부분*/
+      .logos{
+          width: 120px;
+          display: flex;
+          justify-content: space-between;
+      }
+
+      .infoWrap{
+          margin-bottom: 20px;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+      }
+
+
+      /*----------오른쪽------------*/
+
+      .footer-right{
+        width:400px;
+        height:180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .csWrap{
+          width:380px;
+          display: flex;
+          justify-content: space-between;
+      }
+
+      .csWrap > button{
+          cursor: pointer;
+          width:180px;
+          height:40px;
+          color:#f0f0f0;
+          background:#333;
+          border:1px solid #f0f0f0;
+          border-radius: 7px;
+      }
+
+      .footer-right>.gitIds>tbody>tr>td{
+          height:25px;
+      }    
     </style>
 
-    <div id="footerWrap">
-      <div id="totalReview">
-        <p>🍀 꼬북꼬북 모은 리뷰<span>15,738</span>개 🍀</p>
+    <div class="footerWrap">
+    <div class="totalReview">
+      <p>꼬북꼬북 모은 리뷰<span>15,738</span>개</p>
+    </div>
+    <!--리뷰수 아래 정보부분-->
+    <div class="footer">
+      <div class="footer-left">
+        <p>(주) 꼬북꼬북</p>
+        <div class="infoWrap">
+          <ul>
+            <li>대표자명: 꼬북이</li>
+            <li>사업자등록번호: 123-45-67890</li>
+            <li>통신판매업신고: 2025-하룰라라-01159</li>
+            <li>이메일: support@ggo.book</li>
+          </ul>
+          <ul>
+            <li>주소: 서울시 가산동 하룰라라로 궁전센터1차 123-01</li>
+            <li>Tel : 02-1991-1120</li>
+            <li>Fax : 02-1991-1120</li>
+          </ul>
+          <p>© 2025 꼬북꼬북 All rights reserved</p>
+        </div>
+        <div class="logos">
+          <img src="logos/notion_white.png" style="width:30px;">
+          <img src="logos/github_white.png" style="width:30px;">
+          <img src="logos/youtube_white.png" style="width:30px;">
+        </div>
       </div>
-      <div id="footer">
-        <div id="footerinfo">
-          <p>꼬북꼬북 (로고)</p>
-          <br>
-          <p>공지사항 1:1문의 이용약관 개인정보처리방침 </p>
-          <p>(주) 꼬북꼬북 | 대표자명: 꼬북이 | 사업자등록번호: 123-45-67890 주소: 가산동 어딘가 123-10 | 문의: support@ggo.book </p>
-          <p>©️ 2025 꼬북꼬북 All rights reserved</p>
+      <div class="footer-right">
+        <p>고객센터 1234-5678 (발신자 부담)</p>
+        <div class="csWrap">
+          <button class="ntcBtn">공지사항</button>
+          <button class="inqBtn">1:1문의</button>
+        </div>
+        <table class="gitIds">
+          <tbody>
+            <tr>
+              <td colspan="3">www.ggobookggobook.com</td>
+            </tr>
+            <tr>
+              <td>이승민 @null4848</td>
+              <td>김슬비 @kb4954</td>
+              <td>김민성 @LatteMeng</td>
+            </tr>
+            <tr>
+              <td>김혜원 @hwk3005</td>
+              <td>신민철 @resader1</td>
+              <td>공유현 @sharehyun</td>
+            </tr>
+          </tbody>
+        </table>
         </div>
       </div>
     </div>
-</body>
+  </body>
+
+  <script>
+    function toggleBookmark(button) {
+      const icon = button.querySelector('i');
+      const isSolid = icon.classList.contains('fa-solid');
+
+      // 1. 아이콘을 서서히 투명하게
+      icon.classList.add('fading-out');
+
+      // 2. fade-out 후 아이콘 교체
+      setTimeout(() => {
+        icon.classList.remove('fa-solid', 'fa-regular');
+        icon.classList.add(isSolid ? 'fa-regular' : 'fa-solid');
+      }, 50); // opacity transition 절반 정도 시점에 교체
+
+      // 3. 다시 서서히 나타나기
+      setTimeout(() => {
+        icon.classList.remove('fading-out');
+      }, 100); // 전체 duration 이후
+    }
+  </script>
+  <!-- 모달팝업 js n-->
+  <script>
+    const openBtn = document.getElementById("openReviewBtn");
+    const closeBtn = document.getElementById("closeReviewBtn");
+    const modal = document.getElementById("reviewModal");
+
+    openBtn.addEventListener("click", () => {
+      modal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // 바깥 클릭 시 닫기
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+
+  <!-- 모달 팝업 스타일 -->
+  <style>
+    .modal {
+      display: none; /* 초기 숨김 */
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
+    }
+  </style>
+
+  <!-- 모달 팝업 내부 스타일 -->
+  <style>
+    div{
+        display: block;
+        unicode-bidi: isolate;
+    }
+    
+    /* 리뷰 작성 페이지 */
+    /* 틀 */
+    html:not(.ios) body.dialog_open .dialog_wrapper.open {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    .dialog_wrapper.open {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 20px);
+        padding: 10px 0;
+        overflow-y: hidden;
+    }
+    .dialog_wrapper {
+        display: none;
+        min-width: 1440px;
+        z-index: 1000;
+        align-items: center;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content.has_btn {
+        padding-bottom: 30px;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        -moz-box-orient: vertical;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        overflow: hidden;
+        width: 100% !important;
+        max-height: 750px !important;
+        padding: 0 30px 34px;
+        background: #fff;
+        border-radius: 16px;
+        border: 1px solid #2D7868;
+        box-sizing: border-box;
+    }
+    .ui-dialog .ui-dialog-content {
+        position: relative;
+        border: 0;
+        padding: .5em 1em;
+        background: 0 0;
+        overflow: auto;
+    }
+    .dialog_wrapper .ui-dialog {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: start;
+        -moz-box-align: start;
+        -ms-flex-align: start;
+        -webkit-align-items: flex-start;
+        align-items: flex-start;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -moz-box-orient: vertical;
+        -moz-box-direction: reverse;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        position: relative;
+        width: 560px;
+        max-height: 750px;
+        margin: 0 auto;
+        padding: 0;
+        border: none;
+        color: #000;
+    }
+    .ui-dialog {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: .2em;
+        outline: 0;
+    }
+    .ui-front {
+        z-index: 100;
+    }
+    .dialog_wrapper .ui-dialog .ui-dialog-titlebar {
+        display: none;
+    }
+    .ui-dialog .ui-dialog-titlebar {
+        padding: .4em 1em;
+        position: relative;
+    }
+
+    /* 닫기 버튼 */
+    .btn_dialog_close {
+        width: 24px;
+        height: 24px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: 28px;
+        right: 30px;
+        width: 24px;
+        height: 24px;
+    }
+    button[class^=btn_], a[class^=btn_] {
+        display: inline-block;
+        box-sizing: border-box;
+        vertical-align: top;
+    }
+    button {
+        background-color: transparent;
+    }
+    button[class^=btn_] [class^=ico_], a[class^=btn_] [class^=ico_] {
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+    }
+    .hidden {
+        position: absolute;
+        visibility: hidden;
+        overflow: hidden;
+        height: 0;
+        line-height: 0;
+        width: 0;
+        margin: 0;
+        padding: 0;
+        font: 0 / 0 Arial;
+    }
+    /* 리뷰 이벤트 헤더 */
+    .dialog_wrapper .ui-dialog .dialog_wrap.no_title_line .dialog_header {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_header {
+        flex-shrink: 0;
+        padding: 25px 30px 20px 0;
+        text-align: left;
+        background: #fff;
+        border-bottom: 1px solid #eaeaea;
+    }
+    div {
+        display: block;
+        unicode-bidi: isolate;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_header .dialog_title {
+        font-size: 23px;
+        line-height: 30px;
+        letter-spacing: -0.01em;
+        font-weight: 500;
+        overflow: hidden;
+        display: block;
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+        -webkit-box-orient: inherit;
+        -webkit-line-clamp: inherit;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* 리뷰 컨텐츠 */
+    .dialog_wrapper .ui-dialog .dialog_wrap.no_title_line.has_btn .dialog_contents {
+        max-height: 557px;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content.has_btn .dialog_contents {
+        max-height: 600px;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.no_title_line .dialog_contents {
+        max-height: 631px;
+        margin-top: 30px;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents {
+        flex: 1 1 auto;
+        overflow: hidden;
+        overflow-y: auto;
+        position: relative;
+        max-height: 616px;
+        background: #fff;
+        padding: 0;
+        margin-top: 24px;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .custom_scroll_wrap {
+        max-height: inherit;
+    }
+    .scroll_wrap.active {
+        overflow-y: visible !important; 
+        max-height: none !important;
+    }
+    .custom_scroll_wrap {
+        width: 600px;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+    [data-simplebar] {
+        position: relative;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start;
+    }
+    .simplebar-wrapper {
+        overflow: hidden;
+        width: inherit;
+        height: inherit;
+        max-width: inherit;
+        max-height: inherit;
+    }
+    .simplebar-height-auto-observer-wrapper {
+        box-sizing: inherit !important;
+        height: 100%;
+        width: 100%;
+        max-width: 1px;
+        position: relative;
+        float: left;
+        max-height: 1px;
+        overflow: hidden;
+        z-index: -1;
+        padding: 0;
+        margin: 0;
+        pointer-events: none;
+        flex-grow: inherit;
+        flex-shrink: 0;
+        flex-basis: 0;
+    }
+    .simplebar-height-auto-observer {
+        box-sizing: inherit;
+        display: block;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1000%;
+        width: 1000%;
+        min-height: 1px;
+        min-width: 1px;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: -1;
+    }
+    .simplebar-height-auto-observer {
+        box-sizing: inherit;
+        display: block;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1000%;
+        width: 1000%;
+        min-height: 1px;
+        min-width: 1px;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: -1;
+    }
+    .simplebar-mask {
+        direction: inherit;
+        position: absolute;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: auto !important;
+        height: auto !important;
+        z-index: 0;
+    }
+    .simplebar-offset {
+        direction: inherit !important;
+        box-sizing: inherit !important;
+        resize: none !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 0;
+        margin: 0;
+        -webkit-overflow-scrolling: touch;
+    }
+    .simplebar-content-wrapper {
+        overflow: visible !important;
+        height: auto !important;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .custom_scroll_wrap .simplebar-content {
+        height: 100%;
+    }
+    .kbb-recent-contents *, :before, :after {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: #f2f2f2;
+    }
+    .kbb-recent-contents *, :before, :after {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(150 153 208 / .5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style: ;
+    }
+
+    /* 도서 정보 */
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .thumbnail_round_box {
+        padding: 16px;
+        border: 1px solid #eaeaea;
+        border-radius: 7px;
+    }
+    .prod_area.horizontal {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -moz-box-orient: horizontal;
+        -moz-box-direction: normal;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    }
+    /* 도서 이미지 */
+    .prod_area.horizontal .prod_thumb_box.size_xs {
+        width: 64px;
+    }
+    .prod_area.horizontal .prod_thumb_box {
+        overflow: hidden;
+        flex-shrink: 0;
+        width: 100px;
+    }
+    .prod_area .prod_thumb_box.size_xs {
+        width: 100px;
+    }
+    .prod_area .prod_thumb_box {
+        position: relative;
+        overflow: hidden;
+        width: 142px;
+    }
+    .prod_area .prod_thumb_box .prod_link {
+        display: block;
+        height: 100%;
+    }
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+    .prod_area .prod_thumb_box .img_box {
+        overflow: hidden;
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        border: 1px solid #eaeaea;
+    }
+    .prod_area.horizontal .prod_thumb_box.size_xs .img_box img {
+        max-height: calc((64px - 2px) * 1.618 - 10px);
+    }
+
+    .prod_area.horizontal .prod_thumb_box .img_box img {
+        max-height: calc((100px - 2px) * 1.618 - 10px);
+    }
+    .prod_area .prod_thumb_box.size_xs .img_box img {
+        max-height: calc((100px - 2px) * 1.618 - 10px);
+    }
+    .prod_area .prod_thumb_box .img_box img {
+        width: 100%;
+        max-height: calc((100% - 2px) * 1.618 - 10px);
+    }
+    .prod_area .prod_thumb_box img {
+        width: 100%;
+    }
+    img {
+        vertical-align: middle;
+    }
+    img, fieldset {
+        border: 0;
+    }
+    img {
+        overflow-clip-margin: content-box;
+        overflow: clip;
+    }
+
+    /* 도서 정보 */
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .thumbnail_round_box .prod_area .prod_info_box {
+        overflow: visible;
+    }
+    .prod_area.horizontal .prod_info_box.size_sm {
+        margin-left: 12px;
+    }
+    .prod_area.horizontal .prod_info_box {
+        overflow: hidden;
+        margin-left: 16px;
+    }
+    .prod_area .prod_info_box .prod_info {
+        display: block;
+        height: 100%;
+        font-size: 0;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .thumbnail_round_box:not(.size_md) .prod_area .prod_info_box .prod_name {
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: -0.01em;
+        margin-left: 5px;
+        max-height: 44px;
+    }
+    .prod_area .prod_info_box.size_sm .prod_name:not(.ellipsis_single) {
+        max-height: calc(22px * 2);
+    }
+    .prod_area .prod_info_box.size_sm .prod_name {
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: -0.01em;
+    }
+    .prod_area .prod_info_box .prod_name {
+        display: block;
+        display: -webkit-box;
+        overflow: hidden;
+        max-height: 46px;
+        line-height: 23px;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        text-overflow: -o-ellipsis-lastline;
+        white-space: normal;
+        word-break: break-all;
+        font-size: 15px;
+        line-height: 23px;
+        letter-spacing: -0.01em;
+        font-weight: 500;
+    }
+
+    /* 별점 */
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_contents .thumbnail_round_box .prod_area .prod_info_box .rating-container {
+        margin-top: 16px;
+    }
+    .rating-container.rating-lg {
+        margin-left: -2px;
+    }
+    .rating-container {
+        position: relative;
+        display: inline-block;
+        text-align: left;
+        font-size: 0;
+        vertical-align: top;
+        margin-left: -2px;
+    }
+    .rating-container .clear-rating {
+        display: none;
+    }
+    .rating-container .clear-rating {
+        color: #aaa;
+        cursor: not-allowed;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 60%;
+        padding-right: 5px;
+    }
+    .clear-rating-active {
+        cursor: pointer !important;
+    }
+    .rating-container.has_caption .rating-stars {
+        margin-top: 2px;
+    }
+    .rating-container .rating-stars {
+        position: relative;
+        cursor: pointer;
+        vertical-align: middle;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .rating-container .empty-stars {
+        color: #aaa;
+    }
+    .rating-container.rating-lg .empty-stars .star {
+        margin: 0 2px;
+    }
+    .rating-container .rating-stars .empty-stars .star {
+        margin: 0 2px;
+    }
+    .rating-container .star {
+        display: inline-block;
+        margin: 0 2px;
+        text-align: center;
+    }
+    .rating-container.rating-lg .empty-stars .star .glyphicon-star-empty:before {
+        content: "";
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 22px 22px;
+        background-image: url(images/ico_star_nonecilck.svg);
+    }
+    .rating-animate .filled-stars {
+        transition: width .25s ease;
+    }
+    .rating-container .filled-stars {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: auto;
+        color: #fde16d;
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-text-stroke: 1px #777;
+        text-shadow: 1px 1px #999;
+    }
+    .rating-container.rating-lg .filled-stars .star {
+        margin: 0 2px;
+    }
+    .rating-container .rating-stars .filled-stars .star {
+        margin: 0 2px;
+    }
+    .rating-container .star {
+        display: inline-block;
+        margin: 0 2px;
+        text-align: center;
+    }
+    .rating-container.rating-lg .filled-stars .star .glyphicon-star:before {
+        content: "";
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 22px 22px;
+        background-image: url(images/ico_star_cilck.svg);
+    }
+    .rating-container.rating-lg.has_caption .caption {
+        margin-top: 3px;
+    }
+
+    .rating-container.has_caption .caption {
+        display: inline-block;
+        margin: 0 0 0 6px;
+        vertical-align: top;
+        font-size: 0;
+    }
+    .rating-container .caption {
+        color: #999;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1;
+        margin-left: 5px;
+        margin-right: 0;
+    }
+    .rating-container.has_caption .caption .caption-badge {
+        padding: 0;
+        border-radius: 0;
+        font-size: 0;
+        background: none;
+        font-family: "Roboto", "Noto Sans KR", "PingFang SC", "Apple SD Gothic Neo", "Microsoft YaHei UI", "Malgun Gothic", sans-serif;
+    }
+    .caption-secondary {
+        background-color: #6c757d;
+    }
+    .caption-badge {
+        font-family: Arial, Helvetica, sans-serif;
+        display: inline-block;
+        padding: .35em .65em;
+        font-size: .75em;
+        font-weight: 700;
+        color: #fff;
+        white-space: nowrap;
+        vertical-align: baseline;
+    }
+    .caption-badge, .rating-container .caption .label {
+        line-height: 1;
+        text-align: center;
+        border-radius: .25rem;
+    }
+    .rating-container.has_caption .caption .caption-badge .val {
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: -0.01em;
+        color: #2d7868;
+        font-weight: 700;
+        line-height: 1;
+    }
+    .rating-container.has_caption .caption .caption-badge .total {
+        padding-top: 5px;
+        margin-left: 5px;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: -0.01em;
+        color: #767676;
+        font-weight: 400;
+        line-height: 1;
+    }
+    .rating-container.has_caption .caption .caption-badge .total:before {
+        content: "/";
+        margin-right: 1px;
+    }
+    .rating-input {
+        position: absolute;
+        cursor: pointer;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        font-size: 1px;
+        opacity: 0;
+        padding: 0;
+        margin: 0;
+        outline: 0;
+        pointer-events: none;
+        border: none;
+        box-shadow: none;
+        background: 0 0;
+    }
+    .kbb-recent-contents button, input, optgroup, select, textarea {
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 감성태그 리뷰작성 파일 */
+    .dialog_wrapper .ui-dialog .dialog_wrap .dialog_contents .info_text_box ~ .form_wrap {
+        margin-top: 20px;
+    }
+    /* 폼 틀 */
+    .form_wrap .form_box .form_title {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex
+    ;
+        display: -webkit-flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -moz-box-orient: horizontal;
+        -moz-box-direction: normal;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .form_wrap.type_md, .form_box{
+        margin-top: 20px;
+    }
+    .form_wrap.type_md .form_box .form_title .form_label {
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: -0.01em;
+    }
+    .form_label {
+        display: inline-block;
+        color: #000;
+        font-size: 15px;
+        line-height: 19px;
+        letter-spacing: -0.01em;
+        font-weight: 500;
+        cursor: default;
+    }
+    .form_label .required {
+        color: #2d7868;         
+        font-size: 14px; 
+        margin-left: 2px; 
+        vertical-align: baseline; 
+    }
+    .form_wrap .form_box .form_title .info_text {
+        width: 100%;
+        margin: 7px 0 2px;
+    }
+    .info_text.font_size_xxs {
+        font-size: 15px;
+        line-height: 19px;
+        letter-spacing: -0.01em;
+    }
+    .info_text {
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: -0.01em;
+        color: #595959;
+    }
+    .form_wrap.type_md .form_box .form_cont {
+        margin-top: 10px;
+    }
+    .form_wrap .form_box .form_cont {
+        margin-top: 8px;
+        color: #595959;
+    }
+    .tag_wrap {
+        margin: -4px -3px;
+        font-size: 0;
+    }
+    .tag_wrap.size_lg .tag {
+        padding: 9px 16px 7px;
+        font-size: 13px;
+        line-height: 22px;
+        letter-spacing: -0.01em;
+        border-color: #333;
+        background: #f0f0f0;
+        border-radius: 7px;
+        font-weight: 500;
+        color: #333;
+    }
+    .tag_wrap .tag {
+        margin: 5px 5px;
+        display: inline-block;
+        font-size: 13px;
+        line-height: 19px;
+        letter-spacing: -0.01em;
+        color: #595959;
+        padding: 7px 16px 8px;
+        background-color: #f7f7f7;
+        border: 1px solid #f7f7f7;
+        border-radius: 20px;
+        box-sizing: border-box;
+        transition: background-color 0.23s, border-color 0.23s, color 0.23s;
+    }
+    .tag_wrap .tag .text {
+        position: relative;
+    }
+
+    /* 리뷰 작성 폼 */
+    .byte_check_wrap {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #d5d5d5;
+        border-radius: 7px;
+        background: #fff;
+        font-size: 14px;
+        transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+        box-sizing: border-box;
+    }
+    .byte_check_wrap .form_textarea {
+        border: none;
+        padding: 11px 14px 0;
+    }
+    .form_textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 14px;
+        color: #000;
+        border: 1px solid #d5d5d5;
+        border-radius: 6px;
+        font-size: 15px;
+        line-height: 22px;
+        letter-spacing: -0.01em;
+        font-family: "Noto Sans KR", sans-serif;
+        background-color: #fff;
+        box-sizing: border-box;
+        transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+        outline: 0;
+        overflow-y: auto;
+        resize: none;
+    }
+    .byte_check_wrap .byte_check_footer {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -moz-box-orient: horizontal;
+        -moz-box-direction: normal;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        padding: 10px 10px 10px 14px;
+        text-align: right;
+        transition: background-color 0.2s ease-out;
+    }
+    .byte_check_wrap .byte_check {
+        display: inline-block;
+        line-height: 1;
+        font-size: 0;
+    }
+    .byte_check_wrap .byte_check .count {
+        display: inline-block;
+        color: #292929;
+    }
+    .byte_check_wrap .byte_check .count, .byte_check_wrap .byte_check .total {
+        display: inline-block;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.01em;
+    }
+    .byte_check_wrap .byte_check .total:before {
+        content: "/";
+    }
+
+    /* 사진 첨부 */
+    .form_wrap .form_box .form_title {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -moz-box-orient: horizontal;
+        -moz-box-direction: normal;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .form_label {
+        display: inline-block;
+        color: #000;
+        font-size: 13px;
+        line-height: 19px;
+        letter-spacing: -0.01em;
+        font-weight: 500;
+        cursor: default;
+    }
+    .form_wrap.type_md .form_box .form_title .file_attach_val {
+        padding-top: 4px;
+    }
+    .file_attach_val {
+        display: inline-block;
+        font-size: 0;
+        vertical-align: top;
+        line-height: 1;
+        font-weight: 400;
+    }
+    .file_attach_val .val {
+        font-size: 14px;
+        letter-spacing: -0.01em;
+    }
+    .file_attach_val .total {
+        font-size: 14px;
+        letter-spacing: -0.01em;
+        color: #767676;
+    }
+    .form_wrap.type_md .form_box .form_cont {
+        margin-top: 10px;
+    }
+    .form_wrap .form_box .form_cont {
+        margin-top: 8px;
+        color: #595959;
+    }
+    .file_list {
+        font-size: 0;
+    }
+    .kbb-recent-contents ol, ul, menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .file_list .list_item:last-child {
+        margin-right: 0;
+    }
+    .file_list .list_item {
+        display: inline-block;
+        margin-right: 10px;
+        vertical-align: top;
+    }
+    .file_list .file_item {
+        position: relative;
+        display: inline-block;
+    }
+    .file_list .file_item .btn_box {
+        position: relative;
+        display: inline-block;
+        width: 94px;
+        height: 94px;
+        border: 1px dashed #e5e5e5;
+        background-color: #f7f7f7;
+        cursor: pointer;
+        border-radius: 6px;
+        vertical-align: top;
+        box-sizing: border-box;
+    }
+    .file_list .file_item .btn_box input[type=file] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+    .file_list .file_item .btn_box label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-size: 0 !important;
+        border-radius: 7px;
+        background-size: 16px 16px;
+        background-image: url(images/btn_attached_add@2x.png);
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .file_list .file_item:not(.attached) .btn_remove_img {
+        display: none;
+    }
+    button {
+        background-color: transparent;
+    }
+    .form_wrap .form_box .form_cont .file_list + .bul_item_asterisk, .form_wrap .form_box .form_cont .file_list_box + .bul_item_asterisk {
+        margin-top: 10px;
+    }
+    .form_wrap .form_box .form_cont [class^=bul_item_] {
+        color: #767676;
+    }
+    [class^=bul_item_].font_size_xxs {
+        font-size: 15px;
+        line-height: 19px;
+        letter-spacing: -0.01em;
+    }
+    .file_list ~ .bul_item_asterisk {
+        margin-top: 10px;
+    }
+    .bul_item_asterisk {
+        color: #767676;
+        padding-left: 8px;
+    }
+    [class^=bul_item_] {
+        position: relative;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: -0.01em;
+        color: #595959;
+        font-weight: 400;
+        text-align: left;
+    }
+    .bul_item_asterisk:before {
+        content: "*";
+        color: #474c98;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .simplebar-content:after, .simplebar-content:before {
+        content: ' ';
+        display: table;
+    }
+    .kbb-recent-contents :before, :after {
+        --tw-content: "";
+    }
+
+    /* footer*/
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_footer {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-justify-content: center;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -moz-box-orient: horizontal;
+        -moz-box-direction: normal;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        flex-shrink: 0;
+        flex-wrap: wrap;
+        margin-top: 34px;
+    }
+    .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_footer a[class^=btn_], .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_footer button[class^=btn_] {
+        flex: 0 auto;
+    }
+    a.btn_primary[disabled], a.btn_primary[aria-disabled], a.btn_primary.disabled, button.btn_primary[disabled], button.btn_primary[aria-disabled], button.btn_primary.disabled, a.btn_line_primary.active[disabled], a.btn_line_primary.active[aria-disabled], a.btn_line_primary.active.disabled, button.btn_line_primary.active[disabled], button.btn_line_primary.active[aria-disabled], button.btn_line_primary.active.disabled {
+        color: #fff;
+        background: #2d7868;
+        border-color: #2d7868;
+    }
+    a.btn_md, button.btn_md {
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        display: -webkit-inline-flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-justify-content: center;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -moz-box-orient: horizontal;
+        -moz-box-direction: normal;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        min-width: 140px;
+        height: 44px;
+        padding: 0 23px 1px;
+        border-radius: 7px;
+        font-family: "Noto Sans KR", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 23px;
+        letter-spacing: -0.01em;
+    }
+    a[disabled], a[aria-disabled=true], a.disabled, button[disabled], button[aria-disabled=true], button.disabled {
+        pointer-events: none !important;
+        cursor: default !important;
+        text-decoration: none !important;
+    }
+  </style>
 </html>
 
 <!-- 답글달기 -->
