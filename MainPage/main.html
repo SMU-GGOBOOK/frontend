@@ -4,446 +4,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/mainpage.css" />
     <meta charset="UTF-8">
     <title>꼬북꼬북</title>
-    <style>
-      * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;}
 
-      body {font-family: 'Noto Sans KR', sans-serif;}
-
-      a {text-decoration: none; color: inherit; font-family: inherit; letter-spacing: inherit; cursor: pointer;}
-
-      /* header 부분 */
-      .fig-header,
-      /* 중앙 부분*/
-      .fig-main{
-        max-width: 78%; /* 건들지 마세용 */
-        padding-left: 16px; 
-        padding-right: 16px; 
-        margin: 0 auto;
-      }
-
-      .fig-nav{
-        display: grid; 
-        grid-template-columns: 1fr auto auto; 
-        align-items: center; 
-        padding: 16px 18px 8px 30px;
-      }
-      
-      /* 로고 + 교환독서 탭 */
-      .fig-header-left {
-        display: flex;
-        align-items: center; 
-        gap: 12px; 
-      }
-      .fig-one{
-        display: inline-flex;
-        width: fit-content;
-        display: flex; 
-        align-items: center; 
-        gap: 0.5rem;
-      }
-
-      .fig-logo{
-      height: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #2D7868;
-      margin: 0; 
-      font-size: 25px; 
-      }
-
-      .fig-exchangeimage {
-        height: 20px; 
-        margin-left: 20px; 
-        position: relative;
-      }
-
-      @media (max-width: 767px) {
-        .exchangeimage :before {
-          content: '';
-          position: absolute;
-          display: block;
-          top: -8px;
-          left: -8px;
-          width: 40px;
-          height: 40px;
-          z-index: 1;
-          background-color: transparent;
-        }
-      }
-
-      .fig-exchange-book{
-        height: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #2D7868;
-        margin: 0; 
-        font-size: 17px; 
-      }
-
-      @media (max-width: 767px) {
-        .fig-exchange-book{
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          margin: -1px;
-          padding: 0;
-          overflow: hidden;
-          border: 0;
-          clip: rect(0, 0, 0, 0);
-        }
-      }
-      
-      /* 검색바 */
-      .fig-searchform {
-        position: absolute;
-        left: 700px;
-        width: 500px;
-        display: flex;
-        align-items: flex-start;
-      }
-
-      .fig-tabindex {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .fig-formlabel {
-        display: flex;
-        align-items: center;
-        padding: 6px 10px;
-        min-height: 40px;
-        background: #f5f5f5;
-        border-radius: 7px;
-      }
-
-      .fig-searchimage {
-        font-size: 20px;
-        width: 20px;
-        height: 20px;
-        margin-right: 12px;
-        color: #a5a5a5;
-        fill: currentColor;
-        display: inline-block;
-      }
-
-      .fig-instant {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        padding: 0;
-        overflow: hidden;
-        border: 0;
-        clip: rect(0, 0, 0, 0);
-      }
-
-      .fig-forminput {
-        flex: 1;
-        width: 0;
-        min-width: 0;
-        height: 100%;
-        font-size: 15px;
-        line-height: 18px;
-        color: #141414;
-        caret-color: #2D7868;
-      }
-
-      /* 로그인 회원가입 */
-      .fig-join {
-        display: flex;
-        align-items: center;
-        position: relative;
-      }
-
-      .fig-signup,
-      .fig-login {
-        padding: 11px 12px;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 18px;
-        text-align: center;
-        color: #2D7868;
-      }
-
-      /* header 구분선 */
-      .fig-hr{
-        display: block;
-        width: 100%;
-        height: 1px;
-        box-sizing: border-box;
-        border: none;
-        background: #f0f0f0;
-        margin-top: 5px;
-      }
-
-          
-      input {
-        color: inherit; 
-        font-family: inherit; 
-        letter-spacing: inherit; 
-        appearance: none; 
-        background: none; 
-        border: 0; 
-        box-shadow: none; 
-        border-radius: 0; 
-        padding: 0; 
-        margin: 0;
-        outline:none;
-      }
-
-      hr {
-        margin: 0; 
-        padding: 0;
-      }
-      
-      .fig-main{
-        padding-top: 30px;
-        margin-bottom: 120px;
-      }
-
-      /* -------- 배너 부분 -------- */
-
-      .mainBanner{
-        box-sizing:border-box;
-        position: relative;
-        display:block;
-        color:#fafafa;
-        text-decoration:none;
-        overflow:hidden;
-        height:400px;
-        width:1300px;
-        border-radius:7px;
-        margin: 0 auto;
-      }
-      .mainBanner__center{
-        position:relative;
-        height:100%;
-        width:1300px;
-        margin:0 auto;
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding:0 156px 0 160px
-      }
-      .mainBanner__center__title{
-        font-size:36px;
-        font-weight:700;
-        line-height:48px
-      }
-      .mainBanner__center__subtitle{
-        font-size:20px;
-        font-weight:400;
-        line-height:28px;
-        margin-top:10px
-      }
-
-      .myBannerSwiper,.myBannerSwiper .swiper-slide {height: 100%;}
-
-      .swiper-slide {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .banner-container {
-        width: 100%;
-        height: 100%;
-      }
-
-      .swiper-pagination-bullet-active {
-        background: #2d7868;
-        opacity: 1;
-      }
-
-      
-      .mainBanner__bookcover{
-        width:180px; height:252px; margin-right:100px; border-radius: 7px;
-        overflow:hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      }
-
-      .mainBanner__bookcover>img{
-        width:100%;
-      }
-
-
-      /* ----------------랭킹 책표지---------------- */
-
-
-      .listWrapper ul {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 20px;
-        list-style: none;
-        padding: 10px;
-        margin: 0 auto;
-        justify-content:space-between;
-      }
-
-      .listWrapper li {
-        flex: 0 0 auto;
-        width: 220px;
-        text-align: center;
-        font-size: 14px;
-      }
-
-      .listWrapper img {
-        width: 100%;
-        display: block;
-      }
-
-      .bVUVO8nJ {
-        margin-top: 8px;
-        text-align: center;
-      }
-
-
-      .CIirP0cq {
-        padding: 20px 0 30px;
-      }
-
-
-      .ranking__title {
-        font-size: 20px;
-        font-weight: 700;
-        color:#1a1a1a;
-      }
-
-      
-      /* 책 표지 컨테이너 */
-      .book-cover-container {
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
-        border-radius: 7px;
-        box-shadow: 0 4px 4px #797e8480;;
-      }
-
-      .book__cover{
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-
-      .book__cover:hover {
-        transform: scale(1.05);
-      }
-
-      
-      /* 순위 - 회색 네모칸 */
-      .rank {
-        position: absolute;
-        top: 8px;
-        left: 8px;
-        background: rgba(0, 0, 0, 0.5);
-        color: #fafafa;
-        width: 24px;
-        height: 24px;
-        border-radius: 7px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        font-weight: bold;
-        z-index: 10;
-      }
-
-      .book__title {
-        color: #1a1a1a;
-        font-size: 18px;
-        font-weight: 600;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        max-height: 48px;
-        line-height: 24px;
-        overflow: hidden;
-      }
-
-      .rating{
-        font-size: 14px;
-        line-height: 18px;
-        color: #555;
-      }
-
-      .ranking {
-        color:#555;
-        width: 1300px;
-        margin: 0 auto;
-        padding: 0 10px;
-      }
-      
-
-      /*--------- footer ---------*/
-      #footerWrap{    
-        background-color: #444;
-        color:#fafafa;
-        height:300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      #footer{
-        width:1500px;
-        height:200px;
-        display: flex;
-        justify-content: center;
-      }
-
-      #totalReview{
-        text-align: center;
-      }
-
-      #totalReview>h1{
-        margin-bottom: 15px;
-      }
-
-
-    /*------------- 배너밑 회색네모칸 -------------*/
-    
-    .exchngreading{
-      width:1300px;
-      display:flex;
-      margin:0 auto;
-      gap:70px;
-    }
-
-    .section {
-      margin: 50px 0;
-      padding: 50px 100px;
-      text-align: center;
-      width:650px;
-      background-color: #f5f5f5;
-      color:#1a1a1a;
-      border-radius: 7px;
-    }
-
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #1e5f51;
-    }
-
-    .buttons {
-      margin-top: 2rem;
-    }
-
-    .buttons a {
-      display: inline-block;
-      margin: 0.5rem 1rem;
-      padding: 0.8rem 1.5rem;
-      background-color: #2D7868;
-      color: #fafafa;
-      text-decoration: none;
-      border-radius: 7px;
-      font-weight: 600;
-    }
-
-  </style>
   <script>
     $(document).ready(function(){
         //배너 슬라이드 script
@@ -805,15 +370,60 @@
   </section>
 </div>
 
-
-<div id="footerWrap">
-  <div id="footer">
-    <div id="totalReview">
-      <h1>꼬북꼬북 모은 리뷰  <span>🐢 15,738 개</span></h1>
-      <div>꼬북꼬북과 함께 독서해요! <span><a href="#"> ▶ 교환독서 시작하기</a></span></div>
+  <div class="footerWrap">
+    <div class="totalReview">
+      <p>꼬북꼬북 모은 리뷰<span>15,738</span>개</p>
     </div>
+    <!--리뷰수 아래부분-->
+    <div class="footer">
+      <div class="footer-left">
+        <p>(주) 꼬북꼬북</p>
+        <div class="infoWrap">
+          <ul>
+            <li>대표자명: 꼬북이</li>
+            <li>사업자등록번호: 123-45-67890</li>
+            <li>통신판매업신고: 2025-하룰라라-01159</li>
+            <li>이메일: support@ggo.book</li>
+          </ul>
+          <ul>
+            <li>주소: 서울시 가산동 하룰라라로 궁전센터1차 123-01</li>
+            <li>Tel : 02-1991-1120</li>
+            <li>Fax : 02-1991-1120</li>
+          </ul>
+          <p>© 2025 꼬북꼬북 All rights reserved</p>
+        </div>
+        <div class="logos">
+          <img src="logos/notion_white.png" style="width:30px;">
+          <img src="logos/github_white.png" style="width:30px;">
+          <img src="logos/youtube_white.png" style="width:30px;">
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>고객센터 1234-5678 (발신자 부담)</p>
+        <div class="csWrap">
+          <button class="ntcBtn">공지사항</button>
+          <button class="inqBtn">1:1문의</button>
+        </div>
+        <table class="gitIds">
+          <tbody>
+            <tr>
+              <td colspan="3">www.ggobookggobook.com</td>
+            </tr>
+            <tr>
+              <td>이승민 @null4848</td>
+              <td>김슬비 @kb4954</td>
+              <td>김민성 @LatteMeng</td>
+            </tr>
+            <tr>
+              <td>김혜원 @hwk3005</td>
+              <td>신민철 @resader1</td>
+              <td>공유현 @sharehyun</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--리뷰수 아래부분-->
   </div>
-</div>
-
 </body>
 </html>
