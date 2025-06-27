@@ -49,7 +49,7 @@
 
 
 .subject{
-    font-size:25px;
+    font-size:27px;
     font-weight:700;
     color:#1a1a1a;
 }
@@ -115,7 +115,7 @@
     height:50px;
     font-size: 15px;
     font-weight: bold;
-    color:#fff;
+    color:#fafafa;
     border-radius: 7px;
     border-style: hidden;
     cursor:pointer
