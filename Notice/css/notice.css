@@ -72,16 +72,20 @@
     font-weight: 400;
     font-size: 14px;
     color: #636363;
-    background-color: #f5f5f5;
+    background-color: #f0f0f0;
 }
 
 .content-area>div>table>tbody>tr>td{
     height:60px;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
     padding:15px;
     color:#1a1a1a;
     border-bottom:1px solid #ddd;
+}
+
+.content-area>div>table>tbody>tr>td:first-child{
+    font-weight:700;
 }
 
 .ntc_title {
