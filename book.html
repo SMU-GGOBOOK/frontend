@@ -467,6 +467,13 @@ element.style {
     width: auto;
     height: auto;
 }
+.bookmarkBtn i {
+  transition: opacity 0.3s ease;
+}
+
+.bookmarkBtn i.fading-out {
+  opacity: 0;
+}
 .fa-bookmark {
     font-size: 30px;
     position: absolute;
@@ -862,8 +869,8 @@ sui-book-rating{
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
                   <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                    <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                     </button>
                     <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
                       <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/kf9632.jpg"><!----></div>
@@ -887,8 +894,8 @@ sui-book-rating{
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
                   <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                    <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                     </button>
                     <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
                       <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/kf4345.jpg"><!----></div>
@@ -912,8 +919,8 @@ sui-book-rating{
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
                   <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                    <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                     </button>
                     <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
                       <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/kf3667.jpg"><!----></div>
@@ -937,8 +944,8 @@ sui-book-rating{
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
                   <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                    <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                     </button>
                     <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
                       <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/kf1094.jpg"><!----></div>
@@ -962,8 +969,8 @@ sui-book-rating{
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
                   <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                    <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                     </button>
                     <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
                       <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/ke3796.jpg"><!----></div>
@@ -987,8 +994,8 @@ sui-book-rating{
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
                   <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                    <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                     </button>
                     <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
                       <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/kd6574.jpg"><!----></div>
@@ -1016,8 +1023,8 @@ sui-book-rating{
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
                   <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                    <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                     </button>
                     <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
                       <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/kd5088.jpg"><!----></div>
@@ -1041,8 +1048,8 @@ sui-book-rating{
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
                   <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                    <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                     </button>
                     <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
                       <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/kb6054.jpg"><!----></div>
@@ -1066,8 +1073,8 @@ sui-book-rating{
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
                   <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                    <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                     </button>
                     <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
                       <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/ka6911.jpg"><!----></div>
@@ -1091,8 +1098,8 @@ sui-book-rating{
               <sui-book _ngcontent-ng-c2831665569="" _nghost-ng-c1655548388="">
                 <div _ngcontent-ng-c1655548388="" class="sui-book__box">
                   <div _ngcontent-ng-c1655548388="" class="sui-book__cover-box">
-                    <button class="bookmarkBtn">
-                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+                    <button class="bookmarkBtn" onclick="toggleBookmark(this)">
+                      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                     </button>
                     <div _ngcontent-ng-c1655548388="" class="sui-book__cover-container">
                       <img _ngcontent-ng-c2831665569="" sui-book-cover="" class="sui-book-cover" tabindex="0" src="images/ka4242.jpg"><!----></div>
@@ -1260,4 +1267,25 @@ sui-book-rating{
     </div>
 
   </body>
+   <script>
+    function toggleBookmark(button) {
+      const icon = button.querySelector('i');
+      const isSolid = icon.classList.contains('fa-solid');
+
+      // 1. 아이콘을 서서히 투명하게
+      icon.classList.add('fading-out');
+
+      // 2. fade-out 후 아이콘 교체
+      setTimeout(() => {
+        icon.classList.remove('fa-solid', 'fa-regular');
+        icon.classList.add(isSolid ? 'fa-regular' : 'fa-solid');
+      }, 50); // opacity transition 절반 정도 시점에 교체
+
+      // 3. 다시 서서히 나타나기
+      setTimeout(() => {
+        icon.classList.remove('fading-out');
+      }, 100); // 전체 duration 이후
+    }
+
+  </script>
 </html>
