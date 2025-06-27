@@ -92,6 +92,74 @@ textarea:focus-within,
 }
 
 
+/* -----사진 첨부---- */
+
+
+.file_list {
+    font-size: 0;
+}
+.file_list .list_item:last-child {
+    margin-right: 0;
+}
+.file_list .list_item {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+}
+.file_list .file_item {
+    position: relative;
+    display: inline-block;
+}
+.file_list .file_item .btn_box {
+    position: relative;
+    display: inline-block;
+    width: 94px;
+    height: 94px;
+    border: 1px dashed #e5e5e5;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    border-radius: 6px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.file_list .file_item .btn_box input[type=file] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+.file_list .file_item .btn_box label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 0 !important;
+    border-radius: 7px;
+    background-size: 16px 16px;
+    background-image: url(../images/plusBtn.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.file_list .file_item:not(.attached) .btn_remove_img {
+    display: none;
+}
+
+button {
+    background-color: transparent;
+}
+.form_box .form_cont .file_list + .bul_item_asterisk{
+    margin-top: 10px;
+}
+.form_wrap .form_box .form_cont [class^=bul_item_] {
+    color: #767676;
+}
+
+/* -----사진 첨부 끝---- */
+
+
 .fig-main label {
     font-size:18px;
     font-weight: 700;
@@ -135,6 +203,9 @@ select,#title_inq,#content_inq{
 }
 
 
+.lastone{
+    padding-bottom:30px;
+}
 
 form[name='inqFrm'] {
     padding-top:40px;
