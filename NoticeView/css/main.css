@@ -4,6 +4,12 @@ body {font-family: 'Noto Sans KR', sans-serif;}
     text-decoration: none; list-style: none;
 }
 
+table,tr,td{
+    border-collapse:collapse;
+}
+
+
+
 input {
     color: inherit; 
     font-family: inherit; 
@@ -68,15 +74,28 @@ hr {
     gap: 0.5rem;
 }
 
+
+/*---------헤더 로고 글씨체----------*/
+
+@font-face {
+    font-family: 'HakgyoansimDunggeunmisoTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
 .fig-logo{
+    font-family: 'HakgyoansimDunggeunmisoTTF-B';
     height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #2D7868;
     margin: 0; 
-    font-size: 25px; 
+    font-size: 30px; 
 }
+
 
 .fig-exchangeimage {
     height: 20px; 
@@ -84,19 +103,6 @@ hr {
     position: relative;
 }
 
-@media (max-width: 767px) {
-    .exchangeimage :before {
-    content: '';
-    position: absolute;
-    display: block;
-    top: -8px;
-    left: -8px;
-    width: 40px;
-    height: 40px;
-    z-index: 1;
-    background-color: transparent;
-    }
-}
 
 .fig-exchange-book{
     height: 25px;
@@ -108,18 +114,6 @@ hr {
     font-size: 17px; 
 }
 
-@media (max-width: 767px) {
-    .fig-exchange-book{
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    }
-}
 
 /* 검색바 */
 .fig-searchform {
@@ -204,28 +198,115 @@ hr {
     margin-top: 5px;
 }
 
-/* footer */
 
-#footerWrap{    
+
+/* ----------------footer----------------- */
+
+.footerWrap{    
     background-color: #444;
-    color:white;
-    height:300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#footer{
     width:100%;
+    height:300px;
+
+}
+
+.footer{
+    width:1400px;
     height:200px;
-    display: flex;
-    justify-content: center;
+    margin:0 auto;
+    padding-top:20px;
+    display:flex;
+    justify-content: space-between;
+    color:#fafafa;
+    font-weight:300;
+    font-size:15px;
 }
 
-#totalReview{
+.totalReview{
     text-align: center;
+    width:100%;
+    height:56px;
 }
 
-#totalReview>h1{
-    margin-bottom: 15px;
+.totalReview>p{
+    color:#fafafa;
+    padding: 11px 0;
+    border-bottom:2px solid #333;
+    font-size:22px;
+}
+
+.totalReview>p>span{
+    font-weight:700;
+    padding:0 10px;
+    font-size: 23px;
+}
+
+
+.footer-left{
+    width:1000px;
+    display:flex;
+    justify-content:space-between;
+    flex-direction: column;
+}
+
+
+/*(주)꼬북꼬북부터 Fax까지*/
+.footer-left>p, .footer-right>p{
+    font-size:20px;
+    font-weight:700;
+}
+
+.infoWrap > ul{
+    display:flex;
+    margin-bottom:5px;
+}
+
+.infoWrap > ul > li:not(:last-child)::after{
+    content: "|";
+    color: #ccc;
+    margin: 0 15px;
+    font-weight: 300;
+}
+
+/*노션,깃,유튜브 로고부분*/
+.logos{
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoWrap{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+/*----------오른쪽------------*/
+
+.footer-right{
+  width:400px;
+  height:180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.csWrap{
+    width:380px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.csWrap > button{
+    cursor: pointer;
+    width:180px;
+    height:40px;
+    color:#f0f0f0;
+    background:#333;
+    border:1px solid #f0f0f0;
+    border-radius: 7px;
+}
+
+.footer-right>.gitIds>tbody>tr>td{
+    height:25px;
 }

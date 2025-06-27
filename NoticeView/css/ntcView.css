@@ -80,7 +80,7 @@
     border-collapse: collapse;
 }
 
-.fig-main th,td{
+.fig-main th,.fig-main td{
     border-bottom:1px solid #CCC;
 }
 
