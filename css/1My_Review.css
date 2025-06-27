@@ -469,6 +469,7 @@ button[class^=btn_] .text, a[class^=btn_] .text {
     display: inline-block;
     position: relative;
     vertical-align: top;
+    color: #1a1a1a;
 }
 
 button[class^=btn_] [class^=ico_], a[class^=btn_] [class^=ico_] {
@@ -558,6 +559,7 @@ button[class^=btn_], a[class^=btn_] {
     vertical-align: top;
     padding-top: 1px;
     transition: color 0.2s ease-out;
+    color: #1a1a1a;
 }
 
 .B_header{
