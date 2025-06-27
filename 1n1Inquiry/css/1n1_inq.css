@@ -55,10 +55,6 @@
 /*------------1:1문의 한정------------*/
 
 
-input:focus-within{
-    outline:none;
-}
-
 #title_inq:focus-within,
 textarea:focus-within,
 #ctgr_inq:focus-within{
@@ -76,7 +72,7 @@ textarea:focus-within,
     padding:0 15px;
     border:1px solid #ccc;
     border-radius: 7px;
-    width:850px;
+    width:97%;
     height:45px;
     display:flex;
     align-items:center;
@@ -85,7 +81,7 @@ textarea:focus-within,
 }
 
 #content_inq{
-    width:850px;
+    width:97%;
     height:300px;
     font-size: 15px;
     border: 1px solid #ccc;
