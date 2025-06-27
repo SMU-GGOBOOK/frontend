@@ -48,9 +48,10 @@
 /*------------view페이지------------*/
 
 
-.subject>ul>li{
+.subject{
     font-size:25px;
     font-weight:700;
+    color:#1a1a1a;
 }
 
 .day>p{
@@ -73,15 +74,19 @@
 .viewContents{
     padding:30px 28px 40px;
     border-bottom: 1px solid #1a1a1a;
+    color:#1a1a1a;
 }
 
 .fig-main table{
     width:1137px;
     border-collapse: collapse;
+    color:#1a1a1a;
+    font-size:15px;
 }
 
 .fig-main th,.fig-main td{
     border-bottom:1px solid #CCC;
+    height:60px;
 }
 
     
@@ -91,9 +96,7 @@
     height:50px;
     font-size:15px;
     font-weight: 600;
-    color: #333;
     text-align: center;
-    vertical-align: top;
 }
 
 .fig-main th>span{
