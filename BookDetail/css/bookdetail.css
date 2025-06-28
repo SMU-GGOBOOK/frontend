@@ -667,7 +667,24 @@ input, button, select, textarea {
     margin-right: 1px;
 }
 
+/* 리뷰 + 사진 */
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_view_wrap {
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    align-items: stretch;
+}
+
 /* 리뷰 댓글 부분 */
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_view_wrap .comment_text_box {
+    display: block;
+    flex: 1;
+    width: 100%;
+}
 .comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_view_wrap .comment_text_box .comment_text {
     color: #1a1a1a;
     font-size: 14px;
@@ -686,6 +703,157 @@ input, button, select, textarea {
     max-height: none;
     -webkit-box-orient: inherit;
     -webkit-line-clamp: inherit;
+}
+
+/* 리뷰 사진 부분 */
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_view_wrap .comment_thumb_box {
+    display: block;
+    position: relative;
+    flex: 0 auto;
+    overflow: hidden;
+    width: 64px;
+    height: 64px;
+    margin-left: 60px;
+    border-radius: 7px;
+}
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_view_wrap .comment_thumb_box .comment_thumb_view {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_view_wrap .comment_thumb_box .comment_thumb_view img {
+    display: none;
+}
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_view_wrap .comment_thumb_box img {
+    width: 100%;
+}
+
+/* 클릭했을 때 */
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap {
+    display: block;
+    position: relative;
+    margin-top: 16px;
+    box-sizing: border-box;
+}
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+.swiper-container-android .swiper-slide, .swiper-wrapper {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform, -webkit-transform;
+    box-sizing: content-box;
+}
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-container .swiper-wrapper .swiper-slide:last-child {
+    margin-right: 0;
+}
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-container .swiper-wrapper .swiper-slide {
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+}
+.swiper-slide {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    position: relative;
+    transition-property: transform, -webkit-transform;
+}
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-container .swiper-wrapper .swiper-slide .comment_img_box {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-container .swiper-wrapper .swiper-slide .comment_img_box .btn_view_img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-container .swiper-wrapper .swiper-slide .comment_img_box img {
+    display: none;
+}
+
+/* 다음 사진 버튼 */
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-button-prev, .comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-button-next {
+    opacity: 0;
+    transition: opacity 0.23s;
+}
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-button-next {
+    right: -22px;
+}
+.swiper-button-next, .swiper-button-prev {
+    opacity: 1;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: 44px 44px;
+    background-image: url(../images/common/ink/btn_swiper_arr_white@2x.png);
+    transition: opacity 0.23s;
+    border-radius: 100%;
+    z-index: 2;
+    box-sizing: border-box;
+}
+.hidden {
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    line-height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    font: 0 / 0 Arial;
+}
+/* 이전 사진 버튼 */
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-button-prev, .comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-button-next {
+    opacity: 0;
+    transition: opacity 0.23s;
+}
+.comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_swiper_wrap .swiper-button-prev {
+    left: -22px;
+}
+.swiper-button-prev {
+    transform: rotate(180deg);
+}
+.swiper-button-next, .swiper-button-prev {
+    opacity: 1;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: 44px 44px;
+    background-image: url(../images/common/ink/btn_swiper_arr_white@2x.png);
+    transition: opacity 0.23s;
+    border-radius: 100%;
+    z-index: 2;
+    box-sizing: border-box;
 }
 
 /* 리뷰 footer 부분 */
@@ -746,4 +914,7 @@ input, button, select, textarea {
     vertical-align: top;
     padding-top: 1px;
 }
+
+/* 리뷰 속 사진 */
+
 

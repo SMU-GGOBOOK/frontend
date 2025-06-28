@@ -14,8 +14,13 @@
     <link rel="stylesheet" href="css/bookdetail.css"/>
     <link rel="stylesheet" href="css/reply.css"/>
     <link rel="stylesheet" href="css/review.css"/>
+    <link rel="stylesheet" href="css/paginator.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     <script src="js/bookdetail.js" defer></script>
+
+    <!-- 여기서만 -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 
     <style>
@@ -1019,7 +1024,7 @@
                     </span>
                   </div>
                 </div>
-                <div class="comment_swiper_wrap">
+                <div class="comment_swiper_wrap" style="display: none;">
                   <div class="swiper-container">
                     <ul class="swiper-wrapper">
                       <li class="swiper-slide">
@@ -1353,8 +1358,7 @@
               </button>
             </div>
           </app-paginator>
-          <!---->
-        </div>            
+        </div>              
       </div>
     </div>
       </div>

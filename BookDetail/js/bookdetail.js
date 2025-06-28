@@ -163,6 +163,24 @@ document.addEventListener("DOMContentLoaded", function () {
   updateStars(currentValue);
 });
 
+// 이미지 클릭시 변환
+$(document).ready(function () {
+  $('.comment_thumb_box').on('click', function () {
+    const $commentItem = $(this).closest('.comment_item');
+    $commentItem.addClass('overflow active');
+
+    // 썸네일 숨김
+    $commentItem.find('.comment_thumb_box').hide();
+
+    // Swiper 래퍼 보이기
+    const $swiperWrap = $commentItem.find('.comment_swiper_wrap');
+    if ($swiperWrap.length) {
+      $swiperWrap.show();
+    }
+  });
+});
+
+
 
 
 
