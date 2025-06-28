@@ -1,351 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/e1869b8eb9.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type='text/css' href="css/my_group_list.css">
-    <title>교환독서</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/e1869b8eb9.js" crossorigin="anonymous"></script>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <link rel="stylesheet" type='text/css' href="css/3my_group_list.css">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/paginator.css" />
+  <title>교환독서</title>
 </head>
-<style>
-  body {font-family: 'Noto Sans KR', sans-serif;}
-  :not(svg) {
-  transform-origin: 0px 0px;
-  }
-  * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;
-    text-decoration: none;
-    list-style: none;
-  }
-  input {
-    color: inherit; 
-    font-family: inherit; 
-    letter-spacing: inherit; 
-    appearance: none; 
-    background: none; 
-    border: 0; 
-    box-shadow: none; 
-    border-radius: 0; 
-    padding: 0; 
-    margin: 0;
-  }
 
-  a {
-    text-decoration: none; 
-    color: inherit; 
-    font-family: inherit; 
-    letter-spacing: inherit; 
-    cursor: pointer;
-  }
-  
-  hr {
-    margin: 0; 
-    padding: 0;
-  }
-
-  /* header 부분 */
- .fig-header,
- /* 중앙 부분*/
- .fig-main{
-    max-width: 78%; /* 건들지 마세용 */
-    padding-left: 16px; 
-    padding-right: 16px; 
-    margin: 0 auto;
-    
-  }
-  
-  .fig-main{
-    padding-top: 30px;
-    margin-bottom: 120px;
-  }
-
-  .fig-nav{
-    display: grid; 
-    grid-template-columns: 1fr auto auto; 
-    align-items: center; 
-    padding: 16px 18px 8px 30px;
-  }
-  
-  /* 로고 + 교환독서 탭 */
-  .fig-header-left {
-    display: flex;
-    align-items: center; 
-    gap: 12px; 
-  }
-  .fig-one{
-    display: inline-flex;
-    width: fit-content;
-    display: flex; 
-    align-items: center; 
-    gap: 0.5rem;
-  }
-
-  .fig-logo{
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #2D7868;
-  margin: 0; 
-  font-size: 25px; 
-  }
-
-  .fig-exchangeimage {
-    height: 20px; 
-    margin-left: 20px; 
-    position: relative;
-  }
-
-  @media (max-width: 767px) {
-    .exchangeimage :before {
-      content: '';
-      position: absolute;
-      display: block;
-      top: -8px;
-      left: -8px;
-      width: 40px;
-      height: 40px;
-      z-index: 1;
-      background-color: transparent;
-    }
-  }
-
-  .fig-exchange-book{
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #2D7868;
-    margin: 0; 
-    font-size: 17px; 
-  }
-
-  @media (max-width: 767px) {
-    .fig-exchange-book{
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      border: 0;
-      clip: rect(0, 0, 0, 0);
-    }
-  }
-  
-  /* 검색바 */
-  .fig-searchform {
-    position: absolute;
-    left: 700px;
-    width: 500px;
-    display: flex;
-    align-items: flex-start;
-  }
-
-  .fig-tabindex {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .fig-formlabel {
-    display: flex;
-    align-items: center;
-    padding: 6px 10px;
-    min-height: 40px;
-    background: #f5f5f5;
-    border-radius: 8px;
-  }
-
-  .fig-searchimage {
-    font-size: 20px;
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-    color: #a5a5a5;
-    fill: currentColor;
-    display: inline-block;
-  }
-
-  .fig-instant {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-  }
-
-  .fig-forminput {
-    flex: 1;
-    width: 0;
-    min-width: 0;
-    height: 100%;
-    font-size: 15px;
-    line-height: 18px;
-    color: #141414;
-    caret-color: #2D7868;
-  }
-
-  /* 로그인 회원가입 */
-  .fig-join {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-
-  .fig-signup,
-  .fig-login {
-    padding: 11px 12px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 18px;
-    text-align: center;
-    color: #2D7868;
-  }
-
-  /* header 구분선 */
-  .fig-hr{
-    display: block;
-    width: 100%;
-    height: 1px;
-    box-sizing: border-box;
-    border: none;
-    background: #f0f0f0;
-    margin-top: 5px;
-  }
-
-  /* footer */
-
-  #footerWrap{    
-    background-color: #444;
-    color:white;
-    height:300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #footer{
-      width:1500px;
-      height:200px;
-      display: flex;
-      justify-content: center;
-  }
-
-  #totalReview{
-      text-align: center;
-  }
-
-  #totalReview>h1{
-    margin-bottom: 15px;
-  }
-
-      /* 하단라벨링 */
-  .flex:not(.flex-dir-column).flex-h-center, .flex.flex-dir-row.flex-h-center {justify-content: center;}
-@media (max-width: 767px) {
-    .flex-h-center[_ngcontent-ng-c2831665569] {
-        left: calc(50% - 74px);
-    }
-}
-.flex-h-center[_ngcontent-ng-c2831665569] {
-    display: flex;
-    margin-bottom: 20px;
-    margin-top: 50px;
-}
-.flex:not(.flex-dir-column), .flex.flex-dir-row {
-    flex-direction: row;
-}
-[_nghost-ng-c522025578] {
-    display: inline-flex
-;
-    align-items: center;
-    line-height: 1;
-}
-.numbers-pager[_ngcontent-ng-c522025578] {margin: 0 .5em; flex-shrink: 0;}
-.numbers[_ngcontent-ng-c522025578], .numbers-pager[_ngcontent-ng-c522025578] {display: inline-block; margin: 0 10px 0 10px; color: #ccc;}
-.numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #383838;}
-.numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
-button[disabled] {
-    cursor: default;
-}
-@media (max-width: 1199px) {
-    [_nghost-ng-c1936088117] {
-        font-size: 26px;
-    }
-}
-[_nghost-ng-c1936088117] {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-appearance: none;
-    cursor: pointer;
-    line-height: 0;
-    font-size: 30px;
-}
-button {cursor: pointer;}
-svg{width: 24; height: 24; fill: none;}
-svg:not(:root) {overflow-clip-margin: content-box; overflow: visible;}
-g{clip-path: url(#clip0_2830_122058);}
-mask{x: 0; y: 0; width: 24; height: 24;}
-
-g {mask: url(#mask0_2830_122058);}
-:not(svg) {transform-origin: 0px 0px;}
-
-rect {
-    width: 24;
-    height: 24;
-    fill: white;
-    transform: translate(24, 24) rotate(180deg);
-}
-.numbers-pager[_ngcontent-ng-c522025578] button[disabled][_ngcontent-ng-c522025578] {color: #ccc;}
-.numbers-pager[_ngcontent-ng-c522025578] button[_ngcontent-ng-c522025578] {width: 24px; padding: 12px 0; font-size: 12px;}
-button[disabled] {cursor: default;}
-@media (max-width: 1199px) {
-    [_nghost-ng-c1936088117] {
-        font-size: 26px;
-    }
-}
-[_nghost-ng-c1936088117] {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-appearance: none;
-    cursor: pointer;
-    line-height: 0;
-    font-size: 30px;
-}
-
-.numbers[_ngcontent-ng-c522025578] a[_ngcontent-ng-c522025578] {margin: 0 5px; color: #ccc; font-size: 20px; cursor: pointer;}
-.numbers[_ngcontent-ng-c522025578] a.active[_ngcontent-ng-c522025578] {color: black;}
-
-</style>
 <body>
   <header class="fig-header">
     <nav class="fig-nav">
       <div class="fig-header-left">
         <a class="fig-one" href="/" rel="noreferrer">
           <h1 class="fig-logo">꼬북꼬북</h1>
-          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg" class="fig-exchangeimage">
-            <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3"
-            stroke-linecap="round" stroke-linejoin="round"></path>
+          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="fig-exchangeimage">
+            <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3" stroke-linecap="round"
+              stroke-linejoin="round"></path>
           </svg>
           <h4 class="fig-exchange-book">교환 독서</h4>
         </a>
@@ -355,8 +31,10 @@ button[disabled] {cursor: default;}
         <div tabindex="-1" class="fig-tabindex">
           <div class="fig-q3rd3s et3830u1">
             <label class="fig-formlabel">
-              <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="fig-searchimage">
-                <path fill-rule="evenodd" d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
+              <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                class="fig-searchimage">
+                <path fill-rule="evenodd"
+                  d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
                 </path>
               </svg>
               <span class="fig-instant">인스턴트 검색</span>
@@ -372,11 +50,11 @@ button[disabled] {cursor: default;}
       </div>
 
     </nav>
-  </header> 
+  </header>
 
   <hr class="fig-hr">
-
   <div class="fig-main">
+    <!-- 여기에 메인 컨텐츠 입력 -->
           <nav><!--전체틀-->
           <!--왼쪽사이드-->
           <div class="left_side">
@@ -423,60 +101,75 @@ button[disabled] {cursor: default;}
                   <!--내 그룹 목록-->
                   <div class="my_group">
                       <div class="bookbox">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <button class="outBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
                           <div class="bookbox_cover">
                               <img src="images/책1.jpg">
                           </div>
                           <div class="group_info">
-                              <div class="booktitle">그룹명(0)</div>
+                              <div class="booktitle">
+                                <span id="group_name">그룹명</span>
+                                <span id="group_count">(8/8)</span>
+                              </div>
                               <div class="bookauthor">책이름</div>
                               <div class="bookauthor">그룹소개</div>
                               <div class="bookauthor">그룹장 닉네임</div>
                           </div>
                       </div>
                       <div class="bookbox">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <button class="outBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
                           <div class="bookbox_cover">
                               <img src="images/책2.jpg">
                           </div>
                           <div class="group_info">
-                              <div class="booktitle">그룹명(0)</div>
+                              <div class="booktitle">
+                                <span id="group_name">그룹명</span>
+                                <span id="group_count">(8/8)</span>
+                              </div>
                               <div class="bookauthor">책이름</div>
                               <div class="bookauthor">그룹소개</div>
                               <div class="bookauthor">그룹장 닉네임</div>
                           </div>
                       </div>
                       <div class="bookbox">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <button class="outBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
                           <div class="bookbox_cover">
                               <img src="images/책3.jpg">
                           </div>
                           <div class="group_info">
-                              <div class="booktitle">그룹명(0)</div>
+                              <div class="booktitle">
+                                <span id="group_name">그룹명</span>
+                                <span id="group_count">(8/8)</span>
+                              </div>
                               <div class="bookauthor">책이름</div>
                               <div class="bookauthor">그룹소개</div>
                               <div class="bookauthor">그룹장 닉네임</div>
                           </div>
                       </div>
                       <div class="bookbox">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <button class="outBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
                           <div class="bookbox_cover">
                               <img src="images/책4.jpg">
                           </div>
                           <div class="group_info">
-                              <div class="booktitle">그룹명(0)</div>
+                              <div class="booktitle">
+                                <span id="group_name">그룹명</span>
+                                <span id="group_count">(8/8)</span>
+                              </div>
                               <div class="bookauthor">책이름</div>
                               <div class="bookauthor">그룹소개</div>
                               <div class="bookauthor">그룹장 닉네임</div>
                           </div>
                       </div>
                       <div class="bookbox">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <button class="outBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
                           <div class="bookbox_cover">
                               <img src="images/책5.jpg">
                           </div>
                           <div class="group_info">
-                              <div class="booktitle">그룹명(0)</div>
+                              <div class="booktitle">
+                                <span id="group_name">그룹명</span>
+                                <span id="group_count">(8/8)</span>
+                              </div>
                               <div class="bookauthor">책이름</div>
                               <div class="bookauthor">그룹소개</div>
                               <div class="bookauthor">그룹장 닉네임</div>
@@ -485,7 +178,7 @@ button[disabled] {cursor: default;}
                   </div>
               </div>
           </div>
-      </nav>
+      </nav>   
     <div class="fig-main-div">
       <!-- 하단라벨링 부분 -->
       <!-- 클래스 이름 못바꾸겟다 -->
@@ -574,23 +267,11 @@ button[disabled] {cursor: default;}
       </app-paginator><!---->
       </div><!----><!---->
       <!-- 하단라벨링 끝-->
-    </div>
+    </div> 
   </div>
-
-  <div id="footerWrap">
-    <div id="footer">
-      <div id="totalReview">
-        <h1>꼬북꼬북 모은 리뷰  <span>🐢 15,738 개</span></h1>
-        <div>꼬북꼬북과 함께 독서해요! 
-          <span><a href="#"> ▶ 교환독서 시작하기</a></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
 <script>
   // 모든 나가기 버튼에 클릭 이벤트 연결
-  document.querySelectorAll('.bookmarkBtn').forEach(button => {
+  document.querySelectorAll('.outBtn').forEach(button => {
     button.addEventListener('click', function () {
       const bookbox = this.closest('.bookbox');
 
@@ -601,4 +282,66 @@ button[disabled] {cursor: default;}
     });
   });
 </script>
+  <style>
+
+
+  </style>
+
+  <div class="footerWrap">
+    <div class="totalReview">
+      <p>꼬북꼬북 모은 리뷰<span>15,738</span>개</p>
+    </div>
+    <!--리뷰수 아래부분-->
+    <div class="footer">
+      <div class="footer-left">
+        <p>(주) 꼬북꼬북</p>
+        <div class="infoWrap">
+          <ul>
+            <li>대표자명: 꼬북이</li>
+            <li>사업자등록번호: 123-45-67890</li>
+            <li>통신판매업신고: 2025-하룰라라-01159</li>
+            <li>이메일: support@ggo.book</li>
+          </ul>
+          <ul>
+            <li>주소: 서울시 가산동 하룰라라로 궁전센터1차 123-01</li>
+            <li>Tel : 02-1991-1120</li>
+            <li>Fax : 02-1991-1120</li>
+          </ul>
+          <p>© 2025 꼬북꼬북 All rights reserved</p>
+        </div>
+        <div class="logos">
+          <img src="logos/notion_white.png" style="width:30px;">
+          <img src="logos/github_white.png" style="width:30px;">
+          <img src="logos/youtube_white.png" style="width:30px;">
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>고객센터 1234-5678 (발신자 부담)</p>
+        <div class="csWrap">
+          <button class="ntcBtn">공지사항</button>
+          <button class="inqBtn">1:1문의</button>
+        </div>
+        <table class="gitIds">
+          <tbody>
+            <tr>
+              <td colspan="3">www.ggobookggobook.com</td>
+            </tr>
+            <tr>
+              <td>이승민 @null4848</td>
+              <td>김슬비 @kb4954</td>
+              <td>김민성 @LatteMeng</td>
+            </tr>
+            <tr>
+              <td>김혜원 @hwk3005</td>
+              <td>신민철 @resader1</td>
+              <td>공유현 @sharehyun</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--리뷰수 아래부분-->
+  </div>
+</body>
+
 </html>
