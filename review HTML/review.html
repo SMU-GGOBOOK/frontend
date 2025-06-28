@@ -548,64 +548,27 @@
             overflow: hidden;
             white-space: nowrap;
         }
-        .rating-container .empty-stars {
-            color: #aaa;
-        }
-        .rating-container.rating-lg .empty-stars .star {
-            margin: 0 2px;
-        }
-        .rating-container .rating-stars .empty-stars .star {
-            margin: 0 2px;
-        }
-        .rating-container .star {
-            display: inline-block;
-            margin: 0 2px;
-            text-align: center;
-        }
-        .rating-container.rating-lg .empty-stars .star .glyphicon-star-empty:before {
-            content: "";
-            display: inline-block;
+        .rating-stars .star {
             width: 22px;
             height: 22px;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 22px 22px;
-            background-image: url(images/ico_star_nonecilck.svg);
-        }
-        .rating-animate .filled-stars {
-            transition: width .25s ease;
-        }
-        .rating-container .filled-stars {
-            position: absolute;
-            left: 0;
-            top: 0;
-            margin: auto;
-            color: #fde16d;
-            white-space: nowrap;
-            overflow: hidden;
-            -webkit-text-stroke: 1px #777;
-            text-shadow: 1px 1px #999;
-        }
-        .rating-container.rating-lg .filled-stars .star {
-            margin: 0 2px;
-        }
-        .rating-container .rating-stars .filled-stars .star {
-            margin: 0 2px;
-        }
-        .rating-container .star {
             display: inline-block;
-            margin: 0 2px;
-            text-align: center;
+            background-image: url('images/ico_star_nonecilck.svg');
+            background-size: cover;
+            cursor: pointer;
+            transition: background-image 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
         }
-        .rating-container.rating-lg .filled-stars .star .glyphicon-star:before {
-            content: "";
-            display: inline-block;
-            width: 22px;
-            height: 22px;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 22px 22px;
-            background-image: url(images/ico_star_cilck.svg);
+
+        .rating-stars .star.active {
+            background-image: url('images/ico_star_cilck.svg');
+        }
+
+        .rating-stars .star i.fading-out {
+            opacity: 0;
+        }
+
+        .rating-container .rating-stars .star {
+            margin: 0 2px;
         }
         .rating-container.rating-lg.has_caption .caption {
             margin-top: 3px;
@@ -1193,42 +1156,14 @@
                                                                 <div class="clear-rating clear-rating-active" title="초기화">
                                                                     <i class="glyphicon glyphicon-minus-sign"></i>
                                                                 </div>
-                                                                <div class="rating-stars" tabindex="0">
-                                                                    <span class="empty-stars">
-                                                                        <span class="star" title="One Star">
-                                                                            <i class="glyphicon glyphicon-star-empty"></i>
-                                                                        </span>
-                                                                        <span class="star" title="Two Stars">
-                                                                            <i class="glyphicon glyphicon-star-empty"></i>
-                                                                        </span>
-                                                                        <span class="star" title="Three Stars">
-                                                                            <i class="glyphicon glyphicon-star-empty"></i>
-                                                                        </span>
-                                                                        <span class="star" title="Four Stars">
-                                                                            <i class="glyphicon glyphicon-star-empty"></i>
-                                                                        </span>
-                                                                        <span class="star" title="Five Stars">
-                                                                            <i class="glyphicon glyphicon-star-empty"></i>
-                                                                        </span>
-                                                                    </span>
-                                                                    <span class="filled-stars" style="width: 100%;">
-                                                                        <span class="star" title="One Star">
-                                                                            <i class="glyphicon glyphicon-star"></i>
-                                                                        </span>
-                                                                        <span class="star" title="Two Stars">
-                                                                            <i class="glyphicon glyphicon-star"></i>
-                                                                        </span>
-                                                                        <span class="star" title="Three Stars">
-                                                                            <i class="glyphicon glyphicon-star"></i>
-                                                                        </span>
-                                                                        <span class="star" title="Four Stars">
-                                                                            <i class="glyphicon glyphicon-star"></i>
-                                                                        </span>
-                                                                        <span class="star" title="Five Stars">
-                                                                            <i class="glyphicon glyphicon-star"></i>
-                                                                        </span>
-                                                                    </span>
+                                                                <div class="rating-stars" id="rating">
+                                                                    <span class="star" data-value="1"></span>
+                                                                    <span class="star" data-value="2"></span>
+                                                                    <span class="star" data-value="3"></span>
+                                                                    <span class="star" data-value="4"></span>
+                                                                    <span class="star" data-value="5"></span>
                                                                 </div>
+                                                                <input type="number" id="rating-value" hidden>
                                                                 <div class="caption">
                                                                     <span class="caption-badge caption-secondary"><span>
                                                                         <span>5점 중 5점</span>
@@ -1351,6 +1286,67 @@
             // 이미 active면 아무것도 안 붙음 (즉, toggle off)
         });
     });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const stars = document.querySelectorAll(".rating-stars .star");
+  const input = document.getElementById("rating-value");
+  const valSpan = document.querySelector(".caption .val");
+  const textSpan = document.querySelector(".caption-badge span > span:first-child");
+
+  let currentValue = parseInt(input.value || "0");
+
+  function updateStars(value) {
+    stars.forEach((s, idx) => {
+      s.classList.toggle("active", idx < value);
+    });
+
+    if (input) input.value = value;
+    if (valSpan) valSpan.textContent = value;
+    if (textSpan) textSpan.textContent = `5점 중 ${value}점`;
+
+    currentValue = value; // 현재 점수 저장
+  }
+    stars.forEach((star, idx) => {
+    const hoverValue = idx + 1;
+
+    // 마우스를 올렸을 때
+        star.addEventListener("mouseenter", function () {
+        stars.forEach((s, i) => {
+            s.classList.toggle("active", i < hoverValue);
+        });
+
+        // ⭐ 여기 추가: hover 시 임시로 값 반영
+        if (input) input.value = hoverValue;
+        if (valSpan) valSpan.textContent = hoverValue;
+        if (textSpan) textSpan.textContent = `5점 중 ${hoverValue}점`;
+        });
+
+        // ⭐ 여기 추가: 클릭된 값으로 복원
+        if (input) input.value = currentValue;
+        if (valSpan) valSpan.textContent = currentValue;
+        if (textSpan) textSpan.textContent = `5점 중 ${currentValue}점`;
+        });
+
+    stars.forEach((star, idx) => {
+        star.addEventListener("click", function () {
+        const clickedValue = idx + 1;
+        const newValue = (clickedValue === currentValue) ? currentValue - 1 : clickedValue;
+
+        // 변경 전에 active 상태 기준으로 애니메이션 줌
+        stars.forEach((s, i) => {
+            const shouldFade = (i < currentValue && i >= newValue) || (i >= currentValue && i < newValue);
+            if (shouldFade) s.classList.add("fading-out");
+        });
+
+        setTimeout(() => {
+            updateStars(newValue);
+            stars.forEach(s => s.classList.remove("fading-out"));
+        }, 120);
+        });
+    });
+    // 초기 세팅
+    updateStars(currentValue);
+  });
 
 
 </script>
