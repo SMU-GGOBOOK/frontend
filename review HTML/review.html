@@ -780,30 +780,43 @@
             font-size: 0;
         }
         .tag_wrap.size_lg .tag {
-            padding: 9px 16px 7px;
+            all: unset;
+            padding: 7px 16px 7px;
             font-size: 13px;
             line-height: 22px;
-            letter-spacing: -0.01em;
-            border-color: #333;
             background: #f0f0f0;
             border-radius: 7px;
-            font-weight: 500;
             color: #333;
-        }
-        .tag_wrap .tag {
+            cursor: pointer;
             margin: 5px 5px;
             display: inline-block;
-            font-size: 13px;
-            line-height: 19px;
             letter-spacing: -0.01em;
-            color: #595959;
-            padding: 7px 16px 8px;
-            background-color: #f7f7f7;
-            border: 1px solid #f7f7f7;
-            border-radius: 20px;
             box-sizing: border-box;
-            transition: background-color 0.23s, border-color 0.23s, color 0.23s;
+            transition: background 0.3s ease, color 0.3s ease;
+            outline: none;                  /* 기본 outline 제거 */
+            box-shadow: none;
         }
+        .tag_wrap.size_lg .tag:hover{
+            background: #2D7868;
+            color: #fafafa;
+        }
+        .tag_wrap.size_lg .tag.active {
+            background-color: rgba(47, 129, 237, 0.11);
+            color: rgb(47, 128, 237);
+
+        }
+        .tag_wrap.size_lg .tag:focus,
+        .tag_wrap.size_lg .tag:focus-visible,
+        .tag_wrap.size_lg .tag:focus-within {
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+        }
+
+        .tag_wrap.size_lg .tag:focus {
+            outline: none; /* 클릭 후 포커스 테두리도 제거 */
+        }
+
         .tag_wrap .tag .text {
             position: relative;
         }
@@ -1326,5 +1339,20 @@
         </div>
     </div>
 </body>
+
+<script>
+    document.querySelectorAll('.tag_wrap.size_lg .tag').forEach(tag => {
+        tag.addEventListener('click', function () {
+            const isActive = this.classList.contains('active');
+            document.querySelectorAll('.tag_wrap.size_lg .tag').forEach(t => t.classList.remove('active'));
+            if (!isActive) {
+                this.classList.add('active');
+            }
+            // 이미 active면 아무것도 안 붙음 (즉, toggle off)
+        });
+    });
+
+
+</script>
 
 </html>
