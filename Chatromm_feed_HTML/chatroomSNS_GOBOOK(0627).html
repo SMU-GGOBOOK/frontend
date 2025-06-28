@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/e1869b8eb9.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="css/style_chatroomSNS_GOBOOK.css">
+  <title>OOO 교환독서</title>
+</head>
+
+<body>
+  <header class="fig-header">
+    <nav class="fig-nav">
+      <div class="fig-header-left">
+        <a class="fig-one" href="/" rel="noreferrer">
+          <h1 class="fig-logo">꼬북꼬북</h1>
+          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="fig-exchangeimage">
+            <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          <h4 class="fig-exchange-book">교환 독서</h4>
+        </a>
+      </div>
+
+      <form role="search" class="fig-searchform et3830u0">
+        <div tabindex="-1" class="fig-tabindex">
+          <div class="fig-q3rd3s et3830u1">
+            <label class="fig-formlabel">
+              <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                class="fig-searchimage">
+                <path fill-rule="evenodd"
+                  d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
+                </path>
+              </svg>
+              <span class="fig-instant">인스턴트 검색</span>
+              <input type="text" maxlength="64" tabindex="-1" class="fig-forminput" value="">
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <div class="fig-join">
+        <a href="" class="fig-signup">회원가입</a>
+        <a href="" class="fig-login">로그인</a>
+      </div>
+
+    </nav>
+  </header>
+
+    <!-- main content -->
+    <div class="all-main">    
+      <div class="fig-main">
+        <main>
+          <div class="container">
+            <h2>어린왕자 책 같이읽기</h2>
+            <h3>#어린#왕자#존잼#어쩌지?#감성공유#우리대화할래요?</h3>
+
+            <div class="post-box">
+              <div class="image-preview" id="image-preview"></div>
+              <textarea id="post-input" rows="3" placeholder="무엇이든 자유롭게 공유해보세요!"></textarea>
+              <div class="upload-tab">
+                <label for="image-upload">
+                  <i class="fas fa-image"></i>
+                </label>
+                <input type="file" id="image-upload" accept="image/*" onchange="handleImageUpload(event)" hidden>    
+              </div>
+              <button onclick="addPost()">올리기</button>
+            </div>
+
+            <div id="post-list"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script>
+
+    // 시간 포맷
+    function formatTime() {
+      const now = new Date();
+      return now.toLocaleString('ko-KR',{hour:'2-digit',minute:'2-digit',hour12:false})
+        + ' · ' + now.toLocaleDateString('ko-KR');
+    }
+    // 이미지 미리보기
+    function handleImageUpload(e) {
+      const file=e.target.files[0], prev=document.getElementById('image-preview');
+      if(!file){prev.innerHTML='';return;} const reader=new FileReader();
+      reader.onload=ev=>prev.innerHTML=`<img src="${ev.target.result}" alt="preview">`;
+      reader.readAsDataURL(file);
+    }
+    // 포스트 추가
+    function addPost() {
+      const inp=document.getElementById('post-input'), prev=document.getElementById('image-preview');
+      const txt=inp.value.trim();
+      if(!txt && !prev.querySelector('img')){alert('내용 또는 이미지를 추가해주세요.');return;}
+      const imgHTML=prev.querySelector('img')
+        ? `<img src="${prev.querySelector('img').src}" style="max-width:100%;border-radius:10px;margin-bottom:8px;">` : '';
+      const div=document.createElement('div'); div.className='post';
+      div.innerHTML=`
+        <div class="post-header"><img src="https://via.placeholder.com/36" alt="profile"><div><div class="author">라떼</div><div class="time">${formatTime()}</div></div></div>
+        ${imgHTML}
+        <p class="post-content">${txt}</p>
+        <div class="like-count">❤️ 0</div>
+        <div class="post-actions">
+          <button class="like-btn">❤️ 좋아요</button>
+          <button class="edit-btn">✏️ 수정</button>
+          <button class="delete-btn">🗑 삭제</button>
+          <button class="report-btn">🚩 신고</button>
+        </div>
+        <div class="comments"></div>
+        <div class="comment-box"><textarea rows="1" placeholder="댓글 달기..."></textarea><button onclick="addComment(this)">댓글</button></div>
+      `;
+      document.getElementById('post-list').prepend(div);
+      inp.value=''; prev.innerHTML=''; document.getElementById('image-upload').value='';
+      div.querySelector('.like-btn').addEventListener('click',()=>{const c=div.querySelector('.like-count');let n=parseInt(c.textContent.replace(/[^0-9]/g,''))||0;c.textContent=`❤️ ${n+1}`;});
+      div.querySelector('.edit-btn').addEventListener('click',()=>{const pc=div.querySelector('.post-content'), nv=prompt('수정할 내용을 입력하세요:',pc.textContent);if(nv!==null)pc.textContent=nv;});
+      div.querySelector('.delete-btn').addEventListener('click',()=>{if(confirm('이 글을 삭제하시겠습니까?'))div.remove();});
+      div.querySelector('.report-btn').addEventListener('click',()=>{if(confirm('이 게시글을 신고하시겠습니까?'))alert('신고가 접수되었습니다. 감사합니다.');});
+    }
+    // 댓글
+    function addComment(btn){const box=btn.parentElement, ta=box.querySelector('textarea'), tc=ta.value.trim();if(!tc)return;const cm=document.createElement('div');cm.className='comment';cm.innerHTML=`<strong>뱌뱌</strong>: ${tc}`;box.previousElementSibling.appendChild(cm);ta.value='';}
+    // 모달 확대/드래그/줌
+    document.addEventListener('DOMContentLoaded',()=>{
+      const modal=document.getElementById('image-modal');
+      const imgEl=document.getElementById('modal-img');
+      const closeBtn=modal.querySelector('.image-modal-close');
+      let scale=1,isDrag=false,startX=0,startY=0,offX=0,offY=0;
+      document.body.addEventListener('click',e=>{if(e.target.matches('.post > img')){scale=1;offX=0;offY=0;imgEl.src=e.target.src;imgEl.style.transform='translate(-50%, -50%) translate(0,0) scale(1)';modal.style.display='block';}});
+      closeBtn.addEventListener('click',()=>modal.style.display='none');modal.addEventListener('click',e=>{if(e.target===modal)modal.style.display='none';});
+      modal.addEventListener('wheel',e=>{e.preventDefault();scale=e.deltaY<0?Math.min(scale+0.1,5):Math.max(scale-0.1,1);imgEl.style.transform=`translate(-50%, -50%) translate(${offX}px,${offY}px) scale(${scale})`;},{passive:false});
+      imgEl.addEventListener('mousedown',e=>{e.preventDefault();isDrag=true;startX=e.clientX;startY=e.clientY;imgEl.style.cursor='grabbing';});
+      document.addEventListener('mousemove',e=>{if(!isDrag)return;const dx=e.clientX-startX,dy=e.clientY-startY;startX=e.clientX;startY=e.clientY;offX+=dx;offY+=dy;imgEl.style.transform=`translate(-50%, -50%) translate(${offX}px,${offY}px) scale(${scale})`;});
+      document.addEventListener('mouseup',()=>{if(isDrag){isDrag=false;imgEl.style.cursor='grab';}});imgEl.style.cursor='grab';
+    });
+
+      
+    </script>
+  
+
+  <div class="footerWrap">
+    <div class="totalReview">
+      <p>꼬북꼬북 모은 리뷰<span>15,738</span>개</p>
+    </div>
+    <!--리뷰수 아래부분-->
+    <div class="footer">
+      <div class="footer-left">
+        <p>(주) 꼬북꼬북</p>
+        <div class="infoWrap">
+          <ul>
+            <li>대표자명: 꼬북이</li>
+            <li>사업자등록번호: 123-45-67890</li>
+            <li>통신판매업신고: 2025-하룰라라-01159</li>
+            <li>이메일: support@ggo.book</li>
+          </ul>
+          <ul>
+            <li>주소: 서울시 가산동 하룰라라로 궁전센터1차 123-01</li>
+            <li>Tel : 02-1991-1120</li>
+            <li>Fax : 02-1991-1120</li>
+          </ul>
+          <p>© 2025 꼬북꼬북 All rights reserved</p>
+        </div>
+        <div class="logos">
+          <img src="logos/notion_white.png" style="width:30px;">
+          <img src="logos/github_white.png" style="width:30px;">
+          <img src="logos/youtube_white.png" style="width:30px;">
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>고객센터 1234-5678 (발신자 부담)</p>
+        <div class="csWrap">
+          <button class="ntcBtn">공지사항</button>
+          <button class="inqBtn">1:1문의</button>
+        </div>
+        <table class="gitIds">
+          <tbody>
+            <tr>
+              <td colspan="3">www.ggobookggobook.com</td>
+            </tr>
+            <tr>
+              <td>이승민 @null4848</td>
+              <td>김슬비 @kb4954</td>
+              <td>김민성 @LatteMeng</td>
+            </tr>
+            <tr>
+              <td>김혜원 @hwk3005</td>
+              <td>신민철 @resader1</td>
+              <td>공유현 @sharehyun</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--리뷰수 아래부분-->
+  </div>
+    <div id="image-modal" class="image-modal" onclick="closeImageModal()">
+      <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+      <img class="image-modal-content" id="modal-img">
+    </div>
+    <div id="image-modal" class="image-modal">
+      <span class="image-modal-close">&times;</span>
+      <img id="modal-img" class="image-modal-content" />
+    </div>
+</body>
+</html>
