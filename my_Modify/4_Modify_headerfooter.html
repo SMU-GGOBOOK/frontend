@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/e1869b8eb9.js" crossorigin="anonymous"></script>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <link rel="stylesheet" type='text/css' href="css/4My_Modify.css">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/popup.css" />
+  <title>정보수정/계정삭제</title>
+</head>
+
+<body>
+  <header class="fig-header">
+    <nav class="fig-nav">
+      <div class="fig-header-left">
+        <a class="fig-one" href="/" rel="noreferrer">
+          <h1 class="fig-logo">꼬북꼬북</h1>
+          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="fig-exchangeimage">
+            <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          <h4 class="fig-exchange-book">교환 독서</h4>
+        </a>
+      </div>
+
+      <form role="search" class="fig-searchform et3830u0">
+        <div tabindex="-1" class="fig-tabindex">
+          <div class="fig-q3rd3s et3830u1">
+            <label class="fig-formlabel">
+              <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                class="fig-searchimage">
+                <path fill-rule="evenodd"
+                  d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
+                </path>
+              </svg>
+              <span class="fig-instant">인스턴트 검색</span>
+              <input type="text" maxlength="64" tabindex="-1" class="fig-forminput" value="">
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <div class="fig-join">
+        <a href="" class="fig-signup">회원가입</a>
+        <a href="" class="fig-login">로그인</a>
+      </div>
+
+    </nav>
+  </header>
+
+  <hr class="fig-hr">
+  <div class="fig-main">
+    <!-- 여기에 메인 컨텐츠 입력 -->
+            <nav>
+            <div class="left_side">
+                <ul class="category">
+                    <div class="icon">
+                       <li><i class="fa-solid fa-book"></i>내가 쓴 리뷰</li>
+                    </div>
+                    <div class="icon">
+                        <li><i class="fa-solid fa-book-bookmark"></i>북마크한 도서</li>
+                    </div>
+                    <div class="icon">
+                        <li><i class="fa-solid fa-rotate"></i>교환독서</li>
+                    </div>
+                </ul>
+            </div>
+            <div class="main">
+              <div class="user_info">
+                <div class="nickname">
+                  <span>정보수정/계정삭제</span>
+                </div>
+                <hr>
+                <div class="user_name">
+                  <span><!--<i class="fa-solid fa-user-lock"></i>*-->차단한 사용자</span>
+                  <span class="user_name_gap"> | </span>
+                  <span>정보수정·계정삭제</span>
+                </div> 
+              </div>
+              
+                <div class="content-area">
+                  <table>
+                    <tr class="field">
+                      <th>
+                        <label>기본정보</label><span>*</span>
+                      </th>
+                      <td class="inputBoxdiv">
+                        <p class="field_description"> 모든정보는 아래 [변경] 버튼을 눌러 비밀번호 확인 시에 변경이 가능합니다. </p>
+                        <div class="sui_form_field">
+                            <input  class='change1' type="text" placeholder="이름 불러올 예정">
+                        </div>
+                        <div class="sui_form_field">
+                            <input  class='change1' type="text" placeholder="전화번호 불러올 예정" >
+                        </div>
+                        <div class="re_button">
+                            <button class="sui_button pwBtn">변경하기</button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="email_inserted">
+                      <th>
+                        <label for="title_inq">이메일</label><span>*</span>
+                      </th>
+                      <td class="inputBoxdiv">
+                        <div class="sui_form_field">
+                          <input type="text" >
+                        </div>
+                        <div class="sui_form_field">
+                          <input type="text" placeholder="변경할 이메일을 입력하세요" >
+                        </div>
+                        <div class="re_button">
+                            <button class="sui_button pwBtn">이메일 변경하기</button>
+                        </div>
+                      </td>
+                    </tr>
+
+
+                    <tr>
+                      <th>
+                        <label for="content_inq">비밀번호</label><span>*</span>
+                      </th>
+                      <td class="inputBoxdiv">
+                        <div class="sui_form_field">
+                            <input type="text" >
+                        </div>
+                        <div class="sui_form_field">
+                            <input type="text" placeholder="변경할 비밀번호를 입력하세요" >
+                        </div>
+                        <div class="re_button">
+                            <button class="sui_button pwBtn">비밀번호 변경하기</button>
+                        </div>
+                      </td>
+                    </tr>
+
+
+                    
+                    <tr id="inq_end">
+                      <th>
+                        <label for="image_inq">계정삭제</label>
+                      </th>
+                        <td class="field_delete">
+                            <!-- <div class="field_title_delete"> -->
+                                  <p class="field_description_delete">회원님의 계정의 모든 데이터를 영구적으로 삭제합니다. 한번 삭제된 계정은 복구가 불가능 합니다.</p>
+                                  <button class="sui_button button_mini deleteAccountBtn">계정삭제</button>
+
+                            <!-- </div> -->
+                        </td>
+                      </tr>
+                  </table>
+                  <!--
+                    <div class="field">
+                        <h2 class="profile_title">기본정보</h2>
+                        <p class="field_description"> 이름, 휴대폰 번호는 아래 [변경] 버튼을 눌러 본인 인증 시에 변경이 가능합니다. </p>
+                        <div class="sui_form_field">
+                            <input  class='change1' type="text" >
+                        </div>
+                        <div class="sui_form_field">
+                            <input  class='change1' type="text" >
+                        </div>
+                        <div class="re_button">
+                            <button class="sui_button btn_dark">변경하기</button>
+                        </div>
+                    </div>
+                    <div class="email_inserted">
+                        <h2 class="profile_title" style="padding-bottom: 10px;">이메일</h2>
+                        <div class="sui_form_field">
+                          <input type="text" >
+                        </div>
+                        <div class="sui_form_field">
+                          <input type="text" placeholder="변경할 이메일을 입력하세요" >
+                        </div>
+                        <div class="re_button">
+                            <button class="sui_button btn_dark">이메일 변경하기</button>
+                        </div>
+                    </div>
+                    <div class="pw_inserted">
+                        <h2 class="profile_title" style="padding-bottom: 10px;">비밀번호</h2>
+                        <div class="sui_form_field">
+                            <input type="text" >
+                        </div>
+                        <div class="sui_form_field">
+                            <input type="text" placeholder="변경할 비밀번호를 입력하세요" >
+                        </div>
+                        <div class="re_button">
+                            <button class="sui_button btn_dark">비밀번호 변경하기</button>
+                        </div>
+                      </div>
+                    <div class="field_delete">
+                        <div class="field_title_delete">
+                            <p class="field_account_delete">계정삭제</p>
+                            <p class="field_description_delete">회원님의 계정의 모든 데이터를 영구적으로 삭제합니다. 한번 삭제된 계정은 복구가 불가능 합니다.</p>
+                        </div>
+                        <div class="button_delete">
+                            <button class="sui_button button_mini">계정삭제</button>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </nav>
+  </div>
+
+  <div class="footerWrap">
+    <div class="totalReview">
+      <p>꼬북꼬북 모은 리뷰<span>15,738</span>개</p>
+    </div>
+    <!--리뷰수 아래부분-->
+    <div class="footer">
+      <div class="footer-left">
+        <p>(주) 꼬북꼬북</p>
+        <div class="infoWrap">
+          <ul>
+            <li>대표자명: 꼬북이</li>
+            <li>사업자등록번호: 123-45-67890</li>
+            <li>통신판매업신고: 2025-하룰라라-01159</li>
+            <li>이메일: support@ggo.book</li>
+          </ul>
+          <ul>
+            <li>주소: 서울시 가산동 하룰라라로 궁전센터1차 123-01</li>
+            <li>Tel : 02-1991-1120</li>
+            <li>Fax : 02-1991-1120</li>
+          </ul>
+          <p>© 2025 꼬북꼬북 All rights reserved</p>
+        </div>
+        <div class="logos">
+          <img src="logos/notion_white.png" style="width:30px;">
+          <img src="logos/github_white.png" style="width:30px;">
+          <img src="logos/youtube_white.png" style="width:30px;">
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>고객센터 1234-5678 (발신자 부담)</p>
+        <div class="csWrap">
+          <button class="ntcBtn">공지사항</button>
+          <button class="inqBtn">1:1문의</button>
+        </div>
+        <table class="gitIds">
+          <tbody>
+            <tr>
+              <td colspan="3">www.ggobookggobook.com</td>
+            </tr>
+            <tr>
+              <td>이승민 @null4848</td>
+              <td>김슬비 @kb4954</td>
+              <td>김민성 @LatteMeng</td>
+            </tr>
+            <tr>
+              <td>김혜원 @hwk3005</td>
+              <td>신민철 @resader1</td>
+              <td>공유현 @sharehyun</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--리뷰수 아래부분-->
+  </div>
+  <!-- 비밀번호 팝업 -->
+<div id="passwordPopup">
+  <div class="popup-content">
+    <button class="popup-close">&times;</button>
+    <h2 id="popupTitle">비밀번호를 입력해주세요</h2>
+    <p id="popupMsg"> </p> <!-- 여기에 메시지를 바꿈 -->
+    <input type="password" id="passwordInput" placeholder="비밀번호 입력" />
+    <br />
+    <button class="confirmPwBtn">확인</button>
+    <div class="error" id="errorMsg"></div>
+  </div>
+</div>
+
+</body>
+
+
+<script>
+  const correctPassword = "1234";
+
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    const error = document.getElementById("errorMsg");
+
+    if (input === correctPassword) {
+      document.getElementById("passwordPopup").style.display = "none";
+      alert("비밀번호가 일치합니다. 정보 수정이 가능합니다.");
+      // 실제 계정 삭제 처리 함수 호출 가능
+    } else {
+      error.textContent = "비밀번호가 올바르지 않습니다.";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // 공통 팝업 열기 함수
+    function openPopup(title, message) {
+      document.getElementById("popupTitle").textContent = title;
+      document.getElementById("popupMsg").textContent = message;
+      document.getElementById("passwordInput").value = "";
+      document.getElementById("errorMsg").textContent = "";
+      document.getElementById("passwordPopup").style.display = "flex";
+    }
+
+    // 이메일 변경, 비번 변경용 버튼 (.pwBtn) → 기본 메시지
+    document.querySelectorAll(".pwBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        openPopup("비밀번호를 입력해주세요", "");
+      });
+    });
+
+    // 계정삭제 버튼 → 다른 메시지 출력
+    const deleteBtn = document.querySelector(".deleteAccountBtn");
+    if (deleteBtn) {
+      deleteBtn.addEventListener("click", () => {
+        openPopup(
+          "계정을 삭제하시겠습니까?",
+          "삭제하시려면 비밀번호를 입력해주십시오."
+        );
+      });
+    }
+
+    // 팝업 내 확인 버튼
+    const confirmBtn = document.querySelector(".confirmPwBtn");
+    if (confirmBtn) {
+      confirmBtn.addEventListener("click", checkPassword);
+    }
+
+    // X 닫기 버튼
+    const closeBtn = document.querySelector(".popup-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        document.getElementById("passwordPopup").style.display = "none";
+      });
+    }
+
+    // ESC 키로도 닫기
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        document.getElementById("passwordPopup").style.display = "none";
+      }
+    });
+  });
+</script>
+
+</html>
