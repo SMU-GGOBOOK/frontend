@@ -178,7 +178,6 @@ select,#title_inq,#content_inq{
     padding: 16px;
     width: 20%;
     height:50px;
-    font-size:15px;
     font-weight: 600;
     color: #333;
     text-align: left;
@@ -188,6 +187,7 @@ select,#title_inq,#content_inq{
 .fig-main th span{
     color:#2D7868;
     font-weight:700;
+    font-size:15px;
     margin-left:5px;
 }
 
