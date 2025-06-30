@@ -883,8 +883,8 @@ border-color: transparent !important;
     background-position: center;
     background-repeat: no-repeat;
 }
-.modal .file_list .file_item:not(.attached) .btn_remove_img {
-    display: none;
+.modal .file_list .file_item.attached .btn_box label {
+  background-image: none !important;
 }
 .modal .form_wrap .form_box .form_cont .file_list + .bul_item_asterisk, .form_wrap .form_box .form_cont .file_list_box + .bul_item_asterisk {
     margin-top: 10px;

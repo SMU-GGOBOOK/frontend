@@ -23,33 +23,7 @@ function toggleBookmark(button) {
 
 /* ///////////////////////////////////////////////////////////////////////////////////// */
 
-// 모달팝업 js
-document.addEventListener("DOMContentLoaded", function () {
-  const openBtn = document.getElementById("openReviewBtn");
-  const closeBtn = document.getElementById("closeReviewBtn");
-  const modal = document.getElementById("reviewModal");
-
-  if (openBtn && modal && closeBtn) {
-    openBtn.addEventListener("click", () => {
-      modal.style.display = "block";
-    });
-
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  }
-});
-
-/* ///////////////////////////////////////////////////////////////////////////////////// */
-
 // 답글달기 토글 JS
-
 // 페이지 내 모든 답글 버튼에 이벤트 연결
 $(document).ready(function() {
   $('.btn_reply').click(function() {
@@ -68,19 +42,6 @@ const countSpan = document.querySelector('.byte_check .count');
 textarea.addEventListener('input', () => {
 countSpan.textContent = textarea.value.length;
 });
-
-/* ///////////////////////////////////////////////////////////////////////////////////// */
-
-
-// 글자수 실시간으로 뜨게 하는 js - 모달 팝업 내 
-const textareamodal = document.querySelector('.modal .form_textarea');
-const countSpanmodal = document.querySelector('.modal .byte_check .count');
-
-textareamodal.addEventListener('input', () => {
-countSpanmodal.textContent = textareamodal.value.length;
-});
-
-/* ///////////////////////////////////////////////////////////////////////////////////// */
 
 // 펼치기 
 $(document).ready(function () {
@@ -125,9 +86,6 @@ $(document).ready(function () {
     }
   });
 });
-
-
-
 
 /* ///////////////////////////////////////////////////////////////////////////////////// */
 
@@ -222,217 +180,245 @@ $(document).ready(function () {
   });
 });
 
+// 댓글 쓰기
+$(document).ready(function () {
+  // 글자 수 체크 및 버튼 활성화
+  $('.form_textarea').on('input', function () {
+    const $this = $(this);
+    const length = $this.val().length;
+    const $countSpan = $this.closest('.reply_write_area').find('.byte_check .count');
+    const $registerBtn = $this.closest('.reply_write_area').find('.btn_primary');
+
+    $countSpan.text(length);
+
+    if (length > 0) {
+      $registerBtn.removeClass('disabled');
+    } else {
+      $registerBtn.addClass('disabled');
+    }
+  });
+
+  /* ///////////////////////////////////////////////////////////////////////////////////// */
+
+  // 댓글 등록
+  $('.btn_primary').on('click', function () {
+    const $btn = $(this);
+    if ($btn.hasClass('disabled')) return;
+
+    const $replyWriteArea = $btn.closest('.reply_write_area');
+    const $textarea = $replyWriteArea.find('.form_textarea');
+
+    let newCommentText = '';
+    if ($textarea && typeof $textarea.val === 'function') {
+      newCommentText = ($textarea.val() || '').trim();
+    }
+
+    const now = new Date();
+    const formattedDate = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
+
+    const newCommentHTML = `
+      <div class="reply_item">
+        <div class="reply_header">
+          <div class="user_info_box">
+            <span class="info_item">닉네임</span>
+            <span class="gap"> | </span>
+            <span class="info_item">${formattedDate}</span>
+            <span class="gap"> | </span>
+            <span class="info_item">
+              <button class="btn_comment_util report_item" type="button" data-role="report">
+                <span class="text">신고/차단</span>
+              </button>
+            </span>
+          </div>
+        </div>
+        <div class="reply_contents">
+          <div class="reply_text">${newCommentText}</div>
+        </div>
+      </div>
+    `;
+
+    const $commentItem = $btn.closest('.comment_item');
+    const $commentContainer = $commentItem.find('.reply_list').first();
+    const $replyCount = $commentItem.find('.btn_reply .count').first();
+
+    $commentContainer.prepend(newCommentHTML);
+
+    let currentCount = parseInt($replyCount.text(), 10);
+    if (isNaN(currentCount)) currentCount = 0;
+    $replyCount.text(currentCount + 1);
+
+    $textarea.val('');
+    $replyWriteArea.find('.byte_check .count').text('0');
+    $btn.addClass('disabled');
+    });
+  });
+
 /* ///////////////////////////////////////////////////////////////////////////////////// */
+
+// 모달팝업 js
+document.addEventListener("DOMContentLoaded", function () {
+  const openBtn = document.getElementById("openReviewBtn");
+  const closeBtn = document.getElementById("closeReviewBtn");
+  const modal = document.getElementById("reviewModal");
+      
+
+
+  if (openBtn && closeBtn && modal) {
+    openBtn.addEventListener("click", () => {
+      modal.classList.add("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("active");
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+      }
+    });
+  } else {
+    console.warn("모달 관련 요소가 DOM에 없습니다:", {openBtn, closeBtn, modal});
+  }
+});
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////// */
+
+// 글자수 실시간으로 뜨게 하는 js - 모달 팝업 내 
+const textareamodal = document.querySelector('.modal .form_textarea');
+const countSpanmodal = document.querySelector('.modal .byte_check .count');
+
+textareamodal.addEventListener('input', () => {
+countSpanmodal.textContent = textareamodal.value.length;
+});
+
+/* ///////////////////////////////////////////////////////////////////////////////////// */
+
 
 // 모달 팝업 내 사진 추가
 document.addEventListener('DOMContentLoaded', function () {
   const fileList = document.querySelector('.file_list');
-  const MAX_FILES = 5;
+  const MAX_FILES = 3;
 
-  // 첫 번째 고정 항목 가져오기
-  const firstLi = fileList.querySelector('li.list_item');
-  const firstInput = firstLi.querySelector('input[type="file"]');
-  const firstFileItem = firstLi.querySelector('.file_item');
-  const firstAttachBox = firstLi.querySelector('.attach_img_box');
-  const firstPreview = firstLi.querySelector('.attach_img_view');
-  const firstLabel = firstLi.querySelector('label');
-  const firstRemoveBtn = firstLi.querySelector('.btn_remove_img');
-
-  // 5번째 사진이 첫 번째에 미리보기 될 때만 삭제 버튼 보여야 하므로 초기 숨김
-  firstRemoveBtn.style.display = 'none';
-
-  // 첨부된 이미지 url들을 저장하는 배열 (base64 또는 objectURL)
   let attachedFiles = [];
 
-  // 고유 ID 생성
   function generateId() {
     return 'file_' + Math.random().toString(36).slice(2);
   }
 
-  // 새로운 list_item 생성 함수 (사진 첨부용)
-  function createFileItem() {
-    if (fileList.children.length >= MAX_FILES) return;
+  function updateAttachVal() {
+    const valElem = document.querySelector('.file_attach_val .total');
+    if (valElem) {
+      valElem.textContent = ` / ${MAX_FILES}`;
+      const currentValElem = valElem.previousElementSibling;
+      if (currentValElem && currentValElem.classList.contains('val')) {
+        currentValElem.textContent = attachedFiles.length;
+      }
+    }
+  }
 
+  function createBtnBox(attached = false, imgSrc = '') {
     const id = generateId();
 
     const li = document.createElement('li');
     li.classList.add('list_item');
     li.innerHTML = `
-      <span class="file_item">
+      <span class="file_item ${attached ? 'attached' : ''}">
         <span class="btn_box">
           <input id="${id}" type="file" accept="image/*" />
           <label for="${id}"><span class="hidden">첨부파일 추가</span></label>
-          <span class="attach_img_box" style="display:none;">
-            <span class="attach_img_view"></span>
+          <span class="attach_img_box" style="display:${attached ? 'inline-block' : 'none'};">
+            <span class="attach_img_view" style="background-image: url('${imgSrc}');"></span>
             <button class="btn_remove_img" type="button"><span class="hidden">첨부파일 삭제</span></button>
           </span>
         </span>
       </span>
     `;
 
-    fileList.appendChild(li);
-
     const input = li.querySelector('input[type="file"]');
-    const label = li.querySelector('label');
-    const attachBox = li.querySelector('.attach_img_box');
-    const preview = li.querySelector('.attach_img_view');
-    const fileItem = li.querySelector('.file_item');
     const removeBtn = li.querySelector('.btn_remove_img');
+    const preview = li.querySelector('.attach_img_view');
+    const attachBox = li.querySelector('.attach_img_box');
+    const fileItem = li.querySelector('.file_item');
 
-    // 사진 선택 시 처리
     input.addEventListener('change', () => {
       const file = input.files[0];
       if (!file) return;
+
       if (!file.type.match('image.*')) {
         alert('이미지 파일(JPG, PNG, GIF)만 업로드 가능합니다.');
         input.value = '';
         return;
       }
 
+      if (attachedFiles.length >= MAX_FILES) {
+        alert(`최대 ${MAX_FILES}개까지 첨부할 수 있습니다.`);
+        input.value = '';
+        return;
+      }
+
       const reader = new FileReader();
       reader.onload = (e) => {
-        // 새 사진 추가는 맨 앞으로 추가
-        attachedFiles.unshift(e.target.result);
+        const imgUrl = e.target.result;
+        attachedFiles.push(imgUrl);
 
-        // 사진 최대 개수 넘으면 마지막 제거
-        if (attachedFiles.length > MAX_FILES) {
-          attachedFiles.pop();
+        // 1. 현재 btn_box를 attached로 변경
+        fileItem.classList.add('attached');
+        attachBox.style.display = 'inline-block';
+        preview.style.backgroundImage = `url('${imgUrl}')`;
+
+        // 2. 필요한 경우 오른쪽에 새 btn_box 추가
+        const listItems = fileList.querySelectorAll('.list_item');
+        if (attachedFiles.length < MAX_FILES) {
+          const lastItem = listItems[listItems.length - 1];
+          if (lastItem && lastItem === li) {
+            const newBox = createBtnBox(false, '');
+            fileList.appendChild(newBox);
+          }
         }
 
-        // 렌더링 갱신
-        renderAttachedItems();
+        updateAttachVal();
       };
       reader.readAsDataURL(file);
+      input.value = '';
     });
 
-    // 삭제 버튼 클릭 시 처리
     removeBtn.addEventListener('click', () => {
-      // 삭제 시 해당 사진 index 찾기
-      const idx = Array.from(fileList.children).indexOf(li) - 1; // 첫번째 제외
-      if (idx >= 0 && idx < attachedFiles.length) {
-        attachedFiles.splice(idx, 1);
-        renderAttachedItems();
+      const bgImage = preview.style.backgroundImage;
+      const url = bgImage.slice(5, -2); // "url('...')" 제거
+      const index = attachedFiles.indexOf(url);
+
+      if (index !== -1) {
+        attachedFiles.splice(index, 1);
       }
-    });
-  }
 
-  // 첫 번째 고정 항목 삭제 버튼 클릭 처리 (5번째 사진 삭제)
-  firstRemoveBtn.addEventListener('click', () => {
-    if (attachedFiles.length === MAX_FILES) {
-      attachedFiles.pop(); // 5번째 사진 삭제
-      renderAttachedItems();
-    }
-  });
-
-  // attachedFiles 배열을 바탕으로 화면 렌더링
-  function renderAttachedItems() {
-    // 1. 첫 번째 항목 처리 (5번째 사진 미리보기 표시)
-    if (attachedFiles.length === MAX_FILES) {
-      firstPreview.style.backgroundImage = `url('${attachedFiles[MAX_FILES - 1]}')`;
-      firstAttachBox.style.display = 'inline-block';
-      firstFileItem.classList.add('attached');
-      firstRemoveBtn.style.display = 'inline-block'; // 삭제 버튼 보임
-      firstLabel.style.backgroundImage = 'none'; // label 배경 숨김
-    } else {
-      // 사진 없으면 초기화
-      firstPreview.style.backgroundImage = '';
-      firstAttachBox.style.display = 'none';
-      firstFileItem.classList.remove('attached');
-      firstRemoveBtn.style.display = 'none';
-      firstLabel.style.backgroundImage = ''; // label 배경 복구
-    }
-
-    // 2. 기존 추가된 list_item 정리 (첫번째 제외)
-    const existingItems = Array.from(fileList.children).slice(1);
-
-    // 필요하면 더 많이 만들고, 넘치면 제거
-    while (existingItems.length < attachedFiles.length - (attachedFiles.length === MAX_FILES ? 1 : 0)) {
-      createFileItem();
-      existingItems.push(fileList.lastElementChild);
-    }
-    while (existingItems.length > attachedFiles.length - (attachedFiles.length === MAX_FILES ? 1 : 0)) {
-      const toRemove = existingItems.pop();
-      toRemove.remove();
-    }
-
-    // 3. 각 item에 사진 넣고 상태 업데이트
-    attachedFiles.forEach((url, idx) => {
-      // 5번째 사진은 첫 번째 항목에 표시했으니 제외
-      if (attachedFiles.length === MAX_FILES && idx === MAX_FILES - 1) return;
-
-      const li = fileList.children[idx + 1];
-      const fileItem = li.querySelector('.file_item');
-      const attachBox = li.querySelector('.attach_img_box');
-      const preview = li.querySelector('.attach_img_view');
-      const label = li.querySelector('label');
-      const removeBtn = li.querySelector('.btn_remove_img');
-
-      preview.style.backgroundImage = `url('${url}')`;
-      attachBox.style.display = 'inline-block';
-      fileItem.classList.add('attached');
-      removeBtn.style.display = 'inline-block';
-      label.style.backgroundImage = 'none';
-
-      // input 초기화 (파일 다시 업로드 가능하게)
-      li.querySelector('input[type="file"]').value = '';
-    });
-
-    // 4. 첨부 안된 항목 초기화
-    for (let i = attachedFiles.length - (attachedFiles.length === MAX_FILES ? 1 : 0); i < fileList.children.length - 1; i++) {
-      const li = fileList.children[i + 1];
-      if (!li) continue;
-      const fileItem = li.querySelector('.file_item');
-      const attachBox = li.querySelector('.attach_img_box');
-      const preview = li.querySelector('.attach_img_view');
-      const label = li.querySelector('label');
-      const removeBtn = li.querySelector('.btn_remove_img');
-
+      // 1. 현재 요소는 비워주기
+      fileItem.classList.remove('attached');
       preview.style.backgroundImage = '';
       attachBox.style.display = 'none';
-      fileItem.classList.remove('attached');
-      removeBtn.style.display = 'none';
-      label.style.backgroundImage = '';
-      li.querySelector('input[type="file"]').value = '';
-    }
+      li.querySelector('input').value = '';
+
+      // 2. 오른쪽 요소가 빈 btn_box일 경우 삭제
+      const nextLi = li.nextElementSibling;
+      if (nextLi && !nextLi.querySelector('.file_item')?.classList.contains('attached')) {
+        fileList.removeChild(nextLi);
+      }
+
+      updateAttachVal();
+    });
+
+
+    return li;
   }
 
-  // 초기 상태: 첫번째 항목에 input만 있고 첨부된 사진 없음
-  // 첨부된 사진 없으면 첫 번째 항목만 존재
-  while (fileList.children.length > 1) {
-    fileList.removeChild(fileList.lastChild);
-  }
-
-  // 첫 번째 항목 input 이벤트
-  firstInput.addEventListener('change', () => {
-    const file = firstInput.files[0];
-    if (!file) return;
-    if (!file.type.match('image.*')) {
-      alert('이미지 파일(JPG, PNG, GIF)만 업로드 가능합니다.');
-      firstInput.value = '';
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      attachedFiles.unshift(e.target.result);
-      if (attachedFiles.length > MAX_FILES) attachedFiles.pop();
-      renderAttachedItems();
-
-      // 초기 input 초기화해서 다시 업로드 가능하게
-      firstInput.value = '';
-    };
-    reader.readAsDataURL(file);
-  });
-
-  // 초기 하나만 존재하도록 세팅
-  renderAttachedItems();
+  // 초기 1개 빈 박스 생성
+  fileList.innerHTML = '';
+  fileList.appendChild(createBtnBox(false, ''));
+  updateAttachVal();
 });
 
-// 취소 버튼 클릭시 답글 삭제  
-$(document).on('click', '.btn_wrap_home .btn_light_gray', function () {
-  const $replyWrap = $(this).closest('.reply_wrap');
-  $replyWrap.find('.reply_write_area').hide();
-});
+/* ///////////////////////////////////////////////////////////////////////////////////// */
 
 // 좋아요 버튼 누르면 좋아요 수 증가
 // 모든 좋아요 버튼에 대해 이벤트 등록
@@ -461,3 +447,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+

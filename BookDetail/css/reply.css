@@ -181,12 +181,6 @@ a.btn_line_gray, button.btn_line_gray {
     height: 35px;
     margin-top: 5px;
 }
-a.btn_light_gray, button.btn_light_gray {
-    color: #fafafa;
-    background: #636363;
-    border: 1px solid #636363;
-    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
-}
 a.btn_xs, button.btn_xs {
     display: -ms-inline-flexbox;
     display: inline-flex;
@@ -229,7 +223,7 @@ button[class^=btn_] .text, a[class^=btn_] .text {
 .reply_wrap .reply_list_area .reply_item {
     display: block;
     position: relative;
-    padding: 20px;
+    padding: 20px 20px 21px 37px;
     box-sizing: border-box;
     background-color: #f0f0f0;
     border-radius: 7px;
@@ -242,7 +236,7 @@ button[class^=btn_] .text, a[class^=btn_] .text {
     left: 20px;
     width: 8px;
     height: 9px;
-    background: url(../images/common/ink/arw_reply@2x.png) 0% 0% no-repeat;
+    background: url(../images/arw_reply@2x.png) 0% 0% no-repeat;
     background-size: 8px 9px;
 }
 /* 답글의 답글 헤더 부분*/

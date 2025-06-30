@@ -686,7 +686,7 @@ input, button, select, textarea {
 }
 .comment_wrap .comment_list .comment_item .comment_contents .comment_contents_inner .comment_view_wrap .comment_text_box .comment_text {
     color: #1a1a1a;
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: -0.01em;
     display: -webkit-box;
     overflow: hidden;
@@ -696,6 +696,20 @@ input, button, select, textarea {
     -webkit-line-clamp: 3;
     white-space: normal;
     word-break: break-all;
+}
+.comment_contents .comment_text {
+    color: #1a1a1a;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 66px;
+    line-height: 22px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    white-space: normal;
+    word-break: break-all;
+    
 }
 .comment_wrap .comment_list .comment_item.active .comment_contents .comment_contents_inner .comment_view_wrap .comment_text_box .comment_text {
     height: auto;
