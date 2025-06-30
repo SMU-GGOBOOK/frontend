@@ -169,7 +169,7 @@
 }
 
 
-/*------------- 배너밑 회색네모칸 -------------*/
+/*------------- 배너밑 교환독서칸(로그인후) -------------*/
 
 .exchngreading{
     width:1300px;
@@ -178,11 +178,13 @@
     gap:70px;
 }
 
+
 /* 참여 중인 그룹 표시부분 */
 .feed__join{
     margin-top:30px;
     margin-bottom: 60px;
     width:1300px;
+    height:330px;
     padding: 20px 50px 25px;
     border: 1px solid #f0f0f0;
     border-radius: 7px;
@@ -211,7 +213,7 @@
 
 /* 참여 중인 그룹 1개씩 */
 .feed__join_body_item{
-    margin: 0 25px;
+    margin: 0 15px;
     width:118px;
     
 }
@@ -234,4 +236,47 @@
     font-size: 15px;
     font-weight: 400;
     color: #636363;
+}
+
+
+/*------------- 배너밑 교환독서칸(로그인전) -------------*/
+
+.feed__join_main{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.feed__join_main>h4{
+    font-family: 'HakgyoansimDunggeunmisoTTF-B';
+    color: #2d7868;
+    font-size: 30px;
+}
+
+.feed__join_main>div{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:20px
+}
+
+.feed__join_main>div>p{
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    color:#636363;
+}
+
+.feed__join_main>button{
+    width:180px;
+    height:50px;
+    font-size: 15px;
+    font-weight: bold;
+    color:#f0f0f0;
+    background-color: #2d7868;
+    border-radius: 7px;
+    border-style: hidden;
+    cursor:pointer
 }
