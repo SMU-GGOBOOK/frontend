@@ -18,7 +18,6 @@ nav{
     justify-content: center;
     align-items: center;
 }
-/* 카테고리 바뀐부분 */
 .category {
   color: #636363;
   width: 191px;
@@ -65,7 +64,8 @@ nav{
   justify-content: center;
 
 }
-/* 바뀐부분 끝 */
+
+
 .category li{margin-bottom: 16px; 
 font-size: 18px;
 
@@ -96,7 +96,7 @@ font-size: 18px;
 
 
 .user_info{
-    width: 1125px;
+    width: 1137px;
     /* height: 80px; */
     /* border: 1px solid black; */
     margin: 82px 0 52px;
@@ -589,13 +589,14 @@ button[class^=btn_], a[class^=btn_] {
 }
 
 .B_header{
-    width:292px;
+    width:1137px;
     height: 50px;
     align-items: center;
     /*border: 1px solid black; */
     font-size: 24px;
     font-weight: 600;
     display: flex;
+    margin: 0 auto;
 }
 .B_header .title{
     /* margin-left: 10px; */
