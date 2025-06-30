@@ -1,0 +1,53 @@
+.login-btn {
+    
+    width:200px;
+    height:50px;
+    background: #2D7868;
+    color:#fafafa;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin:0 auto;
+
+    
+  }
+
+  .saveAgree {
+      vertical-align: middle;
+      display: inline-block;
+      margin-top:-2px;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #ccc;
+      background-color: #fafafa;
+      
+      cursor: pointer;
+      position: relative;
+      appearance: checkbox;
+      border-radius:7px;
+      accent-color: #2D7868;
+    }
+
+    
+
+    .contract {
+    width: 1137px; margin: 20px auto 80px; padding: 30px 40px 50px;
+    border-radius: 7px; background-color: rgb(245, 245, 245); border:1px solid #2D7868; border-radius: 7px;
+    }
+    .contract h1 {text-align: center; color:#2D7868;}
+    .contract .text {
+        height: 230px; border: 1px solid CCC; background-color: #fafafa; border-radius:7px; padding:16px;
+        white-space: pre-line; overflow-y: scroll; margin: 0 auto 20px; box-shadow: 0 2px 8px #A0A0A0;
+    }
+    .contract p {text-align: right;}
+    .contract .box {width: 100px; height: 40px;  padding: 8px; margin: 0 3px;}
+    .contract .yes p {color: #2D7868;}
+
+
+
+    form[name='agreeFrm'] {
+    margin-top: 20px;
+    padding-top: 40px;
+    border-top: 1px solid #1a1a1a;
+    }
