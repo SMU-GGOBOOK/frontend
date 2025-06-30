@@ -177,28 +177,4 @@ body {font-family: 'Noto Sans KR', sans-serif;}
     box-shadow: 0 4px 4px #797e8480;
 }
 
-/* footer */
-
-#footerWrap{    
-    background-color: #444;
-    color:white;
-    height:300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#footer{
-    width:1500px;
-    height:200px;
-    display: flex;
-    justify-content: center;
-}
-
-#totalReview{
-    text-align: center;
-}
-
-#totalReview>h1{
-    margin-bottom: 15px;
-}
+/* --------------------------------------- */
