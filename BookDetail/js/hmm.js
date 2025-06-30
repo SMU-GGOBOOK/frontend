@@ -62,60 +62,51 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* 태그 */
-const stars = document.querySelectorAll(".rating-stars-review .star");
-  const input = document.getElementById("rating-value-review");
-  const valSpan = document.querySelector(".caption-review .val"); // 오타 반영
-  const textSpan = document.querySelector(".caption-review-badge span > span:first-child");
+  document.querySelectorAll('.tag_wrap.size_lg .tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      const alreadyActive = tag.classList.contains('active');
+      document.querySelectorAll('.tag_wrap.size_lg .tag').forEach(t => t.classList.remove('active'));
+      if (!alreadyActive) tag.classList.add('active');
+    });
+  });
 
-  let currentValue = parseInt(input.value || "0");
+  /* 별점 */
+  const stars = document.querySelectorAll('.rating-stars-review .star');
+  const ratingInput = document.getElementById('rating-value-review');
+  const valSpan = document.querySelector('.caption-review .val');
+  const textSpan = document.querySelector('.caption-review-badge span > span:first-child');
+  let currentRating = parseInt(ratingInput?.value || '0');
 
   function updateStars(value) {
-    stars.forEach((s, idx) => {
-      s.classList.toggle("active", idx < value);
+    stars.forEach((star, i) => {
+      star.classList.toggle('active', i < value);
     });
-
-    if (input) input.value = value;
+    if (ratingInput) ratingInput.value = value;
     if (valSpan) valSpan.textContent = value;
     if (textSpan) textSpan.textContent = `5점 중 ${value}점`;
-
-    currentValue = value; // 현재 점수 저장
+    currentRating = value;
   }
 
   stars.forEach((star, idx) => {
-    const hoverValue = idx + 1;
+    const value = idx + 1;
 
-    star.addEventListener("mouseenter", function () {
+    star.addEventListener('mouseenter', () => updateStars(value));
+    star.addEventListener('mouseleave', () => updateStars(currentRating));
+    star.addEventListener('click', () => {
+      const newValue = (value === currentRating) ? value - 1 : value;
       stars.forEach((s, i) => {
-        s.classList.toggle("active", i < hoverValue);
+        if ((i < currentRating && i >= newValue) || (i >= currentRating && i < newValue)) {
+          s.classList.add('fading-out');
+        }
       });
-
-      if (input) input.value = hoverValue;
-      if (valSpan) valSpan.textContent = hoverValue;
-      if (textSpan) textSpan.textContent = `5점 중 ${hoverValue}점`;
-    });
-
-    star.addEventListener("mouseleave", function () {
-      updateStars(currentValue); // 마우스 빠질 때 기존 값으로 복원
-    });
-
-    star.addEventListener("click", function () {
-      const clickedValue = idx + 1;
-      const newValue = (clickedValue === currentValue) ? currentValue - 1 : clickedValue;
-
-      stars.forEach((s, i) => {
-        const shouldFade = (i < currentValue && i >= newValue) || (i >= currentValue && i < newValue);
-        if (shouldFade) s.classList.add("fading-out");
-      });
-
       setTimeout(() => {
         updateStars(newValue);
-        stars.forEach(s => s.classList.remove("fading-out"));
+        stars.forEach(s => s.classList.remove('fading-out'));
       }, 120);
     });
   });
 
-  // 초기 세팅
-  updateStars(currentValue);
+  updateStars(currentRating);
 
   /* 이미지 썸네일 클릭 시 Swiper 보기 */
   document.querySelectorAll('.comment_thumb_box').forEach(box => {
@@ -219,126 +210,4 @@ $(document).on('click', '.btn_reply', function () {
   console.log('btn_reply 클릭됨!');
   const $commentItem = $(this).closest('.comment_item');
   $commentItem.find('.reply_wrap').first().toggle();
-});
-
-// 모달 팝업 내 사진 추가
-document.addEventListener('DOMContentLoaded', function () {
-  const fileList = document.querySelector('.file_list');
-  const MAX_FILES = 3;
-
-  let attachedFiles = [];
-
-  function generateId() {
-    return 'file_' + Math.random().toString(36).slice(2);
-  }
-
-  function updateAttachVal() {
-    const valElem = document.querySelector('.file_attach_val .total');
-    if (valElem) {
-      valElem.textContent = ` / ${MAX_FILES}`;
-      const currentValElem = valElem.previousElementSibling;
-      if (currentValElem && currentValElem.classList.contains('val')) {
-        currentValElem.textContent = attachedFiles.length;
-      }
-    }
-  }
-
-  function createBtnBox(attached = false, imgSrc = '') {
-    const id = generateId();
-
-    const li = document.createElement('li');
-    li.classList.add('list_item');
-    li.innerHTML = `
-      <span class="file_item ${attached ? 'attached' : ''}">
-        <span class="btn_box">
-          <input id="${id}" type="file" accept="image/*" />
-          <label for="${id}"><span class="hidden">첨부파일 추가</span></label>
-          <span class="attach_img_box" style="display:${attached ? 'inline-block' : 'none'};">
-            <span class="attach_img_view" style="background-image: url('${imgSrc}');"></span>
-            <button class="btn_remove_img" type="button"><span class="hidden">첨부파일 삭제</span></button>
-          </span>
-        </span>
-      </span>
-    `;
-
-    const input = li.querySelector('input[type="file"]');
-    const removeBtn = li.querySelector('.btn_remove_img');
-    const preview = li.querySelector('.attach_img_view');
-    const attachBox = li.querySelector('.attach_img_box');
-    const fileItem = li.querySelector('.file_item');
-
-    input.addEventListener('change', () => {
-      const file = input.files[0];
-      if (!file) return;
-
-      if (!file.type.match('image.*')) {
-        alert('이미지 파일(JPG, PNG, GIF)만 업로드 가능합니다.');
-        input.value = '';
-        return;
-      }
-
-      if (attachedFiles.length >= MAX_FILES) {
-        alert(`최대 ${MAX_FILES}개까지 첨부할 수 있습니다.`);
-        input.value = '';
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const imgUrl = e.target.result;
-        attachedFiles.push(imgUrl);
-
-        // 1. 현재 btn_box를 attached로 변경
-        fileItem.classList.add('attached');
-        attachBox.style.display = 'inline-block';
-        preview.style.backgroundImage = `url('${imgUrl}')`;
-
-        // 2. 필요한 경우 오른쪽에 새 btn_box 추가
-        const listItems = fileList.querySelectorAll('.list_item');
-        if (attachedFiles.length < MAX_FILES) {
-          const lastItem = listItems[listItems.length - 1];
-          if (lastItem && lastItem === li) {
-            const newBox = createBtnBox(false, '');
-            fileList.appendChild(newBox);
-          }
-        }
-
-        updateAttachVal();
-      };
-      reader.readAsDataURL(file);
-      input.value = '';
-    });
-
-    removeBtn.addEventListener('click', () => {
-      const bgImage = preview.style.backgroundImage;
-      const url = bgImage.slice(5, -2); // "url('...')" 제거
-      const index = attachedFiles.indexOf(url);
-
-      if (index !== -1) {
-        attachedFiles.splice(index, 1);
-      }
-
-      // 1. 현재 요소는 비워주기
-      fileItem.classList.remove('attached');
-      preview.style.backgroundImage = '';
-      attachBox.style.display = 'none';
-      li.querySelector('input').value = '';
-
-      // 2. 오른쪽 요소가 빈 btn_box일 경우 삭제
-      const nextLi = li.nextElementSibling;
-      if (nextLi && !nextLi.querySelector('.file_item')?.classList.contains('attached')) {
-        fileList.removeChild(nextLi);
-      }
-
-      updateAttachVal();
-    });
-
-
-    return li;
-  }
-
-  // 초기 1개 빈 박스 생성
-  fileList.innerHTML = '';
-  fileList.appendChild(createBtnBox(false, ''));
-  updateAttachVal();
 });
