@@ -371,12 +371,14 @@ border 초록색 표시, "비밀번호가 일치합니다." 문구 출력
   const pwWarning = document.createElement("div");
   pwWarning.style.color = "red";
   pwWarning.style.fontSize = "12px";
-  pwWarning.style.marginTop = "5px";
+  pwWarning.style.marginTop = "30px";
+  pwWarning.style.marginLeft = "8px";
   pwWarning.textContent = "8자 이상 입력하셔야 합니다.";
 
   const matchMessage = document.createElement("div");
   matchMessage.style.fontSize = "12px";
-  matchMessage.style.marginTop = "5px";
+  matchMessage.style.marginTop = "30px";
+  matchMessage.style.marginLeft = "8px";
 
   function validatePwLength() {
     const pw = pwInput.value.trim();
