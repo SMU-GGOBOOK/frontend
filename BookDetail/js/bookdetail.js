@@ -21,6 +21,8 @@ function toggleBookmark(button) {
     }, 100);
 }
 
+/* ///////////////////////////////////////////////////////////////////////////////////// */
+
 // 모달팝업 js
 document.addEventListener("DOMContentLoaded", function () {
   const openBtn = document.getElementById("openReviewBtn");
@@ -44,6 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+/* ///////////////////////////////////////////////////////////////////////////////////// */
+
 // 답글달기 토글 JS
 
 // 페이지 내 모든 답글 버튼에 이벤트 연결
@@ -54,6 +58,9 @@ $(document).ready(function() {
   });
 });
 
+/* ///////////////////////////////////////////////////////////////////////////////////// */
+
+
 // 글자수 실시간으로 뜨게 하는 js
 const textarea = document.querySelector('.form_textarea');
 const countSpan = document.querySelector('.byte_check .count');
@@ -62,7 +69,10 @@ textarea.addEventListener('input', () => {
 countSpan.textContent = textarea.value.length;
 });
 
-// 글자수 실시간으로 뜨게 하는 js
+/* ///////////////////////////////////////////////////////////////////////////////////// */
+
+
+// 글자수 실시간으로 뜨게 하는 js - 모달 팝업 내 
 const textareamodal = document.querySelector('.modal .form_textarea');
 const countSpanmodal = document.querySelector('.modal .byte_check .count');
 
@@ -70,28 +80,66 @@ textareamodal.addEventListener('input', () => {
 countSpanmodal.textContent = textareamodal.value.length;
 });
 
+/* ///////////////////////////////////////////////////////////////////////////////////// */
+
 // 펼치기 
 $(document).ready(function () {
+  $('.comment_item').each(function () {
+    const $commentItem = $(this);
+    const $moreButton = $commentItem.find('.btn_more_body');
+
+    if ($commentItem.hasClass('overflow')) {
+      $moreButton.show();
+    } else {
+      $moreButton.hide();
+    }
+  });
+
   $('.btn_more_body').on('click', function () {
     const $button = $(this);
     const $commentItem = $button.closest('.comment_item');
     const isActive = $commentItem.hasClass('active');
 
     if (!isActive) {
-      // 펼치기 → 접기 (active 추가)
+      // 펼치기
       $commentItem.addClass('active');
       $button.addClass('active');
       $button.find('.text').text('접기');
       $button.find('i').removeClass('fa-arrow-down').addClass('fa-arrow-up');
+
+      // 만약 comment_thumb_box가 있으면 썸네일 숨기고 swiper 보이기
+      if ($commentItem.find('.comment_thumb_box').length) {
+        $commentItem.find('.comment_thumb_box').hide();
+
+        const $swiperWrap = $commentItem.find('.comment_swiper_wrap');
+        if ($swiperWrap.length) {
+          $swiperWrap.show();
+        }
+      }
     } else {
-      // 접기 → 펼치기 (active 제거)
+      // 접기
       $commentItem.removeClass('active');
       $button.removeClass('active');
       $button.find('.text').text('펼치기');
       $button.find('i').removeClass('fa-arrow-up').addClass('fa-arrow-down');
+
+      // 접을 때는 썸네일 보이게, swiper 숨기기
+      if ($commentItem.find('.comment_thumb_box').length) {
+        $commentItem.find('.comment_thumb_box').show();
+
+        const $swiperWrap = $commentItem.find('.comment_swiper_wrap');
+        if ($swiperWrap.length) {
+          $swiperWrap.hide();
+        }
+      }
     }
   });
 });
+
+
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////// */
 
 // 태그 
 document.querySelectorAll('.tag_wrap.size_lg .tag').forEach(tag => {
@@ -104,6 +152,8 @@ document.querySelectorAll('.tag_wrap.size_lg .tag').forEach(tag => {
         // 이미 active면 아무것도 안 붙음 (즉, toggle off)
     });
 });
+
+/* ///////////////////////////////////////////////////////////////////////////////////// */
 
 // 별
 document.addEventListener("DOMContentLoaded", function () {
@@ -163,6 +213,8 @@ document.addEventListener("DOMContentLoaded", function () {
   updateStars(currentValue);
 });
 
+/* ///////////////////////////////////////////////////////////////////////////////////// */
+
 // 이미지 클릭시 변환
 $(document).ready(function () {
   $('.comment_thumb_box').on('click', function () {
@@ -180,9 +232,7 @@ $(document).ready(function () {
   });
 });
 
-
-
-
+/* ///////////////////////////////////////////////////////////////////////////////////// */
 
 // 모달 팝업 내 사진 추가
 document.addEventListener('DOMContentLoaded', function () {
