@@ -23,211 +23,6 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 
-    <style>
-      body {font-family: 'Noto Sans KR', sans-serif;}
-
-      * {margin: 0; padding: 0; box-sizing: border-box; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;}
-
-      input {
-        color: inherit; 
-        font-family: inherit; 
-        letter-spacing: inherit; 
-        appearance: none; 
-        background: none; 
-        border: 0; 
-        box-shadow: none; 
-        border-radius: 0; 
-        padding: 0; 
-        margin: 0;
-      }
-
-      a {
-        text-decoration: none; 
-        color: inherit; 
-        font-family: inherit; 
-        letter-spacing: inherit; 
-        cursor: pointer;
-      }
-
-      hr {
-        margin: 0; 
-        padding: 0;
-      }
-
-      /* header 부분 */
-      .fig-header,
-      /* 중앙 부분*/
-      .fig-main{
-        max-width: 78%; /* 건들지 마세용 */
-        padding-left: 16px; 
-        padding-right: 16px; 
-        margin: 0 auto;
-      }
-
-      .fig-main{
-        padding-top: 30px;
-        margin-bottom:120px;
-      }
-
-      .fig-nav{
-        display: grid; 
-        grid-template-columns: 1fr auto auto; 
-        align-items: center; 
-        padding: 16px 18px 8px 30px;
-      }
-
-      /* 로고 + 교환독서 탭 */
-      .fig-header-left {
-        display: flex;
-        align-items: center; 
-        gap: 12px; 
-      }
-      .fig-one{
-        display: inline-flex;
-        width: fit-content;
-        display: flex; 
-        align-items: center; 
-        gap: 0.5rem;
-      }
-
-      .fig-logo{
-        height: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #2D7868;
-        margin: 0; 
-        font-size: 25px; 
-      }
-
-      .fig-exchangeimage {
-        height: 20px; 
-        margin-left: 20px; 
-        position: relative;
-      }
-
-      @media (max-width: 767px) {
-        .exchangeimage :before {
-          content: '';
-          position: absolute;
-          display: block;
-          top: -8px;
-          left: -8px;
-          width: 40px;
-          height: 40px;
-          z-index: 1;
-          background-color: transparent;
-        }
-      }
-
-      .fig-exchange-book{
-        height: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #2D7868;
-        margin: 0; 
-        font-size: 17px; 
-      }
-
-      @media (max-width: 767px) {
-        .fig-exchange-book{
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          margin: -1px;
-          padding: 0;
-          overflow: hidden;
-          border: 0;
-          clip: rect(0, 0, 0, 0);
-        }
-      }
-
-      /* 검색바 */
-      .fig-searchform {
-        position: absolute;
-        left: 700px;
-        width: 500px;
-        display: flex;
-        align-items: flex-start;
-      }
-
-      .fig-tabindex {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .fig-formlabel {
-        display: flex;
-        align-items: center;
-        padding: 6px 10px;
-        min-height: 40px;
-        background: #f5f5f5;
-        border-radius: 8px;
-      }
-
-      .fig-searchimage {
-        font-size: 20px;
-        width: 20px;
-        height: 20px;
-        margin-right: 12px;
-        color: #a5a5a5;
-        fill: currentColor;
-        display: inline-block;
-      }
-
-      .fig-instant {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        padding: 0;
-        overflow: hidden;
-        border: 0;
-        clip: rect(0, 0, 0, 0);
-      }
-
-      .fig-forminput {
-        flex: 1;
-        width: 0;
-        min-width: 0;
-        height: 100%;
-        font-size: 15px;
-        line-height: 18px;
-        color: #141414;
-        caret-color: #2D7868;
-      }
-
-      /* 로그인 회원가입 */
-      .fig-join {
-        display: flex;
-        align-items: center;
-        position: relative;
-      }
-
-      .fig-signup,
-      .fig-login {
-        padding: 11px 12px;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 18px;
-        text-align: center;
-        color: #2D7868;
-      }
-
-      /* header 구분선 */
-      .fig-hr{
-        display: block;
-        width: 100%;
-        height: 1px;
-        box-sizing: border-box;
-        border: none;
-        background: #f0f0f0;
-        margin-top: 5px;
-      }
-
-    </style>
-
 </head>
 <body>
   <header class="fig-header">
@@ -271,31 +66,31 @@
 
   <hr class="fig-hr">
   <div class="fig-main">
+    <!-- 상단 -->
     <div class="book-inform-wrap">
       <ng-component class="ng-star-inserted">
         <main class="main">
           <div class="items">
             <home-search-book-list style="justify-content: center; position: relative; display: flex; flex-wrap: wrap; gap: 59px 10px;" _nghost-ng-c2831665569="">
               <section class="row">
-                <!-- -->
+                <!-- 도서 정보 -->
                 <div class="book-info">
                   <div class="left overflow-box">
-                    <!-- -->
+                    <!-- 도서 표지 -->
                     <div class="cover-box">
                       <img class="cover" src="images/ke1330.jpg">
                     </div>
-                    <!-- -->
                   </div>
                   <div class="right">
                     <div class="meta">
-                      <!-- -->
+                      <!-- 도서 제목 -->
                       <div class="title">
                         <h1>수학 역사 퍼즐</h1>
                           <button onclick="toggleBookmark(this)" class="bookmarkBtn">
                             <i class="fa-regular fa-bookmark"></i>
                           </button>
                       </div>
-                      <!-- -->
+                      <!-- 도서 상세정보 -->
                       <div class="tbl_row_wrap">
                         <table class="tbl_row">
                           <caption>
@@ -342,12 +137,10 @@
                             </tr>
                           </tbody>
                         </table>
-                        <!-- 디지털 교환상품 START-->
-                        <!-- 디지털 교환상품 END-->
                       </div>
+                      <!-- 평점, 키워드 -->
                       <div class="product_detail_area basic_info">
-                        <!-- -->
-                        <!-- -->
+                        <!-- 평점 -->
                         <div class="review_">
                           <div class="prod_info_wrap">
                             <div class="prod_review_box">
@@ -418,12 +211,14 @@
     
     <div class="sps_observer" style="top:auto;"></div>
     
+    <!-- 하단 -->
     <div class="product_detail_area klover_review_wrap" data-event-detail="review" id="ReviewList1" data-kbbfn="ui-module" data-kbbfn-name="review-list" data-kbbfn-type="klover" data-kbbfn-prod-pid="S000001913217" data-kbbfn-prod-bid="9791188331796" data-kbbfn-prod-title="돈의 속성(400쇄 리커버에디션)" data-kbbfn-prod-code="KOR" data-kbbfn-prod-age="0">
       <!-- 헤더 영역 -->
       <div class="title_wrap title_size_md has_btn" data-kbbfn-role="title">
       </div>
       
       <!-- 감성태그 overview 영역 -->
+      <!-- 그래프로 변경 예정 -->
       <div class="klover_review_box">
         <div class="klover_box_left">
           
@@ -434,6 +229,83 @@
         </div>
       </div>
 
+      <!-- 독서 그룹 영역 -->
+      <div class="feed__content">
+        <div class="feed__join">
+            <div class="feed__join_title">
+                <span>이 책이 주제인 교환 독서 그룹</span>
+            </div>
+            <div class="feed__join_body">
+                <div class="feed__join_body_item">
+                    <div class="join_body_item_book">
+                        <img src="https://image.aladin.co.kr/product/32379/9/cover150/8954695175_1.jpg" alt="귀하의 노고에 감사드립니다 - 월급사실주의 2023">
+                    </div>
+                    <div class="join_body_item_groupName">
+                        [📚수북플러스] 2. 귀하의 노고에 감...
+                    </div>
+                </div>
+                <div class="feed__join_body_item">
+                    <div class="join_body_item_book">
+                        <img src="https://image.aladin.co.kr/product/36249/44/cover150/k692038529_1.jpg" alt="다르게 걷기">
+                    </div>
+                    <div class="join_body_item_groupName">
+                        책 증정 [박산호 x 조영주] 인터뷰
+                    </div>
+                </div>
+                <div class="feed__join_body_item">
+                    <div class="join_body_item_book">
+                        <img src="https://image.aladin.co.kr/product/35872/76/cover150/k362037780_1.jpg" alt="">
+                    </div>
+                    <div class="join_body_item_groupName">
+                        [ Do it! 오라클로 배우는 SQL 입문 ]
+                    </div>
+                </div>
+                <div class="feed__join_body_item">
+                    <div class="join_body_item_book">
+                        <img src="https://image.aladin.co.kr/product/36582/74/cover150/k232039558_1.jpg" alt="">
+                    </div>
+                    <div class="join_body_item_groupName">
+                        어린왕자
+                    </div>
+                </div>
+                <div class="feed__join_body_item">
+                    <div class="join_body_item_book">
+                        <img src="https://image.aladin.co.kr/product/32379/9/cover150/8954695175_1.jpg" alt="귀하의 노고에 감사드립니다 - 월급사실주의 2023">
+                    </div>
+                    <div class="join_body_item_groupName">
+                        [📚수북플러스] 2. 귀하의 노고에 감...
+                    </div>
+                </div>
+                <div class="feed__join_body_item">
+                    <div class="join_body_item_book">
+                        <img src="https://image.aladin.co.kr/product/36249/44/cover150/k692038529_1.jpg" alt="다르게 걷기">
+                    </div>
+                    <div class="join_body_item_groupName">
+                        책 증정 [박산호 x 조영주] 인터뷰
+                    </div>
+                </div>
+                <div class="feed__join_body_item">
+                    <div class="join_body_item_book">
+                        <img src="https://image.aladin.co.kr/product/35872/76/cover150/k362037780_1.jpg" alt="">
+                    </div>
+                    <div class="join_body_item_groupName">
+                        [ Do it! 오라클로 배우는 SQL 입문 ]
+                    </div>
+                </div>
+                <div class="feed__join_body_item">
+                    <div class="join_body_item_book">
+                        <img src="https://image.aladin.co.kr/product/36582/74/cover150/k232039558_1.jpg" alt="">
+                    </div>
+                    <div class="join_body_item_groupName">
+                        어린왕자
+                    </div>
+                </div>
+
+            </div>
+        </div>
+      </div>
+
+      <!-- 리뷰 부분 -->
       <div class="tab_wrap type_sm" data-kbbfn-role="tab-view" data-type-btn="">
         <div class="tab_list_wrap">
           <ul class="tabs">
@@ -468,6 +340,7 @@
       </div>
     </div>
 
+    
     <!-- 리뷰 리스트 영역 -->
     <div class="tab_content">
       <div class="comment_wrap">
@@ -1372,16 +1245,7 @@
                       <div class="dialog_title">리뷰작성</div>
                       
                       <button type="button" id="closeReviewBtn" class="btn_dialog_close">
-                          <svg width="20" height="20" viewBox="0 0 683 683" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g clip-path="url(#clip0_115_178)">
-                                  <path d="M27.3332 2.26679C4.5332 10.4001 -5.73347 34.8001 3.99987 56.9335C6.26653 62.1335 32.2665 88.8002 145.733 202.267L284.667 341.334L145.2 480.934C-9.8668 636.267 0.666532 624.4 0.666532 643.334C0.799865 654.8 3.99987 662.667 11.9999 670.667C19.9999 678.667 27.8665 681.867 39.3332 682C58.2665 682 46.3999 692.534 201.733 537.467L341.333 398L481.067 537.467C636.267 692.534 624.4 682 643.333 682C654.8 681.867 662.667 678.667 670.667 670.667C678.667 662.667 681.867 654.8 682 643.334C682 624.4 692.533 636.267 537.467 481.067L398 341.334L537.467 201.6C692.533 46.4002 682 58.2668 682 39.3335C681.867 27.8668 678.667 20.0001 670.667 12.0001C662.667 4.00013 654.8 0.800127 643.333 0.666794C624.4 0.666794 636.267 -9.86651 480.933 145.2L341.333 284.667L202.267 145.734C86.2665 29.6002 62.2665 6.26679 56.7999 3.86679C47.7332 -0.133206 35.7332 -0.66654 27.3332 2.26679Z" fill="#2D7868"/>
-                              </g>
-                              <defs>
-                                  <clipPath id="clip0_115_178">
-                                      <rect width="682.667" height="682.667" fill="white"/>
-                                  </clipPath>
-                              </defs>
-                          </svg>
+                          <i class="fa-solid fa-xmark" style="color: #2D7868; font-size: 25px;"></i>
                           <span class="hidden">닫기</span>
                       </button>
                   </div>
@@ -1550,6 +1414,7 @@
     </div>
   </div>
 
+  <!-- footer 부분 -->
   <div class="footerWrap">
     <div class="totalReview">
       <p>꼬북꼬북 모은 리뷰<span>15,738</span>개</p>

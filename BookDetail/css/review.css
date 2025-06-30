@@ -79,7 +79,7 @@ html:not(.ios) body.dialog_open .dialog_wrapper.open {
     margin: 0 auto;
     padding: 0;
     border: none;
-    color: #000;
+    color: #1a1a1a;
 }
 .modal .ui-dialog {
     position: absolute;
@@ -642,14 +642,14 @@ html:not(.ios) body.dialog_open .dialog_wrapper.open {
     font-size: 14px;
     line-height: 22px;
     letter-spacing: -0.01em;
-    color: #595959;
+    color: #636363;
 }
 .modal .form_wrap.type_md .form_box .form_cont {
     margin-top: 10px;
 }
 .modal .form_wrap .form_box .form_cont {
     margin-top: 8px;
-    color: #595959;
+    color: #636363;
 }
 .modal .tag_wrap {
     margin: -4px -3px;
@@ -797,7 +797,7 @@ border-color: transparent !important;
 }
 .modal .form_label {
     display: inline-block;
-    color: #000;
+    color: #1a1a1a;
     font-size: 13px;
     line-height: 19px;
     letter-spacing: -0.01em;
@@ -821,14 +821,14 @@ border-color: transparent !important;
 .modal .file_attach_val .total {
     font-size: 14px;
     letter-spacing: -0.01em;
-    color: #767676;
+    color: #636363;
 }
 .modal .form_wrap.type_md .form_box .form_cont {
     margin-top: 10px;
 }
 .modal .form_wrap .form_box .form_cont {
     margin-top: 8px;
-    color: #595959;
+    color: #636363;
 }
 .modal .file_list {
     font-size: 0;
@@ -909,7 +909,7 @@ border-color: transparent !important;
     font-size: 14px;
     line-height: 22px;
     letter-spacing: -0.01em;
-    color: #595959;
+    color: #636363;
     font-weight: 400;
     text-align: left;
 }
@@ -1001,4 +1001,59 @@ a[disabled], a[aria-disabled=true], a.disabled, button[disabled], button[aria-di
     pointer-events: none !important;
     cursor: default !important;
     text-decoration: none !important;
+}
+
+/* 사진 추가 */
+.modal .file_list .list_item:last-child {
+    margin-right: 0;
+}
+.modal .file_list .list_item {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+}
+.modal .file_list .file_item {
+    position: relative;
+    display: inline-block;
+}
+.modal .file_list .file_item.attached.attached .attach_img_box {
+    display: inline-block;
+}
+.modal .file_list .file_item.attached .attach_img_box {
+    display: inline-block; /* 기본 보이도록 변경 */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.modal .file_list .file_item.attached .attach_img_box .attach_img_view {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    font-size: 0 !important;
+    left: 0;
+    top: 0;
+}
+.modal .file_list .file_item.attached .attach_img_box .btn_remove_img {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-size: 8px 8px;
+    background-image: url(../images/btn_attached_remove@2x.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 0 6px;
+    font-size: 0 !important;
+    pointer-events: auto;
+    right: 0;
+    top: 0;
 }
