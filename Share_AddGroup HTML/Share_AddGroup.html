@@ -458,7 +458,7 @@
         pwMsg.textContent = "";
         pwMsg.className = "pw-message";
       } else if (len < 4) {
-        pwMsg.textContent = "비밀번호는 최소 4자리 이상 입력해야 합니다.";
+        pwMsg.textContent = "비밀번호는 4~10자리로 입력 가능합니다.";
         pwMsg.className = "pw-message invalid";
       } else {
         pwMsg.textContent = "사용 가능한 비밀번호입니다.";
@@ -483,7 +483,7 @@
   </script>
 
 
-<!-- 취소/완료 버튼 기능 -->
+<!-- 취소/완료 버튼 alert -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const cancelBtn = document.getElementById("group_button_1");
