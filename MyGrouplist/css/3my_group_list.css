@@ -75,7 +75,7 @@ nav{
 } */
 
 .user_info{
-    width: 1125px;
+    width: 1137px;
     margin: 82px 0 52px;
 }
 .user_info hr{
@@ -109,13 +109,13 @@ nav{
 
 /* 내그룹 */
 .bookshelves{
-    width: 1125px;
+    width: 1137px;
     height: auto;
     /*border: 1px solid black;*/
     /* justify-content: center; */
 }
 .header-container{
-    width: 1125px;
+    width: 1137px;
     height: 40px;
     /*border: 1px solid black;*/
     display: flex;
@@ -145,25 +145,27 @@ nav{
     border-top-right-radius: 7px;
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
+    margin-left: 3px;
 }
 /* 내 그룹 */
 .my_group{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(558px, 1fr));
     gap: 10px;
     justify-content: center; /* 가운데 정렬 */
-    max-width: 1125px;     
+    max-width: 1137px;     
 }
 .bookbox {
   position: relative; /* 아이콘 absolute 위치 기준 */
   display: flex;
-  width: 550px;
+  width: 558px;
   height: 200px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin-bottom: 10px;
+  margin: 0 auto;
+  margin-bottom: 8px;
 }
 /*
 .bookbox{
