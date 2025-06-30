@@ -225,6 +225,7 @@ form[name='inqFrm'] {
     color:#fafafa;
     border-radius: 7px;
     border-style: hidden;
+    font-weight: bold;
     cursor:pointer
 }
 
