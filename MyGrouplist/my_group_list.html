@@ -57,21 +57,15 @@
     <!-- 여기에 메인 컨텐츠 입력 -->
           <nav><!--전체틀-->
           <!--왼쪽사이드-->
-          <div class="left_side">
-              <ul class="category">
-                  <div class="icon">
-                      <li><i class="fa-solid fa-book"></i>내가 쓴 리뷰</li>
-                  </div>
-                  <div class="icon">
-                      <li><i class="fa-solid fa-book-bookmark"></i>북마크한 도서</li>
-                  </div>
-                  <div class="icon">
-                    <div class="checked">
-                      <li><i class="fa-solid fa-rotate"></i>교환독서</li>
-                    </div>
-                  </div>
-              </ul>
-          </div>
+        <!--카테고리 바뀐부분 시작-->
+        <div class="left_side">
+          <ul class="category">
+            <li class="icon"><i class="fa-solid fa-book"></i>내가 쓴 리뷰</li>
+            <li class="icon"><i class="fa-solid fa-book-bookmark"></i>북마크한 도서</li>
+            <li class="icon checked"><i class="fa-solid fa-rotate"></i>교환독서</li>
+          </ul>
+        </div>
+        <!--카테고리 바뀐부분 끝-->
 
           <!--유저네임 메인틀-->
           <div class="main">
@@ -277,7 +271,10 @@
 
       // 나가기 책에서 클릭하면 삭제
       if (bookbox) {
-        bookbox.remove();
+        const shouldDelete = confirm("정말 그룹을 나가시겠습니까?");
+        if (shouldDelete) {
+          bookbox.remove();
+        }
       }
     });
   });
