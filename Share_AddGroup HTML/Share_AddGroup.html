@@ -101,20 +101,52 @@
                                 </th>
                                 <td><textarea name="description" class="description" rows="4" placeholder="그룹 소개글을 입력해주세요."></textarea></td>
                             </tr>
+                            <!-- 책 선택 -->
                             <tr>
-                                <th>
-                                    <label>책 선택</label>
-                                    <span>*</span>
-                                </th>
-                                <td>
-                                    <input type="text" class="group_search" placeholder="책 제목을 검색해주세요.">
-                                    <a href='#'>
-                                        <div class="group_search_button">
-                                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                                        </div>
-                                    </a>
-                                </td>
+                              <th>
+                                <label>책 선택</label>
+                                <span>*</span>
+                              </th>
+                              <td>
+                                <!-- <input type="text" class="group_search" id="book_search_input" placeholder="책 제목을 검색해주세요."> -->
+                                <a href="#" id="book_search_trigger">
+                                  <div class="group_search_button">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </div>
+                                </a>
+                              </td>
                             </tr>
+                            <!-- 책 검색 - 모달 전체 -->
+                            <div class="book_modal" id="book_search_modal">
+                              <div class="modal_overlay"></div>
+                              <div class="modal_content">
+                                <button class="modal_close" aria-label="닫기">&times;</button>
+                                <h2>책 선택</h2>
+
+                                <!-- 모달 내부 검색 input -->
+                                <div class="modal_input_wrap">
+                                  <input type="text" class="modal_search" id="book_search_input_modal" placeholder="책 제목을 검색해주세요.">
+                                  <button class="modal_search_btn" id="modal_search_btn">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+
+                                <!-- 검색 결과 -->
+                                <div class="modal_results" id="modal_book_results">
+                                  <!-- 자바스크립트로 검색 결과 삽입 -->
+                                  <div class="book_item">
+                                    <img src="https://image.aladin.co.kr/product/36582/74/cover150/k232039558_1.jpg" alt="">
+                                  </div>
+                                  <div class="book_info">
+                                    <h3>어린왕자</h3>
+                                    <p><strong>작가:</strong> 앙투안 드 생텍쥐페리 지음, 김설아 옮김</p>
+                                    <p><strong>출판사:</strong> 단한권의책</p>
+                                    <button class="book_select_btn">선택</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                             <tr>
                                 <th><label>관련 해시태그</label></th>
                                 <td>
@@ -283,6 +315,86 @@
 
 
 <!-- -------------------- script ----------------------------------------- -->
+
+<!-- 책 검색 (모달창) -->
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const trigger = document.getElementById("book_search_trigger");
+    const modal = document.getElementById("book_search_modal");
+    const overlay = modal.querySelector(".modal_overlay");
+    const closeBtn = modal.querySelector(".modal_close");
+    const input = document.getElementById("book_search_input_modal");
+    const searchBtn = document.getElementById("modal_search_btn");
+    const results = document.getElementById("modal_book_results");
+
+    // ✨ 예시용 더미 데이터 (실제론 AJAX 요청 or DB 데이터)
+    const dummyBooks = [
+      {
+        title: "어린 왕자",
+        author: "앙투안 드 생텍쥐페리 지음, 김설아 옮김",
+        publisher: "단한권의책",
+        description: "어린이를 위한 철학동화. 순수함을 찾는 여정.",
+        image: "https://image.aladin.co.kr/product/22323/62/cover200/8932907503_1.jpg"
+      },
+      {
+        title: "모모의 여름 방학",
+        author: "야엘 아샤 지음, 박재연 옮김",
+        publisher: "불광출판사",
+        description: "모모는 지루함과 심심함에서 벗어나고 싶어졌다.",
+        image: "https://image.aladin.co.kr/product/32000/60/cover200/8901265032_1.jpg"
+      }
+    ];
+    function openModal() {
+      modal.style.display = "block";
+      input.focus();
+    }
+    function closeModal() {
+      modal.style.display = "none";
+      results.innerHTML = ""; // 결과 초기화
+      input.value = "";
+    }
+    function renderBooks(filter = "") {
+      results.innerHTML = "";
+      const filtered = dummyBooks.filter(book =>
+        book.title.includes(filter)
+      );
+      if (filtered.length === 0) {
+        results.innerHTML = "<p>검색 결과가 없습니다.</p>";
+        return;
+      }
+      filtered.forEach(book => {
+        const div = document.createElement("div");
+        div.className = "book_item";
+        div.innerHTML = `
+          <img src="${book.image}" alt="${book.title}">
+          <div class="book_info">
+            <h3>${book.title}</h3>
+            <p><strong>작가:</strong> ${book.author}</p>
+            <p><strong>출판사:</strong> ${book.publisher}</p>
+            <button class="book_select_btn">선택</button>
+          </div>
+        `;
+        results.appendChild(div);
+      });
+    }
+    // 이벤트 바인딩
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault();
+      openModal();
+    });
+    overlay.addEventListener("click", closeModal);
+    closeBtn.addEventListener("click", closeModal);
+    // 검색 버튼 클릭 or 엔터키
+    searchBtn.addEventListener("click", () => renderBooks(input.value.trim()));
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        renderBooks(input.value.trim());
+      }
+    });
+  });
+  </script>
+
+
 <!-- 해시태그 기능 추가
     1) input에서 Enter로 태그 추가
     2) + 버튼 클릭으로 태그 추가
@@ -302,40 +414,31 @@
     const hiddenInput = document.querySelector("#group_keywords_hidden");
     const tagLinks = document.querySelectorAll(".tags a"); // 아래 해시태그 리스트
     const addedTags = new Set();
-
     const MAX_TAGS = 8;
     const HANGUL_REGEX = /^[가-힣]+$/;
-
     // hidden input에 저장
     function updateHiddenInput() {
       hiddenInput.value = Array.from(addedTags).join(",");
     }
-
     // 실제 태그 추가 함수 (중복, 제한 등 포함)
     function addTag(tagText) {
       if (!tagText || addedTags.has(tagText)) return;
-
       if (addedTags.size >= MAX_TAGS) {
         alert("최대 8개의 태그만 추가할 수 있습니다.");
         return;
       }
-
       addedTags.add(tagText);
-
       const tag = document.createElement("div");
       tag.className = "added-tag";
       tag.textContent = tagText;
-
       const delBtn = document.createElement("span");
       delBtn.className = "tag-delete";
       delBtn.innerHTML = "&times;";
-
       // ⬇ 삭제 버튼 기능은 이 안에!
       delBtn.onclick = () => {
         addedTags.delete(tagText);
         tag.remove();
         updateHiddenInput();
-
         // ⬇ 아래 해시태그에서 hover 유지용 클래스도 제거
         tagLinks.forEach(link => {
           if (link.textContent.trim() === tagText) {
@@ -343,29 +446,22 @@
           }
         });
       };
-
       tag.appendChild(delBtn);
       outputArea.appendChild(tag);
       updateHiddenInput();
     }
-
-
     // input 기반 태그 추가 (한글 체크 포함)
     function addTagFromInput() {
       const value = input.value.trim();
       const tagText = `#${value}`;
-
       if (!value) return;
-
       if (!HANGUL_REGEX.test(value)) {
         alert("한글만 입력 가능합니다.");
         return;
       }
-
       addTag(tagText);
       input.value = "";
     }
-
     // Enter 키로 입력
     input.addEventListener("keydown", function(e) {
       if (e.key === "Enter") {
@@ -373,27 +469,21 @@
         addTagFromInput();
       }
     });
-
     // + 버튼 클릭
     addBtn.addEventListener("click", addTagFromInput);
-
     // 아래 해시태그 클릭 시 추가
     tagLinks.forEach(link => {
       link.addEventListener("click", function(e) {
         e.preventDefault();
         const tagText = this.textContent.trim();
-
         if (addedTags.size >= MAX_TAGS && !this.classList.contains("clicked")) {
           alert("최대 8개의 태그만 선택할 수 있습니다.");
           return;
         }
-
         addTag(tagText);
-
         this.classList.add("clicked");
       });
     });
-
   </script>
 
 <!-- 그룹 비밀번호 관련 기능 추가:
