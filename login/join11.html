@@ -370,9 +370,9 @@ a {
     width:600px;
     
   }
-  .login-box .idpw {
+    .login-box .idpw {
     width:200px; height:50px; margin-bottom:20px; border: 1px solid #ccc; border-radius:7px;
-    font-size:15px; background-color:white; padding: 15px; font-weight: 400;
+    font-size:15px; background-color: #fafafa; padding: 15px; font-weight: 400; margin-top:20px;
   }
   .idpw:focus {
   outline: 1.5px solid gray;
@@ -389,6 +389,7 @@ a {
     font-weight: bold;
     border-radius: 7px;
     cursor: pointer;
+    margin-top:20px;
   }
 
  
@@ -464,6 +465,15 @@ a {
       height:30px;
     }
 
+
+    .inmail, .innum {
+      display: flex;
+      justify-content: center;   /* 가운데 정렬 */
+      gap: 10px;
+      height: 38px;
+      margin-bottom: 20px;
+    }
+
     
 
 </style>
@@ -528,18 +538,18 @@ a {
         
         <div class="login-box" style="margin:0 auto; border:3px solid #2D7868; border-radius: 7px; width:500px; ">
           <!-- 1. 이메일 입력 + 전송 버튼 -->
-            <div class="inmail" style="display: flex; gap: 10px; height: 38px; margin-left:45px; margin-top:20px;">
+            <div class="inmail">
             <input type="text" class="idpw" placeholder="이메일 입력">
             <button class="login-btn" 
-                style=" white-space: nowrap; box-sizing: border-box; width:200px;">전송</button>
+                style=" white-space: nowrap; box-sizing: border-box;">전송</button>
             </div>
             <br>
 
             <!-- 2. 인증코드 입력 + 인증 버튼 -->
-            <div class="innum" style="display: flex; gap: 10px; height: 38px;  margin-left:45px;">
+            <div class="innum">
             <input type="text" class="idpw"  placeholder="인증번호 입력">
             <button class="login-btn" 
-                style=" white-space: nowrap; box-sizing: border-box; width:200px;">인증</button>
+                style=" white-space: nowrap; box-sizing: border-box; ">인증</button>
             </div>
             <br>
 
