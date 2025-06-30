@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,8 +46,9 @@ a {
   /* p,placeholder 색상 약속대로 */
 
 
-  p {
+  .main-fig p {
     color: #636363;
+    font-weight: 400;
   }
 
   input::placeholder{
@@ -363,28 +364,6 @@ a {
 
 
 
-  /* 사이드바(삭제) */
-  .menu-box {
-    margin:50px;
-  }
-
-  .menu-box li {
-    width:150px;
-    height:60px;
-    list-style-type: none;
-    padding-left: 0;
-    border:2px solid #2D7868;
-    font-size:20px;
-    padding:5px;
-    background:rgb(255, 255, 255);
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-  }
-
- 
-
-
-
   /* 로그인 박스(이메일 인증, 로그인) */
   .login-box {
     background-color:rgb(245, 245, 245);
@@ -547,11 +526,10 @@ a {
             <br>
           </div>
         
-        <div class="login-box" style="margin:0 auto; border:3px solid #2D7868; border-radius: 10px; width:500px; ">
+        <div class="login-box" style="margin:0 auto; border:3px solid #2D7868; border-radius: 7px; width:500px; ">
           <!-- 1. 이메일 입력 + 전송 버튼 -->
             <div class="inmail" style="display: flex; gap: 10px; height: 38px; margin-left:45px; margin-top:20px;">
-            <input type="text" class="idpw" style="background-color:white;" placeholder="이메일 입력"
-                style="width:200px; height:50px; margin-bottom:20px; border:1px solid #2D7868; border-radius:5px; padding-left:5px;">
+            <input type="text" class="idpw" placeholder="이메일 입력">
             <button class="login-btn" 
                 style=" white-space: nowrap; box-sizing: border-box; width:200px;">전송</button>
             </div>
@@ -559,8 +537,7 @@ a {
 
             <!-- 2. 인증코드 입력 + 인증 버튼 -->
             <div class="innum" style="display: flex; gap: 10px; height: 38px;  margin-left:45px;">
-            <input type="text" class="idpw" style="background-color:white;"  placeholder="인증번호 입력"
-                style="width:200px; height:50px; margin-bottom:20px; border:1px solid #2D7868; border-radius:5px; padding-left:5px;">
+            <input type="text" class="idpw"  placeholder="인증번호 입력">
             <button class="login-btn" 
                 style=" white-space: nowrap; box-sizing: border-box; width:200px;">인증</button>
             </div>
@@ -581,7 +558,7 @@ a {
           <hr>
           <p style="text-align:center; margin-bottom:2px;">간편 회원가입</p>
           <hr>
-          <div class="logos" style="padding-top:20px;">
+          <div class="logos" style="padding-top:20px; text-align:center;">
             <img src="images/kaka.png" style="width:60px; height:60px; margin:30px;">
             <img src="images/nana.png" style="width:60px; height:60px; margin:30px;">
 

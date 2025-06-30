@@ -46,8 +46,9 @@ a {
   /* p,placeholder 색상 약속대로 */
 
 
-  p {
+  .main-fig p {
     color: #636363;
+    font-weight: 400;
   }
 
   input::placeholder{
@@ -367,7 +368,7 @@ a {
     border:2px solid #2D7868;
     font-size:20px;
     padding:5px;
-    background:rgb(255, 255, 255);
+    background:#f0f0f0;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
   }
@@ -380,8 +381,8 @@ a {
     
   }
   .login-box .idpw {
-    width:200px; height:50px; margin-bottom:20px; border:1px solid #2D7868; border-radius:5px;
-    font-size:14px; font-weight: 600; background-color:white;
+    width:200px; height:50px; margin-bottom:20px; border:1px solid #2D7868; border-radius:7px;
+    font-size:14px; font-weight: 600; background-color:#f0f0f0;
   }
 
   .login-btn {
@@ -399,59 +400,24 @@ a {
     
   }
 
-  
-
-  .checkbox-container {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin: -1px 0 0 -1px;
-      margin-top: 10px;
-      padding-left:20px;
-      
-    }
-
-    .saveID {
-      width: 16px;
-      height: 16px;
-      accent-color: #2D7868;
-      cursor: pointer;
-      margin: -1px 0 0 -1px;
-      background-color: white;
-    }
-
-    .checkbox-container p {
-      margin: 0;
-      font-weight: normal;
-      font-size: 14px;
-      
-    }
-
   .saveID {
-      appearance: none;
-      -webkit-appearance: none;
-      margin: -1px 0 0 -1px;
+      vertical-align: middle;
+      display: inline-block;
+      margin-top:-2px;
       width: 16px;
       height: 16px;
-      border: 1px solid #2D7868;
+      border: 1px solid #ccc;
+      background-color: #fafafa;
       
       cursor: pointer;
       position: relative;
+      appearance: checkbox;
+      border-radius:7px;
+      accent-color: #2D7868;
     }
 
     
-    .saveID:checked::before {
-      content: '✔';
-      color: #2D7868;
-      background-color:rgb(255, 255, 255);
-      margin: -1px 0 0 -1px;
-      font-size: 12px;
-      width: 14px;  
-      height: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    
 
     .pages {
       
@@ -482,15 +448,16 @@ a {
 
     .contract {
     width: 700px; margin: 50px auto 80px; padding: 30px 40px 50px;
-    border-radius: 7px; background-color: #2D7868; 
+    border-radius: 7px; background-color: rgb(245, 245, 245); border:3px solid #2D7868; border-radius: 7px;
     }
-    .contract h1 {text-align: center;}
+    .contract h1 {text-align: center; color:#2D7868;}
     .contract .text {
-        height: 230px; border: 1px solid black; background-color: white;
-        white-space: pre-line; overflow-y: scroll; margin: 0 auto 20px;
+        height: 230px; border: 1px solid CCC; background-color: white; border-radius:7px; padding:16px;
+        white-space: pre-line; overflow-y: scroll; margin: 0 auto 20px; box-shadow: 0 2px 8px #A0A0A0;
     }
     .contract p {text-align: right;}
     .contract .box {width: 100px; height: 40px;  padding: 8px; margin: 0 3px;}
+    .contract .yes p {color: #2D7868;}
 
 </style>
 <body>
@@ -554,40 +521,72 @@ a {
         
           
         <form class="contract"  action="signup.html">
-            <h1 style="color:#fafafa;">개인정보이용 약관</h1>
+            <h1>개인정보이용 약관 1</h1>
             <div class="text">
-              <p><strong style="color:red;">(약관 박스 못생김. 수정 필요)</strong> 여러분을 환영합니다.
+              <p> 여러분을 환영합니다.
 네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 본 약관은 너무 길어 생략됐습니다.^^
             </p>
             </div>
-            <div>
-                <p style="color:#fafafa;"><input type="checkbox" class="saveID" required> 약관에 동의합니다</p>
+            <div class="yes">
+                <p><input type="checkbox" class="saveID" required> 약관에 동의합니다</p>
                 
             </div>
             
         </form>
         <form class="contract" action="signup.html">
-            <h1 style="color:#fafafa;">개인정보이용 약관</h1>
+            <h1>개인정보이용 약관 2</h1>
             <div class="text">
-              <p><strong style="color:red;">(약관 박스 못생김. 수정 필요)</strong> 여러분을 환영합니다.
+              <p> 여러분을 환영합니다.
 네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 본 약관은 너무 길어 생략됐습니다.^^
             </p>
             </div>
-            <div>
-                <p style="color:#fafafa;"><input type="checkbox" class="saveID" required> 약관에 동의합니다</p>
+            <div class="yes">
+                <p><input type="checkbox" class="saveID" required> 약관에 동의합니다</p>
                 
             </div>
             
         </form>
         <form class="contract"  action="signup.html">
-            <h1 style="color:#fafafa;">개인정보이용 약관</h1>
+            <h1>개인정보이용 약관 3</h1>
             <div class="text">
-              <p><strong style="color:red;">(약관 박스 못생김. 수정 필요)</strong> 여러분을 환영합니다.
-네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 너무 길어 생략됐습니다.^^
+              <p> 여러분을 환영합니다.
+네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다.
+살어리 살어리랏다 쳥산(靑山)애 살어리랏다
+멀위랑 ᄃᆞ래랑 먹고 쳥산(靑山)애 살어리랏다
+얄리얄리 얄랑셩 얄라리 얄라
+
+우러라 우러라 새여 자고 니러 우러라 새여
+널라와 시름 한 나도 자고 니러 우니로라
+얄리얄리 얄라셩 얄라리 얄라
+
+가던 새 가던 새 본다 믈 아래 가던 새 본다
+잉무든 장글란 가지고 믈 아래 가던 새 본다
+얄리얄리 얄라셩 얄라리 얄라
+
+이링공 뎌링공 ᄒᆞ야 나즈란 디내와손뎌
+오리도 가리도 업슨 바므란 ᄯᅩ 엇디 호리라
+얄리얄리 얄라셩 얄라리 얄라
+
+어듸라 더디던 돌코 누리라 마치던 돌코
+믜리도 괴리도 업시 마자셔 우니노라
+얄리얄리 얄라셩 얄라리 얄라
+
+살어리 살어리랏다 바ᄅᆞ래 살어리랏다
+ᄂᆞᄆᆞ자기 구조개랑 먹고 바ᄅᆞ래 살어리랏다
+얄리얄리 얄라셩 얄라리 얄라
+
+가다가 가다가 드로라 에졍지 가다가 드로라
+사ᄉᆞ미 지ᇝ대예 올아셔 ᄒᆡ금(奚琴)을 혀거를 드로라
+얄리얄리 얄라셩 얄라리 얄라
+
+가다니 ᄇᆡ브른 도긔 설진 강수를 비조라
+조롱곳 누로기 ᄆᆡ와 잡ᄉᆞ와니 내 엇디 ᄒᆞ리잇고
+얄리얄리 얄라셩 얄라리 얄라
+
             </p>
             </div>
-            <div>
-                <p style="color:#fafafa;"><input type="checkbox" class="saveID" required> 약관에 동의합니다</p>
+            <div class="yes">
+                <p><input type="checkbox" class="saveID" required> 약관에 동의합니다</p>
                 
             </div>
             

@@ -28,7 +28,7 @@ input {
     background: none; 
     border: 0; 
     box-shadow: none; 
-    border-radius: 0; 
+    border-radius: 7px; 
     padding: 0; 
     margin: 0;
     outline:none;
@@ -45,7 +45,7 @@ a {
   /* p,placeholder 색상 약속대로 */
 
 
-  p {
+  .main-fig p {
     color: #636363;
     font-weight: 400;
   }
@@ -158,7 +158,7 @@ a {
     padding: 6px 10px;
     min-height: 40px;
     background: #f5f5f5;
-    border-radius: 8px;
+    border-radius: 7px;
 }
 
 .fig-searchimage {
@@ -412,13 +412,7 @@ a {
       
     }
 
-    .saveID {
-      width: 16px;
-      height: 16px;
-      accent-color: #2D7868;
-      cursor: pointer;
     
-    }
 
     .checkbox-container p {
       margin: 0;
@@ -426,31 +420,7 @@ a {
       font-size: 14px;
       
     }
-
-  .saveID {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 18px;
-      height: 18px;
-      border: 1px solid #2D7868;
-      
-      cursor: pointer;
-      position: relative;
-    }
-
-    
-    .saveID:checked::before {
-      content: '✔';
-      color: white;
-      background-color: #2D7868;
-      margin: -1px 0 0 -1px;
-      font-size: 12px;
-      width: 18px;  
-      height: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  
 
     .pages {
       
@@ -470,7 +440,7 @@ a {
       background: #2D7868;
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 7px;
       cursor: pointer;
       font-size: 15px;
       width:150px;
@@ -539,13 +509,13 @@ a {
             <br>
           </div>
         
-        <div class="login-box" style=" border:3px solid #2D7868; border-radius: 10px; width:500px; ">
+        <div class="login-box" style=" border:3px solid #2D7868; border-radius: 7px; width:500px; ">
           <br>
           <br>
           <!-- 1. 이메일 입력 + 전송 버튼 -->
             <div class="inmail" style="display: flex; gap: 10px; height: 38px; margin-left:45px; margin-top:20px;">
             <input type="text" class="idpw" style="background-color:white; border: 1px solid #ccc;" placeholder="이메일 입력"
-                style="width:200px; height:50px; margin-bottom:20px;  border:1px solid #2D7868; border-radius:5px;">
+                style="width:200px; height:50px; margin-bottom:20px;  border:1px solid #2D7868; border-radius:7px;">
             <button class="login-btn" 
                 style=" white-space: nowrap; box-sizing: border-box; width:200px;">전송</button>
             </div>
@@ -554,7 +524,7 @@ a {
             <!-- 2. 인증코드 입력 + 인증 버튼 -->
             <div class="innum" style="display: flex; gap: 10px; height: 38px;  margin-left:45px;">
             <input type="text" class="idpw" style="background-color:white; border: 1px solid #ccc;"  placeholder="인증번호 입력"
-                style="width:200px; height:50px; margin-bottom:20px;  border:1px solid #2D7868; border-radius:5px;">
+                style="width:200px; height:50px; margin-bottom:20px;  border:1px solid #2D7868; border-radius:7px;">
             <button class="login-btn" 
                 style=" white-space: nowrap; box-sizing: border-box; width:200px;">인증</button>
             </div>
