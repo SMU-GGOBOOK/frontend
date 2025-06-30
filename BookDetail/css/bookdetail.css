@@ -913,6 +913,27 @@ input, button, select, textarea {
     vertical-align: top;
     padding-top: 1px;
 }
+.btn_like {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+  }
+
+
+.btn_like.liked i {
+color: #2D7868 !important; /* 아이콘 색상 */
+}
+
+.btn_like.liked .text {
+color: #2D7868; /* 숫자 색상 */
+}
+
 
 /* 리뷰 속 사진 */
 

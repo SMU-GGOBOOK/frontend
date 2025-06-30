@@ -957,7 +957,10 @@ border-color: transparent !important;
 .modal .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_footer a[class^=btn_], .dialog_wrapper .ui-dialog .dialog_wrap.ui-dialog-content .dialog_footer button[class^=btn_] {
     flex: 0 auto;
 }
-.modal a.btn_primary[disabled], a.btn_primary[aria-disabled], a.btn_primary.disabled, button.btn_primary[disabled], button.btn_primary[aria-disabled], button.btn_primary.disabled, a.btn_line_primary.active[disabled], a.btn_line_primary.active[aria-disabled], a.btn_line_primary.active.disabled, button.btn_line_primary.active[disabled], button.btn_line_primary.active[aria-disabled], button.btn_line_primary.active.disabled {
+.modal a.btn_primary[disabled], .modal a.btn_primary[aria-disabled], .modal a.btn_primary.disabled, .modal button.btn_primary[disabled], 
+.modal button.btn_primary[aria-disabled], .modal button.btn_primary.disabled, .modal a.btn_line_primary.active[disabled], 
+.modal a.btn_line_primary.active[aria-disabled], .modal a.btn_line_primary.active.disabled, .modal button.btn_line_primary.active[disabled], 
+.modal button.btn_line_primary.active[aria-disabled], .modal button.btn_line_primary.active.disabled {
     color: #fff;
     background: #2d7868;
     border-color: #2d7868;

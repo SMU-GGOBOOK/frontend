@@ -164,16 +164,55 @@ a.btn_line_gray, button.btn_line_gray {
 .byte_check_wrap .byte_check_footer .btn_wrap {
     display: inline-block;
 }
+
+.btn_wrap_home {
+  text-align: left;          /* 인라인 요소 정렬 */
+  width: 100%;
+}
+
 .btn_wrap {
-    display: block;
-    font-size: 0;
-    text-align: center;
+  display: flex;
+  justify-content: flex-end; /* 왼쪽 정렬 */
+  align-items: center;
+  gap: 10px;                    /* 버튼 간격 */
+}
+.btn_wrap .btn_xs {
+    width: 80px;
+    height: 35px;
+    margin-top: 5px;
 }
 a.btn_light_gray, button.btn_light_gray {
-    color: #1a1a1a;
+    color: #fafafa;
     background: #636363;
     border: 1px solid #636363;
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+a.btn_xs, button.btn_xs {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: 30px;
+    padding: 0 9px 1px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
 }
 button[class^=btn_] .text, a[class^=btn_] .text {
     display: inline-block;

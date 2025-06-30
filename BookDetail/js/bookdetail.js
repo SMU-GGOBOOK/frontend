@@ -88,6 +88,7 @@ $(document).ready(function () {
     const $commentItem = $(this);
     const $moreButton = $commentItem.find('.btn_more_body');
 
+    // 내용이 긴 경우만 버튼 보여줌
     if ($commentItem.hasClass('overflow')) {
       $moreButton.show();
     } else {
@@ -105,33 +106,22 @@ $(document).ready(function () {
       $commentItem.addClass('active');
       $button.addClass('active');
       $button.find('.text').text('접기');
-      $button.find('i').removeClass('fa-arrow-down').addClass('fa-arrow-up');
+      $button.find('i').removeClass('fa-circle-arrow-down').addClass('fa-circle-arrow-up');
 
-      // 만약 comment_thumb_box가 있으면 썸네일 숨기고 swiper 보이기
-      if ($commentItem.find('.comment_thumb_box').length) {
-        $commentItem.find('.comment_thumb_box').hide();
+      // 썸네일 숨기고 swiper 보이게
+      $commentItem.find('.comment_thumb_box').hide();
+      $commentItem.find('.comment_swiper_wrap').show();
 
-        const $swiperWrap = $commentItem.find('.comment_swiper_wrap');
-        if ($swiperWrap.length) {
-          $swiperWrap.show();
-        }
-      }
     } else {
       // 접기
       $commentItem.removeClass('active');
       $button.removeClass('active');
       $button.find('.text').text('펼치기');
-      $button.find('i').removeClass('fa-arrow-up').addClass('fa-arrow-down');
+      $button.find('i').removeClass('fa-circle-arrow-up').addClass('fa-circle-arrow-down');
 
-      // 접을 때는 썸네일 보이게, swiper 숨기기
-      if ($commentItem.find('.comment_thumb_box').length) {
-        $commentItem.find('.comment_thumb_box').show();
-
-        const $swiperWrap = $commentItem.find('.comment_swiper_wrap');
-        if ($swiperWrap.length) {
-          $swiperWrap.hide();
-        }
-      }
+      // swiper 숨기고 썸네일 보이게
+      $commentItem.find('.comment_swiper_wrap').hide();
+      $commentItem.find('.comment_thumb_box').show();
     }
   });
 });
@@ -436,4 +426,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 초기 하나만 존재하도록 세팅
   renderAttachedItems();
+});
+
+// 취소 버튼 클릭시 답글 삭제  
+$(document).on('click', '.btn_wrap_home .btn_light_gray', function () {
+  const $replyWrap = $(this).closest('.reply_wrap');
+  $replyWrap.find('.reply_write_area').hide();
+});
+
+// 좋아요 버튼 누르면 좋아요 수 증가
+// 모든 좋아요 버튼에 대해 이벤트 등록
+document.addEventListener('DOMContentLoaded', () => {
+  const likeButtons = document.querySelectorAll('.btn_like');
+
+  likeButtons.forEach((likeBtn) => {
+    const likeCount = likeBtn.querySelector('.text');
+    const likeIcon = likeBtn.querySelector('i');
+
+    likeBtn.addEventListener('click', () => {
+      let count = parseInt(likeCount.textContent);
+      const isLiked = likeBtn.classList.contains('liked');
+
+      if (isLiked) {
+        likeBtn.classList.remove('liked');
+        likeIcon.classList.remove('fa-solid');
+        likeIcon.classList.add('fa-regular');
+        likeCount.textContent = count - 1;
+      } else {
+        likeBtn.classList.add('liked');
+        likeIcon.classList.remove('fa-regular');
+        likeIcon.classList.add('fa-solid');
+        likeCount.textContent = count + 1;
+      }
+    });
+  });
 });
