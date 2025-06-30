@@ -82,7 +82,7 @@
                                 </th>
                                 <td>
                                   <input type="text" name="id" class="id" placeholder="영문,숫자,특수문자 사용 가능.">
-                                  <button class="idch">중복 확인</button>
+                                  <button class="idch" id="checkIdBtn">중복 확인</button>
                                 </td>
                             </tr>
                             <tr>
@@ -370,15 +370,15 @@ border 초록색 표시, "비밀번호가 일치합니다." 문구 출력
 
   const pwWarning = document.createElement("div");
   pwWarning.style.color = "red";
-  pwWarning.style.fontSize = "12px";
-  pwWarning.style.marginTop = "30px";
-  pwWarning.style.marginLeft = "8px";
+  pwWarning.style.fontSize = "15px";
+  pwWarning.style.marginTop = "20px";
+  pwWarning.style.marginLeft = "15px";
   pwWarning.textContent = "8자 이상 입력하셔야 합니다.";
 
   const matchMessage = document.createElement("div");
-  matchMessage.style.fontSize = "12px";
-  matchMessage.style.marginTop = "30px";
-  matchMessage.style.marginLeft = "8px";
+  matchMessage.style.fontSize = "15px";
+  matchMessage.style.marginTop = "20px";
+  matchMessage.style.marginLeft = "15px";
 
   function validatePwLength() {
     const pw = pwInput.value.trim();
@@ -434,6 +434,42 @@ border 초록색 표시, "비밀번호가 일치합니다." 문구 출력
       }
     }
   });
+</script>
+
+
+<!-- id 중복체크-->
+<script>
+  $(document).ready(function() {
+  $('#checkIdBtn').click(function(e) {
+    e.preventDefault();
+
+    const userId = $('input[name="id"]').val().trim();
+    if (userId === "") {
+      alert("아이디를 입력해주세요.");
+      return;
+    }
+
+    $.ajax({
+      url: '/check-id',  // 서버에 아이디 중복 체크 요청을 보내는 URL
+      method: 'POST',
+      data: { id: userId },
+      dataType: 'json',
+      success: function(response) {
+        // 서버에서 { available: true } 또는 { available: false } 형태로 응답한다고 가정
+        if (response.available) {
+          alert("사용 가능한 아이디입니다.");
+          $('input[name="id"]').css('border', '2px solid green');
+        } else {
+          alert("사용 불가능한 아이디입니다.");
+          $('input[name="id"]').css('border', '2px solid red');
+        }
+      },
+      error: function() {
+        alert("서버와 통신 중 오류가 발생했습니다. 나중에 다시 시도해주세요.");
+      }
+    });
+  });
+});
 </script>
 
 
