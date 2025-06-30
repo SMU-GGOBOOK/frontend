@@ -257,6 +257,7 @@ form[name='addgroupFrm'] {
 }
 .group_table td {
     padding: 16px;
+    font-size: 15px;
     display: flex;
 }
 .group_table input {
@@ -378,7 +379,7 @@ form[name='addgroupFrm'] {
     flex-wrap: wrap;
     gap: 8px;
 }
-.tags a p {
+.tags a {
     padding: 5px 10px;
     background-color: #f0f0f0;
     color: #333;
@@ -387,10 +388,16 @@ form[name='addgroupFrm'] {
     cursor: pointer;
     transition: background-color 0.2s;
 }
-.tags a p:hover {
+.tags a:hover {
     background-color: #2d7868;
     color: #fff;
 }
+.tags a.clicked {
+  background-color: #2D7868 !important;  /* hover 시와 같은 색상 */
+  color: #fff !important;
+  border-radius: 7px;
+}
+
 /* 관련 해시태그, 비밀번호 input */
 .group_keyword_input input,
 .group_pw {
@@ -398,17 +405,19 @@ form[name='addgroupFrm'] {
 }
 
 /* 공개여부, 그룹 비밀번호 */
-.pw_hide #pw_1 {
-    padding-bottom: 0;
+.pw_hide {
+  display: none;
 }
 .input-with-icon {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* input과 메시지 사이 간격 */
 }
 .input-with-icon input {
-    padding-right: 40px; /* 아이콘 공간 확보 */
-    box-sizing: border-box;
-
+  padding-right: 30px;
+  height: 45px;
+  flex: 1; /* 꽉 차게 */
 }
 .input-with-icon i {
   position: absolute;
@@ -416,8 +425,23 @@ form[name='addgroupFrm'] {
   top: 50%;
   transform: translateY(-50%);
   color: #888;
+  z-index: 3; /* 아이콘 클릭 가능하도록 높임 */
   cursor: pointer;
+  pointer-events: auto;
 }
+.pw-message {
+    margin: 12px 0 0 10px;
+    font-size: 14px;
+    color: #888;
+    white-space: nowrap;
+}
+.pw-message.valid {
+  color: #2F80ED;
+}
+.pw-message.invalid {
+  color: #ff0000e7;
+}
+
 
 /* -------------------------------------------- */
 /* 하단 버튼 (취소,완료) */
