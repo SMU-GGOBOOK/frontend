@@ -179,7 +179,6 @@ select,#title_inq,#content_inq{
     width: 20%;
     height:50px;
     font-weight: 600;
-    color: #333;
     text-align: left;
     vertical-align: top;
 }
