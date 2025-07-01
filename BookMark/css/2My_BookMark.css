@@ -82,7 +82,7 @@ font-size: 18px;}
 .user_info hr{
  margin-bottom: 3px;
 }
-.fa-circle-user, .fa-book-bookmark{
+.fa-circle-user, .headermark{
     color: #1a1a1a;
 
 }
@@ -237,4 +237,3 @@ section{
     line-height: 30px;
     color: #2d7868;
 }
-
