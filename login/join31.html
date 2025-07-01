@@ -383,7 +383,8 @@ border 초록색 표시, "비밀번호가 일치합니다." 문구 출력
   function validatePwLength() {
     const pw = pwInput.value.trim();
     if (pw.length < 8) {
-      pwInput.style.border = "1px solid red";
+      
+      pwInput.style.border = "1.5px solid red";
       if (!pwInput.parentNode.contains(pwWarning)) {
         pwInput.parentNode.appendChild(pwWarning);
       }
@@ -419,14 +420,16 @@ border 초록색 표시, "비밀번호가 일치합니다." 문구 출력
         pw2Input.parentNode.removeChild(matchMessage);
       }
     } else if (pw === pw2) {
-      pw2Input.style.border = "1px solid green";
+      
+      pw2Input.style.border = "1.5px solid green";
       matchMessage.textContent = "비밀번호가 일치합니다.";
       matchMessage.style.color = "green";
       if (!pw2Input.parentNode.contains(matchMessage)) {
         pw2Input.parentNode.appendChild(matchMessage);
       }
     } else {
-      pw2Input.style.border = "1px solid red";
+      
+      pw2Input.style.border = "1.5px solid red";
       matchMessage.textContent = "비밀번호가 일치하지 않습니다.";
       matchMessage.style.color = "red";
       if (!pw2Input.parentNode.contains(matchMessage)) {
@@ -458,10 +461,10 @@ border 초록색 표시, "비밀번호가 일치합니다." 문구 출력
         // 서버에서 { available: true } 또는 { available: false } 형태로 응답한다고 가정
         if (response.available) {
           alert("사용 가능한 아이디입니다.");
-          $('input[name="id"]').css('border', '1px solid green');
+          $('input[name="id"]').css('border', '2px solid green');
         } else {
           alert("사용 불가능한 아이디입니다.");
-          $('input[name="id"]').css('border', '1px solid red');
+          $('input[name="id"]').css('border', '2px solid red');
         }
       },
       error: function() {

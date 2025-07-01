@@ -285,7 +285,7 @@ form[name='addgroupFrm'] {
 }
 .group_table input:focus,
 .group_table textarea:focus {
-    outline:1.5px solid gray;
+    border:1.5px solid gray;
 }
 .group_table select:focus {
     outline:none;

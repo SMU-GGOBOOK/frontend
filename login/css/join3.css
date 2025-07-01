@@ -37,7 +37,7 @@ form[name='infoFrm'] {
     color: #fafafa;
     border-radius: 7px;
     cursor: pointer;
-    margin-left:8px;
+    margin-left:10px;
     line-height: 1;             /* ✅ 텍스트 줄간격 줄이기 */
     padding: 0;                 /* ✅ 내부 여백 제거 */
 }
