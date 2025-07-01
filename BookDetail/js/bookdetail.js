@@ -349,3 +349,100 @@ document.querySelectorAll('.tag_wrap.size_lg .tag').forEach(tag => {
 });
 
 
+/* 모달 팝업 등록 버튼 & 초기화 */
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("reviewModal");
+  const modalBtn = document.getElementById("modal_btn");
+  const textarea = document.getElementById("ReviewList1_f8ce65d6-1ecf-4e48-8300-43481aa5c9c6_post_reviewText");
+  const ratingInput = document.getElementById("rating-value-review");
+
+  // ⭐ 리뷰 폼 초기화 함수
+  function resetReviewForm() {
+    // 별점 초기화
+    ratingInput.value = 0;
+    document.querySelectorAll(".rating-stars-review .star").forEach(s => s.classList.remove("active"));
+
+    const valSpan = document.querySelector(".caption-review .val");
+    const textSpan = document.querySelector(".caption-review-badge span > span:first-child");
+    if (valSpan) valSpan.textContent = "0";
+    if (textSpan) textSpan.textContent = "5점 중 0점";
+
+    // 태그 초기화
+    document.querySelectorAll('.tag_wrap.size_lg .tag.active').forEach(tag => {
+      tag.classList.remove("active");
+    });
+
+    // 텍스트 초기화
+    textarea.value = "";
+    const counter = document.querySelector(".byte_check .count");
+    if (counter) counter.textContent = "0";
+
+    // 버튼 비활성화
+    modalBtn.disabled = true;
+  }
+
+  // ✅ 유효성 검사 함수
+  function checkFormValid() {
+    const ratingValid = parseInt(ratingInput.value || "0") > 0;
+    const tagSelected = document.querySelector('.tag_wrap.size_lg .tag.active') !== null;
+    const reviewValid = textarea.value.trim().length >= 10;
+
+    modalBtn.disabled = !(ratingValid && tagSelected && reviewValid);
+  }
+
+  // 글자 수 반영 + 검사
+  textarea.addEventListener("input", () => {
+    const len = textarea.value.length;
+    const counter = document.querySelector(".byte_check .count");
+    if (counter) counter.textContent = len;
+    checkFormValid();
+  });
+
+  // 별점 클릭 시 검사
+  document.querySelectorAll(".rating-stars-review .star").forEach(star => {
+    star.addEventListener("click", () => {
+      checkFormValid();
+    });
+  });
+
+  // 태그 클릭 시 검사
+  document.querySelectorAll('.tag_wrap.size_lg .tag').forEach(tag => {
+    tag.addEventListener("click", () => {
+      checkFormValid();
+    });
+  });
+
+  // 버튼 클릭 시 알림 + 모달 닫기 + 초기화
+  modalBtn.addEventListener("click", () => {
+    if (modalBtn.disabled) return;
+    alert("리뷰 작성이 완료 되었습니다");
+    modal?.classList.remove("active");
+    resetReviewForm();
+  });
+
+  // 모달 외부 닫힘 감지
+  modal?.addEventListener("click", (e) => {
+    if (e.target.id === 'reviewModal') {
+      modal.classList.remove("active");
+      resetReviewForm();
+    }
+  });
+
+  // Esc 키 눌렀을 때 닫기
+  document.addEventListener("keydown", e => {
+    if (e.key === 'Escape') {
+      modal?.classList.remove("active");
+      resetReviewForm();
+    }
+  });
+
+  // 닫기 버튼
+  document.getElementById("closeReviewBtn")?.addEventListener('click', () => {
+    modal?.classList.remove("active");
+    resetReviewForm();
+  });
+
+  // 🔄 초기 검사
+  checkFormValid();
+});
+
