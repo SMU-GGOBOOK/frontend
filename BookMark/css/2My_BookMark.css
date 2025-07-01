@@ -77,12 +77,12 @@ font-size: 18px;}
 
 .user_info{
     width: 1137px;
-    margin: 82px 0 52px;
+    margin: 82px 0 25px;
 } 
 .user_info hr{
  margin-bottom: 3px;
 }
-.fa-circle-user, .fa-book-open-reader{
+.fa-circle-user, .fa-book-bookmark{
     color: #1a1a1a;
 
 }
@@ -113,11 +113,13 @@ font-size: 18px;}
 
 
 section{
+    text-align: justify;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
     justify-content: center; /* 가운데 정렬 */
     max-width: 1200px;        /* 화면 넓이 제한 (선택) */
+    margin: 0 auto;
              /* 가운데 배치 (선택) */
 
     /* display: flex;
@@ -209,6 +211,30 @@ section{
   height: auto;
 }
 
-
-
+.B_header{
+    padding-left: 7px ;
+    width:1137px;
+    height: 50px;
+    align-items: center;
+    /*border: 1px solid black; */
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+.B_header .title{
+    /* margin-left: 10px; */
+    font-size: 24px;
+    min-width: 0;
+    font-weight: 700;
+    line-height: 30px;
+    justify-content: space-between;
+    margin: 0px 15px;
+    color: #1a1a1a;
+}
+.B_header .total{
+    line-height: 30px;
+    color: #2d7868;
+}
 
