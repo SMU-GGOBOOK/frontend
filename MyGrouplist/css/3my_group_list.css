@@ -76,7 +76,7 @@ nav{
 
 .user_info{
     width: 1137px;
-    margin: 82px 0 52px;
+    margin: 82px 0 25px;
 }
 .user_info hr{
  margin-bottom: 3px;
@@ -89,7 +89,7 @@ nav{
     font-size: 40px;
     margin-bottom: 7px;
 }
-.fa-circle-user, .fa-book-open-reader{
+.fa-circle-user, .fa-user-group{
     color: #1a1a1a;
 
 }
@@ -120,19 +120,20 @@ nav{
     /*border: 1px solid black;*/
     display: flex;
 }
+/*
 .tap-list{
     width:auto;
     height: 40px;
     align-items: center;
     /*border: 1px solid black;*/
-    font-size: 18px;
-    display: flex;
-}
+ /*   font-size: 18px;
+    display: flex;*/
+/*}
 .tap-list li{
     width: 173PX;
     height: 40px;
     /* background-color: #e6e6e6; */
-    text-align: center;
+  /*  text-align: center;
     line-height: 38px;
     cursor: pointer;
 
@@ -146,14 +147,16 @@ nav{
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
     margin-left: 3px;
-}
+}*/
 /* 내 그룹 */
 .my_group{
+    text-align: justify;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(558px, 1fr));
     gap: 10px;
     justify-content: center; /* 가운데 정렬 */
-    max-width: 1137px;     
+    max-width: 1137px;
+    margin: 0 auto;     
 }
 .bookbox {
   position: relative; /* 아이콘 absolute 위치 기준 */
@@ -261,6 +264,32 @@ nav{
   justify-content: center;
   width: auto;
   height: auto;
+}
+.B_header{
+    padding-left: 7px;
+    width:1137px;
+    height: 50px;
+    align-items: center;
+    /*border: 1px solid black; */
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+.B_header .title{
+    /* margin-left: 10px; */
+    font-size: 24px;
+    min-width: 0;
+    font-weight: 700;
+    line-height: 30px;
+    justify-content: space-between;
+    margin: 0px 15px;
+    color: #1a1a1a;
+}
+.B_header .total{
+    line-height: 30px;
+    color: #2d7868;
 }
 
 
