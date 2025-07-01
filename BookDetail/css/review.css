@@ -818,6 +818,7 @@ border-color: transparent !important;
 .modal .file_attach_val .val {
     font-size: 14px;
     letter-spacing: -0.01em;
+    color: #1a1a1a;
 }
 .modal .file_attach_val .total {
     font-size: 14px;
