@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* 태그 */
-const stars = document.querySelectorAll(".rating-stars-review .star");
+  /* 별점 */
+  const stars = document.querySelectorAll(".rating-stars-review .star");
   const input = document.getElementById("rating-value-review");
   const valSpan = document.querySelector(".caption-review .val"); // 오타 반영
   const textSpan = document.querySelector(".caption-review-badge span > span:first-child");
@@ -99,19 +99,19 @@ const stars = document.querySelectorAll(".rating-stars-review .star");
     });
 
     star.addEventListener("click", function () {
-      const clickedValue = idx + 1;
-      const newValue = (clickedValue === currentValue) ? currentValue - 1 : clickedValue;
+    const newValue = idx + 1;
 
-      stars.forEach((s, i) => {
-        const shouldFade = (i < currentValue && i >= newValue) || (i >= currentValue && i < newValue);
-        if (shouldFade) s.classList.add("fading-out");
-      });
-
-      setTimeout(() => {
-        updateStars(newValue);
-        stars.forEach(s => s.classList.remove("fading-out"));
-      }, 120);
+    stars.forEach((s, i) => {
+      const shouldFade = (i < currentValue && i >= newValue) || (i >= currentValue && i < newValue);
+      if (shouldFade) s.classList.add("fading-out");
     });
+
+    setTimeout(() => {
+      updateStars(newValue);
+      stars.forEach(s => s.classList.remove("fading-out"));
+    }, 120);
+  });
+  ;
   });
 
   // 초기 세팅
@@ -271,14 +271,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const file = input.files[0];
       if (!file) return;
 
-      if (!file.type.match('image.*')) {
-        alert('이미지 파일(JPG, PNG, GIF)만 업로드 가능합니다.');
-        input.value = '';
-        return;
-      }
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
-      if (attachedFiles.length >= MAX_FILES) {
-        alert(`최대 ${MAX_FILES}개까지 첨부할 수 있습니다.`);
+      if (!allowedTypes.includes(file.type)) {
+        alert('이미지 파일(JPG, PNG, GIF)만 업로드 가능합니다.');
         input.value = '';
         return;
       }
@@ -342,3 +338,14 @@ document.addEventListener('DOMContentLoaded', function () {
   fileList.appendChild(createBtnBox(false, ''));
   updateAttachVal();
 });
+
+/* 태그 */
+document.querySelectorAll('.tag_wrap.size_lg .tag').forEach(tag => {
+  tag.addEventListener('click', () => {
+    const alreadyActive = tag.classList.contains('active');
+    document.querySelectorAll('.tag_wrap.size_lg .tag').forEach(t => t.classList.remove('active'));
+    if (!alreadyActive) tag.classList.add('active');
+  });
+});
+
+

@@ -655,6 +655,8 @@ html:not(.ios) body.dialog_open .dialog_wrapper.open {
     margin: -4px -3px;
     font-size: 0;
 }
+
+/* 태그 */
 .modal .tag_wrap.size_lg .tag {
     all: unset;
     padding: 7px 16px 7px;
@@ -677,9 +679,8 @@ html:not(.ios) body.dialog_open .dialog_wrapper.open {
     color: #fafafa;
 }
 .modal .tag_wrap.size_lg .tag.active {
-    background-color: rgba(47, 129, 237, 0.11);
-    color: rgb(47, 128, 237);
-
+    background: #2D7868;
+    color: #fafafa;
 }
 .modal .tag_wrap.size_lg .tag:focus,
 .modal .tag_wrap.size_lg .tag:focus-visible,
