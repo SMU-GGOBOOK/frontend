@@ -8,6 +8,8 @@ table,tr,td{
     border-collapse:collapse;
 }
 
+
+
 input {
     color: inherit; 
     font-family: inherit; 
@@ -303,6 +305,7 @@ hr {
     background:#333;
     border:1px solid #f0f0f0;
     border-radius: 7px;
+    font: 13.3333px Arial, sans-serif;
 }
 
 .footer-right>.gitIds>tbody>tr>td{
