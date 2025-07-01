@@ -81,11 +81,9 @@ form[name='addgroupFrm'] {
     transition: border-color 0.2s;
 }
 .group_table input:focus,
+.group_table select:focus,
 .group_table textarea:focus {
     outline:1.5px solid gray;
-}
-.group_table select:focus {
-    outline:none;
 }
 
 
@@ -111,7 +109,7 @@ form[name='addgroupFrm'] {
     color: #A0A0A0;
 }
 
-/* 책 주제 검색 */
+/* 책 선택 */
 .group_search {
     width: 91%;
 }
