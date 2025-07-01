@@ -70,13 +70,17 @@ nav{
     margin-bottom: 16px;
     font-size: 18px; 
 }
+.category span{
+    margin-left: 5px;
+    align-items: center;
+}
 /* .fa-user-lock{
     margin-right: 10px;
 } */
 
 .user_info{
     width: 1137px;
-    margin: 82px 0 25px;
+    margin: 82px 0 36px;
 }
 .user_info hr{
  margin-bottom: 3px;
