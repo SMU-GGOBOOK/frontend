@@ -120,8 +120,8 @@ form[name='addgroupFrm'] {
   width: 45px;
   height: 45px;
   font-size: 18px;
-  background-color: #2D7868;
-  color: white;
+  background-color: #f0f0f0;
+  color: #333;
   border-radius: 7px;
   border: none;
   display: flex;
@@ -225,6 +225,7 @@ form[name='addgroupFrm'] {
   height: 100%;
   object-fit: cover;
   border-radius: 7px;
+  box-shadow: 0 4px 4px #797e8480;
 }
 .modal_book_info {
   flex: 1;
@@ -276,7 +277,34 @@ form[name='addgroupFrm'] {
   border-radius: 7px;
   cursor: pointer;
 }
-
+/* 선택한 책 표시 */
+.selected_book_display {
+  padding-right: 25px;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.selected_book_img img {
+  width: 118px;
+  height: 172px;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: 0 4px 4px #797e8480;
+}
+.selected_book_text {
+  margin-left: -410px;
+}
+.selected_book_text span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.selected_book_text p {
+  margin: 5px 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #636363;
+}
 
 /* 관련 해시태그 */
 .group_keyword_input {
