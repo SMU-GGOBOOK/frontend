@@ -414,11 +414,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 버튼 클릭 시 알림 + 모달 닫기 + 초기화
   modalBtn.addEventListener("click", () => {
-    if (modalBtn.disabled) return;
-    alert("리뷰 작성이 완료 되었습니다");
+    // 유효하면 등록 처리
+    alert("리뷰 등록이 완료되었습니다");
     modal?.classList.remove("active");
     resetReviewForm();
   });
+
 
   // 모달 외부 닫힘 감지
   modal?.addEventListener("click", (e) => {
