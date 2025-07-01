@@ -35,12 +35,13 @@
     width: 1137px; margin: 20px auto 80px; padding: 30px 40px 50px;
     border-radius: 7px; background-color: rgb(245, 245, 245); border:1px solid #2D7868;
     }
-    .contract h1 {text-align: center; color:#2D7868;}
+    .contract h1 {text-align: center; color:#2D7868; margin-bottom:20px;}
     .contract .text {
-        height: 230px; border: 1px solid CCC; background-color: #fafafa; border-radius:7px; padding:16px;
+        width:95%; height: 230px; border: 1px solid CCC; background-color: #fafafa; border-radius:7px; padding:10px;
         white-space: pre-line; overflow-y: scroll; margin: 0 auto 20px; box-shadow: 0 2px 8px #A0A0A0;
     }
-    .contract p {text-align: right;}
+    .contract .text p {text-align:left;}
+    .contract p {text-align: right; color: #1a1a1a;}
     .contract .box {width: 100px; height: 40px;  padding: 8px; margin: 0 3px;}
     .contract .yes p {color: #2D7868;}
 
