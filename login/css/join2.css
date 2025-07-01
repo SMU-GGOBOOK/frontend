@@ -37,7 +37,7 @@
     }
     .contract h1 {text-align: center; color:#2D7868; margin-bottom:20px;}
     .contract .text {
-        width:95%; height: 230px; border: 1px solid CCC; background-color: #fafafa; border-radius:7px; padding:10px;
+        width:95%; height: 230px; border: 1px solid CCC; background-color: #fafafa; padding:10px;
         white-space: pre-line; overflow-y: scroll; margin: 0 auto 20px; box-shadow: 0 2px 8px #A0A0A0;
     }
     .contract .text p {text-align:left;}

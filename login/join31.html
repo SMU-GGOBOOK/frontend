@@ -477,13 +477,15 @@ border 초록색 표시, "비밀번호가 일치합니다." 문구 출력
 
 <!-- 필수항목 기입 -->
 <script>
-document.querySelector("#group_button_2").addEventListener("click", function() {
+  document.querySelector("#group_button_2").addEventListener("click", function () {
   const name = document.querySelector("input[name='name']").value.trim();
   const id = document.querySelector("input[name='id']").value.trim();
-  const pw = pwInput.value.trim();
-  const pw2 = pw2Input.value.trim();
+  const pw = document.querySelector("input[name='pw']").value.trim();
+  const pw2 = document.querySelector("input[name='pw2']").value.trim();
+  const email1 = document.querySelector("input[name='email1']").value.trim();
+  const email2 = document.querySelector("input[name='email2']").value.trim();
 
-  if (!name || !id || !pw || !pw2) {
+  if (!name || !id || !pw || !pw2 || !email1 || !email2) {
     alert("모든 필수 항목을 입력해주세요.");
     return;
   }
@@ -498,7 +500,7 @@ document.querySelector("#group_button_2").addEventListener("click", function() {
     return;
   }
 
-  document.infoFrm.submit();  // 유효성 검사를 통과한 경우에만 제출
+  document.infoFrm.submit(); // 유효성 검사를 통과한 경우에만 제출
 });
 </script>
 
