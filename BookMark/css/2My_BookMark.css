@@ -212,7 +212,7 @@ section{
 }
 
 .B_header{
-    padding-left: 7px ;
+    /* padding-left: 7px ; */
     width:1137px;
     height: 50px;
     align-items: center;
@@ -235,5 +235,5 @@ section{
 }
 .B_header .total{
     line-height: 30px;
-    color: #2d7868;
+    color: #636363;
 }
