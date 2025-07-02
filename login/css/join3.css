@@ -43,6 +43,13 @@ form[name='infoFrm'] {
 }
 
 
+.group_table th {
+     vertical-align: middle;
+}
+
+.extr {
+    appearance: revert;
+}
 
 
 
@@ -60,6 +67,7 @@ input[type="radio"],
 input[type="checkbox"] {
     appearance: revert;
 }
+
 
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {

@@ -57,9 +57,9 @@
   <hr class="fig-hr">
     <div class="fig-main">
 
-        <!-- 교환독서 메인페이지  -->
+        
         <div class="feed__content">
-            <!-- 참여중이 그룹 표시 -->
+            
             <div class="feed__add">
                 <div class="feed__add_title">
                     <span>사용자 정보 입력</span>
@@ -125,19 +125,25 @@
                                 <td><input type="date" name="birth"></td>
                             </tr>
                             <tr>
-                                <th>
-                                    <label>성별</label>
-                                </th>
-                                <td>
-                                  <input type="radio" style="margin-right:-5px;" name="gender" id="male" value="남자" checked="checked"/>
-                                  <label for="male" style=" color:#1a1a1a; font-weight: 400; margin:10px">남성</label>
-                                  <input type="radio" style="margin-right: -5px;" name="gender" id="female" value="여자" />
-                                  <label for="female" style=" color:#1a1a1a; font-weight: 400; margin:10px">여성</label>
-                                </td>
+                              <th>
+                                <label>성별</label>
+                              </th>
+                              <td>
+                                <div style="display: flex; align-items: flex-start; gap: 40px; margin-top: 2px;">
+                                  <label style="display: flex; align-items: center; gap: 5px; font-weight: 400; color: #1a1a1a;">
+                                    <input type="radio" class="gra" name="gender" value="남자" checked>
+                                    남성
+                                  </label>
+                                  <label style="display: flex; align-items: center; gap: 5px; font-weight: 400; color: #1a1a1a;">
+                                    <input type="radio" class="gra" name="gender" value="여자">
+                                    여성
+                                  </label>
+                                </div>
+                              </td>
                             </tr>
                             
                             <tr>
-                                <th><label>관심 분야</label></th>
+                                <th style="vertical-align: top;"><label>관심 분야</label></th>
                                 <td>
                                     <div class="group_keyword">
                                         <div class="group_keyword_input">
