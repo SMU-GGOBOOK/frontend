@@ -473,7 +473,7 @@ prod_review_box .col_review .review_desc {
 .right_area .btn_sm {
     margin-bottom: 15px;
     width: 160px;
-    height: 40px;
+    height: 45px;
 }
 button[class^=btn_], a[class^=btn_] {
     display: inline-block;
