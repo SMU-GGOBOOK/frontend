@@ -46,29 +46,32 @@
   outline: 1.5px solid gray;
 }
 
-  .login-btn {
+  
+    .login-btn {
     
-    width:160px;
+    width:180px;
     height:50px;
     background: #2D7868;
-    color: #fafafa;
-    font-size:15px;
+    color:#fafafa;
+    font-size: 15px;
     border: none;
     font-weight: bold;
     border-radius: 7px;
-    cursor: pointer;}
+    cursor: pointer;
+  }
 
   .home-btn {
     
-    width:160px;
+    width:180px;
     height:50px;
-    background-color: gray;
-    color: #fafafa;
-    font-size:15px;
+    background: gray;
+    color:#fafafa;
+    font-size: 15px;
     border: none;
     font-weight: bold;
     border-radius: 7px;
-    cursor: pointer;}
+    cursor: pointer;
+  }
 
  
 

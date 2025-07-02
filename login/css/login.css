@@ -123,9 +123,9 @@ form[name='loginFrm'] {
       border:none;
       cursor: pointer;
       font-size: 15px;
-      width:160px;
+      width:180px;
       height:50px;
-      gap : 8px;
+      gap : 15px;
     }
 
     
