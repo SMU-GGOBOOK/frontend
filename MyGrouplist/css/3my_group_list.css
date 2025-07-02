@@ -82,16 +82,18 @@ nav{
     width: 1137px;
     margin: 82px 0 36px;
 }
-.user_info hr{
+/* .user_info hr{
  margin-bottom: 3px;
  color: #A0A0A0;
-}
+} */
 .nickname{
     font-weight: 700;
-    width: 345px; 
-    height: 60px; 
+    width: 100%; 
+    /* height: 60px;  */
     font-size: 40px;
-    margin-bottom: 7px;
+    margin-bottom: 3px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1a1a1a;
 }
 .fa-circle-user, .fa-user-group{
     color: #1a1a1a;
