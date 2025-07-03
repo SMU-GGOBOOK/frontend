@@ -273,6 +273,7 @@ button[class^=btn_], a[class^=btn_] {
 }
 
 .btn_more_body {
+    background-color: #f0f0f0;
     color: #636363;
     font-size: 14px;
     line-height: 20px;
