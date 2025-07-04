@@ -223,7 +223,7 @@ button[class^=btn_] .text, a[class^=btn_] .text {
 .reply_wrap .reply_list_area .reply_item {
     display: block;
     position: relative;
-    padding: 20px 20px 21px 37px;
+    padding: 18px 20px 20px 37px;
     box-sizing: border-box;
     background-color: #f0f0f0;
     border-radius: 7px;

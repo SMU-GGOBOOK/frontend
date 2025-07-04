@@ -58,7 +58,12 @@
         <main>
           <div class="container">
             <h2>어린왕자 책 같이읽기</h2>
-            <h3>#어린#왕자#존잼#어쩌지?#감성공유#우리대화할래요?</h3>
+            <h3>#어린</h3>
+            <h3>#왕자</h3>
+            <h3>#존잼</h3>
+            <h3>#어쩌지?</h3>
+            <h3>#감성공유</h3>
+            <h3>#우리대화할래요?</h3>
 
             <div class="post-box">
               <div class="image-preview" id="image-preview"></div>
@@ -84,9 +89,13 @@
 
     // 시간 포맷
     function formatTime() {
-      const now = new Date();
-      return now.toLocaleString('ko-KR',{hour:'2-digit',minute:'2-digit',hour12:false})
-        + ' · ' + now.toLocaleDateString('ko-KR');
+      const d = new Date();
+      const Y = d.getFullYear();
+      const M = String(d.getMonth()+1).padStart(2,'0');
+      const D = String(d.getDate()).padStart(2,'0');
+      const h = String(d.getHours()).padStart(2,'0');
+      const m = String(d.getMinutes()).padStart(2,'0');
+      return `${Y}.${M}.${D} ${h}:${m}`;
     }
     // 이미지 미리보기
     function handleImageUpload(e) {
@@ -97,6 +106,7 @@
     }
     // 포스트 추가
     function addPost() {
+      if (!confirm('피드를 업로드하시겠습니까?')) return;
       const inp=document.getElementById('post-input'), prev=document.getElementById('image-preview');
       const txt=inp.value.trim();
       if(!txt && !prev.querySelector('img')){alert('내용 또는 이미지를 추가해주세요.');return;}
@@ -287,6 +297,7 @@
               </div>      `;
       document.getElementById('post-list').prepend(div);
       inp.value=''; prev.innerHTML=''; document.getElementById('image-upload').value='';
+      applyImageOrientation();
       div.querySelector('.like-btn').addEventListener('click',()=>{const c=div.querySelector('.like-count');let n=parseInt(c.textContent.replace(/[^0-9]/g,''))||0;c.textContent=`❤️ ${n+1}`;});
       div.querySelector('.edit-btn').addEventListener('click',()=>{const pc=div.querySelector('.post-content'), nv=prompt('수정할 내용을 입력하세요:',pc.textContent);if(nv!==null)pc.textContent=nv;});
       div.querySelector('.delete-btn').addEventListener('click',()=>{if(confirm('이 글을 삭제하시겠습니까?'))div.remove();});
@@ -307,7 +318,12 @@
       });
 
       btn.addEventListener('click', () => {
-        if (btn.classList.contains('disabled')) return;
+
+        if (!textarea.value.trim()) { 
+          alert('댓글을 입력해주세요'); 
+          return; 
+        }
+        if (!confirm('댓글을 등록하시겠습니까?')) return;
 
         const commentItem = btn.closest('.comment_item');
         const replyList = commentItem?.querySelector('.reply_list');
@@ -423,13 +439,9 @@
     </div>
     <!--리뷰수 아래부분-->
   </div>
-    <div id="image-modal" class="image-modal" onclick="closeImageModal()">
+    <div id="image-modal" class="image-modal">
       <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
       <img class="image-modal-content" id="modal-img">
-    </div>
-    <div id="image-modal" class="image-modal">
-      <span class="image-modal-close">&times;</span>
-      <img id="modal-img" class="image-modal-content" />
     </div>
 </body>
 </html>
