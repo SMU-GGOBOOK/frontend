@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/Share_AddGroup.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/find.css">
+    <link rel="stylesheet" type="text/css" href="css/find2.css">
 
     <title>비밀번호 찾기</title>
 </head>
@@ -58,32 +58,40 @@
     <div class="feed__add">
         <div class="feed__add_title">
             <span>비밀번호 찾기</span>
-        </div>
+        </div><br><br>
         <form method="post" name="findFrm">
             
             <div style="display: flex; justify-content: center;">
-                <div class="login-box" style="border:3px solid #2D7868; border-radius: 7px; width:500px;"><br><br>
+                <div class="login-box" style="width:500px;">
                     <!-- 1. 아이디 입력 -->
-                    <div class="inid" style="margin-left:62px; margin-bottom:15px;">
+                    <div class="inid">
+                      <p>아이디</p>
                         <input type="text" id="userIdInput" class="idpw" placeholder="아이디 입력" required>
+                    </div><br>
+
+                    <div class="inname">
+                      <p>이름</p>
+                        <input type="text" id="userIdInput" class="idpw" placeholder="이름 입력" required>
                     </div><br>
                     
                     <!-- 2. 이메일 입력 + 전송 버튼 -->
                     <div class="inmail">
+                      <p>이메일</p>
                         <input type="email" id="emailInput" class="idpw" placeholder="이메일 입력" required>
                         <button type="button" id="sendEmailBtn" class="login-btn">전송</button>
                     </div><br>
                     
                     <!-- 3. 인증코드 입력 + 인증 버튼 -->
                     <div class="innum">
+                      <p>인증번호</p>
                         <input type="text" id="verificationInput" class="idpw" placeholder="인증번호 입력" maxlength="10">
                         <button type="button" id="verifyBtn" class="login-btn">인증</button>
                     </div><br><br>
                     
-                    <hr>
+                    
                     
                     <!-- 4. 비밀번호 재설정 완료 메시지 -->
-                    <div class="fid" id="passwordResetSection" style="text-align:center; display: none;">
+                    <div class="fid" id="passwordResetSection" style="display:none;">
                         <p style="color:#2D7868;"><strong>임시 비밀번호를 이메일로 발송했습니다.</strong></p>
                     </div>
 

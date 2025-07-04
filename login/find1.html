@@ -62,33 +62,41 @@
         <form method="post" name="findFrm">
             
             <div style="display: flex; justify-content: center;">
-                <div class="login-box" style="border:3px solid #2D7868; border-radius: 7px; width:500px;"><br><br>
-                    <!-- 1. 이메일 입력 + 전송 버튼 -->
-                    <div class="inmail">
-                        <input type="email" id="emailInput" class="idpw" placeholder="이메일 입력" required>
-                        <button type="button" id="sendEmailBtn" class="login-btn">전송</button>
-                    </div><br>
+                <div class="login-box">
+                    <!-- 1. 이름/이메일 입력 + 전송 버튼 -->
+                    <div class="inname">
+                        <p>이름</p>
+                        <input type="name" id="nameInput" class="idpw" placeholder="이름 입력" required>
+                        <p>이메일</p>
+                        <div style="display:flex; justify-content: center;">
+                          <input type="email" id="emailInput" class="idpw" placeholder="이메일 입력" required>
+                          <button type="button" id="sendEmailBtn" class="login-btn">전송</button>
+                        </div>
+                      </div>
+
                     
                     <!-- 2. 인증코드 입력 + 인증 버튼 -->
                     <div class="innum" id="verificationSection">
+                        <p>인증번호</p>
                         <input type="text" id="verificationInput" class="idpw" placeholder="인증번호 입력" maxlength="10">
                         <button type="button" id="verifyBtn" class="login-btn">인증</button>
                     </div><br><br>
                     
-                    <hr>
+                    
                     
                     <!-- 3. 아이디 표시 영역 -->
-                    <div class="fid" id="foundIdSection" style="text-align:center; display: none;">
-                        <p style="color:#2D7868;"> 아이디 : <strong id="foundId"></strong> </p>
+                    <div class="fid" id="foundIdSection" style="display:none;">
+                        <p style="color:#2D7868;"> 아이디 : awoijoawi<strong id="foundId"></strong> </p>
                     </div>
 
                     <!-- 4. 로그인 버튼 -->
                     <br>
-                    <div style="text-align:center; font-size:15px;">
+                    <div class="dktl">
                         <p></p>
                     </div><br>
-                    <div style="text-align: center; padding-bottom:50px;">
-                        <a href="/member/login11/"><button type="button" class="login-btn">로그인</button></a>
+                    <div style="display:flex; gap:10px;justify-content: center;; text-align: center; padding-bottom:50px;">
+                        <a href="/member/login11/"><button type="button" id="ffff" class="login-btn" style="background-color:rgb(150, 150, 150);">비밀번호 찾기</button></a>
+                        <a href="/member/login11/"><button type="button" id="ffff" class="login-btn">로그인</button></a>
                     </div>
                 </div>
             </div>
