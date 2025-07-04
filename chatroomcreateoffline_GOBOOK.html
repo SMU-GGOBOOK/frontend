@@ -17,9 +17,25 @@
       margin: 0 auto;
       padding: 40px 20px;
     }
+
+    #banner-close {
+      position: absolute;
+      top: 12px;    /* 배너 패딩에 맞춰 조절 */
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      color: #333;
+    }
+    #banner-close:hover {
+      color: #ddd;
+    }
     .banner {
+      position: relative;
       background-color: #fafafa;
-      color: #2D7868;
+      color: #333;
       padding: 30px;
       border-radius: 7px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -47,14 +63,14 @@
       height: 60px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #2D7868;
+      border: 2px solid #ccc;
     }
     .profile-upload input[type="file"] {
       display: none;
     }
     .upload-label {
-      background: #2D7868;
-      color: #fafafa;
+      background: #f0f0f0;
+      color: #333;
       padding: 4px 8px;
       font-size: 12px;
       border-radius: 7px;
@@ -114,7 +130,7 @@
       margin-bottom: 30px;
     }
     .join-btn {
-      background-color: #2D7868;
+      background-color: gray;
       color: #fafafa;
       padding: 14px 24px;
       border: none;
@@ -123,9 +139,7 @@
       cursor: pointer;
       width: 100%;
     }
-    .join-btn:hover {
-      background-color: #245e53;
-    }
+
     .info-row > strong {
       margin-left: auto;
     }
@@ -136,6 +150,7 @@
 <body>
   <div class="container">
     <div class="banner">
+      <button id="banner-close" aria-label="닫기">&times;</button>
       <div class="banner-text">
         <h1>🌿 감성 교환독서 모임</h1>
         <p>같이 읽고, 같이 나누는 시간</p>
@@ -178,7 +193,7 @@
       처음 참여하시는 분도 부담 없이 함께하실 수 있도록 편안한 분위기로 준비했어요. 🍵
     </div>
 
-    <button class="join-btn">📌 이 모임에 참여하기</button>
+    <button class="join-btn"> 💬그룹방 참여하기 </button>
   </div>
 
   <script>
@@ -195,6 +210,13 @@
         reader.readAsDataURL(file);
       }
     });
+    document.getElementById('banner-close').addEventListener('click', function() {
+      const popup = document.getElementById('popup');
+      if (popup) {
+        popup.style.display = 'none';
+      }
+    });
+
   </script>
 </body>
 </html>
